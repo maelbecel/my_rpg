@@ -2,12 +2,6 @@ name:
   "Repo size"
 on : [push]
 jobs:
-  branch:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: ECHO
-        run: echo $GITHUB_REF_NAME
   norme:
     runs-on: ubuntu-latest
     steps:
