@@ -1,0 +1,23 @@
+name:
+  "Repository state"
+on : [push]
+jobs:
+  size:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+      - name: SIZE
+        run: du -skh --exclude=".git"
+  compilation:
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install latest nightly
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: nightly-2020-09-28
+            target: wasm32-unknown-unknown
+            override: true
+            components: rustfmt, clippy
+      - name: Build
+        run: cargo build --verbose

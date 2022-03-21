@@ -1,13 +1,12 @@
 name:
-  "Repo size"
+  "Repository norme"
 on : [push]
+
 jobs:
   norme:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-ruby@v1
-      - name: SIZE
-        run: du -skh --exclude=".git"
       - name: NORME
         run: git clone https://github.com/ronanboiteau/NormEZ && make install -C NormEZ && normez -i
