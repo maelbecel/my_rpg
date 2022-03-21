@@ -11,8 +11,5 @@
 
 int main (int ac, char **argv, char **env)
 {
-    (void)(ac);
-    (void)(argv);
-    (void)(env);
     return 0;
 }
