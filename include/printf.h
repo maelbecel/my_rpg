@@ -8,6 +8,7 @@
 #ifndef PRINTF_H_
     #define PRINTF_H_
     #include <stdarg.h>
+    #include <unistd.h>
 
     int displaychar(va_list argv);
     int displaystr(va_list argv);

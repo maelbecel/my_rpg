@@ -9,4 +9,6 @@
     #define RPG
     #include <stdbool.h>
     #include <stddef.h>
+
+    #define UNUSED __attribute__((unused))
 #endif
