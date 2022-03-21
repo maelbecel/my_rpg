@@ -44,5 +44,6 @@
     char *my_strdup(char const *str);
     char *concat(char *before, char *mid, char *after);
     char *inttochar(int nb);
+    char **my_str_to_word_array(char *str);
 
 #endif
