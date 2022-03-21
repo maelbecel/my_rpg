@@ -9,7 +9,9 @@
 #include "printf.h"
 #include "rpg.h"
 
-int main (int ac, char **argv, char **env)
+int main (int ac, char **argv)
 {
+    (void)ac;
+    (void)argv;
     return 0;
 }
