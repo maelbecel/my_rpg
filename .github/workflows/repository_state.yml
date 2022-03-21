@@ -13,12 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install latest nightly
-        uses: actions-rs/toolchain@v1
-        with:
-            toolchain: nightly-2020-09-28
-            target: wasm32-unknown-unknown
-            override: true
-            components: rustfmt, clippy
       - name: Build
-        run: cargo build --verbose
+        run: make re
