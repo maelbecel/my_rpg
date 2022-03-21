@@ -9,9 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-int main (int ac, char **argv)
+int main (UNUSED int ac, UNUSED char **argv)
 {
-    (void)ac;
-    (void)argv;
     return 0;
 }
