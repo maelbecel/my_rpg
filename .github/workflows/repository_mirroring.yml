@@ -1,5 +1,4 @@
-name: Mirroring
-
+name: Mirrorin
 on: [push, delete]
 
 jobs:

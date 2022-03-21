@@ -14,4 +14,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build
-        run: make re
+        run: make re > /dev/null && echo -e "\e[1m\e[32m\n► BUILD SUCCESS !\e[0m" || echo -e "\e[1m\e[31m\n► BUILD FAILED !\e[0m"
