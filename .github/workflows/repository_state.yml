@@ -10,6 +10,7 @@ jobs:
       - name: SIZE
         run: du -skh --exclude=".git"
   compilation:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Install latest nightly
