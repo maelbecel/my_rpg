@@ -44,9 +44,9 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-ruby@v1
       - name: Installing...
-        run: python3 -m pip install pycparser pyparsing pycparser-fake-libc --user && sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/aureliancnx/Bubulle-Norminette/master/install_bubulle.sh)"
+        run: git clone https://github.com/ronanboiteau/NormEZ && make -C NormEZ install
       - name: Test norme
-        run: NORMEZ=$(bubulle -ic) && echo -e "::notice line=2, title=Norme::$NORMEZ"
+        run: NORMEZ=$(cd src && normez -i && cd ..) && echo -e "::notice line=2, title=Norme::$NORMEZ"
 
   Size:
     runs-on: ubuntu-latest
