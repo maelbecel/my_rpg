@@ -40,7 +40,7 @@ int main (UNUSED int ac, UNUSED char **argv)
     (void)b;
     (void)b;
     (void)b;
-    (void)bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb;
+    (void)b;
     (void)b;
     (void)b;
     return 0;
