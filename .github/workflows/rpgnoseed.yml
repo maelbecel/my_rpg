@@ -45,8 +45,10 @@ jobs:
       - uses: actions/setup-ruby@v1
       - name: Installing...
         run: git clone https://github.com/ronanboiteau/NormEZ && make -C NormEZ install
-      - name: Test norme
-        run: NORMEZ=$(cd src && normez -i && cd ..) && echo -e "::notice line=2, title=Norme::$NORMEZ"
+      - name: Test norme 'src/'
+        run: NORMEZ=$(cd src && normez -ic && cd ..) && echo -e "::notice line=2, title=Norme::$NORMEZ"
+      - name: Test norme 'include/'
+        run: NORMEZ=$(cd include && normez -ic && cd ..) && echo -e "::notice line=3, title=Norme::$NORMEZ"
 
   Size:
     runs-on: ubuntu-latest
