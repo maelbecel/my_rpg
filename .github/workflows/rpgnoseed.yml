@@ -36,16 +36,16 @@ jobs:
       - run: make clean
       - run: IFS=','; read -a array <<< "${{ env.EXECUTABLES }}"; for element in "${array[@]}"; do if [ -z $(ls | grep -w $element$) ]; then exit 1; fi; done
 
-  norme:
+  Norme:
     runs-on: ubuntu-latest
     needs: compilation
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-ruby@v1
       - name: NORME
-        run: git clone https://github.com/ronanboiteau/NormEZ && make install -C NormEZ; NORMEZ=$(normez -i) && echo -e "::warning line=1, title=Norme::$NORMEZ"
+        run: git clone https://github.com/ronanboiteau/NormEZ && make install -C NormEZ; NORMEZ=$(normez -i) && echo -e "::notice line=1, title=Norme::$NORMEZ"
 
-  size:
+  Size:
     runs-on: ubuntu-latest
     needs: compilation
     steps:
