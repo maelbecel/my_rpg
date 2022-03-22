@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-int main (UNUSED int ac, UNUSED char **argv)
+int main (UNUSED int ac,UNUSED char **argv)
 {
     return 0;
 }
