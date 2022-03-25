@@ -14,7 +14,7 @@
 static sfSprite *episprite(void)
 {
     sfSprite *sprite = sfSprite_create();
-    sfTexture *texture = 
+    sfTexture *texture =
         sfTexture_createFromFile("ressources/cinematiques/epitech.png", NULL);
     sfSprite_setTexture(sprite, texture, sfTrue);
     sfSprite_setPosition(sprite, (sfVector2f){400, 300});
