@@ -31,6 +31,7 @@ int main (int ac, UNUSED char **argv)
     sfEvent event;
     window = sfRenderWindow_create(mode, "RPG no seed", sfFullscreen, NULL);
     sfRenderWindow_setFramerateLimit(window, 30);
+    intro(window);
     if (rpg(window, &event) == 0)
         sfRenderWindow_destroy(window);
     return 0;

@@ -12,6 +12,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include <SFML/Window.h>
+    #include <stdio.h>
 
     #define UNUSED __attribute__((unused))
 
@@ -69,5 +70,6 @@
     };
 
     int analyse_event(sfRenderWindow *window, sfEvent *event);
+    int intro(sfRenderWindow *window);
 
 #endif

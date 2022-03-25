@@ -18,7 +18,8 @@ CFLAGS      +=         -Wall -Wextra -Werror -fvisibility=hidden $(INCLUDE)
 SOURCES      =         src/
 
 SRC          =         	$(SOURCES)main.c			\
-						$(SOURCES)analyse_event.c
+						$(SOURCES)analyse_event.c   \
+						$(SOURCES)intro.c
 
 SRC_COUNT    =         $(words $(SRC))
 
