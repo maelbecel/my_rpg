@@ -30,23 +30,30 @@ static sfRectangleShape *init_rect(void)
     return rect;
 }
 
+static int check_clock(int mul, sfClock *clock)
+{
+    sfTime time;
+    time = sfClock_getElapsedTime(clock);
+    if ((float)time.microseconds / MICRO >= 0.001) {
+        return mul;
+    }
+    return 0;
+}
+
 int intro(sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
-    sfTime time;
     int mul = -4;
-    int opacity = 254;
+    int opacity = 249;
     sfSprite *epitech = episprite();
     sfRectangleShape *rect = init_rect();
     sfMusic *music = sfMusic_createFromFile("ressources/sounds/easports.ogg");
 
     sfMusic_play(music);
-    while (opacity < 255) {
-        time = sfClock_getElapsedTime(clock);
-        if ((float)time.microseconds / MICRO >= 0.001) {
+    while (opacity < 250) {
+        opacity += check_clock(mul, clock);
+        if (check_clock(mul, clock) != 0)
             sfClock_restart(clock);
-            opacity += mul;
-        }
         mul = (opacity <= 0) ? -mul : mul;
         sfRenderWindow_clear(window, sfBlack);
         sfRenderWindow_drawSprite(window, epitech, NULL);
