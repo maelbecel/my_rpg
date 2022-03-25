@@ -38,7 +38,6 @@ int intro(sfRenderWindow *window)
     int opacity = 254;
     sfSprite *epitech = episprite();
     sfRectangleShape *rect = init_rect();
-
     while (opacity < 255) {
         time = sfClock_getElapsedTime(clock);
         if ((float)time.microseconds / MICRO >= 0.001) {
