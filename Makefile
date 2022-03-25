@@ -7,13 +7,18 @@
 
 NAME         =		    my_rpg
 
-INCLUDE      =         -I include/ -I include/lib/ -L lib/ -lmy -lmyprintf
+CSFML        =          -lcsfml-graphics -lcsfml-window \
+						-lcsfml-system -lcsfml-audio
+
+INCLUDE      =         	-I include/ -I include/lib/ -L lib/ -lmy -lmyprintf \
+						$(CSFML)
 
 CFLAGS      +=         -Wall -Wextra -Werror -fvisibility=hidden $(INCLUDE)
 
 SOURCES      =         src/
 
-SRC          =         $(SOURCES)main.c
+SRC          =         	$(SOURCES)main.c			\
+						$(SOURCES)analyse_event.c
 
 SRC_COUNT    =         $(words $(SRC))
 
