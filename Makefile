@@ -17,9 +17,22 @@ CFLAGS      +=         -Wall -Wextra -Werror -fvisibility=hidden $(INCLUDE)
 
 SOURCES      =         src/
 
+CINE		 =			cinematiques/
+
+EVT 		 =			events/
+
+INIT		 =			initialize/
+
+DISP		 =			display/
+
 SRC          =         	$(SOURCES)main.c			\
-						$(SOURCES)analyse_event.c   \
-						$(SOURCES)intro.c
+						$(SOURCES)$(EVT)analyse_event.c   \
+						$(SOURCES)$(EVT)builtins.c   \
+						$(SOURCES)$(INIT)init.c   \
+						$(SOURCES)$(INIT)init_main_menu.c   \
+						$(SOURCES)$(DISP)draw.c   \
+						$(SOURCES)$(DISP)display.c   \
+						$(SOURCES)$(CINE)intro.c
 
 SRC_COUNT    =         $(words $(SRC))
 

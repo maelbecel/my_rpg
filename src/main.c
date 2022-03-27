@@ -11,12 +11,14 @@
 
 static int rpg(sfRenderWindow *window, sfEvent *event)
 {
+    scene_t *scenes = init_scenes();
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, event)) {
             if (analyse_event(window, event) == 0)
                 return 0;
         }
         sfRenderWindow_clear(window, sfWhite);
+        display(window, scenes, event);
         sfRenderWindow_display(window);
     }
     return 0;

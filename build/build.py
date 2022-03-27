@@ -41,4 +41,3 @@ sys.stdout.write(" " * int(place - (percentage * place / 100)))
 
 sys.stdout.write(normal + bold + "]" + "\t" + str(int(percentage)) + '%' + normal + "\t" +"(" + nb + '/' + all +")")
 sys.stdout.flush()
-sleep(0.04)
