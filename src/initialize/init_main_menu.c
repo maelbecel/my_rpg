@@ -12,7 +12,8 @@
 element_t **main_menu_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 2);
-    elements[0] = NULL;
+    elements[0] = init_element("ressources/bg.png", (sfVector2f){0, 0}, (sfVector2f){1200, 800}, (sfVector2f){1.6, 1.35});
+    elements[1] = NULL;
     // elements[0] = init_element("resource/UI/Mainmenu.png", (sfVector2f){0,0},
     //                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     return elements;
