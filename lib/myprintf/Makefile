@@ -72,6 +72,6 @@ debug:	re
 %.o:		%.c
 			@$(eval NB=$(shell echo $$(($(NB)+1))))
 			@gcc -c -o $@ $^ $(CFLAGS) \
-			&& python ../../build/build.py $< $(NB) $(SRC_COUNT)
+			&& python3 ../../build/build.py $< $(NB) $(SRC_COUNT)
 
 .PHONY: all clean fclean re

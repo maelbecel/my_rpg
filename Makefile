@@ -88,7 +88,7 @@ re:
 
 %.o:		%.c
 			@$(eval NB=$(shell echo $$(($(NB)+1))))
-			@gcc -c -o $@ $^ $(CFLAGS) && python build/build.py $< $(NB) \
+			@gcc -c -o $@ $^ $(CFLAGS) && python3 build/build.py $< $(NB) \
 			$(SRC_COUNT)
 
 .PHONY: all re clean fclean debug
