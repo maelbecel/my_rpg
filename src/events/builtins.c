@@ -45,6 +45,7 @@ void quit(scene_t *scenes, ...)
     (void)(scenes);
     UNUSED int i = va_arg(arg, int);
     sfRenderWindow *window = va_arg(arg, sfRenderWindow *);
+    outro(window);
     sfRenderWindow_close(window);
     va_end(arg);
 }

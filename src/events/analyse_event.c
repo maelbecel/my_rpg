@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-int analyse_event(UNUSED sfRenderWindow *window, sfEvent *event)
+int analyse_event(UNUSED game_t *game, sfEvent *event)
 {
     if (event->type == sfEvtClosed )
         return 0;

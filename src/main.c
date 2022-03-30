@@ -9,17 +9,17 @@
 #include "printf.h"
 #include "rpg.h"
 
-static int rpg(sfRenderWindow *window, sfEvent *event)
+static int rpg(game_t *game, sfEvent *event)
 {
-    scene_t *scenes = init_scenes();
-    while (sfRenderWindow_isOpen(window)) {
-        while (sfRenderWindow_pollEvent(window, event)) {
-            if (analyse_event(window, event) == 0)
+    game->scenes = init_scenes();
+    while (sfRenderWindow_isOpen(game->window)) {
+        while (sfRenderWindow_pollEvent(game->window, event)) {
+            if (analyse_event(game, event) == 0)
                 return 0;
         }
-        sfRenderWindow_clear(window, sfWhite);
-        display(window, scenes, event);
-        sfRenderWindow_display(window);
+        sfRenderWindow_clear(game->window, sfWhite);
+        display(game, event);
+        sfRenderWindow_display(game->window);
     }
     return 0;
 }
@@ -28,13 +28,14 @@ int main (int ac, UNUSED char **argv)
 {
     if (ac != 1)
         return 84;
-    sfRenderWindow *window;
     sfVideoMode mode = {1920, 1080, 32};
     sfEvent event;
-    window = sfRenderWindow_create(mode, "RPG no seed", sfFullscreen, NULL);
-    sfRenderWindow_setFramerateLimit(window, 30);
-    intro(window);
-    if (rpg(window, &event) == 0)
-        sfRenderWindow_destroy(window);
+    game_t *game = malloc(sizeof(game_t));
+    game->window = sfRenderWindow_create(mode, "RPG no seed", sfFullscreen, NULL);
+    game->settings = init_settings();
+    sfRenderWindow_setFramerateLimit(game->window, 30);
+    intro(game->window);
+    rpg(game, &event);
+    sfRenderWindow_destroy(game->window);
     return 0;
 }

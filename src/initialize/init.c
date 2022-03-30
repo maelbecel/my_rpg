@@ -65,3 +65,15 @@ scene_t *init_scenes(void)
     scenes[0].elements = main_menu_elements();
     return scenes;
 }
+
+settings_t *init_settings(void)
+{
+    settings_t *set = malloc(sizeof(settings_t));
+    set->key_down = sfKeyDown;
+    set->key_up = sfKeyUp;
+    set->key_left = sfKeyLeft;
+    set->key_right = sfKeyRight;
+    set->key_pause = sfKeyEscape;
+    set->volume = 50;
+    return set;
+}
