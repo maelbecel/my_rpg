@@ -45,15 +45,7 @@ jobs:
       - name: Installing...
         run: git clone https://github.com/ronanboiteau/NormEZ && make -C NormEZ install
       - name: Test norme 'main'
-        run: NORMEZ=$(cd src/ && normez -ic && cd ..) && echo -e "::notice line=2, title=Norme::$NORMEZ"
-      - name: Test norme 'cinematiques'
-        run: NORMEZ=$(cd src/cinematiques && normez -ic && cd ../..) && echo -e "::notice line=3, title=Norme::$NORMEZ"
-      - name: Test norme 'events'
-        run: NORMEZ=$(cd src/events && normez -ic && cd ../..) && echo -e "::notice line=4, title=Norme::$NORMEZ"
-      - name: Test norme 'initialize'
-        run: NORMEZ=$(cd src/initialize && normez -ic && cd ../..) && echo -e "::notice line=4, title=Norme::$NORMEZ"
-      - name: Test norme 'include/'
-        run: NORMEZ=$(cd include && normez -ic && cd ..) && echo -e "::notice line=5, title=Norme::$NORMEZ"
+        run: NORMEZ=$(cd .. && normez my_rpg -i && cd my_rpg) && echo -e "::notice line=2, title=Norme::$NORMEZ"
 
   Size:
     runs-on: ubuntu-latest
