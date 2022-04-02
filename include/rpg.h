@@ -23,6 +23,8 @@
     #define BASIC_TEXT_SIZE 50
     #define BASIC_FONT "ressources/Fonts/game.ttf"
 
+    #define MICRO 1000000
+
     typedef struct type_button_s type_button_t;
     typedef struct button_s button_t;
     typedef struct element_s element_t;
@@ -60,8 +62,8 @@
         type_button_t *hoover;
         type_button_t *clicked;
         sfVector2f pos;
-        void (*action_hoover)(scene_t *scenes, ...);
-        void (*action_clicked)(scene_t *scenes, ...);
+        void (*action_hoover)(game_t *game, ...);
+        void (*action_clicked)(game_t *game, ...);
         int x;
         int y;
     };
@@ -92,15 +94,17 @@
     int outro(sfRenderWindow *window);
 
     //events
-    int is_hoover(sfRenderWindow *window, scene_t *scenes, int b, int s);
-    int is_click(sfRenderWindow *window, scene_t *scenes, int b, int s);
+    int is_hoover(game_t *game, int b, int s);
+    int is_click(game_t *game, int b, int s);
 
     int analyse_event(game_t *game, sfEvent *event);
+    void analyse_game(game_t *game, sfEvent *event);
 
-    void clicked(scene_t *scenes, ...);
-    void hoover(scene_t *scenes, ...);
-    void do_none(scene_t *scenes, ...);
-    void quit(scene_t *scenes, ...);
+    void clicked(game_t *game, ...);
+    void hoover(game_t *game, ...);
+    void do_none(game_t *game, ...);
+    void quit(game_t *game, ...);
+    void play(game_t *game, ...);
 
     //display
     void draw_button(sfRenderWindow *window, button_t *button);
@@ -113,6 +117,8 @@
     //initialize
     button_t **main_menu_buttons(void);
     element_t **main_menu_elements(void);
+    button_t **game_buttons(void);
+    element_t **game_elements(void);
 
     scene_t *init_scenes(void);
     element_t *init_element(char *texture, sfVector2f pos,

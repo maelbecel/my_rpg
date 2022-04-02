@@ -12,7 +12,7 @@
 element_t **main_menu_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 2);
-    elements[0] = init_element("ressources/bg.png", (sfVector2f){0, 0}, (sfVector2f){1200, 800}, (sfVector2f){1.6, 1.35});
+    elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0}, (sfVector2f){10001, 10080}, (sfVector2f){0.2, 0.2});
     elements[1] = NULL;
     // elements[0] = init_element("resource/UI/Mainmenu.png", (sfVector2f){0,0},
     //                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
@@ -21,11 +21,12 @@ element_t **main_menu_elements(void)
 
 button_t **main_menu_buttons(void)
 {
-    button_t **buttons = malloc(sizeof(button_t *) * 4);
+    button_t **buttons = malloc(sizeof(button_t *) * 5);
     int i = 0;
 
     buttons[0] = init_button("PLAY", "ressources/UI/button1.png",
                         (sfVector2f){1200, 100}, (sfVector2i){300, 100});
+    buttons[0]->action_clicked = play;
     buttons[1] = init_button("HELP", "ressources/UI/button1.png",
                         (sfVector2f){1200, 300}, (sfVector2i){300, 100});
     buttons[2] = init_button("SETTINGS", "ressources/UI/button1.png",

@@ -9,8 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-#define MICRO 1000000
-
 static sfSprite *shreksprite(void)
 {
     sfSprite *sprite = sfSprite_create();

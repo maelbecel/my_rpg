@@ -63,6 +63,8 @@ scene_t *init_scenes(void)
     scenes->page = 0;
     scenes[0].buttons = main_menu_buttons();
     scenes[0].elements = main_menu_elements();
+    scenes[1].buttons = game_buttons();
+    scenes[1].elements = game_elements();
     return scenes;
 }
 
