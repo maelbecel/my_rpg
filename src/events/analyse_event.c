@@ -21,22 +21,22 @@ int analyse_event(UNUSED game_t *game, sfEvent *event)
 void analyse_game(game_t *game, UNUSED sfEvent *event)
 {
     if (sfKeyboard_isKeyPressed(game->settings->key_down)) {
-        if (game->scenes[1].elements[1]->pos.y > 800)
+        if (game->scenes[1].elements[1]->pos.y > 680)
             game->scenes[1].elements[0]->rect.top += 5;
         else
             game->scenes[1].elements[1]->pos.y += 5;
     } if (sfKeyboard_isKeyPressed(game->settings->key_up)) {
-        if (game->scenes[1].elements[1]->pos.y < 150)
+        if (game->scenes[1].elements[1]->pos.y < 200)
             game->scenes[1].elements[0]->rect.top -= 5;
         else
             game->scenes[1].elements[1]->pos.y -= 5;
     } if (sfKeyboard_isKeyPressed(game->settings->key_left)) {
-        if (game->scenes[1].elements[1]->pos.x < 150)
+        if (game->scenes[1].elements[1]->pos.x < 200)
             game->scenes[1].elements[0]->rect.left -= 5;
         else
             game->scenes[1].elements[1]->pos.x -= 5;
     } if (sfKeyboard_isKeyPressed(game->settings->key_right)) {
-        if (game->scenes[1].elements[1]->pos.x > 1500)
+        if (game->scenes[1].elements[1]->pos.x > 1520)
             game->scenes[1].elements[0]->rect.left += 5;
         else
             game->scenes[1].elements[1]->pos.x += 5;

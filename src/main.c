@@ -11,7 +11,6 @@
 
 static int rpg(game_t *game, sfEvent *event)
 {
-    game->scenes = init_scenes();
     while (sfRenderWindow_isOpen(game->window)) {
         while (sfRenderWindow_pollEvent(game->window, event)) {
             if (analyse_event(game, event) == 0)
@@ -31,8 +30,9 @@ int main (int ac, UNUSED char **argv)
     sfVideoMode mode = {1920, 1080, 32};
     sfEvent event;
     game_t *game = malloc(sizeof(game_t));
-    game->window = sfRenderWindow_create(mode, "RPG no seed", sfFullscreen, NULL);
     game->settings = init_settings();
+    game->scenes = init_scenes();
+    game->window = sfRenderWindow_create(mode, "RPG no seed", sfFullscreen, NULL);
     sfRenderWindow_setFramerateLimit(game->window, 30);
     intro(game->window);
     rpg(game, &event);
