@@ -33,4 +33,6 @@
     void quit(game_t *game, ...);
     void play(game_t *game, ...);
 
+    int menu_event(game_t *game);
+
 #endif

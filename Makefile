@@ -29,6 +29,7 @@ SRC          =         	$(SOURCES)main.c			\
 						$(SOURCES)$(EVT)analyse_event.c   \
 						$(SOURCES)$(EVT)handle_click.c   \
 						$(SOURCES)$(EVT)builtins.c   \
+						$(SOURCES)$(EVT)menu_event.c   \
 						$(SOURCES)$(INIT)init.c   \
 						$(SOURCES)$(INIT)init_main_menu.c   \
 						$(SOURCES)$(INIT)init_game.c   \

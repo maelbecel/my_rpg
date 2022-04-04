@@ -11,7 +11,7 @@
 
 void play(game_t *game, ...)
 {
-    game->scenes->page = 1;
+    game->scenes->page = GAME;
 }
 
 element_t **game_elements(void)

@@ -36,7 +36,8 @@
     typedef struct settings_s settings_t;
 
     enum scenes {
-        MAIN_MENU
+        MAIN_MENU,
+        GAME
     };
 
     struct element_s {
@@ -84,6 +85,7 @@
         int key_left;
         int key_right;
         int key_pause;
+        int key_menu;
     };
 
     struct game_s {
