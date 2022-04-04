@@ -37,7 +37,8 @@
 
     enum scenes {
         MAIN_MENU,
-        GAME
+        GAME,
+        SETTINGS,
     };
 
     struct element_s {
@@ -107,6 +108,8 @@
     element_t **main_menu_elements(void);
     button_t **game_buttons(void);
     element_t **game_elements(void);
+    button_t **settings_buttons(void);
+    element_t **settings_elements(void);
 
     scene_t *init_scenes(void);
     element_t *init_element(char *texture, sfVector2f pos,

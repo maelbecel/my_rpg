@@ -28,6 +28,25 @@ void display_main_menu(game_t *game, sfEvent *event)
     }
 }
 
+void display_settings(game_t *game, sfEvent *event)
+{
+    int b = 0;
+    int e = 0;
+
+    while(game->scenes[2].elements[e])
+        draw_element(game->window, game->scenes[2].elements[e++]);
+    while(game->scenes[2].buttons[b]) {
+        if (event->type == sfEvtMouseButtonPressed &&
+            is_click(game, b, 2)) {
+            draw_clicked(game->window, game->scenes[2].buttons[b++]);
+            game->scenes[2].buttons[b - 1]->action_clicked(game, b - 1);
+        } else if (is_hoover(game, b, 2))
+            draw_hoover(game->window, game->scenes[2].buttons[b++]);
+        else
+            draw_button(game->window, game->scenes[2].buttons[b++]);
+    }
+}
+
 void display_game(game_t *game, sfEvent *event)
 {
     int b = 0;
@@ -54,6 +73,8 @@ void display(game_t *game, sfEvent *event)
         case 0: display_main_menu(game, event);
             break;
         case 1: display_game(game, event);
+            break;
+        case 2: display_settings(game, event);
             break;
     }
 }

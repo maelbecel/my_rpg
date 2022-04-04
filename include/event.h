@@ -32,6 +32,8 @@
     void do_none(game_t *game, ...);
     void quit(game_t *game, ...);
     void play(game_t *game, ...);
+    void main_menu(game_t *game, ...);
+    void settings(game_t *game, ...);
 
     int menu_event(game_t *game);
 

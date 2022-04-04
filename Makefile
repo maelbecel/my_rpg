@@ -33,6 +33,7 @@ SRC          =         	$(SOURCES)main.c			\
 						$(SOURCES)$(INIT)init.c   \
 						$(SOURCES)$(INIT)init_main_menu.c   \
 						$(SOURCES)$(INIT)init_game.c   \
+						$(SOURCES)$(INIT)init_settings.c   \
 						$(SOURCES)$(DISP)draw.c   \
 						$(SOURCES)$(DISP)display.c   \
 						$(SOURCES)$(CINE)intro.c   \

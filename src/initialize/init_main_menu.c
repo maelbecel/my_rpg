@@ -9,6 +9,12 @@
 #include "printf.h"
 #include "rpg.h"
 
+
+void main_menu(game_t *game, ...)
+{
+    game->scenes->page = MAIN_MENU;
+}
+
 element_t **main_menu_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 2);
@@ -31,6 +37,7 @@ button_t **main_menu_buttons(void)
                         (sfVector2f){1200, 300}, (sfVector2i){300, 100});
     buttons[2] = init_button("SETTINGS", "ressources/UI/button1.png",
                         (sfVector2f){1200, 500}, (sfVector2i){300, 100});
+    buttons[2]->action_clicked = settings;
     buttons[3] = init_button("QUIT", "ressources/UI/button1.png",
                         (sfVector2f){1200, 700}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = quit;
