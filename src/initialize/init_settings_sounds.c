@@ -30,8 +30,5 @@ button_t **settings_sounds_buttons(void)
                         (sfVector2f){50, 50}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = settings;
     buttons[1] = NULL;
-    buttons[0]->base->scale = (sfVector2f){2, 2};
-    buttons[0]->clicked->scale = (sfVector2f){2, 2};
-    buttons[0]->hoover->scale = (sfVector2f){2, 2};
     return buttons;
 }

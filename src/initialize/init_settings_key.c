@@ -25,7 +25,6 @@ element_t **settings_key_elements(void)
 button_t **settings_key_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 8);
-    int i = 0;
 
     buttons[0] = init_button("<-             ", "ressources/UI/button1.png",
                         (sfVector2f){50, 50}, (sfVector2i){300, 100});
@@ -43,10 +42,5 @@ button_t **settings_key_buttons(void)
     buttons[6] = init_button("MENU", "ressources/UI/button1.png",
                         (sfVector2f){1100, 700}, (sfVector2i){300, 100});
     buttons[7] = NULL;
-    while (buttons[i]) {
-        buttons[i]->base->scale = (sfVector2f){3, 2};
-        buttons[i]->clicked->scale = (sfVector2f){3, 2};
-        buttons[i++]->hoover->scale = (sfVector2f){3, 2};
-    }
     return buttons;
 }
