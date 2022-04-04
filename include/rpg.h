@@ -39,6 +39,7 @@
         MAIN_MENU,
         GAME,
         SETTINGS,
+        MENU_PLAYER
     };
 
     struct element_s {
@@ -110,6 +111,8 @@
     element_t **game_elements(void);
     button_t **settings_buttons(void);
     element_t **settings_elements(void);
+    button_t **menu_player_buttons(void);
+    element_t **menu_player_elements(void);
 
     scene_t *init_scenes(void);
     element_t *init_element(char *texture, sfVector2f pos,

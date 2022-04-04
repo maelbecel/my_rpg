@@ -9,12 +9,16 @@
 #include "printf.h"
 #include "rpg.h"
 
-int analyse_event(UNUSED game_t *game, sfEvent *event)
+int analyse_event(game_t *game, sfEvent *event)
 {
     if (event->type == sfEvtClosed )
         return 0;
     if (event->key.code == sfKeyEscape)
         return 0;
+    if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_menu && (game->scenes->page == GAME || game->scenes->page == MENU_PLAYER)) {
+        menu_event(game);
+        return 1;
+    }
     return 1;
 }
 
@@ -40,9 +44,6 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
             game->scenes[GAME].elements[0]->rect.left += 5;
         else
             game->scenes[GAME].elements[1]->pos.x += 5;
-    }
-    if (event->key.code == game->settings->key_menu && game->scenes->page == GAME) {
-        menu_event(game);
     }
     sfSprite_setTextureRect(game->scenes[GAME].elements[0]->sprite, game->scenes[GAME].elements[0]->rect);
 }

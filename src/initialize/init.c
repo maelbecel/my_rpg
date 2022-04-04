@@ -67,6 +67,8 @@ scene_t *init_scenes(void)
     scenes[GAME].elements = game_elements();
     scenes[SETTINGS].buttons = settings_buttons();
     scenes[SETTINGS].elements = settings_elements();
+    scenes[MENU_PLAYER].buttons = menu_player_buttons();
+    scenes[MENU_PLAYER].elements = menu_player_elements();
     return scenes;
 }
 

@@ -33,17 +33,17 @@ void display_settings(game_t *game, sfEvent *event)
     int b = 0;
     int e = 0;
 
-    while(game->scenes[2].elements[e])
-        draw_element(game->window, game->scenes[2].elements[e++]);
-    while(game->scenes[2].buttons[b]) {
+    while(game->scenes[SETTINGS].elements[e])
+        draw_element(game->window, game->scenes[SETTINGS].elements[e++]);
+    while(game->scenes[SETTINGS].buttons[b]) {
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, b, 2)) {
-            draw_clicked(game->window, game->scenes[2].buttons[b++]);
-            game->scenes[2].buttons[b - 1]->action_clicked(game, b - 1);
+            draw_clicked(game->window, game->scenes[SETTINGS].buttons[b++]);
+            game->scenes[SETTINGS].buttons[b - 1]->action_clicked(game, b - 1);
         } else if (is_hoover(game, b, 2))
-            draw_hoover(game->window, game->scenes[2].buttons[b++]);
+            draw_hoover(game->window, game->scenes[SETTINGS].buttons[b++]);
         else
-            draw_button(game->window, game->scenes[2].buttons[b++]);
+            draw_button(game->window, game->scenes[SETTINGS].buttons[b++]);
     }
 }
 
@@ -67,6 +67,14 @@ void display_game(game_t *game, sfEvent *event)
     }
 }
 
+void display_menu_player(game_t *game)
+{
+    int e = 0;
+
+    while(game->scenes[MENU_PLAYER].elements[e])
+        draw_element(game->window, game->scenes[MENU_PLAYER].elements[e++]);
+}
+
 void display(game_t *game, sfEvent *event)
 {
     switch(game->scenes->page) {
@@ -75,6 +83,8 @@ void display(game_t *game, sfEvent *event)
         case 1: display_game(game, event);
             break;
         case 2: display_settings(game, event);
+            break;
+        case 3: display_menu_player(game);
             break;
     }
 }
