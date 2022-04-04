@@ -19,6 +19,9 @@
     #include <SFML/Audio.h>
     #include <SFML/Window.h>
 
+    #include "cinematique.h"
+    #include "event.h"
+
     #define UNUSED __attribute__((unused))
     #define BASIC_TEXT_SIZE 50
     #define BASIC_FONT "ressources/Fonts/game.ttf"
@@ -88,23 +91,6 @@
         scene_t *scenes;
         settings_t *settings;
     };
-
-    //cinematiques
-    int intro(sfRenderWindow *window);
-    int outro(sfRenderWindow *window);
-
-    //events
-    int is_hoover(game_t *game, int b, int s);
-    int is_click(game_t *game, int b, int s);
-
-    int analyse_event(game_t *game, sfEvent *event);
-    void analyse_game(game_t *game, sfEvent *event);
-
-    void clicked(game_t *game, ...);
-    void hoover(game_t *game, ...);
-    void do_none(game_t *game, ...);
-    void quit(game_t *game, ...);
-    void play(game_t *game, ...);
 
     //display
     void draw_button(sfRenderWindow *window, button_t *button);
