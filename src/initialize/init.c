@@ -59,7 +59,7 @@ element_t *init_element(char *texture, sfVector2f pos,
 
 scene_t *init_scenes(void)
 {
-    scene_t *scenes = malloc(sizeof(scene_t) * 5);
+    scene_t *scenes = malloc(sizeof(scene_t) * 7);
     scenes->page = 0;
     scenes[MAIN_MENU].buttons = main_menu_buttons();
     scenes[MAIN_MENU].elements = main_menu_elements();
@@ -69,6 +69,10 @@ scene_t *init_scenes(void)
     scenes[SETTINGS].elements = settings_elements();
     scenes[MENU_PLAYER].buttons = menu_player_buttons();
     scenes[MENU_PLAYER].elements = menu_player_elements();
+    scenes[SETTINGS_SOUNDS].buttons = settings_sounds_buttons();
+    scenes[SETTINGS_SOUNDS].elements = settings_sounds_elements();
+    scenes[SETTINGS_KEY].buttons = settings_key_buttons();
+    scenes[SETTINGS_KEY].elements = settings_key_elements();
     return scenes;
 }
 

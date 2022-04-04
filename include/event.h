@@ -34,6 +34,8 @@
     void play(game_t *game, ...);
     void main_menu(game_t *game, ...);
     void settings(game_t *game, ...);
+    void settings_sounds(game_t *game, ...);
+    void settings_key(game_t *game, ...);
 
     int menu_event(game_t *game);
 

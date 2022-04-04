@@ -28,7 +28,6 @@ element_t **main_menu_elements(void)
 button_t **main_menu_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 5);
-    int i = 0;
 
     buttons[0] = init_button("PLAY", "ressources/UI/button1.png",
                         (sfVector2f){1200, 100}, (sfVector2i){300, 100});
@@ -42,10 +41,5 @@ button_t **main_menu_buttons(void)
                         (sfVector2f){1200, 700}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = quit;
     buttons[4] = NULL;
-    while (buttons[i]) {
-        buttons[i]->base->scale = (sfVector2f){4, 2};
-        buttons[i]->clicked->scale = (sfVector2f){4, 2};
-        buttons[i++]->hoover->scale = (sfVector2f){4, 2};
-    }
     return buttons;
 }
