@@ -72,6 +72,8 @@ void display_settings_sounds(game_t *game, sfEvent *event)
     int b = 0;
     int e = 0;
 
+    move_slider(game, event);
+    set_slider_pos(game);
     while(game->scenes[SETTINGS_SOUNDS].elements[e])
         draw_element(game->window, game->scenes[SETTINGS_SOUNDS].elements[e++]);
     while(game->scenes[SETTINGS_SOUNDS].buttons[b]) {
@@ -84,6 +86,10 @@ void display_settings_sounds(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[SETTINGS_SOUNDS].buttons[b++]);
     }
+    draw_text("MUSIC", 70, (sfVector2f){300, 380}, game->window);
+    draw_text("FX", 70, (sfVector2f){400, 780}, game->window);
+    draw_text(inttochar(game->settings->music_volume), 80, (sfVector2f){1500, 380}, game->window);
+    draw_text(inttochar(game->settings->fx_volume), 80, (sfVector2f){1500, 780}, game->window);
 }
 
 void display_game(game_t *game, sfEvent *event)

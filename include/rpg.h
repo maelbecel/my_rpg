@@ -109,6 +109,9 @@
     void draw_hoover(sfRenderWindow *window, button_t *button);
     void draw_clicked(sfRenderWindow *window, button_t *button);
     void draw_element(sfRenderWindow *window, element_t *element);
+    void draw_text(char *text, int size, sfVector2f pos, sfRenderWindow *window);
+
+    void display_settings_sounds(game_t *game, sfEvent *event);
 
     void display(game_t *game, sfEvent *event);
     void concat_settings(game_t *game);

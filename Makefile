@@ -32,6 +32,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)select_movement.c  			\
 						$(SOURCES)$(EVT)select_menu.c				\
 						$(SOURCES)$(EVT)builtins.c   				\
+						$(SOURCES)$(EVT)sliders.c   				\
 						$(SOURCES)$(EVT)menu_event.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)init_main_menu.c   		\

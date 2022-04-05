@@ -46,4 +46,7 @@
 
     int menu_event(game_t *game);
 
+    void set_slider_pos(game_t * game);
+    void move_slider(game_t *game, sfEvent *event);
+
 #endif

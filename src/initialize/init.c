@@ -86,6 +86,6 @@ settings_t *init_settings(void)
     set->key_pause = sfKeyEscape;
     set->key_menu = sfKeyP;
     set->music_volume = 50;
-    set->fx_volume = 50;
+    set->fx_volume = 75;
     return set;
 }
