@@ -42,5 +42,8 @@ button_t **settings_key_buttons(void)
     buttons[6] = init_button("MENU", "ressources/UI/button1.png",
                         (sfVector2f){1100, 700}, (sfVector2i){300, 100});
     buttons[7] = NULL;
+    buttons[0]->base->scale = (sfVector2f){0.4, 1};
+    buttons[0]->clicked->scale = (sfVector2f){0.4, 1};
+    buttons[0]->hoover->scale = (sfVector2f){0.4, 1};
     return buttons;
 }

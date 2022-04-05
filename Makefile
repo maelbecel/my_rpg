@@ -38,6 +38,7 @@ SRC          =         	$(SOURCES)main.c			\
 						$(SOURCES)$(INIT)init_settings_sounds.c   \
 						$(SOURCES)$(INIT)init_menu_player.c   \
 						$(SOURCES)$(DISP)draw.c   \
+						$(SOURCES)$(DISP)draw_settings.c   \
 						$(SOURCES)$(DISP)display.c   \
 						$(SOURCES)$(CINE)intro.c   \
 						$(SOURCES)$(CINE)outro.c

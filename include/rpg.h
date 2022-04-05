@@ -83,7 +83,8 @@
     };
 
     struct settings_s {
-        int volume;
+        int music_volume;
+        int fx_volume;
         int key_up;
         int key_down;
         int key_left;
@@ -98,6 +99,11 @@
         settings_t *settings;
     };
 
+    struct key_s {
+        int key;
+        char *name;
+    };
+
     //display
     void draw_button(sfRenderWindow *window, button_t *button);
     void draw_hoover(sfRenderWindow *window, button_t *button);
@@ -105,6 +111,7 @@
     void draw_element(sfRenderWindow *window, element_t *element);
 
     void display(game_t *game, sfEvent *event);
+    void concat_settings(game_t *game);
 
     //initialize
     button_t **main_menu_buttons(void);

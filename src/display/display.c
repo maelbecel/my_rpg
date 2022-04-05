@@ -52,6 +52,7 @@ void display_settings_key(game_t *game, sfEvent *event)
     int b = 0;
     int e = 0;
 
+    concat_settings(game);
     while(game->scenes[SETTINGS_KEY].elements[e])
         draw_element(game->window, game->scenes[SETTINGS_KEY].elements[e++]);
     while(game->scenes[SETTINGS_KEY].buttons[b]) {

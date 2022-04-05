@@ -28,6 +28,9 @@ button_t **settings_sounds_buttons(void)
 
     buttons[0] = init_button("<-             ", "ressources/UI/button1.png",
                         (sfVector2f){50, 50}, (sfVector2i){300, 100});
+    buttons[0]->base->scale = (sfVector2f){0.4, 1};
+    buttons[0]->clicked->scale = (sfVector2f){0.4, 1};
+    buttons[0]->hoover->scale = (sfVector2f){0.4, 1};
     buttons[0]->action_clicked = settings;
     buttons[1] = NULL;
     return buttons;
