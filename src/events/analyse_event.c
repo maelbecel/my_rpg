@@ -14,8 +14,20 @@ int analyse_event(game_t *game, sfEvent *event)
     if (event->type == sfEvtClosed )
         return 0;
     if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_pause && game->scenes->page == GAME)
-        return 0;
-    if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_menu && (game->scenes->page == GAME || game->scenes->page == MENU_PLAYER)) {
+        game->scenes->page = PAUSE;
+    else if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_pause && game->scenes->page == PAUSE)
+        game->scenes->page = GAME;
+    if (game->scenes->page == MAIN_MENU) {
+        game->scenes[SETTINGS].buttons[0]->action_clicked = main_menu;
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->base->text, "MAIN MENU");
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->clicked->text, "MAIN MENU");
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->hoover->text, "MAIN MENU");
+    } if (game->scenes->page == PAUSE) {
+        game->scenes[SETTINGS].buttons[0]->action_clicked = pause_menu;
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->base->text, "PAUSE MENU");
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->clicked->text, "PAUSE MENU");
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->hoover->text, "PAUSE MENU");
+    } if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_menu && (game->scenes->page == GAME || game->scenes->page == MENU_PLAYER)) {
         menu_event(game);
         return 1;
     }

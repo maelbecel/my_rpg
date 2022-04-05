@@ -34,6 +34,7 @@ button_t **main_menu_buttons(void)
     buttons[0]->action_clicked = play;
     buttons[1] = init_button("HELP", "ressources/UI/button1.png",
                         (sfVector2f){1200, 300}, (sfVector2i){300, 100});
+    buttons[1]->action_clicked = htp_first;
     buttons[2] = init_button("SETTINGS", "ressources/UI/button1.png",
                         (sfVector2f){1200, 500}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = settings;

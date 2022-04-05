@@ -41,7 +41,11 @@
         SETTINGS,
         MENU_PLAYER,
         SETTINGS_KEY,
-        SETTINGS_SOUNDS
+        SETTINGS_SOUNDS,
+        HTP_1,
+        HTP_2,
+        HTP_3,
+        PAUSE
     };
 
     struct element_s {
@@ -129,6 +133,14 @@
     element_t **settings_key_elements(void);
     element_t **settings_sounds_elements(void);
     button_t **settings_sounds_buttons(void);
+    button_t **htp_first_buttons(void);
+    element_t **htp_first_elements(void);
+    button_t **htp_second_buttons(void);
+    element_t **htp_second_elements(void);
+    button_t **htp_third_buttons(void);
+    element_t **htp_third_elements(void);
+    element_t **pause_elements(void);
+    button_t **pause_buttons(void);
 
     scene_t *init_scenes(void);
     element_t *init_element(char *texture, sfVector2f pos,

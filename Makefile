@@ -37,10 +37,14 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)init_main_menu.c   		\
 						$(SOURCES)$(INIT)init_game.c  				\
+						$(SOURCES)$(INIT)init_pause.c  				\
 						$(SOURCES)$(INIT)init_settings.c   			\
 						$(SOURCES)$(INIT)init_settings_key.c   		\
 						$(SOURCES)$(INIT)init_settings_sounds.c   	\
 						$(SOURCES)$(INIT)init_menu_player.c   		\
+						$(SOURCES)$(INIT)init_htp_first.c   		\
+						$(SOURCES)$(INIT)init_htp_second.c   		\
+						$(SOURCES)$(INIT)init_htp_third.c   		\
 						$(SOURCES)$(DISP)draw.c   					\
 						$(SOURCES)$(DISP)draw_settings.c   			\
 						$(SOURCES)$(DISP)display.c   				\

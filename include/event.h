@@ -36,6 +36,10 @@
     void settings(game_t *game, ...);
     void settings_sounds(game_t *game, ...);
     void settings_key(game_t *game, ...);
+    void htp_first(game_t *game, ...);
+    void htp_second(game_t *game, ...);
+    void htp_third(game_t *game, ...);
+    void pause_menu(game_t *game, ...);
 
     void wait_up(game_t *game, ...);
     void wait_down(game_t *game, ...);
