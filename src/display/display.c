@@ -59,7 +59,7 @@ void display_settings_key(game_t *game, sfEvent *event)
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, b, SETTINGS_KEY)) {
             draw_clicked(game->window, game->scenes[SETTINGS_KEY].buttons[b++]);
-            game->scenes[SETTINGS_KEY].buttons[b - 1]->action_clicked(game, b - 1);
+            game->scenes[SETTINGS_KEY].buttons[b - 1]->action_clicked(game, b - 1, event);
         } else if (is_hoover(game, b, SETTINGS_KEY))
             draw_hoover(game->window, game->scenes[SETTINGS_KEY].buttons[b++]);
         else

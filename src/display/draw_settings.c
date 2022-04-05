@@ -110,13 +110,12 @@ static const struct key_s Key_list[] = {
     {sfKeyF14, "F14"},
     {sfKeyF15, "F15"},
     {sfKeyPause, "PAUSE"},
-    {-1, "TYPE A KEY"},
-    {-2, NULL}
+    {-1, NULL}
 };
 
 char *getkey(int key)
 {
-    for (int i = 0; Key_list[i].key != -2; i++)
+    for (int i = 0; Key_list[i].key != -1; i++)
         if (Key_list[i].key == key)
             return Key_list[i].name;
     return "NULL";

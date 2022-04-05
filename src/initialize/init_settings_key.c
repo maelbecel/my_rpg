@@ -31,16 +31,22 @@ button_t **settings_key_buttons(void)
     buttons[0]->action_clicked = settings;
     buttons[1] = init_button("UP", "ressources/UI/button1.png",
                         (sfVector2f){100, 300}, (sfVector2i){300, 100});
+    buttons[1]->action_clicked = wait_up;
     buttons[2] = init_button("DOWN", "ressources/UI/button1.png",
                         (sfVector2f){100, 500}, (sfVector2i){300, 100});
+    buttons[2]->action_clicked = wait_down;
     buttons[3] = init_button("LEFT", "ressources/UI/button1.png",
                         (sfVector2f){100, 700}, (sfVector2i){300, 100});
+    buttons[3]->action_clicked = wait_left;
     buttons[4] = init_button("RIGHT", "ressources/UI/button1.png",
                         (sfVector2f){1100, 300}, (sfVector2i){300, 100});
+    buttons[4]->action_clicked = wait_right;
     buttons[5] = init_button("PAUSE", "ressources/UI/button1.png",
                         (sfVector2f){1100, 500}, (sfVector2i){300, 100});
+    buttons[5]->action_clicked = wait_pause;
     buttons[6] = init_button("MENU", "ressources/UI/button1.png",
                         (sfVector2f){1100, 700}, (sfVector2i){300, 100});
+    buttons[6]->action_clicked = wait_menu;
     buttons[7] = NULL;
     buttons[0]->base->scale = (sfVector2f){0.4, 1};
     buttons[0]->clicked->scale = (sfVector2f){0.4, 1};

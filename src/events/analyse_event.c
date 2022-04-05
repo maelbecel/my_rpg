@@ -13,7 +13,7 @@ int analyse_event(game_t *game, sfEvent *event)
 {
     if (event->type == sfEvtClosed )
         return 0;
-    if (event->key.code == sfKeyEscape)
+    if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_pause && game->scenes->page == GAME)
         return 0;
     if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_menu && (game->scenes->page == GAME || game->scenes->page == MENU_PLAYER)) {
         menu_event(game);

@@ -25,22 +25,25 @@ INIT		 =			initialize/
 
 DISP		 =			display/
 
-SRC          =         	$(SOURCES)main.c			\
-						$(SOURCES)$(EVT)analyse_event.c   \
-						$(SOURCES)$(EVT)handle_click.c   \
-						$(SOURCES)$(EVT)builtins.c   \
-						$(SOURCES)$(EVT)menu_event.c   \
-						$(SOURCES)$(INIT)init.c   \
-						$(SOURCES)$(INIT)init_main_menu.c   \
-						$(SOURCES)$(INIT)init_game.c   \
-						$(SOURCES)$(INIT)init_settings.c   \
-						$(SOURCES)$(INIT)init_settings_key.c   \
-						$(SOURCES)$(INIT)init_settings_sounds.c   \
-						$(SOURCES)$(INIT)init_menu_player.c   \
-						$(SOURCES)$(DISP)draw.c   \
-						$(SOURCES)$(DISP)draw_settings.c   \
-						$(SOURCES)$(DISP)display.c   \
-						$(SOURCES)$(CINE)intro.c   \
+SRC          =         	$(SOURCES)main.c		                    \
+						$(SOURCES)$(EVT)analyse_event.c   			\
+						$(SOURCES)$(EVT)handle_click.c   			\
+						$(SOURCES)$(EVT)select_key.c   				\
+						$(SOURCES)$(EVT)select_movement.c  			\
+						$(SOURCES)$(EVT)select_menu.c				\
+						$(SOURCES)$(EVT)builtins.c   				\
+						$(SOURCES)$(EVT)menu_event.c  			    \
+						$(SOURCES)$(INIT)init.c   					\
+						$(SOURCES)$(INIT)init_main_menu.c   		\
+						$(SOURCES)$(INIT)init_game.c  				\
+						$(SOURCES)$(INIT)init_settings.c   			\
+						$(SOURCES)$(INIT)init_settings_key.c   		\
+						$(SOURCES)$(INIT)init_settings_sounds.c   	\
+						$(SOURCES)$(INIT)init_menu_player.c   		\
+						$(SOURCES)$(DISP)draw.c   					\
+						$(SOURCES)$(DISP)draw_settings.c   			\
+						$(SOURCES)$(DISP)display.c   				\
+						$(SOURCES)$(CINE)intro.c   					\
 						$(SOURCES)$(CINE)outro.c
 
 SRC_COUNT    =         $(words $(SRC))

@@ -37,6 +37,13 @@
     void settings_sounds(game_t *game, ...);
     void settings_key(game_t *game, ...);
 
+    void wait_up(game_t *game, ...);
+    void wait_down(game_t *game, ...);
+    void wait_right(game_t *game, ...);
+    void wait_left(game_t *game, ...);
+    void wait_pause(game_t *game, ...);
+    void wait_menu(game_t *game, ...);
+
     int menu_event(game_t *game);
 
 #endif
