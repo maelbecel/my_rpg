@@ -34,7 +34,8 @@ void display_game(game_t *game, sfEvent *event)
     int e = 0;
 
     analyse_game(game, event);
-    display_key_with_pnj(game);
+    game->scenes[GAME].elements[4]->pos.x = (game->scenes[GAME].elements[0]->rect.left + game->scenes[GAME].elements[2]->pos.x) / 30 + 1420;
+    game->scenes[GAME].elements[4]->pos.y = (game->scenes[GAME].elements[0]->rect.top + game->scenes[GAME].elements[2]->pos.y) / 30 - 17;
     while (game->scenes[GAME].elements[e])
         draw_element(game->window, game->scenes[GAME].elements[e++]);
     while (game->scenes[GAME].buttons[b]) {
@@ -86,7 +87,6 @@ void display_menu_player(game_t *game)
 
 void display(game_t *game, sfEvent *event)
 {
-    printf("4\n");
     switch (game->scenes->page) {
         case MAIN_MENU: display_main_menu(game, event);
             break;

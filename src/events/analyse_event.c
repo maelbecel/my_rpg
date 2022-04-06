@@ -50,7 +50,7 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
 {
     if (sfKeyboard_isKeyPressed(game->settings->key_down)) {
         if (game->scenes[GAME].elements[2]->pos.y > 680) {
-            game->scenes[GAME].elements[0]->rect.top += 5;
+            game->scenes[GAME].elements[0]->rect.top += 6;
             game->scenes[GAME].elements[1]->rect.top += 30;
         }
         else
@@ -58,13 +58,13 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
     } if (sfKeyboard_isKeyPressed(game->settings->key_up)) {
         if (game->scenes[GAME].elements[2]->pos.y < 200) {
             game->scenes[GAME].elements[1]->rect.top -= 30;
-            game->scenes[GAME].elements[0]->rect.top -= 5;
+            game->scenes[GAME].elements[0]->rect.top -= 6;
         }
         else
             game->scenes[GAME].elements[2]->pos.y -= 5;
     } if (sfKeyboard_isKeyPressed(game->settings->key_left)) {
         if (game->scenes[GAME].elements[2]->pos.x < 200) {
-            game->scenes[GAME].elements[0]->rect.left -= 5;
+            game->scenes[GAME].elements[0]->rect.left -= 6;
             game->scenes[GAME].elements[1]->rect.left -= 40;
         }
         else
@@ -72,7 +72,7 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
     } if (sfKeyboard_isKeyPressed(game->settings->key_right)) {
         if (game->scenes[GAME].elements[2]->pos.x > 1520) {
             game->scenes[GAME].elements[1]->rect.left += 40;
-            game->scenes[GAME].elements[0]->rect.left += 5;
+            game->scenes[GAME].elements[0]->rect.left += 6;
         }
         else
             game->scenes[GAME].elements[2]->pos.x += 5;
