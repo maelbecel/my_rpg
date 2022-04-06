@@ -34,6 +34,7 @@ void display_game(game_t *game, sfEvent *event)
     int e = 0;
 
     analyse_game(game, event);
+    display_key_with_pnj(game);
     while (game->scenes[GAME].elements[e])
         draw_element(game->window, game->scenes[GAME].elements[e++]);
     while (game->scenes[GAME].buttons[b]) {
@@ -85,6 +86,7 @@ void display_menu_player(game_t *game)
 
 void display(game_t *game, sfEvent *event)
 {
+    printf("4\n");
     switch (game->scenes->page) {
         case MAIN_MENU: display_main_menu(game, event);
             break;

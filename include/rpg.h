@@ -121,6 +121,7 @@
     ////////////////////////////////////////////////////////////
     struct scene_s {
         button_t **buttons;
+        sfText *text;
         element_t **elements;
         int page;
     };
