@@ -69,10 +69,10 @@ scene_t *init_scenes(void)
     scenes[SETTINGS].elements = settings_elements();
     scenes[MENU_PLAYER].buttons = menu_player_buttons();
     scenes[MENU_PLAYER].elements = menu_player_elements();
-    scenes[SETTINGS_SOUNDS].buttons = settings_sounds_buttons();
-    scenes[SETTINGS_SOUNDS].elements = settings_sounds_elements();
-    scenes[SETTINGS_KEY].buttons = settings_key_buttons();
-    scenes[SETTINGS_KEY].elements = settings_key_elements();
+    scenes[SOUNDS].buttons = settings_sounds_buttons();
+    scenes[SOUNDS].elements = settings_sounds_elements();
+    scenes[KEY].buttons = settings_key_buttons();
+    scenes[KEY].elements = settings_key_elements();
     scenes[HTP_1].buttons = htp_first_buttons();
     scenes[HTP_1].elements = htp_first_elements();
     scenes[HTP_2].buttons = htp_second_buttons();

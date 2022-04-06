@@ -14,7 +14,8 @@ void clicked(game_t *game, ...)
     va_list arg;
     va_start(arg, game);
     int i = va_arg(arg, int);
-    sfSprite_setTexture(game->scenes[game->scenes->page].buttons[i]->clicked->sprite,
+    sfSprite_setTexture(
+            game->scenes[game->scenes->page].buttons[i]->clicked->sprite,
             sfTexture_createFromFile("ressources/UI/button1_clicked.png",NULL),
                                         sfTrue);
     va_end(arg);
@@ -26,7 +27,8 @@ void hoover(game_t *game, ...)
     va_list arg;
     va_start(arg, game);
     int i = va_arg(arg, int);
-    sfSprite_setTexture(game->scenes[game->scenes->page].buttons[i]->hoover->sprite,
+    sfSprite_setTexture(
+            game->scenes[game->scenes->page].buttons[i]->hoover->sprite,
             sfTexture_createFromFile("ressources/UI/button1_hoover.png",NULL),
                                         sfTrue);
     va_end(arg);

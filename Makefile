@@ -47,7 +47,9 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_htp_third.c   		\
 						$(SOURCES)$(DISP)draw.c   					\
 						$(SOURCES)$(DISP)draw_settings.c   			\
+						$(SOURCES)$(DISP)display_settings.c   			\
 						$(SOURCES)$(DISP)display.c   				\
+						$(SOURCES)$(DISP)display_htp.c   			\
 						$(SOURCES)$(CINE)intro.c   					\
 						$(SOURCES)$(CINE)outro.c
 

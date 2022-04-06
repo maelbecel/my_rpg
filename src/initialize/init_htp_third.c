@@ -17,7 +17,8 @@ void htp_third(game_t *game, ...)
 element_t **htp_third_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 2);
-    elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0}, (sfVector2f){10001, 10080}, (sfVector2f){0.2, 0.2});
+    elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0},
+                        (sfVector2f){10001, 10080}, (sfVector2f){0.2, 0.2});
     elements[1] = NULL;
     return elements;
 }

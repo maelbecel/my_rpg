@@ -21,6 +21,8 @@
 
     #include "cinematique.h"
     #include "event.h"
+    #include "display.h"
+    #include "initialise.h"
 
     #define UNUSED __attribute__((unused))
     #define BASIC_TEXT_SIZE 50
@@ -40,8 +42,8 @@
         GAME,
         SETTINGS,
         MENU_PLAYER,
-        SETTINGS_KEY,
-        SETTINGS_SOUNDS,
+        KEY,
+        SOUNDS,
         HTP_1,
         HTP_2,
         HTP_3,
@@ -107,48 +109,5 @@
         int key;
         char *name;
     };
-
-    //display
-    void draw_button(sfRenderWindow *window, button_t *button);
-    void draw_hoover(sfRenderWindow *window, button_t *button);
-    void draw_clicked(sfRenderWindow *window, button_t *button);
-    void draw_element(sfRenderWindow *window, element_t *element);
-    void draw_text(char *text, int size, sfVector2f pos, sfRenderWindow *window);
-
-    void display_settings_sounds(game_t *game, sfEvent *event);
-
-    void display(game_t *game, sfEvent *event);
-    void concat_settings(game_t *game);
-
-    //initialize
-    button_t **main_menu_buttons(void);
-    element_t **main_menu_elements(void);
-    button_t **game_buttons(void);
-    element_t **game_elements(void);
-    button_t **settings_buttons(void);
-    element_t **settings_elements(void);
-    button_t **menu_player_buttons(void);
-    element_t **menu_player_elements(void);
-    button_t **settings_key_buttons(void);
-    element_t **settings_key_elements(void);
-    element_t **settings_sounds_elements(void);
-    button_t **settings_sounds_buttons(void);
-    button_t **htp_first_buttons(void);
-    element_t **htp_first_elements(void);
-    button_t **htp_second_buttons(void);
-    element_t **htp_second_elements(void);
-    button_t **htp_third_buttons(void);
-    element_t **htp_third_elements(void);
-    element_t **pause_elements(void);
-    button_t **pause_buttons(void);
-
-    scene_t *init_scenes(void);
-    element_t *init_element(char *texture, sfVector2f pos,
-                        sfVector2f size, sfVector2f scale);
-    button_t *init_button(char *text, char *texture,
-                        sfVector2f pos, sfVector2i size);
-    type_button_t *init_button_type(char *text, char *texture,
-                                    sfVector2i size);
-    settings_t *init_settings(void);
 
 #endif

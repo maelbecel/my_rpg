@@ -11,17 +11,22 @@
 
 void settings_sounds(game_t *game, ...)
 {
-    game->scenes->page = SETTINGS_SOUNDS;
+    game->scenes->page = SOUNDS;
 }
 
 element_t **settings_sounds_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 6);
-    elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0}, (sfVector2f){10001, 10080}, (sfVector2f){0.2, 0.2});
-    elements[1] = init_element("ressources/UI/button1.png", (sfVector2f){600, 400}, (sfVector2f){823, 201}, (sfVector2f){1, 0.3});
-    elements[2] = init_element("ressources/UI/button1.png", (sfVector2f){600, 800}, (sfVector2f){823, 201}, (sfVector2f){1, 0.3});
-    elements[3] = init_element("ressources/UI/button1_hoover.png", (sfVector2f){600, 380}, (sfVector2f){823, 201}, (sfVector2f){0.1, 0.5});
-    elements[4] = init_element("ressources/UI/button1_hoover.png", (sfVector2f){600, 780}, (sfVector2f){823, 201}, (sfVector2f){0.1, 0.5});
+    elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0},
+                        (sfVector2f){10001, 10080}, (sfVector2f){0.2, 0.2});
+    elements[1] = init_element("ressources/UI/button1.png",
+        (sfVector2f){600, 400}, (sfVector2f){823, 201}, (sfVector2f){1, 0.3});
+    elements[2] = init_element("ressources/UI/button1.png",
+        (sfVector2f){600, 800}, (sfVector2f){823, 201}, (sfVector2f){1, 0.3});
+    elements[3] = init_element("ressources/UI/button1_hoover.png",
+    (sfVector2f){600, 380}, (sfVector2f){823, 201}, (sfVector2f){0.1, 0.5});
+    elements[4] = init_element("ressources/UI/button1_hoover.png",
+    (sfVector2f){600, 780}, (sfVector2f){823, 201}, (sfVector2f){0.1, 0.5});
     elements[5] = NULL;
     return elements;
 }

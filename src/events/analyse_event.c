@@ -13,21 +13,33 @@ int analyse_event(game_t *game, sfEvent *event)
 {
     if (event->type == sfEvtClosed )
         return 0;
-    if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_pause && game->scenes->page == GAME)
+    if (event->type == sfEvtKeyPressed &&
+        event->key.code == game->settings->key_pause &&
+        game->scenes->page == GAME)
         game->scenes->page = PAUSE;
-    else if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_pause && game->scenes->page == PAUSE)
+    else if (event->type == sfEvtKeyPressed &&
+            event->key.code == game->settings->key_pause &&
+            game->scenes->page == PAUSE)
         game->scenes->page = GAME;
     if (game->scenes->page == MAIN_MENU) {
         game->scenes[SETTINGS].buttons[0]->action_clicked = main_menu;
-        sfText_setString(game->scenes[SETTINGS].buttons[0]->base->text, "MAIN MENU");
-        sfText_setString(game->scenes[SETTINGS].buttons[0]->clicked->text, "MAIN MENU");
-        sfText_setString(game->scenes[SETTINGS].buttons[0]->hoover->text, "MAIN MENU");
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->base->text,
+                                                                "MAIN MENU");
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->clicked->text,
+                                                                "MAIN MENU");
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->hoover->text,
+                                                                "MAIN MENU");
     } if (game->scenes->page == PAUSE) {
         game->scenes[SETTINGS].buttons[0]->action_clicked = pause_menu;
-        sfText_setString(game->scenes[SETTINGS].buttons[0]->base->text, "PAUSE MENU");
-        sfText_setString(game->scenes[SETTINGS].buttons[0]->clicked->text, "PAUSE MENU");
-        sfText_setString(game->scenes[SETTINGS].buttons[0]->hoover->text, "PAUSE MENU");
-    } if (event->type == sfEvtKeyPressed && event->key.code == game->settings->key_menu && (game->scenes->page == GAME || game->scenes->page == MENU_PLAYER)) {
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->base->text,
+                                                                "PAUSE MENU");
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->clicked->text,
+                                                                "PAUSE MENU");
+        sfText_setString(game->scenes[SETTINGS].buttons[0]->hoover->text,
+                                                                "PAUSE MENU");
+    } if (event->type == sfEvtKeyPressed &&
+        event->key.code == game->settings->key_menu &&
+        (game->scenes->page == GAME || game->scenes->page == MENU_PLAYER)) {
         menu_event(game);
         return 1;
     }
@@ -57,5 +69,6 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
         else
             game->scenes[GAME].elements[1]->pos.x += 5;
     }
-    sfSprite_setTextureRect(game->scenes[GAME].elements[0]->sprite, game->scenes[GAME].elements[0]->rect);
+    sfSprite_setTextureRect(game->scenes[GAME].elements[0]->sprite,
+                            game->scenes[GAME].elements[0]->rect);
 }

@@ -11,13 +11,14 @@
 
 void settings_key(game_t *game, ...)
 {
-    game->scenes->page = SETTINGS_KEY;
+    game->scenes->page = KEY;
 }
 
 element_t **settings_key_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 2);
-    elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0}, (sfVector2f){10001, 10080}, (sfVector2f){0.2, 0.2});
+    elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0},
+                        (sfVector2f){10001, 10080}, (sfVector2f){0.2, 0.2});
     elements[1] = NULL;
     return elements;
 }

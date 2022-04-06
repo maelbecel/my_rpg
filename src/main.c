@@ -32,7 +32,8 @@ int main (int ac, UNUSED char **argv)
     game_t *game = malloc(sizeof(game_t));
     game->settings = init_settings();
     game->scenes = init_scenes();
-    game->window = sfRenderWindow_create(mode, "RPG no seed", sfFullscreen, NULL);
+    game->window = sfRenderWindow_create(mode, "RPG no seed",
+                                                        sfFullscreen, NULL);
     sfRenderWindow_setFramerateLimit(game->window, 30);
     intro(game->window);
     rpg(game, &event);
