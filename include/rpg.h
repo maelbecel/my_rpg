@@ -7,6 +7,15 @@
 
 #ifndef RPG
     #define RPG
+
+    #define UNUSED __attribute__((unused))
+    #define BASIC_TEXT_SIZE 50
+    #define BASIC_FONT "ressources/Fonts/game.ttf"
+    #define MICRO 1000000
+
+    ////////////////////////////////////////////////////////////
+    // Headers
+    ////////////////////////////////////////////////////////////
     #include <stdbool.h>
     #include <stddef.h>
     #include <stdlib.h>
@@ -18,18 +27,14 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include <SFML/Window.h>
-
     #include "cinematique.h"
     #include "event.h"
     #include "display.h"
     #include "initialise.h"
 
-    #define UNUSED __attribute__((unused))
-    #define BASIC_TEXT_SIZE 50
-    #define BASIC_FONT "ressources/Fonts/game.ttf"
-
-    #define MICRO 1000000
-
+    ////////////////////////////////////////////////////////////
+    // Structures
+    ////////////////////////////////////////////////////////////
     typedef struct type_button_s type_button_t;
     typedef struct button_s button_t;
     typedef struct element_s element_t;
@@ -37,6 +42,10 @@
     typedef struct game_s game_t;
     typedef struct settings_s settings_t;
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Enumerates all scenes.
+    ///
+    ////////////////////////////////////////////////////////////
     enum scenes {
         MAIN_MENU,
         GAME,
@@ -50,6 +59,13 @@
         PAUSE
     };
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Element struct.
+    ///
+    /// Contain the texture, sprite, scale, rectangle, position
+    /// and the max number of sprites.
+    ///
+    ////////////////////////////////////////////////////////////
     struct element_s {
         sfTexture *texture;
         sfSprite *sprite;
@@ -59,6 +75,13 @@
         int max_sprite;
     };
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Button aspect struct.
+    ///
+    /// Contain the texture, sprite, scale, rectangle, text, font, sound
+    /// text position and the text size.
+    ///
+    ////////////////////////////////////////////////////////////
     struct type_button_s {
         sfTexture *texture;
         sfSprite *sprite;
@@ -71,6 +94,13 @@
         int text_size;
     };
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Button struct.
+    ///
+    /// Contain the base aspect, hoover aspect, clicked aspect, button position
+    /// ,action when hoover, action when clicked, x and y.
+    ///
+    ////////////////////////////////////////////////////////////
     struct button_s {
         type_button_t *base;
         type_button_t *hoover;
@@ -82,12 +112,26 @@
         int y;
     };
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Scenes struct.
+    ///
+    /// Contain the list of buttons, the list of elements and the number of the
+    /// actual page.
+    ///
+    ////////////////////////////////////////////////////////////
     struct scene_s {
         button_t **buttons;
         element_t **elements;
         int page;
     };
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Settings struct.
+    ///
+    /// Contain the music and FX volume, up, down, left, right, pause and menu
+    /// keys.
+    ///
+    ////////////////////////////////////////////////////////////
     struct settings_s {
         int music_volume;
         int fx_volume;
@@ -99,12 +143,24 @@
         int key_menu;
     };
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Game struct.
+    ///
+    /// Contain the window, the list of scenes and the settings.
+    ///
+    ////////////////////////////////////////////////////////////
     struct game_s {
         sfRenderWindow *window;
         scene_t *scenes;
         settings_t *settings;
     };
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Key struct.
+    ///
+    /// Contain the key and the name of the key.
+    ///
+    ////////////////////////////////////////////////////////////
     struct key_s {
         int key;
         char *name;

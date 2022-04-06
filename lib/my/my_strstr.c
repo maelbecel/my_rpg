@@ -24,5 +24,5 @@ char *my_strstr(char *str, char const *to_find)
             return (str + i - len_find + 2);
         i++;
     }
-    return 0;
+    return NULL;
 }
