@@ -30,6 +30,7 @@
     typedef struct button_s button_t;
     typedef struct element_s element_t;
     typedef struct settings_s settings_t;
+    typedef struct pos_perso_s pos_perso_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Draw a button on a window
@@ -137,9 +138,11 @@
     ///
     /// \param game  game_t object who contain all game info
     /// \param event sfEvent object where events are register
+    /// \param pos_perso pos_perso objetwhich contains the information of the
+    ///                                           palyer in relation to the map
     ///
     ////////////////////////////////////////////////////////////
-    void display(game_t *game, sfEvent *event);
+    void display(game_t *game, sfEvent *event, pos_perso_t *pos_perso);
 
     ////////////////////////////////////////////////////////////
     /// \brief Show the actual key in the key settings menu
@@ -153,8 +156,10 @@
     /// \brief show the key to expand with a pnj
     ///
     /// \param game  game_t object who contain all game info
+    /// \param pos_perso pos_perso objetwhich contains the information of the
+    ///                                           palyer in relation to the map
     ///
     ////////////////////////////////////////////////////////////
-    void display_key_with_pnj(game_t *game);
+    void display_key_with_pnj(game_t *game, pos_perso_t *pos_perso);
 
 #endif

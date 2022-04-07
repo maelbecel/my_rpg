@@ -41,6 +41,7 @@
     typedef struct scene_s scene_t;
     typedef struct game_s game_t;
     typedef struct settings_s settings_t;
+    typedef struct pos_perso_s pos_perso_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Enumerates all scenes.
@@ -165,6 +166,11 @@
     struct key_s {
         int key;
         char *name;
+    };
+
+    struct pos_perso_s {
+        int x;
+        int y;
     };
 
 #endif

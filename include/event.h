@@ -27,6 +27,7 @@
     // Structures
     ////////////////////////////////////////////////////////////
     typedef struct game_s game_t;
+    typedef struct pos_perso_s pos_perso_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Check if a button is hoover
@@ -70,7 +71,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void analyse_game(game_t *game, sfEvent *event);
+    void analyse_game(game_t *game, sfEvent *event, pos_perso_t *pos_perso);
 
     ////////////////////////////////////////////////////////////
     /// \brief Change button state on clicked

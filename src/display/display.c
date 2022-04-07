@@ -28,12 +28,12 @@ void display_main_menu(game_t *game, sfEvent *event)
     }
 }
 
-void display_game(game_t *game, sfEvent *event)
+void display_game(game_t *game, sfEvent *event, pos_perso_t *pos_perso)
 {
     int b = 0;
     int e = 0;
 
-    analyse_game(game, event);
+    analyse_game(game, event, pos_perso);
     game->scenes[GAME].elements[4]->pos.x = (game->scenes[GAME].elements[0]->rect.left + game->scenes[GAME].elements[2]->pos.x) / 30 + 1420;
     game->scenes[GAME].elements[4]->pos.y = (game->scenes[GAME].elements[0]->rect.top + game->scenes[GAME].elements[2]->pos.y) / 30 - 17;
     while (game->scenes[GAME].elements[e])
@@ -48,6 +48,7 @@ void display_game(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[GAME].buttons[b++]);
     }
+    display_key_with_pnj(game, pos_perso);
 }
 
 void display_pause(game_t *game, sfEvent *event)
@@ -85,12 +86,12 @@ void display_menu_player(game_t *game)
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e++]);
 }
 
-void display(game_t *game, sfEvent *event)
+void display(game_t *game, sfEvent *event, pos_perso_t *pos_perso)
 {
     switch (game->scenes->page) {
         case MAIN_MENU: display_main_menu(game, event);
             break;
-        case GAME: display_game(game, event);
+        case GAME: display_game(game, event, pos_perso);
             break;
         case SETTINGS: display_settings(game, event);
             break;
