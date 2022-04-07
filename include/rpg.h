@@ -168,9 +168,4 @@
         char *name;
     };
 
-    struct pos_perso_s {
-        int x;
-        int y;
-    };
-
 #endif

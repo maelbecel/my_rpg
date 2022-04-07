@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-static int rpg(game_t *game, sfEvent *event, pos_perso_t *pos_perso)
+static int rpg(game_t *game, sfEvent *event)
 {
     while (sfRenderWindow_isOpen(game->window)) {
         while (sfRenderWindow_pollEvent(game->window, event)) {
@@ -17,7 +17,7 @@ static int rpg(game_t *game, sfEvent *event, pos_perso_t *pos_perso)
                 return 0;
         }
         sfRenderWindow_clear(game->window, sfWhite);
-        display(game, event, pos_perso);
+        display(game, event);
         sfRenderWindow_display(game->window);
     }
     return 0;
@@ -29,7 +29,6 @@ int main (int ac, UNUSED char **argv)
         return 84;
     sfVideoMode mode = {1920, 1080, 32};
     sfEvent event;
-    pos_perso_t pos_perso;
     game_t *game = malloc(sizeof(game_t));
     game->settings = init_settings();
     game->scenes = init_scenes();
@@ -37,7 +36,7 @@ int main (int ac, UNUSED char **argv)
                                                         sfFullscreen, NULL);
     sfRenderWindow_setFramerateLimit(game->window, 30);
     intro(game->window);
-    rpg(game, &event, &pos_perso);
+    rpg(game, &event);
     sfRenderWindow_destroy(game->window);
     return 0;
 }
