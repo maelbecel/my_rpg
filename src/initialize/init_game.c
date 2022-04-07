@@ -19,8 +19,8 @@ element_t **game_elements(void)
     element_t **elements = malloc(sizeof(element_t *) * 6);
     elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1.5, 1.5});
-    elements[1] = init_element("ressources/pnj.png",
-        (sfVector2f){0, 0}, (sfVector2f){10000, 7000}, (sfVector2f){0.2, 0.2});
+    elements[1] = init_element("ressources/0-20.png",
+        (sfVector2f){0, 0}, (sfVector2f){805, 1200}, (sfVector2f){1, 1});
     elements[2] = init_element("ressources/perso.png", (sfVector2f){900, 500},
                             (sfVector2f){1920, 1080}, (sfVector2f){0.8, 0.8});
     elements[3] = init_element("ressources/map.png", (sfVector2f){1420, 0},
