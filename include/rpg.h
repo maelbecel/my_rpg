@@ -31,6 +31,7 @@
     #include "event.h"
     #include "display.h"
     #include "initialise.h"
+    #include "player.h"
 
     ////////////////////////////////////////////////////////////
     // Structures
