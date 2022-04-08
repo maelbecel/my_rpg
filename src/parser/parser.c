@@ -65,12 +65,12 @@ void update_file(char *file, char *var, char *value)
     char *buffer = "\0";
     char *variable = conc("    ",conc(coat(),
                                     conc(var, conc(coat(), conc(":", " ")))));
-
     if (fd == NULL)
         return;
     while ((read = getline(&line, &len, fd)) != -1) {
         if (my_strncmp(line, variable, my_strlen(variable)) == 0) {
-            buffer = conc(buffer, conc(variable, conc(value, (line[read - 2] == ',') ? ",\n" : "\n")));
+            buffer = conc(buffer, conc(variable, conc(value,
+                                    (line[read - 2] == ',') ? ",\n" : "\n")));
         } else
             buffer = conc(buffer, line);
     }

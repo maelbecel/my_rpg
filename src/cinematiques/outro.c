@@ -38,6 +38,28 @@ static int check_clock(int mul, sfClock *clock)
     return 0;
 }
 
+static void draw_text_white(char *text, int size, sfVector2f pos, sfRenderWindow *window)
+{
+    sfText *score = sfText_create();
+    sfText_setColor(score, sfWhite);
+    sfText_setString(score, text);
+    sfText_setFont(score, sfFont_createFromFile(BASIC_FONT));
+    sfText_setCharacterSize(score, size);
+    sfText_setPosition(score, pos);
+    sfRenderWindow_drawText(window, score, NULL);
+    sfText_destroy(score);
+}
+
+static bool skip(sfRenderWindow *window)
+{
+    int key = my_getnbr(parser("config/settings.json", "skip_key"));
+    sfEvent event;
+    sfRenderWindow_pollEvent(window, &event);
+    if (event.type == sfEvtKeyPressed && event.key.code == key)
+        return true;
+    return false;
+}
+
 int outro(sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
@@ -48,7 +70,7 @@ int outro(sfRenderWindow *window)
     sfMusic *music = sfMusic_createFromFile("ressources/sounds/shrek.ogg");
 
     sfMusic_play(music);
-    while (opacity < 250) {
+    while (opacity < 250 && !skip(window)) {
         opacity += check_clock(mul, clock);
         if (check_clock(mul, clock) != 0)
             sfClock_restart(clock);
@@ -57,6 +79,7 @@ int outro(sfRenderWindow *window)
         sfRenderWindow_drawSprite(window, epitech, NULL);
         sfRectangleShape_setFillColor(rect, sfColor_fromRGBA(0, 0, 0, opacity));
         sfRenderWindow_drawRectangleShape(window, rect, NULL);
+        draw_text_white("PRESS'S' TO SKIP", 60, (sfVector2f){1300, 930}, window);
         sfRenderWindow_display(window);
     }
     sfMusic_destroy(music);
