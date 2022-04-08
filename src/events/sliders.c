@@ -35,6 +35,8 @@ void set_slider_pos(game_t * game)
 
     game->scenes[SOUNDS].elements[3]->pos.x = pos_music;
     game->scenes[SOUNDS].elements[4]->pos.x = pos_fx;
+    update_file("config/settings.json", "fx_sound", inttochar(game->settings->fx_volume));
+    update_file("config/settings.json", "music_sound", inttochar(game->settings->music_volume));
 }
 
 void move_slider(game_t *game, sfEvent *event)

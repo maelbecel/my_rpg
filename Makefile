@@ -25,6 +25,8 @@ INIT		 =			initialize/
 
 DISP		 =			display/
 
+PARS		 =			parser/
+
 SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
@@ -51,6 +53,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display.c   				\
 						$(SOURCES)$(DISP)display_htp.c   			\
 						$(SOURCES)$(DISP)display_key_with_pnj.c		\
+						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(CINE)intro.c   					\
 						$(SOURCES)$(CINE)outro.c
 

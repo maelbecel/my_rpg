@@ -168,4 +168,25 @@
         char *name;
     };
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Get arguments from a JSON file
+    ///
+    /// \param file Path to the JSON file
+    /// \param var  Variable to search in the JSON file
+    ///
+    /// \return Value of the variable from the JSON file or NULL if not found.
+    ///
+    ////////////////////////////////////////////////////////////
+    char *parser(char *file, char *var);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Update a JSON file
+    ///
+    /// \param file  Path to the JSON file
+    /// \param var   Variable to search in the JSON file
+    /// \param value Value to update in the JSON file
+    ///
+    ////////////////////////////////////////////////////////////
+    void update_file(char *file, char *var, char *value);
+
 #endif

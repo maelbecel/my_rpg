@@ -158,4 +158,15 @@
     ////////////////////////////////////////////////////////////
     void display_key_with_pnj(game_t *game);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Concatenate the settings
+    ///
+    /// \param a  first element to concat
+    /// \param b  second element to concat
+    ///
+    /// \return The concatenated string of a and b
+    ///
+    ////////////////////////////////////////////////////////////
+    char *conc(char *a, char *b);
+
 #endif

@@ -87,13 +87,14 @@ scene_t *init_scenes(void)
 settings_t *init_settings(void)
 {
     settings_t *set = malloc(sizeof(settings_t));
-    set->key_down = sfKeyDown;
-    set->key_up = sfKeyUp;
-    set->key_left = sfKeyLeft;
-    set->key_right = sfKeyRight;
-    set->key_pause = sfKeyEscape;
-    set->key_menu = sfKeyP;
-    set->music_volume = 50;
-    set->fx_volume = 75;
+    set->key_down = my_getnbr(parser("config/settings.json", "down_key"));
+    set->key_up = my_getnbr(parser("config/settings.json", "up_key"));
+    set->key_left = my_getnbr(parser("config/settings.json", "left_key"));
+    set->key_right = my_getnbr(parser("config/settings.json", "right_key"));
+    set->key_pause = my_getnbr(parser("config/settings.json", "pause_key"));
+    set->key_menu = my_getnbr(parser("config/settings.json", "menu_key"));
+    set->music_volume = my_getnbr(parser("config/settings.json",
+                                                            "music_sound"));
+    set->fx_volume = my_getnbr(parser("config/settings.json", "fx_sound"));
     return set;
 }

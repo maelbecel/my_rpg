@@ -54,6 +54,7 @@ void display_settings_sounds(game_t *game, sfEvent *event)
     int b = 0;
     int e = 0;
 
+    set_slider_pos(game);
     move_slider(game, event);
     set_slider_pos(game);
     while(game->scenes[SOUNDS].elements[e])
