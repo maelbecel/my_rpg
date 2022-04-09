@@ -156,6 +156,7 @@
         sfRenderWindow *window;
         scene_t *scenes;
         settings_t *settings;
+        player_t *player;
     };
 
     ////////////////////////////////////////////////////////////

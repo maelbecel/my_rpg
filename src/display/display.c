@@ -83,6 +83,10 @@ void display_menu_player(game_t *game)
 
     while (game->scenes[MENU_PLAYER].elements[e])
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e++]);
+    draw_text(conc("HP : ", inttochar(game->player->hp)), 40, (sfVector2f){100, 100}, game->window);
+    draw_text(conc("STRENGHT : ", inttochar(game->player->strg)), 40, (sfVector2f){100, 200}, game->window);
+    draw_text(conc("SPEED : ", inttochar(game->player->spd)), 40, (sfVector2f){100, 300}, game->window);
+    draw_text(conc("DEFENSE : ", inttochar(game->player->def)), 40, (sfVector2f){100, 400}, game->window);
 }
 
 void display(game_t *game, sfEvent *event)
