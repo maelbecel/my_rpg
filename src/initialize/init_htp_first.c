@@ -42,3 +42,13 @@ button_t **htp_first_buttons(void)
     buttons[1]->hoover->scale = (sfVector2f){0.4, 1};
     return buttons;
 }
+
+void init_htp(scene_t *scenes)
+{
+    scenes[HTP_1].buttons = htp_first_buttons();
+    scenes[HTP_1].elements = htp_first_elements();
+    scenes[HTP_2].buttons = htp_second_buttons();
+    scenes[HTP_2].elements = htp_second_elements();
+    scenes[HTP_3].buttons = htp_third_buttons();
+    scenes[HTP_3].elements = htp_third_elements();
+}

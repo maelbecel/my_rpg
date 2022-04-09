@@ -73,12 +73,7 @@ scene_t *init_scenes(void)
     scenes[SOUNDS].elements = settings_sounds_elements();
     scenes[KEY].buttons = settings_key_buttons();
     scenes[KEY].elements = settings_key_elements();
-    scenes[HTP_1].buttons = htp_first_buttons();
-    scenes[HTP_1].elements = htp_first_elements();
-    scenes[HTP_2].buttons = htp_second_buttons();
-    scenes[HTP_2].elements = htp_second_elements();
-    scenes[HTP_3].buttons = htp_third_buttons();
-    scenes[HTP_3].elements = htp_third_elements();
+    init_htp(scenes);
     scenes[PAUSE].buttons = pause_buttons();
     scenes[PAUSE].elements = pause_elements();
     return scenes;
