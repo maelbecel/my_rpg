@@ -98,6 +98,14 @@
     element_t **menu_player_elements(void);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Get tabs for the player menu
+    ///
+    /// \return struct scene_t** with all tab for the scene
+    ///
+    ////////////////////////////////////////////////////////////
+    scene_t *menu_player_tab(void);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the key settings  menu
     ///
     /// \return struct button_t** with all buttons for the scene

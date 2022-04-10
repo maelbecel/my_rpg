@@ -54,6 +54,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display.c   				\
 						$(SOURCES)$(DISP)display_htp.c   			\
 						$(SOURCES)$(DISP)display_key_with_pnj.c		\
+						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(CINE)intro.c   					\
 						$(SOURCES)$(CINE)outro.c

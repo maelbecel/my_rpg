@@ -69,6 +69,7 @@ scene_t *init_scenes(void)
     scenes[SETTINGS].elements = settings_elements();
     scenes[MENU_PLAYER].buttons = menu_player_buttons();
     scenes[MENU_PLAYER].elements = menu_player_elements();
+    scenes[MENU_PLAYER].tab = menu_player_tab();
     scenes[SOUNDS].buttons = settings_sounds_buttons();
     scenes[SOUNDS].elements = settings_sounds_elements();
     scenes[KEY].buttons = settings_key_buttons();

@@ -169,4 +169,13 @@
     ////////////////////////////////////////////////////////////
     char *conc(char *a, char *b);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the menu of the player
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_menu_player(game_t *game, sfEvent *event);
+
 #endif

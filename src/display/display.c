@@ -77,18 +77,6 @@ void display_pause(game_t *game, sfEvent *event)
     }
 }
 
-void display_menu_player(game_t *game)
-{
-    int e = 0;
-
-    while (game->scenes[MENU_PLAYER].elements[e])
-        draw_element(game->window, game->scenes[MENU_PLAYER].elements[e++]);
-    draw_text(conc("HP : ", inttochar(game->player->hp)), 40, (sfVector2f){100, 100}, game->window);
-    draw_text(conc("STRENGHT : ", inttochar(game->player->strg)), 40, (sfVector2f){100, 200}, game->window);
-    draw_text(conc("SPEED : ", inttochar(game->player->spd)), 40, (sfVector2f){100, 300}, game->window);
-    draw_text(conc("DEFENSE : ", inttochar(game->player->def)), 40, (sfVector2f){100, 400}, game->window);
-}
-
 void display(game_t *game, sfEvent *event)
 {
     switch (game->scenes->page) {
@@ -102,7 +90,7 @@ void display(game_t *game, sfEvent *event)
             break;
         case SOUNDS: display_settings_sounds(game, event);
             break;
-        case MENU_PLAYER: display_menu_player(game);
+        case MENU_PLAYER: display_menu_player(game, event);
             break;
         case HTP_1: display_htp_first(game, event);
             break;

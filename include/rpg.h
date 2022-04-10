@@ -125,6 +125,7 @@
         button_t **buttons;
         sfText *text;
         element_t **elements;
+        scene_t *tab;
         int page;
     };
 
