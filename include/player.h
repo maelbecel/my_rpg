@@ -20,6 +20,7 @@
     ////////////////////////////////////////////////////////////
     struct player {
         element_t *elem;
+        char *class;
         int hp;
         int strg;
         int spd;
