@@ -81,7 +81,7 @@ int intro(sfRenderWindow *window)
         sfRenderWindow_drawSprite(window, epitech, NULL);
         sfRectangleShape_setFillColor(rect, sfColor_fromRGBA(0, 0, 0, opacity));
         sfRenderWindow_drawRectangleShape(window, rect, NULL);
-        draw_text_white("PRESS'S' TO SKIP", 60, (sfVector2f){1300, 930}, window);
+        draw_text_white("PRESS 'S' TO SKIP", 60, (sfVector2f){1300, 930}, window);
         sfRenderWindow_display(window);
     }
     sfMusic_destroy(music);
