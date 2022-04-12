@@ -29,9 +29,11 @@ game_t *init_game(void)
     game_t *game = malloc(sizeof(game_t));
 
     game->settings = init_settings();
-    game->scenes = init_scenes();
     game->window = sfRenderWindow_create(mode, "RPG no seed",
                                                         sfFullscreen, NULL);
+    sfRenderWindow_setFramerateLimit(game->window, 30);
+    intro(game->window);
+    game->scenes = init_scenes(game->window);
     game->player = init_player("chevalier");
     return game;
 }
@@ -42,8 +44,6 @@ int main (int ac, UNUSED char **argv)
         return 84;
     sfEvent event;
     game_t *game = init_game();
-    sfRenderWindow_setFramerateLimit(game->window, 30);
-    intro(game->window);
     rpg(game, &event);
     sfRenderWindow_destroy(game->window);
     return 0;

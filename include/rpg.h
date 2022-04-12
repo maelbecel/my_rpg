@@ -12,6 +12,7 @@
     #define BASIC_TEXT_SIZE 50
     #define BASIC_FONT "ressources/Fonts/game.ttf"
     #define MICRO 1000000
+    #define NB_SCENES 10
 
     ////////////////////////////////////////////////////////////
     // Headers
@@ -192,4 +193,12 @@
     ////////////////////////////////////////////////////////////
     void update_file(char *file, char *var, char *value);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Display loading bar
+    ///
+    /// \param number  Scene to load
+    /// \param window  Window where the loading bar should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    void loading(int number, sfRenderWindow *window);
 #endif

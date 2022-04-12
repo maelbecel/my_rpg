@@ -43,12 +43,18 @@ button_t **htp_first_buttons(void)
     return buttons;
 }
 
-void init_htp(scene_t *scenes)
+void init_htp(scene_t *scenes, sfRenderWindow *window)
 {
     scenes[HTP_1].buttons = htp_first_buttons();
+    loading(15, window);
     scenes[HTP_1].elements = htp_first_elements();
+    loading(16, window);
     scenes[HTP_2].buttons = htp_second_buttons();
+    loading(17, window);
     scenes[HTP_2].elements = htp_second_elements();
+    loading(18, window);
     scenes[HTP_3].buttons = htp_third_buttons();
+    loading(19, window);
     scenes[HTP_3].elements = htp_third_elements();
+    loading(20, window);
 }

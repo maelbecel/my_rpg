@@ -204,10 +204,12 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get all scenes with elements and buttons
     ///
+    /// \param window window where display loading bar
+    ///
     /// \return struct scene_t* with all elements and buttons for all scenes
     ///
     ////////////////////////////////////////////////////////////
-    scene_t *init_scenes(void);
+    scene_t *init_scenes(sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
     /// \brief Create an element from a file
@@ -264,7 +266,10 @@
     ////////////////////////////////////////////////////////////
     /// \brief Initialize htp scenes
     ///
+    /// \param scenes  Scenes to initialize
+    /// \param window  Window to display loading bar
+    ///
     ////////////////////////////////////////////////////////////
-    void init_htp(scene_t *scenes);
+    void init_htp(scene_t *scenes, sfRenderWindow *window);
 
 #endif

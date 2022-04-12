@@ -57,26 +57,41 @@ element_t *init_element(char *texture, sfVector2f pos,
     return type;
 }
 
-scene_t *init_scenes(void)
+scene_t *init_scenes(sfRenderWindow *window)
 {
     scene_t *scenes = malloc(sizeof(scene_t) * 10);
     scenes->page = 0;
     scenes[MAIN_MENU].buttons = main_menu_buttons();
+    loading(0, window);
     scenes[MAIN_MENU].elements = main_menu_elements();
+    loading(1, window);
     scenes[GAME].buttons = game_buttons();
+    loading(2, window);
     scenes[GAME].elements = game_elements();
+    loading(3, window);
     scenes[SETTINGS].buttons = settings_buttons();
+    loading(4, window);
     scenes[SETTINGS].elements = settings_elements();
+    loading(5, window);
     scenes[MENU_PLAYER].buttons = menu_player_buttons();
+    loading(6, window);
     scenes[MENU_PLAYER].elements = menu_player_elements();
+    loading(7, window);
     scenes[MENU_PLAYER].tab = menu_player_tab();
+    loading(8, window);
     scenes[SOUNDS].buttons = settings_sounds_buttons();
+    loading(9, window);
     scenes[SOUNDS].elements = settings_sounds_elements();
+    loading(10, window);
     scenes[KEY].buttons = settings_key_buttons();
+    loading(11, window);
     scenes[KEY].elements = settings_key_elements();
-    init_htp(scenes);
+    loading(12, window);
     scenes[PAUSE].buttons = pause_buttons();
+    loading(13, window);
     scenes[PAUSE].elements = pause_elements();
+    loading(14, window);
+    init_htp(scenes, window);
     return scenes;
 }
 
