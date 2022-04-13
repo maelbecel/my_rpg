@@ -9,6 +9,31 @@
 #include "printf.h"
 #include "rpg.h"
 
+int is_hoover_menu(game_t *game, int b, int s, int t)
+{
+    sfVector2f pos = game->scenes[s].tab[t].buttons[b]->pos;
+    sfVector2f scale = game->scenes[s].tab[t].buttons[b]->base->scale;
+    sfVector2u size = sfTexture_getSize(
+                                game->scenes[s].tab[t].buttons[b]->hoover->texture);
+    sfVector2i click = sfMouse_getPositionRenderWindow(game->window);
+    size.x *= scale.x;
+    size.y *= scale.y;
+    if (click.x > pos.x && click.x < (pos.x + size.x)) {
+        if (click.y > pos.y && click.y < (pos.y + size.y)) {
+            game->scenes[s].tab[t].buttons[b]->action_hoover(game, b, t);
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int is_click_menu(game_t *game, int b, int s, int t)
+{
+    if (!is_hoover_menu(game, b, s, t) || !sfRenderWindow_isOpen(game->window))
+        return 0;
+    return 1;
+}
+
 int is_hoover(game_t *game, int b, int s)
 {
     sfVector2f pos = game->scenes[s].buttons[b]->pos;

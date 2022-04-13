@@ -70,10 +70,44 @@ element_t **menu_player_elements(void)
     return elements;
 }
 
+button_t **init_button_stat(void)
+{
+    button_t **buttons = malloc(sizeof(button_t *) * (5 + 1));
+
+    buttons[5] = NULL;
+    buttons[0] = init_button("+", "ressources/UI/button1.png",
+                        (sfVector2f){500, 150}, (sfVector2i){300, 100});
+    buttons[1] = init_button("+", "ressources/UI/button1.png",
+                        (sfVector2f){500, 250}, (sfVector2i){300, 100});
+    buttons[2] = init_button("+", "ressources/UI/button1.png",
+                        (sfVector2f){500, 350}, (sfVector2i){300, 100});
+    buttons[3] = init_button("+", "ressources/UI/button1.png",
+                        (sfVector2f){500, 450}, (sfVector2i){300, 100});
+    buttons[4] = init_button("RESET", "ressources/UI/button1.png",
+                        (sfVector2f){100, 700}, (sfVector2i){300, 100});
+    buttons[4]->action_clicked = clicked_menu;
+    buttons[4]->action_hoover = hoover_menu;
+    for (int i = 0; i < 4; i++) {
+        buttons[i]->action_clicked = clicked_menu;
+        buttons[i]->action_hoover = hoover_menu;
+        buttons[i]->base->scale = (sfVector2f){0.59, 0.5};
+        buttons[i]->clicked->scale = (sfVector2f){0.59, 0.5};
+        buttons[i]->hoover->scale = (sfVector2f){0.59, 0.5};
+        buttons[i]->base->text_pos.x *= 0.59;
+        buttons[i]->base->text_pos.y *= 0.5;
+        buttons[i]->clicked->text_pos.x *= 0.59;
+        buttons[i]->clicked->text_pos.y *= 0.5;
+        buttons[i]->hoover->text_pos.x *= 0.59;
+        buttons[i]->hoover->text_pos.y *= 0.5;
+    }
+    return buttons;
+}
+
 scene_t *menu_player_tab(void)
 {
-    scene_t *scenes = malloc(sizeof(scene_t) * 1);
+    scene_t *scenes = malloc(sizeof(scene_t) * 4);
 
     scenes->page = 0;
+    scenes[STAT].buttons = init_button_stat();
     return scenes;
 }

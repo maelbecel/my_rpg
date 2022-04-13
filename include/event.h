@@ -41,6 +41,19 @@
     int is_hoover(game_t *game, int b, int s);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Check if a button in menu player is hoover
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param b  number of the button in the scene
+    /// \param s  number of the scene
+    /// \param t  number of the tab
+    ///
+    /// \return 1 if button is hoovered, 0 if not
+    ///
+    ////////////////////////////////////////////////////////////
+    int is_hoover_menu(game_t *game, int b, int s, int t);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Check if a button is clicked
     ///
     /// \param game  game_t object who contain all game info
@@ -51,6 +64,19 @@
     ///
     ////////////////////////////////////////////////////////////
     int is_click(game_t *game, int b, int s);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Check if a button is clicked in menu player
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param b  number of the button in the scene
+    /// \param s  number of the scene
+    /// \param t  number of the tab
+    ///
+    /// \return 1 if button is clicked, 0 if not
+    ///
+    ////////////////////////////////////////////////////////////
+    int is_click_menu(game_t *game, int b, int s, int t);
 
     ////////////////////////////////////////////////////////////
     /// \brief Analyse events and do some action in function of it
@@ -82,6 +108,15 @@
     void clicked(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Change button in menu player state on clicked
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ... other information passed with va_list arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void clicked_menu(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Change button state on hoover
     ///
     /// \param game  game_t object who contain all game info
@@ -89,6 +124,15 @@
     ///
     ////////////////////////////////////////////////////////////
     void hoover(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Change button in menu player state on hoover
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ... other information passed with va_list arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void hoover_menu(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Do none

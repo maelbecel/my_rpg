@@ -32,6 +32,13 @@
     typedef struct settings_s settings_t;
     typedef struct pos_perso_s pos_perso_t;
 
+    enum menu_player {
+        PLAYER,
+        STAT,
+        QUEST,
+        INVENTORY
+    };
+
     ////////////////////////////////////////////////////////////
     /// \brief Draw a button on a window
     ///
