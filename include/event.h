@@ -99,6 +99,15 @@
     void analyse_game(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Analyse menu player events and do some action in function of it
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    int event_menu_player(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Change button state on clicked
     ///
     /// \param game  game_t object who contain all game info
