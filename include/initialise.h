@@ -202,6 +202,22 @@
     element_t **pause_elements(void);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Get buttons for the load menu
+    ///
+    /// \return struct button_t** with all buttons for the scene
+    ///
+    ////////////////////////////////////////////////////////////
+    button_t **load_menu_buttons(void);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Get elements for the load menu
+    ///
+    /// \return struct element_t** with all elements for the scene
+    ///
+    ////////////////////////////////////////////////////////////
+    element_t **load_menu_elements(void);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Get all scenes with elements and buttons
     ///
     /// \param window window where display loading bar

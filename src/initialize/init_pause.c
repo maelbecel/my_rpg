@@ -29,19 +29,21 @@ element_t **pause_elements(void)
 
 button_t **pause_buttons(void)
 {
-    button_t **buttons = malloc(sizeof(button_t *) * 5);
+    button_t **buttons = malloc(sizeof(button_t *) * 6);
     buttons[0] = init_button("MAIN MENU", "ressources/UI/button1.png",
-                        (sfVector2f){550,150}, (sfVector2i){300, 100});
+                        (sfVector2f){550,30}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = main_menu;
     buttons[1] = init_button("SETTINGS", "ressources/UI/button1.png",
-                        (sfVector2f){550,350}, (sfVector2i){300, 100});
+                        (sfVector2f){550,240}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = settings;
     buttons[2] = init_button("QUIT", "ressources/UI/button1.png",
-                        (sfVector2f){550,550}, (sfVector2i){300, 100});
+                        (sfVector2f){550,450}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = quit;
     buttons[3] = init_button("RESUME", "ressources/UI/button1.png",
-                        (sfVector2f){550,750}, (sfVector2i){300, 100});
+                        (sfVector2f){550,660}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = resume;
-    buttons[4] = NULL;
+    buttons[4] = init_button("SAVE", "ressources/UI/button1.png",
+                        (sfVector2f){550,870}, (sfVector2i){300, 100});
+    buttons[5] = NULL;
     return buttons;
 }

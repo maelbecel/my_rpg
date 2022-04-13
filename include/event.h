@@ -288,6 +288,15 @@
     void wait_menu(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Go to load menu
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ... other information passed with va_list arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void load(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Set game to menu
     ///
     /// \param game  game_t object who contain all game info

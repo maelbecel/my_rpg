@@ -50,6 +50,25 @@ void display_game(game_t *game, sfEvent *event)
     }
 }
 
+void display_load(game_t *game, sfEvent *event)
+{
+    int b = 0;
+    int e = 0;
+
+    while (game->scenes[LOAD].elements[e])
+        draw_element(game->window, game->scenes[LOAD].elements[e++]);
+    while (game->scenes[LOAD].buttons[b]) {
+        if (event->type == sfEvtMouseButtonPressed &&
+            is_click(game, b, LOAD)) {
+            draw_clicked(game->window, game->scenes[LOAD].buttons[b++]);
+            game->scenes[LOAD].buttons[b - 1]->action_clicked(game, b - 1);
+        } else if (is_hoover(game, b, LOAD))
+            draw_hoover(game->window, game->scenes[LOAD].buttons[b++]);
+        else
+            draw_button(game->window, game->scenes[LOAD].buttons[b++]);
+    }
+}
+
 void display_pause(game_t *game, sfEvent *event)
 {
     int b = 0;
@@ -99,6 +118,8 @@ void display(game_t *game, sfEvent *event)
         case HTP_3: display_htp_third(game, event);
             break;
         case PAUSE: display_pause(game, event);
+            break;
+        case LOAD: display_load(game, event);
             break;
     }
 }

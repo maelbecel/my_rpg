@@ -1,6 +1,6 @@
 {
-    "fx_sound": 12,
-    "music_sound": 15,
+    "fx_sound": 68,
+    "music_sound": 75,
     "left_key": 16,
     "right_key": 3,
     "up_key": 25,
@@ -9,4 +9,3 @@
     "skip_key": 18,
     "menu_key": 12
 }
-

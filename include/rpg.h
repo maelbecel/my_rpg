@@ -12,7 +12,7 @@
     #define BASIC_TEXT_SIZE 50
     #define BASIC_FONT "ressources/Fonts/game.ttf"
     #define MICRO 1000000
-    #define NB_SCENES 10
+    #define NB_SCENES 11
 
     ////////////////////////////////////////////////////////////
     // Headers
@@ -59,7 +59,8 @@
         HTP_1,
         HTP_2,
         HTP_3,
-        PAUSE
+        PAUSE,
+        LOAD
     };
 
     ////////////////////////////////////////////////////////////
