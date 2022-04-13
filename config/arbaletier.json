@@ -2,5 +2,6 @@
     "health": 80,
     "strength": 7,
     "speed": 12,
-    "defense": 4
+    "defense": 4,
+    "point_stat": 3
 }

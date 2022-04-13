@@ -19,5 +19,6 @@ player_t *init_player(char *class)
     player->strg = my_getnbr(parser(conc("config/", conc(class, ".json")), "strength"));
     player->spd = my_getnbr(parser(conc("config/", conc(class, ".json")), "speed"));
     player->def = my_getnbr(parser(conc("config/", conc(class, ".json")), "defense"));
+    player->pt_stat = my_getnbr(parser(conc("config/", conc(class, ".json")), "point_stat"));
     return player;
 }

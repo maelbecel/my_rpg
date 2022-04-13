@@ -59,6 +59,11 @@ void display_stat(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[MENU_PLAYER].buttons[b]);
     }
+    draw_text(conc("HP : ", inttochar(game->player->hp)), 40, (sfVector2f){100, 150}, game->window);
+    draw_text(conc("STRENGHT : ", inttochar(game->player->strg)), 40, (sfVector2f){100, 250}, game->window);
+    draw_text(conc("SPEED : ", inttochar(game->player->spd)), 40, (sfVector2f){100, 350}, game->window);
+    draw_text(conc("DEFENSE : ", inttochar(game->player->def)), 40, (sfVector2f){100, 450}, game->window);
+    draw_text(conc("POINT STAT : ", inttochar(game->player->pt_stat)), 40, (sfVector2f){100, 550}, game->window);
 }
 
 void display_quest(game_t *game, sfEvent *event)
