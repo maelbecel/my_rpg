@@ -11,21 +11,28 @@
 
 void load_1(game_t *game, ...)
 {
+    game->player->save = "1";
+    reset(game);
     game->scenes->page = GAME;
 }
 
 void load_2(game_t *game, ...)
 {
+    game->player->save = "2";
+    reset(game);
     game->scenes->page = GAME;
 }
 
 void load_3(game_t *game, ...)
 {
+    game->player->save = "3";
+    reset(game);
     game->scenes->page = GAME;
 }
 
 void new_game(game_t *game, ...)
 {
+    printf("new game\n");
     game->scenes->page = GAME;
 }
 
@@ -45,20 +52,19 @@ element_t **load_menu_elements(void)
 
 button_t **load_menu_buttons(void)
 {
-    button_t **buttons = malloc(sizeof(button_t *) * 5);
+    button_t **buttons = malloc(sizeof(button_t *) * 4);
 
     buttons[0] = init_button("SAVE 1", "ressources/UI/button1.png",
-                        (sfVector2f){50, 50}, (sfVector2i){300, 100});
+                        (sfVector2f){50, 150}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = load_1;
     buttons[1] = init_button("SAVE 2", "ressources/UI/button1.png",
-                        (sfVector2f){50, 250}, (sfVector2i){300, 100});
+                        (sfVector2f){50, 400}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = load_2;
     buttons[2] = init_button("SAVE 3", "ressources/UI/button1.png",
-                        (sfVector2f){50, 450}, (sfVector2i){300, 100});
-    buttons[2]->action_clicked = load_3;
-    buttons[3] = init_button("NEW GAME", "ressources/UI/button1.png",
                         (sfVector2f){50, 650}, (sfVector2i){300, 100});
-    buttons[3]->action_clicked = new_game;
-    buttons[4] = NULL;
+    buttons[2]->action_clicked = load_3;
+    buttons[3] = NULL;
+    for (int i = 0; buttons[i]; i++)
+        buttons[i]->action_clicked = (my_getnbr(parser(conc("saves/save", conc(inttochar(i + 1), ".json")), "new")) == 1) ? new_game : buttons[i]->action_clicked;
     return buttons;
 }

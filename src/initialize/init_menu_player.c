@@ -63,11 +63,11 @@ void add_defense(game_t *game, ...)
 
 void reset(game_t *game, ...)
 {
-    game->player->hp = my_getnbr(parser(conc("config/", conc(game->player->class, ".json")), "health"));
-    game->player->strg = my_getnbr(parser(conc("config/", conc(game->player->class, ".json")), "strength"));
-    game->player->spd = my_getnbr(parser(conc("config/", conc(game->player->class, ".json")), "speed"));
-    game->player->def = my_getnbr(parser(conc("config/", conc(game->player->class, ".json")), "defense"));
-    game->player->pt_stat = my_getnbr(parser(conc("config/", conc(game->player->class, ".json")), "point_stat"));
+    game->player->hp = my_getnbr(parser(conc("saves/save", conc(game->player->save, ".json")), "health"));
+    game->player->strg = my_getnbr(parser(conc("saves/save", conc(game->player->save, ".json")), "strength"));
+    game->player->spd = my_getnbr(parser(conc("saves/save", conc(game->player->save, ".json")), "speed"));
+    game->player->def = my_getnbr(parser(conc("saves/save", conc(game->player->save, ".json")), "defense"));
+    game->player->pt_stat = my_getnbr(parser(conc("saves/save", conc(game->player->save, ".json")), "point_stat"));
 }
 
 button_t **menu_player_buttons(void)

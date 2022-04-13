@@ -21,6 +21,7 @@
     struct player {
         element_t *elem;
         char *class;
+        char *save;
         int hp;
         int strg;
         int spd;
@@ -37,5 +38,14 @@
     ///
     ////////////////////////////////////////////////////////////
     player_t *init_player(char *class);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Get old stat player
+    ///
+    /// \param game Actual game state
+    /// \param ...  Other uselful data
+    ///
+    ////////////////////////////////////////////////////////////
+    void reset(game_t *game, ...);
 
 #endif /* !PLAYER_H_ */
