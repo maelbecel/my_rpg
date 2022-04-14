@@ -32,7 +32,7 @@ game_t *init_game(void)
     game->settings = init_settings();
     game->window = sfRenderWindow_create(mode, "RPG no seed",
                                                         sfFullscreen, NULL);
-    sfRenderWindow_setFramerateLimit(game->window, 30);
+    sfRenderWindow_setFramerateLimit(game->window, my_getnbr(parser("config/config.json", "framerate")));
     intro(game->window);
     game->scenes = init_scenes(game->window);
     game->player = init_player("chevalier");
