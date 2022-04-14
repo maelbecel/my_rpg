@@ -10,13 +10,13 @@
 
 char *inttochar(int num)
 {
-    char *res = malloc(num);
+    char *res = malloc(num + 1);
     int mod = 100;
     int division = 10;
     int i = 1;
 
-    if (!res)
-        return NULL;
+    if (!res || num == 0)
+        return (!res) ? NULL : my_strdup("0");
     res[0] = num % 10 + 48;
     while (division <= num) {
         res[i++] = ((num % mod) / division) + 48;

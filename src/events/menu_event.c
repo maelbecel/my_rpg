@@ -26,5 +26,6 @@ int event_menu_player(game_t *game, sfEvent *event)
             game->scenes[MENU_PLAYER].tab[STAT].buttons[b]->action_clicked(game, b, STAT);
         }
     }
+    while (!sfRenderWindow_pollEvent(game->window, event));
     return 0;
 }

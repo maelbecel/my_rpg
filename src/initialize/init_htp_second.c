@@ -28,10 +28,10 @@ button_t **htp_second_buttons(void)
     button_t **buttons = malloc(sizeof(button_t *) * 3);
 
     buttons[0] = init_button("<-             ", "ressources/UI/button1.png",
-                        (sfVector2f){50,650}, (sfVector2i){300, 100});
+                        (sfVector2f){50,50}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = htp_first;
     buttons[1] = init_button("->             ", "ressources/UI/button1.png",
-                        (sfVector2f){50, 850}, (sfVector2i){300, 100});
+                        (sfVector2f){50, 250}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = htp_third;
     buttons[2] = NULL;
     buttons[0]->base->scale = (sfVector2f){0.4, 1};

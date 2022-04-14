@@ -87,7 +87,7 @@ fclean:		clean
 re:		fclean all
 
 debug:	CFLAGS += -g3 -pg
-debug:	re
+debug:	all
 			@gcc -o $(NAME) $(OBJ) $(INCLUDE) $(LDFLAGS) \
 			&& $(ECHO) $(BOLD) $(GREEN)"► BUILD SUCCESS !"$(DEFAULT) \
 			|| ($(ECHO) $(BOLD) $(RED)"► BUILD FAILED"$(DEFAULT) && exit 1)

@@ -115,10 +115,12 @@ static const struct key_s Key_list[] = {
 
 char *getkey(int key)
 {
-    for (int i = 0; Key_list[i].key != -1; i++)
+    size_t i = 0;
+
+    for (; Key_list[i].key != -1; i++)
         if (Key_list[i].key == key)
             return Key_list[i].name;
-    return "NULL";
+    return Key_list[i].name;
 }
 
 char *conc(char *a, char *b)
@@ -136,7 +138,8 @@ char *conc(char *a, char *b)
 
 void concat_settings(game_t *game)
 {
-    sfVector2f pos = (sfVector2f){50, 50};;
+    sfVector2f pos = (sfVector2f){50, 50};
+
     sfText_setString(game->scenes[KEY].buttons[1]->base->text, conc("UP : ", getkey(game->settings->key_up)));
     sfText_setString(game->scenes[KEY].buttons[1]->hoover->text, conc("UP : ", getkey(game->settings->key_up)));
     sfText_setString(game->scenes[KEY].buttons[1]->clicked->text, conc("UP : ", getkey(game->settings->key_up)));

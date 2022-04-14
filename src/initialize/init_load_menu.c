@@ -11,21 +11,21 @@
 
 void load_1(game_t *game, ...)
 {
-    game->player->save = "1";
+    game->player->save[0] = '1';
     reset(game);
     game->scenes->page = GAME;
 }
 
 void load_2(game_t *game, ...)
 {
-    game->player->save = "2";
+    game->player->save[0] = '2';
     reset(game);
     game->scenes->page = GAME;
 }
 
 void load_3(game_t *game, ...)
 {
-    game->player->save = "3";
+    game->player->save[0] = '3';
     reset(game);
     game->scenes->page = GAME;
 }
@@ -64,7 +64,8 @@ button_t **load_menu_buttons(void)
                         (sfVector2f){50, 650}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = load_3;
     buttons[3] = NULL;
-    for (int i = 0; buttons[i]; i++)
-        buttons[i]->action_clicked = (my_getnbr(parser(conc("saves/save", conc(inttochar(i + 1), ".json")), "new")) == 1) ? new_game : buttons[i]->action_clicked;
+    buttons[0]->action_clicked = (my_getnbr(parser("saves/save1.json", "new")) == 1) ? new_game : buttons[0]->action_clicked;
+    buttons[1]->action_clicked = (my_getnbr(parser("saves/save2.json", "new")) == 1) ? new_game : buttons[1]->action_clicked;
+    buttons[2]->action_clicked = (my_getnbr(parser("saves/save3.json", "new")) == 1) ? new_game : buttons[2]->action_clicked;
     return buttons;
 }

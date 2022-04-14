@@ -55,12 +55,14 @@ void draw_clicked(sfRenderWindow *window, button_t *button)
 void draw_text(char *text, int size, sfVector2f pos, sfRenderWindow *window)
 {
     sfText *score = sfText_create();
+    sfFont *font = sfFont_createFromFile(BASIC_FONT);
     sfText_setColor(score, sfBlack);
     sfText_setString(score, text);
-    sfText_setFont(score, sfFont_createFromFile(BASIC_FONT));
+    sfText_setFont(score, font);
     sfText_setCharacterSize(score, size);
     sfText_setPosition(score, pos);
     sfRenderWindow_drawText(window, score, NULL);
+    sfFont_destroy(font);
     sfText_destroy(score);
 }
 

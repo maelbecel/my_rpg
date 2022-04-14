@@ -54,18 +54,23 @@ void display_load(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
+    char *file;
 
     while (game->scenes[LOAD].elements[e])
         draw_element(game->window, game->scenes[LOAD].elements[e++]);
     while (game->scenes[LOAD].buttons[b]) {
+        file = conc("saves/save", conc(inttochar(b + 1), ".json"));
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, b, LOAD)) {
-            draw_clicked(game->window, game->scenes[LOAD].buttons[b++]);
-            game->scenes[LOAD].buttons[b - 1]->action_clicked(game, b - 1);
+            draw_clicked(game->window, game->scenes[LOAD].buttons[b]);
+            game->scenes[LOAD].buttons[b - 1]->action_clicked(game, b);
         } else if (is_hoover(game, b, LOAD))
-            draw_hoover(game->window, game->scenes[LOAD].buttons[b++]);
+            draw_hoover(game->window, game->scenes[LOAD].buttons[b]);
         else
-            draw_button(game->window, game->scenes[LOAD].buttons[b++]);
+            draw_button(game->window, game->scenes[LOAD].buttons[b]);
+        if (b < 3 && my_strcmp(parser(file, "new"), "1") == 0)
+            draw_text("FREE SPACE", 30, (sfVector2f){game->scenes[LOAD].buttons[b]->pos.x + 510, game->scenes[LOAD].buttons[b]->pos.y + 130}, game->window);
+        b++;
     }
 }
 

@@ -50,7 +50,7 @@ void display_stat(game_t *game, sfEvent *event)
         if (event->type == sfEvtMouseButtonPressed &&
             is_click_menu(game, b, MENU_PLAYER, STAT)) {
             draw_clicked(game->window, game->scenes[MENU_PLAYER].tab[STAT].buttons[b]);
-            // game->scenes[MENU_PLAYER].tab[STAT].buttons[b]->action_clicked(game, b, STAT);
+            game->scenes[MENU_PLAYER].tab[STAT].buttons[b]->action_clicked(game, b, STAT);
         } else if (is_hoover_menu(game, b, MENU_PLAYER, STAT))
             draw_hoover(game->window, game->scenes[MENU_PLAYER].tab[STAT].buttons[b]);
         else

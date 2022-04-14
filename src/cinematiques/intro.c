@@ -67,9 +67,9 @@ static bool skip(sfRenderWindow *window)
 {
     int key = my_getnbr(parser("config/settings.json", "skip_key"));
     sfEvent event;
-    sfRenderWindow_pollEvent(window, &event);
-    if (event.type == sfEvtKeyPressed && event.key.code == key)
-        return true;
+    while (sfRenderWindow_pollEvent(window, &event))
+        if (event.type == sfEvtKeyPressed && event.key.code == key)
+            return true;
     return false;
 }
 
