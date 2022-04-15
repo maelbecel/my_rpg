@@ -11,8 +11,20 @@
 
 void valkyrie(game_t *game, ...)
 {
+    char *file = conc("config/save", conc(game->player->save, ".json"));
+    char *health = parser("config/valkyrie.json", "health");
+    char *strength = parser("config/valkyrie.json", "strength");
+    char *speed = parser("config/valkyrie.json", "speed");
+    char *defense = parser("config/valkyrie.json", "defense");
+
+    update_file(file, "health", health);
+    update_file(file, "strength", strength);
+    update_file(file, "speed", speed);
+    update_file(file, "defense", defense);
+    update_file(file, "new", "0");
     reset(game);
     game->scenes->page = GAME;
+    free(file);
 }
 
 void draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
