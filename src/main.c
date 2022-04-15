@@ -9,9 +9,19 @@
 #include "printf.h"
 #include "rpg.h"
 
+static int get_fps(sfTime frame)
+{
+    float second = (float)frame.microseconds / (float)MICRO;
+    return (int)(1 / second);
+}
+
 static int rpg(game_t *game, sfEvent *event)
 {
+    sfClock *fps = sfClock_create();
+    sfTime frame;
     while (sfRenderWindow_isOpen(game->window)) {
+        frame = sfClock_getElapsedTime(fps);
+        sfClock_restart(fps);
         while (sfRenderWindow_pollEvent(game->window, event)) {
             if (analyse_event(game, event) == 0)
                 return 0;
@@ -20,6 +30,7 @@ static int rpg(game_t *game, sfEvent *event)
         }
         sfRenderWindow_clear(game->window, sfWhite);
         display(game, event);
+        draw_text_white(conc("FPS :", inttochar(get_fps(frame))), 40, (sfVector2f){50, 50}, game->window);
         sfRenderWindow_display(game->window);
     }
     return 0;

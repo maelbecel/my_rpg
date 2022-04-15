@@ -38,18 +38,6 @@ static int check_clock(int mul, sfClock *clock)
     return 0;
 }
 
-static void draw_text_white(char *text, int size, sfVector2f pos, sfRenderWindow *window)
-{
-    sfText *score = sfText_create();
-    sfText_setColor(score, sfWhite);
-    sfText_setString(score, text);
-    sfText_setFont(score, sfFont_createFromFile(BASIC_FONT));
-    sfText_setCharacterSize(score, size);
-    sfText_setPosition(score, pos);
-    sfRenderWindow_drawText(window, score, NULL);
-    sfText_destroy(score);
-}
-
 static bool skip(sfRenderWindow *window)
 {
     int key = my_getnbr(parser("config/settings.json", "skip_key"));

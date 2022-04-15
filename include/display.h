@@ -72,6 +72,17 @@
     void draw_text(char *text, int size, sfVector2f pos, sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Draw white a text on a window
+    ///
+    /// \param text    Text that need to be display
+    /// \param size    Size of the text
+    /// \param pos     Position of the text in the window
+    /// \param window  sfRenderWindow object where text should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_text_white(char *text, int size, sfVector2f pos, sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Display the settings menu
     ///
     /// \param game  game_t object who contain all game info

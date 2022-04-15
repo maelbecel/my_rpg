@@ -51,7 +51,7 @@ static int check_clock(int mul, sfClock *clock)
     return 0;
 }
 
-static void draw_text_white(char *text, int size, sfVector2f pos, sfRenderWindow *window)
+void draw_text_white(char *text, int size, sfVector2f pos, sfRenderWindow *window)
 {
     sfText *score = sfText_create();
     sfText_setColor(score, sfWhite);
