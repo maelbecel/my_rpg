@@ -11,8 +11,20 @@
 
 void archere(game_t *game, ...)
 {
+    char *file = conc("config/save", conc(game->player->save, ".json"));
+    char *health = parser("config/archere.json", "health");
+    char *strength = parser("config/archere.json", "strength");
+    char *speed = parser("config/archere.json", "speed");
+    char *defense = parser("config/archere.json", "defense");
+
+    update_file(file, "health", health);
+    update_file(file, "strength", strength);
+    update_file(file, "speed", speed);
+    update_file(file, "defense", defense);
+    update_file(file, "new", "0");
     reset(game);
     game->scenes->page = GAME;
+    free(file);
 }
 
 void draw_archere_char(sfRenderWindow *window, sfFont *font)
