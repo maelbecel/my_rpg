@@ -27,6 +27,8 @@ DISP		 =			display/
 
 PARS		 =			parser/
 
+CLASS        =          class/
+
 SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
@@ -40,6 +42,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_main_menu.c   		\
 						$(SOURCES)$(INIT)init_game.c  				\
 						$(SOURCES)$(INIT)init_pause.c  				\
+						$(SOURCES)$(INIT)init_choosing.c			\
 						$(SOURCES)$(INIT)init_settings.c   			\
 						$(SOURCES)$(INIT)init_settings_key.c   		\
 						$(SOURCES)$(INIT)init_settings_sounds.c   	\
@@ -59,7 +62,13 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(CINE)intro.c   					\
-						$(SOURCES)$(CINE)outro.c
+						$(SOURCES)$(CINE)outro.c                    \
+						$(SOURCES)$(CLASS)chevalier.c               \
+						$(SOURCES)$(CLASS)cuisiniere.c              \
+						$(SOURCES)$(CLASS)archere.c        	        \
+						$(SOURCES)$(CLASS)mage.c        	        \
+						$(SOURCES)$(CLASS)valkyrie.c       	        \
+						$(SOURCES)$(CLASS)arbaletier.c
 
 SRC_COUNT    =         $(words $(SRC))
 

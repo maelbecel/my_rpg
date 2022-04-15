@@ -75,7 +75,7 @@ void init_settings_menu(scene_t *scenes, sfRenderWindow *window)
 
 scene_t *init_scenes(sfRenderWindow *window)
 {
-    scene_t *scenes = malloc(sizeof(scene_t) * 11);
+    scene_t *scenes = malloc(sizeof(scene_t) * 12);
     scenes->page = 0;
     scenes[MAIN_MENU].buttons = main_menu_buttons();
     loading(0, window);
@@ -101,12 +101,17 @@ scene_t *init_scenes(sfRenderWindow *window)
     loading(21, window);
     scenes[LOAD].elements = load_menu_elements();
     loading(22, window);
+    scenes[CHOOSING].buttons = choosing_buttons();
+    loading(23, window);
+    scenes[CHOOSING].elements = choosing_elements();
+    loading(24, window);
     return scenes;
 }
 
 settings_t *init_settings(void)
 {
     settings_t *set = malloc(sizeof(settings_t));
+    set->font = sfFont_createFromFile(BASIC_FONT);
     set->key_down = my_getnbr(parser("config/settings.json", "down_key"));
     set->key_up = my_getnbr(parser("config/settings.json", "up_key"));
     set->key_left = my_getnbr(parser("config/settings.json", "left_key"));

@@ -69,10 +69,10 @@ void display_settings_sounds(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[SOUNDS].buttons[b++]);
     }
-    draw_text("MUSIC", 70, (sfVector2f){300, 380}, game->window);
-    draw_text("FX", 70, (sfVector2f){400, 780}, game->window);
-    draw_text(inttochar(game->settings->music_volume), 80,
-                        (sfVector2f){1500, 380}, game->window);
-    draw_text(inttochar(game->settings->fx_volume), 80,
-                        (sfVector2f){1500, 780}, game->window);
+    draw_text("MUSIC", game->settings->font, (sfVector3f){300, 380, 70}, game->window);
+    draw_text("FX", game->settings->font, (sfVector3f){400, 780, 70}, game->window);
+    draw_text(inttochar(game->settings->music_volume), game->settings->font,
+                        (sfVector3f){1500, 380, 80}, game->window);
+    draw_text(inttochar(game->settings->fx_volume), game->settings->font,
+                        (sfVector3f){1500, 780, 80}, game->window);
 }

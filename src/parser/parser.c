@@ -35,18 +35,23 @@ char *parser(char *file, char *var)
     char *variable = conc("    ",conc(coat(),
                                     conc(var, conc(coat(), conc(":", " ")))));
 
-    if (fd == NULL)
+    if (fd == NULL){
+        free(variable);
         return NULL;
+    }
     while ((read = getline(&line, &len, fd)) != -1) {
         if (my_strncmp(line, variable, my_strlen(variable)) == 0) {
             line = get_value(line, variable);
+            fclose(fd);
             return line;
         }
     }
+    fclose(fd);
     free(line);
     free(variable);
     return NULL;
 }
+
 
 void fill_file(char *file, char *buffer)
 {

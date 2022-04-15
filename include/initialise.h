@@ -187,6 +187,22 @@
     element_t **pause_elements(void);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Get buttons for the pause menu
+    ///
+    /// \return struct button_t** with all buttons for the scene
+    ///
+    ////////////////////////////////////////////////////////////
+    button_t **choosing_buttons(void);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Get elements for the pause menu
+    ///
+    /// \return struct element_t** with all elements for the scene
+    ///
+    ////////////////////////////////////////////////////////////
+    element_t **choosing_elements(void);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the load menu
     ///
     /// \return struct button_t** with all buttons for the scene

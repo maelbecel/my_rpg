@@ -30,9 +30,9 @@
     #define MICRO 1000000
 
     ////////////////////////////////////////////////////////////
-    /// \def NB_SCENES 23
+    /// \def NB_SCENES
     ////////////////////////////////////////////////////////////
-    #define NB_SCENES 23
+    #define NB_SCENES 25
 
     ////////////////////////////////////////////////////////////
     // Headers
@@ -53,6 +53,7 @@
     #include "display.h"
     #include "initialise.h"
     #include "player.h"
+    #include "class.h"
 
     ////////////////////////////////////////////////////////////
     // Structures
@@ -82,7 +83,8 @@
         HTP_2,
         HTP_3,
         PAUSE,
-        LOAD
+        LOAD,
+        CHOOSING
     };
 
     ////////////////////////////////////////////////////////////
@@ -171,6 +173,7 @@
     ///
     ////////////////////////////////////////////////////////////
     struct settings_s {
+        sfFont *font;
         int music_volume;
         int fx_volume;
         int key_up;

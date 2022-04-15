@@ -28,10 +28,10 @@ void display_player(game_t *game, sfEvent *event)
     for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
     display_button_menu_player(game, event, 0);
-    draw_text(conc("HP : ", inttochar(game->player->hp)), 40, (sfVector2f){100, 150}, game->window);
-    draw_text(conc("STRENGHT : ", inttochar(game->player->strg)), 40, (sfVector2f){100, 250}, game->window);
-    draw_text(conc("SPEED : ", inttochar(game->player->spd)), 40, (sfVector2f){100, 350}, game->window);
-    draw_text(conc("DEFENSE : ", inttochar(game->player->def)), 40, (sfVector2f){100, 450}, game->window);
+    draw_text(conc("HP : ", inttochar(game->player->hp)), game->settings->font, (sfVector3f){100, 150, 40}, game->window);
+    draw_text(conc("STRENGHT : ", inttochar(game->player->strg)), game->settings->font, (sfVector3f){100, 250, 40}, game->window);
+    draw_text(conc("SPEED : ", inttochar(game->player->spd)), game->settings->font, (sfVector3f){100, 350, 40}, game->window);
+    draw_text(conc("DEFENSE : ", inttochar(game->player->def)), game->settings->font, (sfVector3f){100, 450, 40}, game->window);
 }
 
 void display_inventory(game_t *game, sfEvent *event)
@@ -56,11 +56,11 @@ void display_stat(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[MENU_PLAYER].tab[STAT].buttons[b]);
     }
-    draw_text(conc("HP : ", inttochar(game->player->hp)), 40, (sfVector2f){100, 150}, game->window);
-    draw_text(conc("STRENGHT : ", inttochar(game->player->strg)), 40, (sfVector2f){100, 250}, game->window);
-    draw_text(conc("SPEED : ", inttochar(game->player->spd)), 40, (sfVector2f){100, 350}, game->window);
-    draw_text(conc("DEFENSE : ", inttochar(game->player->def)), 40, (sfVector2f){100, 450}, game->window);
-    draw_text(conc("POINT STAT : ", inttochar(game->player->pt_stat)), 40, (sfVector2f){100, 550}, game->window);
+    draw_text(conc("HP : ", inttochar(game->player->hp)), game->settings->font, (sfVector3f){100, 150, 40}, game->window);
+    draw_text(conc("STRENGHT : ", inttochar(game->player->strg)), game->settings->font, (sfVector3f){100, 250, 40}, game->window);
+    draw_text(conc("SPEED : ", inttochar(game->player->spd)), game->settings->font, (sfVector3f){100, 350, 40}, game->window);
+    draw_text(conc("DEFENSE : ", inttochar(game->player->def)), game->settings->font, (sfVector3f){100, 450, 40}, game->window);
+    draw_text(conc("POINT STAT : ", inttochar(game->player->pt_stat)), game->settings->font, (sfVector3f){100, 550, 40}, game->window);
 }
 
 void display_quest(game_t *game, sfEvent *event)
@@ -68,7 +68,7 @@ void display_quest(game_t *game, sfEvent *event)
     for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
     display_button_menu_player(game, event, 2);
-    draw_text("NO QUEST ACTUALLY", 80, (sfVector2f){400, 600}, game->window);
+    draw_text("NO QUEST ACTUALLY", game->settings->font, (sfVector3f){400, 600, 80}, game->window);
 }
 
 void display_menu_player(game_t *game, sfEvent *event)

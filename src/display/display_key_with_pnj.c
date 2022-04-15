@@ -15,6 +15,6 @@ char *getkey(int key);
 void display_key_with_pnj(game_t *game)
 {
     if ((game->scenes[GAME].elements[2]->pos.x - 900) < game->scenes[GAME].elements[1]->rect.left)
-        draw_text(conc("CLICK ON : ", getkey(game->settings->key_menu)), 30,
-                    (sfVector2f){860, 940}, game->window);
+        draw_text(conc("CLICK ON : ", getkey(game->settings->key_menu)), game->settings->font,
+                    (sfVector3f){860, 940, 30}, game->window);
 }

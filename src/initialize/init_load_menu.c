@@ -32,8 +32,14 @@ void load_3(game_t *game, ...)
 
 void new_game(game_t *game, ...)
 {
-    printf("new game\n");
-    game->scenes->page = GAME;
+    va_list arg;
+    va_start(arg, game);
+    int i = va_arg(arg, int);
+    i++;
+    game->player->save[0] = i + '0';
+    printf("new game on save %s\n", game->player->save);
+    game->scenes->page = CHOOSING;
+    va_end(arg);
 }
 
 void load(game_t *game, ...)

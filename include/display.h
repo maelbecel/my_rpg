@@ -64,12 +64,12 @@
     /// \brief Draw a text on a window
     ///
     /// \param text    Text that need to be display
-    /// \param size    Size of the text
-    /// \param pos     Position of the text in the window
+    /// \param font    Font element
+    /// \param pos     Position of the text in the window and z is the size
     /// \param window  sfRenderWindow object where text should be display
     ///
     ////////////////////////////////////////////////////////////
-    void draw_text(char *text, int size, sfVector2f pos, sfRenderWindow *window);
+    void draw_text(char *text, sfFont *font, sfVector3f pos, sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
     /// \brief Draw white a text on a window

@@ -19,6 +19,8 @@ static int rpg(game_t *game, sfEvent *event)
 {
     sfClock *fps = sfClock_create();
     sfTime frame;
+    char *show;
+
     while (sfRenderWindow_isOpen(game->window)) {
         frame = sfClock_getElapsedTime(fps);
         sfClock_restart(fps);
@@ -30,7 +32,8 @@ static int rpg(game_t *game, sfEvent *event)
         }
         sfRenderWindow_clear(game->window, sfWhite);
         display(game, event);
-        draw_text_white(conc("FPS :", inttochar(get_fps(frame))), 40, (sfVector2f){50, 50}, game->window);
+        if ((show = parser("config/config.json", "show_fps")) != NULL && my_getnbr(show) == 1)
+            draw_text_white(conc("FPS :", inttochar(get_fps(frame))), 40, (sfVector2f){50, 50}, game->window);
         sfRenderWindow_display(game->window);
     }
     return 0;

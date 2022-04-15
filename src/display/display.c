@@ -69,9 +69,36 @@ void display_load(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[LOAD].buttons[b]);
         if (b < 3 && my_strcmp(parser(file, "new"), "1") == 0)
-            draw_text("FREE SPACE", 30, (sfVector2f){game->scenes[LOAD].buttons[b]->pos.x + 510, game->scenes[LOAD].buttons[b]->pos.y + 130}, game->window);
+            draw_text("FREE SPACE", game->settings->font, (sfVector3f){game->scenes[LOAD].buttons[b]->pos.x + 510, game->scenes[LOAD].buttons[b]->pos.y + 130, 30}, game->window);
         b++;
     }
+}
+
+void display_choosing(game_t *game, sfEvent *event)
+{
+    int b = 0;
+    int e = 1;
+
+    draw_element(game->window, game->scenes[CHOOSING].elements[0]);
+    while (game->scenes[CHOOSING].buttons[b]) {
+        if (event->type == sfEvtMouseButtonPressed &&
+            is_click(game, b, CHOOSING)) {
+            draw_clicked(game->window, game->scenes[CHOOSING].buttons[b]);
+            game->scenes[CHOOSING].buttons[b]->action_clicked(game, b);
+        } else if (is_hoover(game, b, CHOOSING))
+            draw_hoover(game->window, game->scenes[CHOOSING].buttons[b]);
+        else
+            draw_button(game->window, game->scenes[CHOOSING].buttons[b]);
+        b++;
+    }
+    while (game->scenes[CHOOSING].elements[e])
+        draw_element(game->window, game->scenes[CHOOSING].elements[e++]);
+    draw_arbaletier_char(game->window, game->settings->font);
+    draw_archere_char(game->window, game->settings->font);
+    draw_chevalier_char(game->window, game->settings->font);
+    draw_cuisiniere_char(game->window, game->settings->font);
+    draw_mage_char(game->window, game->settings->font);
+    draw_valkyrie_char(game->window, game->settings->font);
 }
 
 void display_pause(game_t *game, sfEvent *event)
@@ -125,6 +152,8 @@ void display(game_t *game, sfEvent *event)
         case PAUSE: display_pause(game, event);
             break;
         case LOAD: display_load(game, event);
+            break;
+        case CHOOSING: display_choosing(game, event);
             break;
     }
 }
