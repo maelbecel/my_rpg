@@ -9,21 +9,6 @@
     #define CINE
 
     ////////////////////////////////////////////////////////////
-    // Headers
-    ////////////////////////////////////////////////////////////
-    #include <stdbool.h>
-    #include <stddef.h>
-    #include <stdlib.h>
-    #include <stdio.h>
-    #include <unistd.h>
-    #include <fcntl.h>
-    #include <stdarg.h>
-    #include <math.h>
-    #include <SFML/Graphics.h>
-    #include <SFML/Audio.h>
-    #include <SFML/Window.h>
-
-    ////////////////////////////////////////////////////////////
     /// \brief Launch the intro scene
     ///
     /// \param window  sfRenderWindow object where intro should be display

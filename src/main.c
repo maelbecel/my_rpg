@@ -40,7 +40,7 @@ game_t *init_game(void)
     return game;
 }
 
-int main (int ac, UNUSED char **argv)
+int main(int ac, UNUSED char **argv)
 {
     if (ac != 1)
         return 84;

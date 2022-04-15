@@ -8,10 +8,30 @@
 #ifndef RPG
     #define RPG
 
+    ////////////////////////////////////////////////////////////
+    /// \def UNUSED __attribute__((unused))
+    /// \param unused Unused variable
+    ////////////////////////////////////////////////////////////
     #define UNUSED __attribute__((unused))
+
+    ////////////////////////////////////////////////////////////
+    /// \def BASIC_TEXT_SIZE 50
+    ////////////////////////////////////////////////////////////
     #define BASIC_TEXT_SIZE 50
+
+    ////////////////////////////////////////////////////////////
+    /// \def BASIC_FONT "ressources/Fonts/game.ttf"
+    ////////////////////////////////////////////////////////////
     #define BASIC_FONT "ressources/Fonts/game.ttf"
+
+    ////////////////////////////////////////////////////////////
+    /// \def MICRO 1000000
+    ////////////////////////////////////////////////////////////
     #define MICRO 1000000
+
+    ////////////////////////////////////////////////////////////
+    /// \def NB_SCENES 23
+    ////////////////////////////////////////////////////////////
     #define NB_SCENES 23
 
     ////////////////////////////////////////////////////////////
@@ -48,6 +68,8 @@
     ////////////////////////////////////////////////////////////
     /// \brief Enumerates all scenes.
     ///
+    /// \struct scene_s scene_t
+    ///
     ////////////////////////////////////////////////////////////
     enum scenes {
         MAIN_MENU,
@@ -69,6 +91,8 @@
     /// Contain the texture, sprite, scale, rectangle, position
     /// and the max number of sprites.
     ///
+    /// \struct element_s element_t
+    ///
     ////////////////////////////////////////////////////////////
     struct element_s {
         sfTexture *texture;
@@ -84,6 +108,8 @@
     ///
     /// Contain the texture, sprite, scale, rectangle, text, font, sound
     /// text position and the text size.
+    ///
+    /// \struct type_button_s type_button_t
     ///
     ////////////////////////////////////////////////////////////
     struct type_button_s {
@@ -104,6 +130,8 @@
     /// Contain the base aspect, hoover aspect, clicked aspect, button position
     /// ,action when hoover, action when clicked, x and y.
     ///
+    /// \struct button_s button_t
+    ///
     ////////////////////////////////////////////////////////////
     struct button_s {
         type_button_t *base;
@@ -122,6 +150,8 @@
     /// Contain the list of buttons, the list of elements and the number of the
     /// actual page.
     ///
+    /// \struct scene_s scene_t
+    ///
     ////////////////////////////////////////////////////////////
     struct scene_s {
         button_t **buttons;
@@ -136,6 +166,8 @@
     ///
     /// Contain the music and FX volume, up, down, left, right, pause and menu
     /// keys.
+    ///
+    /// \struct settings_s settings_t
     ///
     ////////////////////////////////////////////////////////////
     struct settings_s {
@@ -154,6 +186,8 @@
     ///
     /// Contain the window, the list of scenes and the settings.
     ///
+    /// \struct game_s game_t
+    ///
     ////////////////////////////////////////////////////////////
     struct game_s {
         sfRenderWindow *window;
@@ -166,6 +200,8 @@
     /// \brief Key struct.
     ///
     /// Contain the key and the name of the key.
+    ///
+    /// \struct key_s key_t
     ///
     ////////////////////////////////////////////////////////////
     struct key_s {

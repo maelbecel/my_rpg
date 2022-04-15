@@ -9,21 +9,6 @@
     #define EVENT
 
     ////////////////////////////////////////////////////////////
-    // Headers
-    ////////////////////////////////////////////////////////////
-    #include <stdbool.h>
-    #include <stddef.h>
-    #include <stdlib.h>
-    #include <stdio.h>
-    #include <unistd.h>
-    #include <fcntl.h>
-    #include <stdarg.h>
-    #include <math.h>
-    #include <SFML/Graphics.h>
-    #include <SFML/Audio.h>
-    #include <SFML/Window.h>
-
-    ////////////////////////////////////////////////////////////
     // Structures
     ////////////////////////////////////////////////////////////
     typedef struct game_s game_t;
