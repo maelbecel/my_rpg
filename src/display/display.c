@@ -63,7 +63,7 @@ void display_load(game_t *game, sfEvent *event)
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, b, LOAD)) {
             draw_clicked(game->window, game->scenes[LOAD].buttons[b]);
-            game->scenes[LOAD].buttons[b - 1]->action_clicked(game, b);
+            game->scenes[LOAD].buttons[b]->action_clicked(game, b);
         } else if (is_hoover(game, b, LOAD))
             draw_hoover(game->window, game->scenes[LOAD].buttons[b]);
         else
