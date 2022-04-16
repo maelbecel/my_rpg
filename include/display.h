@@ -181,4 +181,13 @@
     ////////////////////////////////////////////////////////////
     void display_menu_player(game_t *game, sfEvent *event);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Display a popup
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param str   String to display on the popup
+    ///
+    ////////////////////////////////////////////////////////////
+    void popup(game_t *game, char *str);
+
 #endif
