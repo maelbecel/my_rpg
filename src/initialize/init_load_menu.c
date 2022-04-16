@@ -9,9 +9,20 @@
 #include "printf.h"
 #include "rpg.h"
 
+void new_game(game_t *game, ...)
+{
+    va_list arg;
+    va_start(arg, game);
+    int i = va_arg(arg, int);
+    i++;
+    game->player->save[0] = i + '0';
+    game->scenes->page = CHOOSING;
+    va_end(arg);
+}
+
 void clear_1(UNUSED game_t *game, ...)
 {
-    char *file = my_strdup("config/save1.json");
+    char *file = my_strdup("saves/save1.json");
     update_file(file, "new", "1");
     update_file(file, "class", "null");
     update_file(file, "stength", "0");
@@ -19,11 +30,12 @@ void clear_1(UNUSED game_t *game, ...)
     update_file(file, "defense", "0");
     update_file(file, "health", "0");
     update_file(file, "point_stat", "0");
+    game->scenes[LOAD].buttons[0]->action_clicked = new_game;
 }
 
 void clear_2(UNUSED game_t *game, ...)
 {
-    char *file = my_strdup("config/save2.json");
+    char *file = my_strdup("saves/save2.json");
     update_file(file, "new", "1");
     update_file(file, "class", "null");
     update_file(file, "stength", "0");
@@ -31,11 +43,12 @@ void clear_2(UNUSED game_t *game, ...)
     update_file(file, "defense", "0");
     update_file(file, "health", "0");
     update_file(file, "point_stat", "0");
+    game->scenes[LOAD].buttons[1]->action_clicked = new_game;
 }
 
 void clear_3(UNUSED game_t *game, ...)
 {
-    char *file = my_strdup("config/save3.json");
+    char *file = my_strdup("saves/save3.json");
     update_file(file, "new", "1");
     update_file(file, "class", "null");
     update_file(file, "stength", "0");
@@ -43,6 +56,7 @@ void clear_3(UNUSED game_t *game, ...)
     update_file(file, "defense", "0");
     update_file(file, "health", "0");
     update_file(file, "point_stat", "0");
+    game->scenes[LOAD].buttons[2]->action_clicked = new_game;
 }
 
 void load_1(game_t *game, ...)
@@ -64,18 +78,6 @@ void load_3(game_t *game, ...)
     game->player->save[0] = '3';
     reset(game);
     game->scenes->page = GAME;
-}
-
-void new_game(game_t *game, ...)
-{
-    va_list arg;
-    va_start(arg, game);
-    int i = va_arg(arg, int);
-    i++;
-    game->player->save[0] = i + '0';
-    printf("new game on save %s\n", game->player->save);
-    game->scenes->page = CHOOSING;
-    va_end(arg);
 }
 
 void load(game_t *game, ...)

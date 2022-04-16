@@ -11,7 +11,7 @@
 
 void mage(game_t *game, ...)
 {
-    char *file = conc("config/save", conc(game->player->save, ".json"));
+    char *file = conc("saves/save", conc(game->player->save, ".json"));
     char *health = parser("config/mage.json", "health");
     char *strength = parser("config/mage.json", "strength");
     char *speed = parser("config/mage.json", "speed");

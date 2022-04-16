@@ -116,4 +116,31 @@
     ////////////////////////////////////////////////////////////
     void valkyrie(game_t *game, ...);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Load save from save1.json
+    ///
+    /// \param game game_t object where the game is register
+    /// \param ... other arguments to pass
+    ///
+    ////////////////////////////////////////////////////////////
+    void load_1(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Load save from save2.json
+    ///
+    /// \param game game_t object where the game is register
+    /// \param ... other arguments to pass
+    ///
+    ////////////////////////////////////////////////////////////
+    void load_2(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Load save from save3.json
+    ///
+    /// \param game game_t object where the game is register
+    /// \param ... other arguments to pass
+    ///
+    ////////////////////////////////////////////////////////////
+    void load_3(game_t *game, ...);
+
 #endif

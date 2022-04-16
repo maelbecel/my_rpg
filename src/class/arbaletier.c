@@ -11,7 +11,7 @@
 
 void arbaletier(game_t *game, ...)
 {
-    char *file = conc("config/save", conc(game->player->save, ".json"));
+    char *file = conc("saves/save", conc(game->player->save, ".json"));
     char *health = parser("config/arbaletier.json", "health");
     char *strength = parser("config/arbaletier.json", "strength");
     char *speed = parser("config/arbaletier.json", "speed");

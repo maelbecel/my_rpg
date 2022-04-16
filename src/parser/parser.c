@@ -36,6 +36,7 @@ char *parser(char *file, char *var)
                                     conc(var, conc(coat(), conc(":", " ")))));
 
     if (fd == NULL){
+        my_printf("Can not open '%s' (Parsing failed)\n", file);
         free(variable);
         return NULL;
     }
@@ -70,8 +71,10 @@ void update_file(char *file, char *var, char *value)
     char *buffer = "\0";
     char *variable = conc("    ",conc(coat(),
                                     conc(var, conc(coat(), conc(":", " ")))));
-    if (fd == NULL)
+    if (fd == NULL) {
+        my_printf("Can not open '%s' (Update failed)\n", file);
         return;
+    }
     while ((read = getline(&line, &len, fd)) != -1) {
         if (my_strncmp(line, variable, my_strlen(variable)) == 0) {
             buffer = conc(buffer, conc(variable, conc(value,

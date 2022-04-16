@@ -74,6 +74,21 @@ void display_load(game_t *game, sfEvent *event)
     }
 }
 
+void update_load(game_t *game)
+{
+    switch (my_getnbr(game->player->save)) {
+        case 1: game->scenes[LOAD].buttons[0]->action_clicked = load_1;
+            break;
+        case 2: game->scenes[LOAD].buttons[1]->action_clicked = load_2;
+            break;
+        case 3: game->scenes[LOAD].buttons[2]->action_clicked = load_3;
+            break;
+        default:
+            break;
+
+    }
+}
+
 void display_choosing(game_t *game, sfEvent *event)
 {
     int b = 0;
@@ -85,6 +100,7 @@ void display_choosing(game_t *game, sfEvent *event)
             is_click(game, b, CHOOSING)) {
             draw_clicked(game->window, game->scenes[CHOOSING].buttons[b]);
             game->scenes[CHOOSING].buttons[b]->action_clicked(game, b);
+            update_load(game);
         } else if (is_hoover(game, b, CHOOSING))
             draw_hoover(game->window, game->scenes[CHOOSING].buttons[b]);
         else

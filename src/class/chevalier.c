@@ -11,7 +11,7 @@
 
 void chevalier(game_t *game, ...)
 {
-    char *file = conc("config/save", conc(game->player->save, ".json"));
+    char *file = conc("saves/save", conc(game->player->save, ".json"));
     char *health = parser("config/chevalier.json", "health");
     char *strength = parser("config/chevalier.json", "strength");
     char *speed = parser("config/chevalier.json", "speed");

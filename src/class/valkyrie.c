@@ -11,7 +11,7 @@
 
 void valkyrie(game_t *game, ...)
 {
-    char *file = conc("config/save", conc(game->player->save, ".json"));
+    char *file = conc("saves/save", conc(game->player->save, ".json"));
     char *health = parser("config/valkyrie.json", "health");
     char *strength = parser("config/valkyrie.json", "strength");
     char *speed = parser("config/valkyrie.json", "speed");

@@ -11,7 +11,7 @@
 
 void cuisiniere(game_t *game, ...)
 {
-    char *file = conc("config/save", conc(game->player->save, ".json"));
+    char *file = conc("saves/save", conc(game->player->save, ".json"));
     char *health = parser("config/cuisiniere.json", "health");
     char *strength = parser("config/cuisiniere.json", "strength");
     char *speed = parser("config/cuisiniere.json", "speed");
