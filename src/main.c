@@ -27,7 +27,7 @@ static int rpg(game_t *game, sfEvent *event)
         while (sfRenderWindow_pollEvent(game->window, event)) {
             if (analyse_event(game, event) == 0)
                 return 0;
-            if (game->scenes->page == MENU_PLAYER)
+            if (game->scenes->page == MENU_PLAYER && game->scenes[MENU_PLAYER].tab->page == STAT)
                 event_menu_player(game, event);
         }
         sfRenderWindow_clear(game->window, sfWhite);
