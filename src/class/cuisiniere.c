@@ -17,6 +17,10 @@ void cuisiniere(game_t *game, ...)
     char *speed = parser("config/cuisiniere.json", "speed");
     char *defense = parser("config/cuisiniere.json", "defense");
 
+    if (!health || !strength || !speed || !defense) {
+        popup(game->settings->font, "FAILED TO OPEN\nconfig/cuisiniere.json");
+        return;
+    }
     update_file(file, "health", health);
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
@@ -34,8 +38,10 @@ void draw_cuisiniere_char(sfRenderWindow *window, sfFont *font)
     char *speed = parser("config/cuisiniere.json", "speed");
     char *defense = parser("config/cuisiniere.json", "defense");
 
-    if (!health || !strength || !speed || !defense)
+    if (!health || !strength || !speed || !defense) {
+        popup(font, "FAILED TO OPEN\nconfig/cuisiniere.json");
         return;
+    }
     draw_text("CHEF", font, (sfVector3f){350, 760, 40}, window);
     draw_text(conc("HEALTH : ", health), font, (sfVector3f){350, 840, 30}, window);
     draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){350, 880, 30}, window);

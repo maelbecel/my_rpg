@@ -17,6 +17,10 @@ void archere(game_t *game, ...)
     char *speed = parser("config/archere.json", "speed");
     char *defense = parser("config/archere.json", "defense");
 
+    if (!health || !strength || !speed || !defense) {
+        popup(game->settings->font, "FAILED TO OPEN\nconfig/archere.json");
+        return;
+    }
     update_file(file, "health", health);
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
@@ -34,8 +38,10 @@ void draw_archere_char(sfRenderWindow *window, sfFont *font)
     char *speed = parser("config/archere.json", "speed");
     char *defense = parser("config/archere.json", "defense");
 
-    if (!health || !strength || !speed || !defense)
+    if (!health || !strength || !speed || !defense) {
+        popup(font, "FAILED TO OPEN\nconfig/archere.json");
         return;
+    }
     draw_text("ARCHER", font, (sfVector3f){850, 240, 40}, window);
     draw_text(conc("HEALTH : ", health), font, (sfVector3f){850, 320, 30}, window);
     draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){850, 360, 30}, window);

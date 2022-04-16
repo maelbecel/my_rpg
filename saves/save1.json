@@ -1,9 +1,9 @@
 {
-    "new": 1,
+    "new": 0,
     "class": null,
-    "health": 0,
+    "health": 80,
     "strength": 7,
-    "speed": 0,
-    "defense": 0,
+    "speed": 12,
+    "defense": 4,
     "point_stat": 0
-}}}
+}}}}}

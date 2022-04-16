@@ -184,10 +184,10 @@
     ////////////////////////////////////////////////////////////
     /// \brief Display a popup
     ///
-    /// \param game  game_t object who contain all game info
+    /// \param font  sfFont element to use
     /// \param str   String to display on the popup
     ///
     ////////////////////////////////////////////////////////////
-    void popup(game_t *game, char *str);
+    void popup(sfFont *font, char *str);
 
 #endif

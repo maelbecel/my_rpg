@@ -17,6 +17,10 @@ void valkyrie(game_t *game, ...)
     char *speed = parser("config/valkyrie.json", "speed");
     char *defense = parser("config/valkyrie.json", "defense");
 
+    if (!health || !strength || !speed || !defense) {
+        popup(game->settings->font, "FAILED TO OPEN\nconfig/valkyrie.json");
+        return;
+    }
     update_file(file, "health", health);
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
@@ -34,8 +38,10 @@ void draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
     char *speed = parser("config/valkyrie.json", "speed");
     char *defense = parser("config/valkyrie.json", "defense");
 
-    if (!health || !strength || !speed || !defense)
+    if (!health || !strength || !speed || !defense) {
+        popup(font, "FAILED TO OPEN\nconfig/valkyrie.json");
         return;
+    }
     draw_text("VALKYRIE", font, (sfVector3f){1350, 760, 40}, window);
     draw_text(conc("HEALTH : ", health), font, (sfVector3f){1350, 840, 30}, window);
     draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){1350, 880, 30}, window);

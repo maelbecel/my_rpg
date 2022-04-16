@@ -17,6 +17,10 @@ void arbaletier(game_t *game, ...)
     char *speed = parser("config/arbaletier.json", "speed");
     char *defense = parser("config/arbaletier.json", "defense");
 
+    if (!health || !strength || !speed || !defense) {
+        popup(game->settings->font, "FAILED TO OPEN\nconfig/arbaletier.json");
+        return;
+    }
     update_file(file, "health", health);
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
@@ -34,8 +38,10 @@ void draw_arbaletier_char(sfRenderWindow *window, sfFont *font)
     char *speed = parser("config/arbaletier.json", "speed");
     char *defense = parser("config/arbaletier.json", "defense");
 
-    if (!health || !strength || !speed || !defense)
+    if (!health || !strength || !speed || !defense) {
+        popup(font, "FAILED TO OPEN\nconfig/arbaletier.json");
         return;
+    }
     draw_text("CROSSBOWMAN", font, (sfVector3f){260, 240, 40}, window);
     draw_text(conc("HEALTH : ", health), font, (sfVector3f){350, 320, 30}, window);
     draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){350, 360, 30}, window);

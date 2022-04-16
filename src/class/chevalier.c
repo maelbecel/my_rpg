@@ -17,6 +17,10 @@ void chevalier(game_t *game, ...)
     char *speed = parser("config/chevalier.json", "speed");
     char *defense = parser("config/chevalier.json", "defense");
 
+    if (!health || !strength || !speed || !defense) {
+        popup(game->settings->font, "FAILED TO OPEN\nconfig/chevalier.json");
+        return;
+    }
     update_file(file, "health", health);
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
@@ -34,8 +38,10 @@ void draw_chevalier_char(sfRenderWindow *window, sfFont *font)
     char *speed = parser("config/chevalier.json", "speed");
     char *defense = parser("config/chevalier.json", "defense");
 
-    if (!health || !strength || !speed || !defense)
+    if (!health || !strength || !speed || !defense) {
+        popup(font, "FAILED TO OPEN\nconfig/chevalier.json");
         return;
+    }
     draw_text("KNIGHT", font, (sfVector3f){1350, 240, 40}, window);
     draw_text(conc("HEALTH : ", health), font, (sfVector3f){1350, 320, 30}, window);
     draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){1350, 360, 30}, window);

@@ -17,6 +17,10 @@ void mage(game_t *game, ...)
     char *speed = parser("config/mage.json", "speed");
     char *defense = parser("config/mage.json", "defense");
 
+    if (!health || !strength || !speed || !defense) {
+        popup(game->settings->font, "FAILED TO OPEN\nconfig/mage.json");
+        return;
+    }
     update_file(file, "health", health);
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
@@ -34,8 +38,10 @@ void draw_mage_char(sfRenderWindow *window, sfFont *font)
     char *speed = parser("config/mage.json", "speed");
     char *defense = parser("config/mage.json", "defense");
 
-    if (!health || !strength || !speed || !defense)
+    if (!health || !strength || !speed || !defense) {
+        popup(font, "FAILED TO OPEN\nconfig/mage.json");
         return;
+    }
     draw_text("MAGE", font, (sfVector3f){850, 760, 40}, window);
     draw_text(conc("HEALTH : ", health), font, (sfVector3f){850, 840, 30}, window);
     draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){850, 880, 30}, window);

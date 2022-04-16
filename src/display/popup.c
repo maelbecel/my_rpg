@@ -9,11 +9,13 @@
 #include "printf.h"
 #include "rpg.h"
 
-void popup(game_t *game, char *str)
+void popup(sfFont *font, char *str)
 {
     sfVideoMode mode = {600, 200, 32};
-    // element_t *element = init_element()
-    sfRenderWindow *pop = sfRenderWindow_create(mode, "RPG no seed",
+    element_t *element = init_element("ressources/UI/popup.png",
+                                    (sfVector2f){0, 0}, (sfVector2f){600, 200},
+                                    (sfVector2f){1, 1});
+    sfRenderWindow *pop = sfRenderWindow_create(mode, "Warning !",
                                                         sfClose, NULL);
     sfRenderWindow_setPosition(pop, (sfVector2i){660 , 440});
     sfEvent event;
@@ -22,8 +24,8 @@ void popup(game_t *game, char *str)
         if (event.type == sfEvtClosed )
             sfRenderWindow_close(pop);
         sfRenderWindow_clear(pop, sfWhite);
-        // draw_element(pop, element);
-        draw_text(str, game->settings->font, (sfVector3f){160, 60, 30}, pop);
+        draw_element(pop, element);
+        draw_text(str, font, (sfVector3f){160, 60, 30}, pop);
         sfRenderWindow_display(pop);
     }
     sfRenderWindow_destroy(pop);
