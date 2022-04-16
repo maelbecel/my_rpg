@@ -60,6 +60,7 @@ int main(int ac, UNUSED char **argv)
         return 84;
     sfEvent event;
     game_t *game = init_game();
+    battle(game->window, game->scenes[GAME].elements[2]->sprite, game->scenes[GAME].elements[2]->sprite);
     rpg(game, &event);
     sfRenderWindow_destroy(game->window);
     return 0;

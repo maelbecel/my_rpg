@@ -27,4 +27,15 @@
     ///
     ////////////////////////////////////////////////////////////
     int outro(sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Launch the battle scene
+    ///
+    /// \param window  sfRenderWindow object where outro should be display
+    /// \param a       Player sprite to display
+    /// \param b       Enemy sprite to display
+    /// \return 0
+    ///
+    ////////////////////////////////////////////////////////////
+    int battle(sfRenderWindow *window, sfSprite *a, sfSprite *b);
 #endif

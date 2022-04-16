@@ -63,6 +63,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(CINE)intro.c   					\
+						$(SOURCES)$(CINE)enter_battle.c				\
 						$(SOURCES)$(CINE)outro.c                    \
 						$(SOURCES)$(CLASS)chevalier.c               \
 						$(SOURCES)$(CLASS)cuisiniere.c              \
