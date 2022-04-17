@@ -63,12 +63,7 @@ int outro(sfRenderWindow *window)
         if (check_clock(mul, clock) != 0)
             sfClock_restart(clock);
         mul = (opacity <= 0) ? -mul : mul;
-        sfRenderWindow_clear(window, sfBlack);
-        sfRenderWindow_drawSprite(window, epitech, NULL);
-        sfRectangleShape_setFillColor(rect, sfColor_fromRGBA(0, 0, 0, opacity));
-        sfRenderWindow_drawRectangleShape(window, rect, NULL);
-        draw_text_white("PRESS 'S' TO SKIP", 60, (sfVector2f){1300, 930}, window);
-        sfRenderWindow_display(window);
+        draw_outro(window, epitech, rect, opacity);
     }
     sfMusic_destroy(music);
     return 0;

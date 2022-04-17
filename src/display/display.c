@@ -146,6 +146,7 @@ void display_pause(game_t *game, sfEvent *event)
 
 void display(game_t *game, sfEvent *event)
 {
+    sfRenderWindow_clear(game->window, sfWhite);
     switch (game->scenes->page) {
         case MAIN_MENU: display_main_menu(game, event);
             break;

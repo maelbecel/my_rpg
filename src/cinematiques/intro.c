@@ -9,38 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-#define MICRO 1000000
-
-static sfSprite *episprite(void)
-{
-    sfSprite *sprite = sfSprite_create();
-    sfTexture *texture =
-        sfTexture_createFromFile("ressources/cinematiques/epitech.png", NULL);
-    sfSprite_setTexture(sprite, texture, sfTrue);
-    sfSprite_setPosition(sprite, (sfVector2f){400, 300});
-    sfSprite_setScale(sprite, (sfVector2f){0.3, 0.3});
-    return sprite;
-}
-
-static sfSprite *lettersprite(void)
-{
-    sfSprite *sprite = sfSprite_create();
-    sfTexture *texture =
-        sfTexture_createFromFile("ressources/cinematiques/E_letter.png", NULL);
-    sfSprite_setTexture(sprite, texture, sfTrue);
-    sfSprite_setPosition(sprite, (sfVector2f){550, 300});
-    sfSprite_setScale(sprite, (sfVector2f){0.3, 0.3});
-    return sprite;
-}
-
-static sfRectangleShape *init_rect(void)
-{
-    sfRectangleShape *rect = sfRectangleShape_create();
-    sfRectangleShape_setPosition(rect, (sfVector2f){0, 0});
-    sfRectangleShape_setSize(rect, (sfVector2f){1920, 1080});
-    return rect;
-}
-
 static int check_clock(int mul, sfClock *clock)
 {
     sfTime time;
@@ -51,7 +19,8 @@ static int check_clock(int mul, sfClock *clock)
     return 0;
 }
 
-void draw_text_white(char *text, int size, sfVector2f pos, sfRenderWindow *window)
+void draw_text_white(char *text, int size, sfVector2f pos,
+                                                        sfRenderWindow *window)
 {
     sfText *score = sfText_create();
     sfText_setColor(score, sfWhite);
@@ -73,50 +42,6 @@ static bool skip(sfRenderWindow *window)
     return false;
 }
 
-static void draw_all(sfRenderWindow *window, sfSprite *letter)
-{
-        sfSprite_setPosition(letter, (sfVector2f){490, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-        sfSprite_setPosition(letter, (sfVector2f){630, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-        sfSprite_setPosition(letter, (sfVector2f){770, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-        sfSprite_setPosition(letter, (sfVector2f){910, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-        sfSprite_setPosition(letter, (sfVector2f){1050, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-        sfSprite_setPosition(letter, (sfVector2f){1190, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-}
-
-static void draw(sfRenderWindow *window, sfSprite *epitech, sfSprite *letter, sfVector2f opmul)
-{
-    if (opmul.y >= 0) {
-        draw_all(window,letter);
-        sfRenderWindow_drawSprite(window, epitech, NULL);
-        return;
-    } if (opmul.x < 240){
-        sfSprite_setPosition(letter, (sfVector2f){490, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x < 190){
-        sfSprite_setPosition(letter, (sfVector2f){630, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x < 140){
-        sfSprite_setPosition(letter, (sfVector2f){770, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x < 90){
-        sfSprite_setPosition(letter, (sfVector2f){910, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x < 40){
-        sfSprite_setPosition(letter, (sfVector2f){1050, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x <= 0){
-        sfSprite_setPosition(letter, (sfVector2f){1190, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
-    }
-    sfRenderWindow_drawSprite(window, epitech, NULL);
-}
-
 int intro(sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
@@ -124,7 +49,7 @@ int intro(sfRenderWindow *window)
     int opacity = 249;
     sfSprite *epitech = episprite();
     sfSprite *letter = lettersprite();
-    sfRectangleShape *rect = init_rect();
+    sfRectangleShape *rect = init_rect_rad();
     sfMusic *music = sfMusic_createFromFile("ressources/sounds/easports.ogg");
 
     sfMusic_play(music);
@@ -133,12 +58,8 @@ int intro(sfRenderWindow *window)
         if (check_clock(mul, clock) != 0)
             sfClock_restart(clock);
         mul = (opacity <= 0) ? -mul : mul;
-        sfRenderWindow_clear(window, sfBlack);
-        draw(window, epitech, letter, (sfVector2f){opacity, mul});
-        sfRectangleShape_setFillColor(rect, sfColor_fromRGBA(0, 0, 0, opacity));
-        sfRenderWindow_drawRectangleShape(window, rect, NULL);
-        draw_text_white("PRESS 'S' TO SKIP", 60, (sfVector2f){1300, 930}, window);
-        sfRenderWindow_display(window);
+        what_draw(window, epitech, letter, (sfVector2f){opacity, mul});
+        draw_voil(window, rect, opacity);
     }
     sfMusic_destroy(music);
     return 0;

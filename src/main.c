@@ -15,11 +15,20 @@ static int get_fps(sfTime frame)
     return (int)(1 / second);
 }
 
+static void draw_fps(sfTime frame, game_t *game)
+{
+    char *show;
+
+    if ((show = parser("config/config.json", "show_fps")) != NULL &&
+                                                        my_getnbr(show) == 1)
+        draw_text_white(conc("FPS :", inttochar(get_fps(frame))), 40,
+                                        (sfVector2f){50, 50}, game->window);
+}
+
 static int rpg(game_t *game, sfEvent *event)
 {
     sfClock *fps = sfClock_create();
     sfTime frame;
-    char *show;
 
     while (sfRenderWindow_isOpen(game->window)) {
         frame = sfClock_getElapsedTime(fps);
@@ -27,13 +36,12 @@ static int rpg(game_t *game, sfEvent *event)
         while (sfRenderWindow_pollEvent(game->window, event)) {
             if (analyse_event(game, event) == 0)
                 return 0;
-            if (game->scenes->page == MENU_PLAYER && game->scenes[MENU_PLAYER].tab->page == STAT)
+            if (game->scenes->page == MENU_PLAYER &&
+                game->scenes[MENU_PLAYER].tab->page == STAT)
                 event_menu_player(game, event);
         }
-        sfRenderWindow_clear(game->window, sfWhite);
         display(game, event);
-        if ((show = parser("config/config.json", "show_fps")) != NULL && my_getnbr(show) == 1)
-            draw_text_white(conc("FPS :", inttochar(get_fps(frame))), 40, (sfVector2f){50, 50}, game->window);
+        draw_fps(frame, game);
         sfRenderWindow_display(game->window);
     }
     return 0;
@@ -47,7 +55,8 @@ game_t *init_game(void)
     game->settings = init_settings();
     game->window = sfRenderWindow_create(mode, "RPG no seed",
                                                         sfFullscreen, NULL);
-    sfRenderWindow_setFramerateLimit(game->window, my_getnbr(parser("config/config.json", "framerate")));
+    sfRenderWindow_setFramerateLimit(game->window,
+                        my_getnbr(parser("config/config.json", "framerate")));
     intro(game->window);
     game->scenes = init_scenes(game->window);
     game->player = init_player("chevalier");
