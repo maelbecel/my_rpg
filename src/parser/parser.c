@@ -26,20 +26,12 @@ char *coat(void)
     return (coat);
 }
 
-char *parser(char *file, char *var)
+char *get_line_pars(FILE *fd, char *variable)
 {
-    FILE *fd = fopen(file, "r");
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
-    char *variable = conc("    ",conc(coat(),
-                                    conc(var, conc(coat(), conc(":", " ")))));
 
-    if (fd == NULL){
-        my_printf("Can not open '%s' (Parsing failed)\n", file);
-        free(variable);
-        return NULL;
-    }
     while ((read = getline(&line, &len, fd)) != -1) {
         if (my_strncmp(line, variable, my_strlen(variable)) == 0) {
             line = get_value(line, variable);
@@ -53,37 +45,16 @@ char *parser(char *file, char *var)
     return NULL;
 }
 
-
-void fill_file(char *file, char *buffer)
-{
-    int fd = open(file, O_WRONLY);
-    buffer[my_strlen(buffer)] = '\0';
-    write(fd, buffer, my_strlen(buffer));
-    close(fd);
-}
-
-void update_file(char *file, char *var, char *value)
+char *parser(char *file, char *var)
 {
     FILE *fd = fopen(file, "r");
-    char *line = NULL;
-    size_t len = 0;
-    ssize_t read;
-    char *buffer = "\0";
     char *variable = conc("    ",conc(coat(),
                                     conc(var, conc(coat(), conc(":", " ")))));
-    if (fd == NULL) {
-        my_printf("Can not open '%s' (Update failed)\n", file);
-        return;
+
+    if (fd == NULL){
+        my_printf("Can not open '%s' (Parsing failed)\n", file);
+        free(variable);
+        return NULL;
     }
-    while ((read = getline(&line, &len, fd)) != -1) {
-        if (my_strncmp(line, variable, my_strlen(variable)) == 0) {
-            buffer = conc(buffer, conc(variable, conc(value,
-                                    (line[read - 2] == ',') ? ",\n" : "\n")));
-        } else
-            buffer = conc(buffer, line);
-    }
-    free(line);
-    free(variable);
-    fclose(fd);
-    fill_file(file, buffer);
+    return get_line_pars(fd, variable);
 }
