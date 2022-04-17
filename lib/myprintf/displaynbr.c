@@ -9,7 +9,6 @@
 #include <stdarg.h>
 #include "printf.h"
 
-
 static void my_putchar(char c)
 {
     write(1, &c, 1);

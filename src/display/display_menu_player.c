@@ -58,4 +58,3 @@ void draw_stat_char(game_t *game)
     draw_text(conc("POINT STAT : ", inttochar(game->player->pt_stat)),
             game->settings->font, (sfVector3f){100, 550, 40}, game->window);
 }
-

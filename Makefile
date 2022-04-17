@@ -33,6 +33,10 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
 						$(SOURCES)$(EVT)button_state.c   			\
+						$(SOURCES)$(EVT)load.c   					\
+						$(SOURCES)$(EVT)clear.c   					\
+						$(SOURCES)$(EVT)change_tab.c   				\
+						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
 						$(SOURCES)$(EVT)select_movement.c  			\
 						$(SOURCES)$(EVT)select_menu.c				\
@@ -41,6 +45,8 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)move.c		  				\
 						$(SOURCES)$(EVT)menu_event.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
+						$(SOURCES)$(INIT)init_scenes.c				\
+						$(SOURCES)$(INIT)update_stat.c				\
 						$(SOURCES)$(INIT)init_main_menu.c   		\
 						$(SOURCES)$(INIT)init_game.c  				\
 						$(SOURCES)$(INIT)init_pause.c  				\

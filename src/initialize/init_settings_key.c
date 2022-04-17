@@ -23,10 +23,8 @@ element_t **settings_key_elements(void)
     return elements;
 }
 
-button_t **settings_key_buttons(void)
+static void init_key_buttons(button_t **buttons)
 {
-    button_t **buttons = malloc(sizeof(button_t *) * 8);
-
     buttons[0] = init_button("<-             ", "ressources/UI/button1.png",
                         (sfVector2f){50, 50}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = settings;
@@ -47,6 +45,13 @@ button_t **settings_key_buttons(void)
     buttons[5]->action_clicked = wait_pause;
     buttons[6] = init_button("MENU", "ressources/UI/button1.png",
                         (sfVector2f){1100, 700}, (sfVector2i){300, 100});
+}
+
+button_t **settings_key_buttons(void)
+{
+    button_t **buttons = malloc(sizeof(button_t *) * 8);
+
+    init_key_buttons(buttons);
     buttons[6]->action_clicked = wait_menu;
     buttons[7] = NULL;
     buttons[0]->base->scale = (sfVector2f){0.4, 1};

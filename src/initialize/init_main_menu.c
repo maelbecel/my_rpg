@@ -9,7 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-
 void main_menu(game_t *game, ...)
 {
     game->scenes->page = MAIN_MENU;

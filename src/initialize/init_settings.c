@@ -43,6 +43,5 @@ button_t **settings_buttons(void)
         buttons[i]->clicked->scale = (sfVector2f){0.6, 1};
         buttons[i++]->hoover->scale = (sfVector2f){0.6, 1};
     }
-
     return buttons;
 }

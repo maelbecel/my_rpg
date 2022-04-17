@@ -24,9 +24,9 @@ element_t **game_elements(void)
     elements[2] = init_element("ressources/perso.png", (sfVector2f){900, 500},
                             (sfVector2f){1920, 1080}, (sfVector2f){0.8, 0.8});
     elements[3] = init_element("ressources/map.png", (sfVector2f){1420, 0},
-                            (sfVector2f){1920, 1080}, (sfVector2f){0.05, 0.05});
+                        (sfVector2f){1920, 1080}, (sfVector2f){0.05, 0.05});
     elements[4] = init_element("ressources/perso.png", (sfVector2f){1400, 0},
-                            (sfVector2f){1920, 1080}, (sfVector2f){0.08, 0.08});
+                        (sfVector2f){1920, 1080}, (sfVector2f){0.08, 0.08});
     elements[5] = NULL;
     elements[0]->rect = (sfIntRect){0, 0, 1920, 1080};
     elements[3]->rect = (sfIntRect){0, 0, 10000, 5275};

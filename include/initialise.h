@@ -289,4 +289,39 @@
     ////////////////////////////////////////////////////////////
     void init_htp(scene_t *scenes, sfRenderWindow *window);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Initialize settings menus
+    ///
+    /// \param scenes  Scenes to initialize
+    /// \param window  Window to display loading bar
+    ///
+    ////////////////////////////////////////////////////////////
+    void init_settings_menu(scene_t *scenes, sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Initialize player menus
+    ///
+    /// \param scenes  Scenes to initialize
+    /// \param window  Window to display loading bar
+    ///
+    ////////////////////////////////////////////////////////////
+    void init_menu_player(scene_t *scenes, sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Initialize new game
+    ///
+    /// \param scenes  Scenes to initialize
+    /// \param window  Window to display loading bar
+    ///
+    ////////////////////////////////////////////////////////////
+    void init_new_game(scene_t *scenes, sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Update buttons for stat tab
+    ///
+    /// \param buttons  buttons array to update
+    ///
+    ////////////////////////////////////////////////////////////
+    void update_stat(button_t **buttons);
+
 #endif

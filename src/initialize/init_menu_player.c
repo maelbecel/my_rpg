@@ -9,66 +9,19 @@
 #include "printf.h"
 #include "rpg.h"
 
-void go_to_player(game_t* game, ...)
+static void update_scale(button_t **buttons)
 {
-    game->scenes[MENU_PLAYER].tab->page = 0;
-}
-
-void go_to_stat(game_t* game, ...)
-{
-    game->scenes[MENU_PLAYER].tab->page = 1;
-}
-
-void go_to_quest(game_t* game, ...)
-{
-    game->scenes[MENU_PLAYER].tab->page = 2;
-}
-
-void go_to_inventory(game_t* game, ...)
-{
-    game->scenes[MENU_PLAYER].tab->page = 3;
-}
-
-void add_hp(game_t *game, ...)
-{
-    if (game->player->pt_stat > 0) {
-        game->player->hp += 10;
-        game->player->pt_stat -= 1;
+    for (int i = 0; i < 4; i++) {
+        buttons[i]->base->scale = (sfVector2f){0.59, 0.5};
+        buttons[i]->clicked->scale = (sfVector2f){0.59, 0.5};
+        buttons[i]->hoover->scale = (sfVector2f){0.59, 0.5};
+        buttons[i]->base->text_pos.x *= 0.59;
+        buttons[i]->base->text_pos.y *= 0.5;
+        buttons[i]->clicked->text_pos.x *= 0.59;
+        buttons[i]->clicked->text_pos.y *= 0.5;
+        buttons[i]->hoover->text_pos.x *= 0.59;
+        buttons[i]->hoover->text_pos.y *= 0.5;
     }
-}
-
-void add_strenght(game_t *game, ...)
-{
-    if (game->player->pt_stat > 0) {
-        game->player->strg += 1;
-        game->player->pt_stat -= 1;
-    }
-}
-
-void add_speed(game_t *game, ...)
-{
-    if (game->player->pt_stat > 0) {
-        game->player->spd += 1;
-        game->player->pt_stat -= 1;
-    }
-}
-
-void add_defense(game_t *game, ...)
-{
-    if (game->player->pt_stat > 0) {
-        game->player->def += 1;
-        game->player->pt_stat -= 1;
-    }
-}
-
-void reset(game_t *game, ...)
-{
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
-    game->player->hp = my_getnbr(parser(file, "health"));
-    game->player->strg = my_getnbr(parser(file, "strength"));
-    game->player->spd = my_getnbr(parser(file, "speed"));
-    game->player->def = my_getnbr(parser(file, "defense"));
-    game->player->pt_stat = my_getnbr(parser(file, "point_stat"));
 }
 
 button_t **menu_player_buttons(void)
@@ -83,17 +36,7 @@ button_t **menu_player_buttons(void)
     buttons[3] = init_button("INVENTORY", "ressources/UI/button1.png",
                         (sfVector2f){1427.5, 25}, (sfVector2i){300, 100});
     buttons[4] = NULL;
-    for (int i = 0; i < 4; i++) {
-        buttons[i]->base->scale = (sfVector2f){0.59, 0.5};
-        buttons[i]->clicked->scale = (sfVector2f){0.59, 0.5};
-        buttons[i]->hoover->scale = (sfVector2f){0.59, 0.5};
-        buttons[i]->base->text_pos.x *= 0.59;
-        buttons[i]->base->text_pos.y *= 0.5;
-        buttons[i]->clicked->text_pos.x *= 0.59;
-        buttons[i]->clicked->text_pos.y *= 0.5;
-        buttons[i]->hoover->text_pos.x *= 0.59;
-        buttons[i]->hoover->text_pos.y *= 0.5;
-    }
+    update_scale(buttons);
     buttons[0]->action_clicked = go_to_player;
     buttons[1]->action_clicked = go_to_stat;
     buttons[2]->action_clicked = go_to_quest;
@@ -132,18 +75,7 @@ button_t **init_button_stat(void)
                         (sfVector2f){100, 700}, (sfVector2i){300, 100});
     buttons[4]->action_clicked = reset;
     buttons[4]->action_hoover = hoover_menu;
-    for (int i = 0; i < 4; i++) {
-        buttons[i]->action_hoover = hoover_menu;
-        buttons[i]->base->scale = (sfVector2f){0.59, 0.5};
-        buttons[i]->clicked->scale = (sfVector2f){0.59, 0.5};
-        buttons[i]->hoover->scale = (sfVector2f){0.59, 0.5};
-        buttons[i]->base->text_pos.x *= 0.59;
-        buttons[i]->base->text_pos.y *= 0.5;
-        buttons[i]->clicked->text_pos.x *= 0.59;
-        buttons[i]->clicked->text_pos.y *= 0.5;
-        buttons[i]->hoover->text_pos.x *= 0.59;
-        buttons[i]->hoover->text_pos.y *= 0.5;
-    }
+    update_stat(buttons);
     return buttons;
 }
 

@@ -82,7 +82,8 @@
     /// \param window  sfRenderWindow object where text should be display
     ///
     ////////////////////////////////////////////////////////////
-    void draw_text(char *text, sfFont *font, sfVector3f pos, sfRenderWindow *window);
+    void draw_text(char *text, sfFont *font, sfVector3f pos,
+                                                    sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
     /// \brief Draw white a text on a window
@@ -93,7 +94,8 @@
     /// \param window  sfRenderWindow object where text should be display
     ///
     ////////////////////////////////////////////////////////////
-    void draw_text_white(char *text, int size, sfVector2f pos, sfRenderWindow *window);
+    void draw_text_white(char *text, int size, sfVector2f pos,
+                                                    sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the settings menu

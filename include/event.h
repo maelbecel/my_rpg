@@ -385,4 +385,121 @@
     ////////////////////////////////////////////////////////////
     void hoover(game_t *game, ...);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Init a new game
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void new_game(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Clear the save 1
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void clear_1(UNUSED game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Clear the save 2
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void clear_2(UNUSED game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Clear the save 3
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void clear_3(UNUSED game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Go to player tab
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void go_to_player(game_t* game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Go to stat tab
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void go_to_stat(game_t* game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Go to quest tab
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void go_to_quest(game_t* game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Go to inventory tab
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void go_to_inventory(game_t* game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Add HP to player
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void add_hp(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Add Strenght to player
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void add_strenght(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Add Speed to player
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void add_speed(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Add Defense to player
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void add_defense(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Apply save to player struct
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void reset(game_t *game, ...);
+
 #endif
