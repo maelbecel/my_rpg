@@ -34,8 +34,18 @@
     /// \param window  sfRenderWindow object where outro should be display
     /// \param a       Player sprite to display
     /// \param b       Enemy sprite to display
+    ///
     /// \return 0
     ///
     ////////////////////////////////////////////////////////////
     int battle(sfRenderWindow *window, sfSprite *a, sfSprite *b);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display fight in cinematic
+    ///
+    /// \param music   sfMusic element with the sound to display
+    /// \param window  sfRenderWindow object where outro should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    void fight_display(sfMusic *music, sfRenderWindow *window);
 #endif
