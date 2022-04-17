@@ -26,7 +26,8 @@ void display_htp_first(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[HTP_1].buttons[b++]);
     }
-    draw_text("HOW TO PLAY PAGE 1", game->settings->font, (sfVector3f){400, 400, 40}, game->window);
+    draw_text("HOW TO PLAY PAGE 1", game->settings->font,
+                                    (sfVector3f){400, 400, 40}, game->window);
 }
 
 void display_htp_second(game_t *game, sfEvent *event)
@@ -46,7 +47,8 @@ void display_htp_second(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[HTP_2].buttons[b++]);
     }
-    draw_text("HOW TO PLAY PAGE 2", game->settings->font, (sfVector3f){400, 400, 40}, game->window);
+    draw_text("HOW TO PLAY PAGE 2", game->settings->font,
+                                    (sfVector3f){400, 400, 40}, game->window);
 }
 
 void display_htp_third(game_t *game, sfEvent *event)
@@ -66,5 +68,6 @@ void display_htp_third(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[HTP_3].buttons[b++]);
     }
-    draw_text("HOW TO PLAY PAGE 3", game->settings->font, (sfVector3f){400, 400, 40}, game->window);
+    draw_text("HOW TO PLAY PAGE 3", game->settings->font,
+                                    (sfVector3f){400, 400, 40}, game->window);
 }

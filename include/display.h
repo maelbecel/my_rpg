@@ -25,6 +25,19 @@
     };
 
     ////////////////////////////////////////////////////////////
+    /// \brief Displau struct.
+    ///
+    /// Contain the scene number and the display function
+    ///
+    /// \struct display_s display_t
+    ///
+    ////////////////////////////////////////////////////////////
+    struct display_s {
+        int scene;
+        void (*func)(game_t *game, sfEvent *event);
+    };
+
+    ////////////////////////////////////////////////////////////
     /// \brief Draw a button on a window
     ///
     /// \param window  sfRenderWindow object where button should be display
@@ -189,5 +202,147 @@
     ///
     ////////////////////////////////////////////////////////////
     void popup(sfFont *font, char *str);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the stat menu
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_stat(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the quest menu
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_quest(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Select the tab to display
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_tab(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw stat of the player
+    ///
+    /// \param game  game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_stat_char(game_t *game);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_inventory(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the player info
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_player(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the buttons for menu player
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    /// \param nb    nb of the button cliked
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_button_menu_player(game_t *game, sfEvent *event, int nb);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the choosing character menu
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_choosing(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the load save menu
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_load(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the main menu
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_main_menu(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the pause menu
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_pause(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the game
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_game(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Set string form up and down
+    ///
+    /// \param game  game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    void set_vert(game_t *game);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Set string form left and right
+    ///
+    /// \param game  game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    void set_hori(game_t *game);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Set string form pause and menu
+    ///
+    /// \param game  game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    void set_othr(game_t *game);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Get touch name from key input
+    ///
+    /// \param key  key input
+    ///
+    /// \return Return the name of the \a key
+    ///
+    ////////////////////////////////////////////////////////////
+    char *getkey(int key);
 
 #endif

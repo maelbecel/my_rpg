@@ -56,13 +56,16 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)draw_settings.c   			\
 						$(SOURCES)$(DISP)display_settings.c   		\
 						$(SOURCES)$(DISP)display.c   				\
+						$(SOURCES)$(DISP)display_stat.c				\
+						$(SOURCES)$(DISP)display_load.c				\
+						$(SOURCES)$(DISP)set_settings.c				\
 						$(SOURCES)$(DISP)popup.c	   				\
 						$(SOURCES)$(DISP)display_htp.c   			\
 						$(SOURCES)$(DISP)display_key_with_pnj.c		\
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
-						$(SOURCES)$(PARS)update_file.c   				\
+						$(SOURCES)$(PARS)update_file.c   			\
 						$(SOURCES)$(CINE)intro.c   					\
 						$(SOURCES)$(CINE)init_intro.c   			\
 						$(SOURCES)$(CINE)draw_intro.c   			\

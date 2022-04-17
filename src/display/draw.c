@@ -52,7 +52,8 @@ void draw_clicked(sfRenderWindow *window, button_t *button)
     sfRenderWindow_drawText(window, button->clicked->text, NULL);
 }
 
-void draw_text(char *text, sfFont *font, sfVector3f pos, sfRenderWindow *window)
+void draw_text(char *text, sfFont *font,
+                                    sfVector3f pos, sfRenderWindow *window)
 {
     sfText *score = sfText_create();
 

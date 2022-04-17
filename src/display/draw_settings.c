@@ -140,24 +140,9 @@ void concat_settings(game_t *game)
 {
     sfVector2f pos = (sfVector2f){50, 50};
 
-    sfText_setString(game->scenes[KEY].buttons[1]->base->text, conc("UP : ", getkey(game->settings->key_up)));
-    sfText_setString(game->scenes[KEY].buttons[1]->hoover->text, conc("UP : ", getkey(game->settings->key_up)));
-    sfText_setString(game->scenes[KEY].buttons[1]->clicked->text, conc("UP : ", getkey(game->settings->key_up)));
-    sfText_setString(game->scenes[KEY].buttons[2]->base->text, conc("DOWN : ", getkey(game->settings->key_down)));
-    sfText_setString(game->scenes[KEY].buttons[2]->hoover->text, conc("DOWN : ", getkey(game->settings->key_down)));
-    sfText_setString(game->scenes[KEY].buttons[2]->clicked->text, conc("DOWN : ", getkey(game->settings->key_down)));
-    sfText_setString(game->scenes[KEY].buttons[3]->base->text, conc("LEFT : ", getkey(game->settings->key_left)));
-    sfText_setString(game->scenes[KEY].buttons[3]->hoover->text, conc("LEFT : ", getkey(game->settings->key_left)));
-    sfText_setString(game->scenes[KEY].buttons[3]->clicked->text, conc("LEFT : ", getkey(game->settings->key_left)));
-    sfText_setString(game->scenes[KEY].buttons[4]->base->text, conc("RIGHT : ", getkey(game->settings->key_right)));
-    sfText_setString(game->scenes[KEY].buttons[4]->hoover->text, conc("RIGHT : ", getkey(game->settings->key_right)));
-    sfText_setString(game->scenes[KEY].buttons[4]->clicked->text, conc("RIGHT : ", getkey(game->settings->key_right)));
-    sfText_setString(game->scenes[KEY].buttons[5]->base->text, conc("PAUSE : ", getkey(game->settings->key_pause)));
-    sfText_setString(game->scenes[KEY].buttons[5]->hoover->text, conc("PAUSE : ", getkey(game->settings->key_pause)));
-    sfText_setString(game->scenes[KEY].buttons[5]->clicked->text, conc("PAUSE : ", getkey(game->settings->key_pause)));
-    sfText_setString(game->scenes[KEY].buttons[6]->base->text, conc("MENU : ", getkey(game->settings->key_menu)));
-    sfText_setString(game->scenes[KEY].buttons[6]->hoover->text, conc("MENU : ", getkey(game->settings->key_menu)));
-    sfText_setString(game->scenes[KEY].buttons[6]->clicked->text, conc("MENU : ", getkey(game->settings->key_menu)));
+    set_vert(game);
+    set_hori(game);
+    set_othr(game);
     for (int i = 1; game->scenes[KEY].buttons[i];) {
         game->scenes[KEY].buttons[i]->base->text_pos = pos;
         game->scenes[KEY].buttons[i]->clicked->text_pos = pos;
