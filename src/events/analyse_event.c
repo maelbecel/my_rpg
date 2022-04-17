@@ -49,25 +49,13 @@ int analyse_event(game_t *game, sfEvent *event)
 void analyse_game(game_t *game, UNUSED sfEvent *event)
 {
     if (sfKeyboard_isKeyPressed(game->settings->key_down)) {
-        if (game->scenes[GAME].elements[2]->pos.y > 680) {
-            game->scenes[GAME].elements[0]->rect.top += 5;
-        } else
-            game->scenes[GAME].elements[2]->pos.y += 5;
+        move_down(game);
     } if (sfKeyboard_isKeyPressed(game->settings->key_up)) {
-        if (game->scenes[GAME].elements[2]->pos.y < 200) {
-            game->scenes[GAME].elements[0]->rect.top -= 5;
-        } else
-            game->scenes[GAME].elements[2]->pos.y -= 5;
+        move_up(game);
     } if (sfKeyboard_isKeyPressed(game->settings->key_left)) {
-        if (game->scenes[GAME].elements[2]->pos.x < 200) {
-            game->scenes[GAME].elements[0]->rect.left -= 5;
-        } else
-            game->scenes[GAME].elements[2]->pos.x -= 5;
+        move_left(game);
     } if (sfKeyboard_isKeyPressed(game->settings->key_right)) {
-        if (game->scenes[GAME].elements[2]->pos.x > 1520) {
-            game->scenes[GAME].elements[0]->rect.left += 5;
-        } else
-            game->scenes[GAME].elements[2]->pos.x += 5;
+        move_right(game);
     }
     sfSprite_setTextureRect(game->scenes[GAME].elements[0]->sprite,
                             game->scenes[GAME].elements[0]->rect);

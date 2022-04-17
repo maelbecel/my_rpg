@@ -23,7 +23,8 @@ int event_menu_player(game_t *game, sfEvent *event)
     for (int b = 0; game->scenes[MENU_PLAYER].tab[STAT].buttons[b]; b++) {
         if (event->type == sfEvtMouseButtonPressed &&
             is_click_menu(game, b, MENU_PLAYER, STAT)) {
-            game->scenes[MENU_PLAYER].tab[STAT].buttons[b]->action_clicked(game, b, STAT);
+            game->scenes[MENU_PLAYER].tab[STAT].buttons[b]->action_clicked(
+                                                                game, b, STAT);
         }
     }
     while (!sfRenderWindow_pollEvent(game->window, event));

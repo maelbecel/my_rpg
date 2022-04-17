@@ -14,7 +14,8 @@ int set_up(game_t *game, sfEvent *event)
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed) {
             game->settings->key_up = event->key.code;
-            update_file("config/settings.json", "up_key", inttochar(game->settings->key_up));
+            update_file("config/settings.json", "up_key",
+                                            inttochar(game->settings->key_up));
             return 0;
         }
     }
@@ -39,7 +40,8 @@ int set_down(game_t *game, sfEvent *event)
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed) {
             game->settings->key_down = event->key.code;
-            update_file("config/settings.json", "down_key", inttochar(game->settings->key_down));
+            update_file("config/settings.json", "down_key",
+                                        inttochar(game->settings->key_down));
             return 0;
         }
     }

@@ -32,11 +32,13 @@ CLASS        =          class/
 SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
+						$(SOURCES)$(EVT)button_state.c   			\
 						$(SOURCES)$(EVT)select_key.c   				\
 						$(SOURCES)$(EVT)select_movement.c  			\
 						$(SOURCES)$(EVT)select_menu.c				\
 						$(SOURCES)$(EVT)builtins.c   				\
 						$(SOURCES)$(EVT)sliders.c   				\
+						$(SOURCES)$(EVT)move.c		  				\
 						$(SOURCES)$(EVT)menu_event.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)init_main_menu.c   		\

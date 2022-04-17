@@ -14,7 +14,7 @@ int is_hoover_menu(game_t *game, int b, int s, int t)
     sfVector2f pos = game->scenes[s].tab[t].buttons[b]->pos;
     sfVector2f scale = game->scenes[s].tab[t].buttons[b]->base->scale;
     sfVector2u size = sfTexture_getSize(
-                                game->scenes[s].tab[t].buttons[b]->hoover->texture);
+                        game->scenes[s].tab[t].buttons[b]->hoover->texture);
     sfVector2i click = sfMouse_getPositionRenderWindow(game->window);
     size.x *= scale.x;
     size.y *= scale.y;

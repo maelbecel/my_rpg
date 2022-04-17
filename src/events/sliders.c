@@ -35,8 +35,22 @@ void set_slider_pos(game_t * game)
 
     game->scenes[SOUNDS].elements[3]->pos.x = pos_music;
     game->scenes[SOUNDS].elements[4]->pos.x = pos_fx;
-    update_file("config/settings.json", "fx_sound", inttochar(game->settings->fx_volume));
-    update_file("config/settings.json", "music_sound", inttochar(game->settings->music_volume));
+    update_file("config/settings.json", "fx_sound",
+                                        inttochar(game->settings->fx_volume));
+    update_file("config/settings.json", "music_sound",
+                                    inttochar(game->settings->music_volume));
+}
+
+static void update_slider(game_t *game)
+{
+    game->settings->music_volume = 100.00
+                    * ((game->scenes[SOUNDS].elements[3]->pos.x + 30
+                    - game->scenes[SOUNDS].elements[1]->pos.x)
+                    / game->scenes[SOUNDS].elements[1]->rect.width);
+    game->settings->fx_volume = 100.00
+                    * ((game->scenes[SOUNDS].elements[4]->pos.x + 30
+                    - game->scenes[SOUNDS].elements[2]->pos.x)
+                    / game->scenes[SOUNDS].elements[2]->rect.width);
 }
 
 void move_slider(game_t *game, sfEvent *event)
@@ -55,13 +69,5 @@ void move_slider(game_t *game, sfEvent *event)
         draw_element(game->window, game->scenes[SOUNDS].elements[3]);
         sfRenderWindow_pollEvent(game->window, event);
     }
-    game->settings->music_volume = 100.00
-                    * ((game->scenes[SOUNDS].elements[3]->pos.x + 30
-                    - game->scenes[SOUNDS].elements[1]->pos.x)
-                    / game->scenes[SOUNDS].elements[1]->rect.width);
-    game->settings->fx_volume = 100.00
-                    * ((game->scenes[SOUNDS].elements[4]->pos.x + 30
-                    - game->scenes[SOUNDS].elements[2]->pos.x)
-                    / game->scenes[SOUNDS].elements[2]->rect.width);
-
+    update_slider(game);
 }
