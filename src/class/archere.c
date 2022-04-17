@@ -43,8 +43,12 @@ void draw_archere_char(sfRenderWindow *window, sfFont *font)
         return;
     }
     draw_text("ARCHER", font, (sfVector3f){850, 240, 40}, window);
-    draw_text(conc("HEALTH : ", health), font, (sfVector3f){850, 320, 30}, window);
-    draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){850, 360, 30}, window);
-    draw_text(conc("SPEED : ", speed), font, (sfVector3f){850, 400, 30}, window);
-    draw_text(conc("DEFENSE: ", defense), font, (sfVector3f){850, 440, 30}, window);
+    draw_text(conc("HEALTH : ", health), font, (sfVector3f){850, 320, 30},
+                                                                    window);
+    draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){850, 360, 30},
+                                                                    window);
+    draw_text(conc("SPEED : ", speed), font, (sfVector3f){850, 400, 30},
+                                                                    window);
+    draw_text(conc("DEFENSE: ", defense), font, (sfVector3f){850, 440, 30},
+                                                                    window);
 }

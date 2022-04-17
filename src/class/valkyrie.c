@@ -43,8 +43,12 @@ void draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
         return;
     }
     draw_text("VALKYRIE", font, (sfVector3f){1350, 760, 40}, window);
-    draw_text(conc("HEALTH : ", health), font, (sfVector3f){1350, 840, 30}, window);
-    draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){1350, 880, 30}, window);
-    draw_text(conc("SPEED : ", speed), font, (sfVector3f){1350, 920, 30}, window);
-    draw_text(conc("DEFENSE: ", defense), font, (sfVector3f){1350, 960, 30}, window);
+    draw_text(conc("HEALTH : ", health), font, (sfVector3f){1350, 840, 30},
+                                                                    window);
+    draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){1350, 880, 30},
+                                                                    window);
+    draw_text(conc("SPEED : ", speed), font, (sfVector3f){1350, 920, 30},
+                                                                    window);
+    draw_text(conc("DEFENSE: ", defense), font, (sfVector3f){1350, 960, 30},
+                                                                    window);
 }
