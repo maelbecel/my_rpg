@@ -41,7 +41,7 @@ void update_file(char *file, char *var, char *value)
 {
     FILE *fd = fopen(file, "r");
     char *buffer;
-    char *variable = conc("    ",conc(coat(),
+    char *variable = conc("    ", conc(coat(),
                                     conc(var, conc(coat(), conc(":", " ")))));
     if (fd == NULL) {
         my_printf("Can not open '%s' (Update failed)\n", file);

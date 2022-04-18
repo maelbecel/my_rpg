@@ -34,7 +34,7 @@
     ///
     /// \param class Name of the class of the player
     ///
-    /// \return struct player_t* with the player base stats
+    /// \return struct player_t * with the player base stats
     ///
     ////////////////////////////////////////////////////////////
     player_t *init_player(char *class);

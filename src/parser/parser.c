@@ -48,7 +48,7 @@ char *get_line_pars(FILE *fd, char *variable)
 char *parser(char *file, char *var)
 {
     FILE *fd = fopen(file, "r");
-    char *variable = conc("    ",conc(coat(),
+    char *variable = conc("    ", conc(coat(),
                                     conc(var, conc(coat(), conc(":", " ")))));
 
     if (fd == NULL){

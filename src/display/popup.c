@@ -12,7 +12,7 @@
 void popup(sfFont *font, char *str)
 {
     sfVideoMode mode = {600, 200, 32};
-    element_t *element = init_element("ressources/UI/popup.png",
+    element_t *element = init_element("ressources/ui/popup.png",
                                     (sfVector2f){0, 0}, (sfVector2f){600, 200},
                                     (sfVector2f){1, 1});
     sfRenderWindow *pop = sfRenderWindow_create(mode, "Warning !",

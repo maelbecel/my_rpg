@@ -23,4 +23,5 @@ void update_stat(button_t **buttons)
         buttons[i]->hoover->text_pos.x *= 0.59;
         buttons[i]->hoover->text_pos.y *= 0.5;
     }
+    buttons[5] = NULL;
 }

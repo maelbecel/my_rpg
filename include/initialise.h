@@ -21,7 +21,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the main menu
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **main_menu_buttons(void);
@@ -29,7 +29,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the main menu
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **main_menu_elements(void);
@@ -37,7 +37,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the game
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **game_buttons(void);
@@ -45,7 +45,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the game
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **game_elements(void);
@@ -53,7 +53,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the settings menu
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **settings_buttons(void);
@@ -61,7 +61,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the settings menu
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **settings_elements(void);
@@ -69,7 +69,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the player menu
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **menu_player_buttons(void);
@@ -77,7 +77,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the player menu
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **menu_player_elements(void);
@@ -85,7 +85,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get tabs for the player menu
     ///
-    /// \return struct scene_t** with all tab for the scene
+    /// \return struct scene_t ** with all tab for the scene
     ///
     ////////////////////////////////////////////////////////////
     scene_t *menu_player_tab(void);
@@ -93,7 +93,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the key settings  menu
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **settings_key_buttons(void);
@@ -101,7 +101,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the key settings menu
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **settings_key_elements(void);
@@ -109,7 +109,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the sounds settings menu
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **settings_sounds_buttons(void);
@@ -117,7 +117,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the sounds settings menu
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **settings_sounds_elements(void);
@@ -125,7 +125,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the first page of how to play
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **htp_first_buttons(void);
@@ -133,7 +133,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the first page of how to play
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **htp_first_elements(void);
@@ -141,7 +141,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the second page of how to play
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **htp_second_buttons(void);
@@ -149,7 +149,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the second page of how to play
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **htp_second_elements(void);
@@ -157,7 +157,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the third page of how to play
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **htp_third_buttons(void);
@@ -165,7 +165,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the third page of how to play
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **htp_third_elements(void);
@@ -173,7 +173,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the pause menu
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **pause_buttons(void);
@@ -181,7 +181,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the pause menu
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **pause_elements(void);
@@ -189,7 +189,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the pause menu
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **choosing_buttons(void);
@@ -197,7 +197,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the pause menu
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **choosing_elements(void);
@@ -205,7 +205,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the load menu
     ///
-    /// \return struct button_t** with all buttons for the scene
+    /// \return struct button_t ** with all buttons for the scene
     ///
     ////////////////////////////////////////////////////////////
     button_t **load_menu_buttons(void);
@@ -213,7 +213,7 @@
     ////////////////////////////////////////////////////////////
     /// \brief Get elements for the load menu
     ///
-    /// \return struct element_t** with all elements for the scene
+    /// \return struct element_t ** with all elements for the scene
     ///
     ////////////////////////////////////////////////////////////
     element_t **load_menu_elements(void);
@@ -223,7 +223,7 @@
     ///
     /// \param window window where display loading bar
     ///
-    /// \return struct scene_t* with all elements and buttons for all scenes
+    /// \return struct scene_t * with all elements and buttons for all scenes
     ///
     ////////////////////////////////////////////////////////////
     scene_t *init_scenes(sfRenderWindow *window);
@@ -236,7 +236,7 @@
     /// \param size    sfVector2f struct with the size of the element
     /// \param scale   sfVector2f struct with the scale of the element
     ///
-    /// \return struct element_t* with the element
+    /// \return struct element_t * with the element
     ///
     ////////////////////////////////////////////////////////////
     element_t *init_element(char *texture, sfVector2f pos,
@@ -250,7 +250,7 @@
     /// \param pos     sfVector2f struct with the position of the element
     /// \param size    sfVector2f struct with the size of the element
     ///
-    /// \return struct button_t* with the button
+    /// \return struct button_t * with the button
     ///
     ////////////////////////////////////////////////////////////
     button_t *init_button(char *text, char *texture,
@@ -263,7 +263,7 @@
     /// \param texture Path to the texture
     /// \param size    sfVector2f struct with the size of the element
     ///
-    /// \return struct type_button_t* with the button aspect
+    /// \return struct type_button_t * with the button aspect
     ///
     ////////////////////////////////////////////////////////////
     type_button_t *init_button_type(char *text, char *texture,
@@ -275,7 +275,7 @@
     /// basic settings are arrow movement, 'escape' for pause and
     /// 'p' for player menu.
     ///
-    /// \return struct settings_t* with the base settings
+    /// \return struct settings_t * with the base settings
     ///
     ////////////////////////////////////////////////////////////
     settings_t *init_settings(void);

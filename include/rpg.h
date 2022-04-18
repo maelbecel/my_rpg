@@ -20,9 +20,9 @@
     #define BASIC_TEXT_SIZE 50
 
     ////////////////////////////////////////////////////////////
-    /// \def BASIC_FONT "ressources/Fonts/game.ttf"
+    /// \def BASIC_FONT "ressources/fonts/game.ttf"
     ////////////////////////////////////////////////////////////
-    #define BASIC_FONT "ressources/Fonts/zorque.ttf"
+    #define BASIC_FONT "ressources/fonts/zorque.ttf"
 
     ////////////////////////////////////////////////////////////
     /// \def MICRO 1000000
@@ -130,7 +130,7 @@
     /// \brief Button struct.
     ///
     /// Contain the base aspect, hoover aspect, clicked aspect, button position
-    /// ,action when hoover, action when clicked, x and y.
+    /// , action when hoover, action when clicked, x and y.
     ///
     /// \struct button_s button_t
     ///

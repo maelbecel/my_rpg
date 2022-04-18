@@ -12,7 +12,7 @@
 void draw_button(sfRenderWindow *window, button_t *button)
 {
     sfSprite_setPosition(button->base->sprite, button->pos);
-    sfText_setColor(button->base->text,sfBlack);
+    sfText_setColor(button->base->text, sfBlack);
     sfText_setFont(button->base->text, button->base->font);
     sfText_setCharacterSize(button->base->text, button->base->text_size);
     sfText_setPosition(button->base->text,
@@ -27,7 +27,7 @@ void draw_button(sfRenderWindow *window, button_t *button)
 void draw_hoover(sfRenderWindow *window, button_t *button)
 {
     sfSprite_setPosition(button->hoover->sprite, button->pos);
-    sfText_setColor(button->hoover->text,sfBlack);
+    sfText_setColor(button->hoover->text, sfBlack);
     sfText_setFont(button->hoover->text, button->hoover->font);
     sfText_setCharacterSize(button->hoover->text, button->hoover->text_size);
     sfText_setPosition(button->hoover->text,
@@ -41,7 +41,7 @@ void draw_hoover(sfRenderWindow *window, button_t *button)
 void draw_clicked(sfRenderWindow *window, button_t *button)
 {
     sfSprite_setPosition(button->clicked->sprite, button->pos);
-    sfText_setColor(button->clicked->text,sfBlack);
+    sfText_setColor(button->clicked->text, sfBlack);
     sfText_setFont(button->clicked->text, button->clicked->font);
     sfText_setCharacterSize(button->clicked->text, button->clicked->text_size);
     sfText_setPosition(button->clicked->text,

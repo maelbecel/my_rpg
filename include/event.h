@@ -428,7 +428,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void go_to_player(game_t* game, ...);
+    void go_to_player(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to stat tab
@@ -437,7 +437,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void go_to_stat(game_t* game, ...);
+    void go_to_stat(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to quest tab
@@ -446,7 +446,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void go_to_quest(game_t* game, ...);
+    void go_to_quest(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to inventory tab
@@ -455,7 +455,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void go_to_inventory(game_t* game, ...);
+    void go_to_inventory(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Add HP to player

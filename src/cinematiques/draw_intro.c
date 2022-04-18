@@ -55,7 +55,7 @@ void what_draw(sfRenderWindow *window, sfSprite *epitech,
 {
     sfRenderWindow_clear(window, sfBlack);
     if (opmul.y >= 0) {
-        draw_all(window,letter);
+        draw_all(window, letter);
         sfRenderWindow_drawSprite(window, epitech, NULL);
     } else
         draw(window, epitech, letter, opmul);

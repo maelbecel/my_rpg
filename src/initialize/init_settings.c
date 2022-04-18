@@ -28,13 +28,13 @@ button_t **settings_buttons(void)
     button_t **buttons = malloc(sizeof(button_t *) * 4);
     int i = 0;
 
-    buttons[0] = init_button("MAIN MENU        ", "ressources/UI/button1.png",
+    buttons[0] = init_button("MAIN MENU        ", "ressources/ui/button1.png",
                         (sfVector2f){700, 800}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = main_menu;
-    buttons[1] = init_button("KEYS      ", "ressources/UI/button1.png",
+    buttons[1] = init_button("KEYS      ", "ressources/ui/button1.png",
                         (sfVector2f){700, 450}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = settings_key;
-    buttons[2] = init_button("SOUNDS       ", "ressources/UI/button1.png",
+    buttons[2] = init_button("SOUNDS       ", "ressources/ui/button1.png",
                         (sfVector2f){700, 100}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = settings_sounds;
     buttons[3] = NULL;

@@ -27,10 +27,10 @@ button_t **htp_third_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 3);
 
-    buttons[0] = init_button("<-             ", "ressources/UI/button1.png",
-                        (sfVector2f){50,50}, (sfVector2i){300, 100});
+    buttons[0] = init_button("<-             ", "ressources/ui/button1.png",
+                        (sfVector2f){50, 50}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = htp_second;
-    buttons[1] = init_button("MENU             ", "ressources/UI/button1.png",
+    buttons[1] = init_button("MENU             ", "ressources/ui/button1.png",
                         (sfVector2f){50, 250}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = main_menu;
     buttons[2] = NULL;

@@ -16,7 +16,7 @@ void set_vert(game_t *game)
     sfText_setString(game->scenes[KEY].buttons[1]->hoover->text,
                                 conc("UP : ", getkey(game->settings->key_up)));
     sfText_setString(game->scenes[KEY].buttons[1]->clicked->text,
-                                conc("UP : ",getkey(game->settings->key_up)));
+                                conc("UP : ", getkey(game->settings->key_up)));
     sfText_setString(game->scenes[KEY].buttons[2]->base->text,
                             conc("DOWN : ", getkey(game->settings->key_down)));
     sfText_setString(game->scenes[KEY].buttons[2]->hoover->text,
