@@ -18,7 +18,7 @@ element_t **load_menu_elements(void)
     return elements;
 }
 
-static void check_save(button_t **buttons)
+static void check_sve(button_t **buttons)
 {
     buttons[0]->action_clicked =
             (my_getnbr(parser("saves/save1.json", "new")) == 1) ?
@@ -59,7 +59,7 @@ button_t **load_menu_buttons(void)
     button_t **buttons = malloc(sizeof(button_t *) * 7);
 
     fill_buttons(buttons);
-    check_save(buttons);
+    check_sve(buttons);
     for (int i = 3; buttons[i]; i++) {
         buttons[i]->base->scale = (sfVector2f){0.3, 1};
         buttons[i]->base->text_pos =
