@@ -65,6 +65,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_settings.c   		\
 						$(SOURCES)$(DISP)display.c   				\
 						$(SOURCES)$(DISP)set_good.c   				\
+						$(SOURCES)$(DISP)get_quest.c   				\
 						$(SOURCES)$(DISP)display_stat.c				\
 						$(SOURCES)$(DISP)display_load.c				\
 						$(SOURCES)$(DISP)set_settings.c				\

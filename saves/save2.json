@@ -6,20 +6,8 @@
     "speed": 5,
     "defense": 7,
     "point_stat": 0,
-    "posx": 1990,
-    "posy": 540
+    "posx": 900,
+    "posy": 500,
+    "quests": [1,2,4,3]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -382,10 +382,11 @@
     /// \brief Turn a string into an array
     ///
     /// \param str string to transform
+    /// \param sep separator to transform
     ///
     /// \return Array of string
     ///
     ////////////////////////////////////////////////////////////
-    char **my_str_to_word_array(char *str);
+    char **my_str_to_word_array(char *str, char sep);
 
 #endif

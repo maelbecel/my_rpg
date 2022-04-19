@@ -55,7 +55,7 @@ void display_quest(game_t *game, sfEvent *event)
     for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
     display_button_menu_player(game, event, 2);
-    draw_text("NO QUEST ACTUALLY", game->settings->font,
+    draw_text(get_quests(game), game->settings->font,
                                     (sfVector3f){400, 600, 80}, game->window);
 }
 
