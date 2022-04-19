@@ -1,17 +1,11 @@
 {
-    "fx_sound": 12,
-    "music_sound": 62,
+    "fx_sound": 40,
+    "music_sound": 31,
     "left_key": 71,
     "right_key": 72,
     "up_key": 73,
     "down_key": 74,
-    "pause_key": 36,
+    "pause_key": 21,
     "skip_key": 18,
     "menu_key": 12
 }
-
-
-
-
-
-

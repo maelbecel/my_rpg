@@ -48,13 +48,16 @@ char *get_line_pars(FILE *fd, char *variable)
 char *parser(char *file, char *var)
 {
     FILE *fd = fopen(file, "r");
+    sfFont *font = sfFont_createFromFile(BASIC_FONT);
     char *variable = conc("    ", conc(coat(),
                                     conc(var, conc(coat(), conc(":", " ")))));
 
     if (fd == NULL){
-        my_printf("Can not open '%s' (Parsing failed)\n", file);
+        popup(font, conc("Error:\nCan't open '", conc(file, "'")));
+        sfFont_destroy(font);
         free(variable);
         return NULL;
     }
+    sfFont_destroy(font);
     return get_line_pars(fd, variable);
 }

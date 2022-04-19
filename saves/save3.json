@@ -1,14 +1,17 @@
 {
-    "new": 0,
+    "new": 1,
     "class": null,
-    "health": 120,
+    "health": 0,
     "strength": 4,
-    "speed": 8,
-    "defense": 10,
+    "speed": 0,
+    "defense": 0,
     "point_stat": 0,
     "posx": 900,
     "posy": 500
 }
+
+
+
 
 
 

@@ -25,7 +25,7 @@ void popup(sfFont *font, char *str)
             sfRenderWindow_close(pop);
         sfRenderWindow_clear(pop, sfWhite);
         draw_element(pop, element);
-        draw_text(str, font, (sfVector3f){160, 60, 30}, pop);
+        draw_text(str, font, (sfVector3f){20, 50, 30}, pop);
         sfRenderWindow_display(pop);
     }
     sfRenderWindow_destroy(pop);
