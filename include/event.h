@@ -502,4 +502,13 @@
     ////////////////////////////////////////////////////////////
     void reset(game_t *game, ...);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Check if a key \a i is already use
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param i     key to check
+    ///
+    ////////////////////////////////////////////////////////////
+    bool already_def(game_t *game, int i);
+
 #endif

@@ -9,10 +9,26 @@
 #include "printf.h"
 #include "rpg.h"
 
+bool already_def(game_t *game, int i)
+{
+    if (i == game->settings->key_down ||
+        i == game->settings->key_up ||
+        i == game->settings->key_left ||
+        i == game->settings->key_right ||
+        i == game->settings->key_pause ||
+        i == game->settings->key_menu)
+        return true;
+    return false;
+}
+
 int set_pause(game_t *game, sfEvent *event)
 {
     while (sfRenderWindow_pollEvent(game->window, event)) {
-        if (event->type == sfEvtKeyPressed) {
+        if (event->type == sfEvtKeyPressed &&
+            already_def(game, event->key.code)) {
+            popup(game->settings->font, "\n\t\t\t\t\tKey already used");
+            return EXIT_SUCCESS;
+        } if (event->type == sfEvtKeyPressed) {
             game->settings->key_pause = event->key.code;
             update_file(SETTINGS_FILE , "pause_key",
                                         inttochar(game->settings->key_pause));
@@ -38,7 +54,11 @@ void wait_pause(game_t *game, ...)
 int set_menu(game_t *game, sfEvent *event)
 {
     while (sfRenderWindow_pollEvent(game->window, event)) {
-        if (event->type == sfEvtKeyPressed) {
+        if (event->type == sfEvtKeyPressed &&
+            already_def(game, event->key.code)) {
+            popup(game->settings->font, "\n\t\t\t\t\tKey already used");
+            return EXIT_SUCCESS;
+        } if (event->type == sfEvtKeyPressed) {
             game->settings->key_menu = event->key.code;
             update_file(SETTINGS_FILE , "menu_key",
                                         inttochar(game->settings->key_menu));

@@ -12,7 +12,11 @@
 int set_left(game_t *game, sfEvent *event)
 {
     while (sfRenderWindow_pollEvent(game->window, event)) {
-        if (event->type == sfEvtKeyPressed) {
+        if (event->type == sfEvtKeyPressed &&
+            already_def(game, event->key.code)) {
+            popup(game->settings->font, "\n\t\t\t\t\tKey already used");
+            return EXIT_SUCCESS;
+        } if (event->type == sfEvtKeyPressed) {
             game->settings->key_left = event->key.code;
             update_file(SETTINGS_FILE , "left_key",
                                         inttochar(game->settings->key_left));
@@ -38,7 +42,11 @@ void wait_left(game_t *game, ...)
 int set_right(game_t *game, sfEvent *event)
 {
     while (sfRenderWindow_pollEvent(game->window, event)) {
-        if (event->type == sfEvtKeyPressed) {
+        if (event->type == sfEvtKeyPressed &&
+            already_def(game, event->key.code)) {
+            popup(game->settings->font, "\n\t\t\t\t\tKey already used");
+            return EXIT_SUCCESS;
+        } if (event->type == sfEvtKeyPressed) {
             game->settings->key_right = event->key.code;
             update_file(SETTINGS_FILE , "right_key",
                                         inttochar(game->settings->key_right));

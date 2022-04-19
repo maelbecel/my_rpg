@@ -12,7 +12,11 @@
 int set_up(game_t *game, sfEvent *event)
 {
     while (sfRenderWindow_pollEvent(game->window, event)) {
-        if (event->type == sfEvtKeyPressed) {
+        if (event->type == sfEvtKeyPressed &&
+            already_def(game, event->key.code)) {
+            popup(game->settings->font, "\n\t\t\t\t\tKey already used");
+            return EXIT_SUCCESS;
+        } if (event->type == sfEvtKeyPressed) {
             game->settings->key_up = event->key.code;
             update_file(SETTINGS_FILE , "up_key",
                                             inttochar(game->settings->key_up));
@@ -38,7 +42,11 @@ void wait_up(game_t *game, ...)
 int set_down(game_t *game, sfEvent *event)
 {
     while (sfRenderWindow_pollEvent(game->window, event)) {
-        if (event->type == sfEvtKeyPressed) {
+        if (event->type == sfEvtKeyPressed &&
+            already_def(game, event->key.code)) {
+            popup(game->settings->font, "\n\t\t\t\t\tKey already used");
+            return EXIT_SUCCESS;
+        } if (event->type == sfEvtKeyPressed) {
             game->settings->key_down = event->key.code;
             update_file(SETTINGS_FILE , "down_key",
                                         inttochar(game->settings->key_down));
