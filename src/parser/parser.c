@@ -52,7 +52,7 @@ char *parser(char *file, char *var)
     char *variable = conc("    ", conc(coat(),
                                     conc(var, conc(coat(), conc(":", " ")))));
 
-    if (fd == NULL){
+    if (fd == NULL) {
         popup(font, conc("Error:\nCan't open '", conc(file, "'")));
         sfFont_destroy(font);
         free(variable);

@@ -23,7 +23,7 @@ char *inttochar(int num)
         division *= 10;
         mod *= 10;
     }
-    if (num < 0){
+    if (num < 0) {
         res[i] = '-';
         i++;
     }

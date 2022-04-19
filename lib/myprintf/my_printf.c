@@ -68,10 +68,10 @@ int my_printf(char const *str, ...)
     int i = 0;
 
     while (str[i] != '\0') {
-        if (str[i] == '%' && str[i + 1] == '#'){
+        if (str[i] == '%' && str[i + 1] == '#') {
             displayhashtag(str[i + 2], argv);
             i += 2;
-        }else if (str[i] == '%'){
+        }else if (str[i] == '%') {
             displayflags(str[i + 1], argv);
             i++;
         }else {

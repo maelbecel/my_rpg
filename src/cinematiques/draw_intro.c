@@ -28,22 +28,22 @@ static void draw_all(sfRenderWindow *window, sfSprite *letter)
 static void draw(sfRenderWindow *window, sfSprite *epitech, sfSprite *letter,
                                                             sfVector2f opmul)
 {
-    if (opmul.x < 240){
+    if (opmul.x < 240) {
         sfSprite_setPosition(letter, (sfVector2f){490, 350});
         sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x < 190){
+    } if (opmul.x < 190) {
         sfSprite_setPosition(letter, (sfVector2f){630, 350});
         sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x < 140){
+    } if (opmul.x < 140) {
         sfSprite_setPosition(letter, (sfVector2f){770, 350});
         sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x < 90){
+    } if (opmul.x < 90) {
         sfSprite_setPosition(letter, (sfVector2f){910, 350});
         sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x < 40){
+    } if (opmul.x < 40) {
         sfSprite_setPosition(letter, (sfVector2f){1050, 350});
         sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x <= 0){
+    } if (opmul.x <= 0) {
         sfSprite_setPosition(letter, (sfVector2f){1190, 350});
         sfRenderWindow_drawSprite(window, letter, NULL);
     }

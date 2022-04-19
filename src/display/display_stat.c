@@ -11,7 +11,7 @@
 
 void display_menu_player(game_t *game, sfEvent *event)
 {
-    for (int i = 0; game->scenes[MENU_PLAYER].buttons[i]; i++){
+    for (int i = 0; game->scenes[MENU_PLAYER].buttons[i]; i++) {
         sfTexture_destroy(game->scenes[MENU_PLAYER].buttons[i]->base->texture);
         game->scenes[MENU_PLAYER].buttons[i]->base->texture =
                 sfTexture_createFromFile("ressources/ui/button1.png", NULL);

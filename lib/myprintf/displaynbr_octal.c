@@ -39,7 +39,7 @@ int my_getinoctal(int nb)
     int x = 1;
     int j = 0;
 
-    if (nb < 0){
+    if (nb < 0) {
         quotient = quotient * -1;
         my_putchar('-');
         j += 1;
