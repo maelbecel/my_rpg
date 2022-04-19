@@ -56,7 +56,7 @@ void display_quest(game_t *game, sfEvent *event)
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
     display_button_menu_player(game, event, 2);
     draw_text(get_quests(game), game->settings->font,
-                                    (sfVector3f){400, 600, 80}, game->window);
+                                    (sfVector3f){350, 300, 80}, game->window);
 }
 
 void display_tab(game_t *game, sfEvent *event)
