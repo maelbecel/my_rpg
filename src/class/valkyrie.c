@@ -12,10 +12,10 @@
 void valkyrie(game_t *game, ...)
 {
     char *file = conc("saves/save", conc(game->player->save, ".json"));
-    char *health = parser("config/valkyrie.json", "health");
-    char *strength = parser("config/valkyrie.json", "strength");
-    char *speed = parser("config/valkyrie.json", "speed");
-    char *defense = parser("config/valkyrie.json", "defense");
+    char *health = parser(VALKYRIE, "health");
+    char *strength = parser(VALKYRIE, "strength");
+    char *speed = parser(VALKYRIE, "speed");
+    char *defense = parser(VALKYRIE, "defense");
 
     if (!health || !strength || !speed || !defense) {
         popup(game->settings->font, "FAILED TO OPEN\nconfig/valkyrie.json");
@@ -33,10 +33,10 @@ void valkyrie(game_t *game, ...)
 
 void draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
 {
-    char *health = parser("config/valkyrie.json", "health");
-    char *strength = parser("config/valkyrie.json", "strength");
-    char *speed = parser("config/valkyrie.json", "speed");
-    char *defense = parser("config/valkyrie.json", "defense");
+    char *health = parser(VALKYRIE, "health");
+    char *strength = parser(VALKYRIE, "strength");
+    char *speed = parser(VALKYRIE, "speed");
+    char *defense = parser(VALKYRIE, "defense");
 
     if (!health || !strength || !speed || !defense) {
         popup(font, "FAILED TO OPEN\nconfig/valkyrie.json");

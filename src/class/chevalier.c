@@ -12,10 +12,10 @@
 void chevalier(game_t *game, ...)
 {
     char *file = conc("saves/save", conc(game->player->save, ".json"));
-    char *health = parser("config/chevalier.json", "health");
-    char *strength = parser("config/chevalier.json", "strength");
-    char *speed = parser("config/chevalier.json", "speed");
-    char *defense = parser("config/chevalier.json", "defense");
+    char *health = parser(CHEVALIER, "health");
+    char *strength = parser(CHEVALIER, "strength");
+    char *speed = parser(CHEVALIER, "speed");
+    char *defense = parser(CHEVALIER, "defense");
 
     if (!health || !strength || !speed || !defense) {
         popup(game->settings->font, "FAILED TO OPEN\nconfig/chevalier.json");
@@ -33,10 +33,10 @@ void chevalier(game_t *game, ...)
 
 void draw_chevalier_char(sfRenderWindow *window, sfFont *font)
 {
-    char *health = parser("config/chevalier.json", "health");
-    char *strength = parser("config/chevalier.json", "strength");
-    char *speed = parser("config/chevalier.json", "speed");
-    char *defense = parser("config/chevalier.json", "defense");
+    char *health = parser(CHEVALIER, "health");
+    char *strength = parser(CHEVALIER, "strength");
+    char *speed = parser(CHEVALIER, "speed");
+    char *defense = parser(CHEVALIER, "defense");
 
     if (!health || !strength || !speed || !defense) {
         popup(font, "FAILED TO OPEN\nconfig/chevalier.json");

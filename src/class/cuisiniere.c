@@ -12,10 +12,10 @@
 void cuisiniere(game_t *game, ...)
 {
     char *file = conc("saves/save", conc(game->player->save, ".json"));
-    char *health = parser("config/cuisiniere.json", "health");
-    char *strength = parser("config/cuisiniere.json", "strength");
-    char *speed = parser("config/cuisiniere.json", "speed");
-    char *defense = parser("config/cuisiniere.json", "defense");
+    char *health = parser(CUISINIERE, "health");
+    char *strength = parser(CUISINIERE, "strength");
+    char *speed = parser(CUISINIERE, "speed");
+    char *defense = parser(CUISINIERE, "defense");
 
     if (!health || !strength || !speed || !defense) {
         popup(game->settings->font, "FAILED TO OPEN\nconfig/cuisiniere.json");
@@ -33,10 +33,10 @@ void cuisiniere(game_t *game, ...)
 
 void draw_cuisiniere_char(sfRenderWindow *window, sfFont *font)
 {
-    char *health = parser("config/cuisiniere.json", "health");
-    char *strength = parser("config/cuisiniere.json", "strength");
-    char *speed = parser("config/cuisiniere.json", "speed");
-    char *defense = parser("config/cuisiniere.json", "defense");
+    char *health = parser(CUISINIERE, "health");
+    char *strength = parser(CUISINIERE, "strength");
+    char *speed = parser(CUISINIERE, "speed");
+    char *defense = parser(CUISINIERE, "defense");
 
     if (!health || !strength || !speed || !defense) {
         popup(font, "FAILED TO OPEN\nconfig/cuisiniere.json");

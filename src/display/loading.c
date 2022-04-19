@@ -34,5 +34,4 @@ void loading(int number, sfRenderWindow *window)
     sfRenderWindow_display(window);
     sfRectangleShape_destroy(rect);
     sfRectangleShape_destroy(red);
-    return;
 }

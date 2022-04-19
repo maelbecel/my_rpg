@@ -14,12 +14,12 @@ int set_left(game_t *game, sfEvent *event)
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed) {
             game->settings->key_left = event->key.code;
-            update_file("config/settings.json", "left_key",
+            update_file(SETTINGS_FILE , "left_key",
                                         inttochar(game->settings->key_left));
-            return 0;
+            return EXIT_SUCCESS;
         }
     }
-    return 1;
+    return EXIT_FAILURE;
 }
 
 void wait_left(game_t *game, ...)
@@ -40,12 +40,12 @@ int set_right(game_t *game, sfEvent *event)
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed) {
             game->settings->key_right = event->key.code;
-            update_file("config/settings.json", "right_key",
+            update_file(SETTINGS_FILE , "right_key",
                                         inttochar(game->settings->key_right));
-            return 0;
+            return EXIT_SUCCESS;
         }
     }
-    return 1;
+    return EXIT_FAILURE;
 }
 
 void wait_right(game_t *game, ...)

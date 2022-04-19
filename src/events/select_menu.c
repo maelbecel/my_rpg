@@ -14,12 +14,12 @@ int set_pause(game_t *game, sfEvent *event)
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed) {
             game->settings->key_pause = event->key.code;
-            update_file("config/settings.json", "pause_key",
+            update_file(SETTINGS_FILE , "pause_key",
                                         inttochar(game->settings->key_pause));
-            return 0;
+            return EXIT_SUCCESS;
         }
     }
-    return 1;
+    return EXIT_FAILURE;
 }
 
 void wait_pause(game_t *game, ...)
@@ -40,12 +40,12 @@ int set_menu(game_t *game, sfEvent *event)
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed) {
             game->settings->key_menu = event->key.code;
-            update_file("config/settings.json", "menu_key",
+            update_file(SETTINGS_FILE , "menu_key",
                                         inttochar(game->settings->key_menu));
-            return 0;
+            return EXIT_SUCCESS;
         }
     }
-    return 1;
+    return EXIT_FAILURE;
 }
 
 void wait_menu(game_t *game, ...)

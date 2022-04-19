@@ -11,7 +11,7 @@
 
 static bool skip(sfRenderWindow *window)
 {
-    int key = my_getnbr(parser("config/settings.json", "skip_key"));
+    int key = my_getnbr(parser(SETTINGS_FILE , "skip_key"));
     sfEvent event;
     while (sfRenderWindow_pollEvent(window, &event))
         if (event.type == sfEvtKeyPressed && event.key.code == key)
@@ -65,5 +65,5 @@ int battle(sfRenderWindow *window, sfSprite *a, sfSprite *b)
         draw(window, background, player, enemy);
     }
     sfMusic_destroy(music);
-    return 0;
+    return EXIT_SUCCESS;
 }

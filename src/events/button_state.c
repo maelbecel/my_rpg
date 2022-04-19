@@ -29,8 +29,8 @@ void clicked(game_t *game, ...)
     va_start(arg, game);
     int i = va_arg(arg, int);
     sfSprite_setTexture(
-            game->scenes[game->scenes->page].buttons[i]->clicked->sprite,
-            sfTexture_createFromFile("ressources/ui/button1_clicked.png", NULL),
+        game->scenes[game->scenes->page].buttons[i]->clicked->sprite,
+        sfTexture_createFromFile("ressources/ui/button1_clicked.png", NULL),
                                         sfTrue);
     va_end(arg);
     return;
