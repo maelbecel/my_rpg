@@ -59,6 +59,7 @@ void display_game(game_t *game, sfEvent *event)
     int b = 0;
     int e = 0;
 
+    check_save(game);
     analyse_game(game, event);
     set_minimap(game);
     while (game->scenes[GAME].elements[e])

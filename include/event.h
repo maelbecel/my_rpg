@@ -201,6 +201,24 @@
     void htp_first(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Save game state
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ... other information passed with va_list arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void save(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Check corrupted save
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ... other information passed with va_list arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void check_save(game_t *game);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Go to how to play second scene
     ///
     /// \param game  game_t object who contain all game info

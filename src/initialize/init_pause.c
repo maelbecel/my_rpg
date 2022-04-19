@@ -30,6 +30,7 @@ element_t **pause_elements(void)
 void save(game_t *game, ...)
 {
     char *file = conc("saves/save", conc(game->player->save, ".json"));
+
     update_file(file, "posx",
                         inttochar(game->scenes[GAME].elements[0]->rect.left +
                                     game->scenes[GAME].elements[2]->pos.x));

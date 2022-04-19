@@ -12,6 +12,7 @@
 type_button_t *init_button_type(char *text, char *texture, sfVector2i size)
 {
     type_button_t *type = malloc(sizeof(type_button_t));
+
     type->texture = sfTexture_createFromFile(texture, NULL);
     type->sprite = sfSprite_create();
     type->scale = (sfVector2f) {1, 1};
@@ -32,6 +33,7 @@ button_t *init_button(char *text, char *texture,
                     sfVector2f pos, sfVector2i size)
 {
     button_t *button = malloc(sizeof(button_t));
+
     button->base = init_button_type(text, texture, size);
     button->hoover = init_button_type(text, texture, size);
     button->clicked = init_button_type(text, texture, size);
@@ -46,6 +48,7 @@ element_t *init_element(char *texture, sfVector2f pos,
                         sfVector2f size, sfVector2f scale)
 {
     element_t *type = malloc(sizeof(element_t));
+
     type->texture = sfTexture_createFromFile(texture, NULL);
     type->sprite = sfSprite_create();
     type->scale = scale;
@@ -60,6 +63,7 @@ element_t *init_element(char *texture, sfVector2f pos,
 scene_t *init_scenes(sfRenderWindow *window)
 {
     scene_t *scenes = malloc(sizeof(scene_t) * 12);
+
     scenes->page = 0;
     scenes[MAIN_MENU].buttons = main_menu_buttons();
     loading(0, window);
@@ -79,6 +83,7 @@ scene_t *init_scenes(sfRenderWindow *window)
 settings_t *init_settings(void)
 {
     settings_t *set = malloc(sizeof(settings_t));
+
     set->font = sfFont_createFromFile(BASIC_FONT);
     set->key_down = my_getnbr(parser(SETTINGS_FILE, "down_key"));
     set->key_up = my_getnbr(parser(SETTINGS_FILE, "up_key"));
