@@ -5,22 +5,10 @@
     "strength": 7,
     "speed": 12,
     "defense": 4,
-    "point_stat": 0
+    "point_stat": 0,
+    "posx": 1925,
+    "posy": 575
 }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

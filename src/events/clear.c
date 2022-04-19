@@ -19,6 +19,8 @@ void clear_1(UNUSED game_t *game, ...)
     update_file(file, "defense", "0");
     update_file(file, "health", "0");
     update_file(file, "point_stat", "0");
+    update_file(file, "posx", "900");
+    update_file(file, "posy", "500");
     game->scenes[LOAD].buttons[0]->action_clicked = new_game;
 }
 
@@ -32,6 +34,8 @@ void clear_2(UNUSED game_t *game, ...)
     update_file(file, "defense", "0");
     update_file(file, "health", "0");
     update_file(file, "point_stat", "0");
+    update_file(file, "posx", "900");
+    update_file(file, "posy", "500");
     game->scenes[LOAD].buttons[1]->action_clicked = new_game;
 }
 
@@ -45,5 +49,7 @@ void clear_3(UNUSED game_t *game, ...)
     update_file(file, "defense", "0");
     update_file(file, "health", "0");
     update_file(file, "point_stat", "0");
+    update_file(file, "posx", "900");
+    update_file(file, "posy", "500");
     game->scenes[LOAD].buttons[2]->action_clicked = new_game;
 }

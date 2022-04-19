@@ -27,6 +27,22 @@ element_t **pause_elements(void)
     return elements;
 }
 
+void save(game_t *game, ...)
+{
+    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    update_file(file, "posx",
+                        inttochar(game->scenes[GAME].elements[0]->rect.left +
+                                    game->scenes[GAME].elements[2]->pos.x));
+    update_file(file, "posy",
+                        inttochar(game->scenes[GAME].elements[0]->rect.top +
+                                    game->scenes[GAME].elements[2]->pos.y));
+    update_file(file, "health", inttochar(game->player->hp));
+    update_file(file, "strength", inttochar(game->player->strg));
+    update_file(file, "speed", inttochar(game->player->spd));
+    update_file(file, "defense", inttochar(game->player->def));
+    update_file(file, "point_stat", inttochar(game->player->pt_stat));
+}
+
 button_t **pause_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 6);
@@ -44,6 +60,7 @@ button_t **pause_buttons(void)
     buttons[3]->action_clicked = resume;
     buttons[4] = init_button("SAVE", "ressources/ui/button1.png",
                         (sfVector2f){550, 870}, (sfVector2i){300, 100});
+    buttons[4]->action_clicked = save;
     buttons[5] = NULL;
     return buttons;
 }

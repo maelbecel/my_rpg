@@ -23,6 +23,7 @@ void display_load(game_t *game, sfEvent *event)
     int e = 0;
     char *file;
 
+    set_good(game);
     while (game->scenes[LOAD].elements[e])
         draw_element(game->window, game->scenes[LOAD].elements[e++]);
     while (game->scenes[LOAD].buttons[b]) {
