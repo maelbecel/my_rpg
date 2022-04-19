@@ -13,3 +13,8 @@ $ cd ../my_rpg
 $ make re
 $ ./my_rpg
 ```
+
+## Work time
+***
+Work time per person is around:
+[![wakatime](https://wakatime.com/badge/github/maelbecel/my_rpg.svg)](https://wakatime.com/badge/github/maelbecel/my_rpg)
