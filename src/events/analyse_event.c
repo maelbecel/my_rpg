@@ -69,3 +69,12 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
     sfSprite_setTextureRect(game->scenes[GAME].elements[0]->sprite,
                             game->scenes[GAME].elements[0]->rect);
 }
+
+void analyse_game_state(game_t *game, sfEvent *event)
+{
+    if (analyse_event(game, event) == 0)
+        return;
+    if (game->scenes->page == MENU_PLAYER &&
+        game->scenes[MENU_PLAYER].tab->page == STAT)
+        event_menu_player(game, event);
+}

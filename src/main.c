@@ -34,15 +34,13 @@ static int rpg(game_t *game, sfEvent *event)
         frame = sfClock_getElapsedTime(fps);
         sfClock_restart(fps);
         while (sfRenderWindow_pollEvent(game->window, event)) {
-            if (analyse_event(game, event) == 0)
-                return EXIT_SUCCESS;
-            if (game->scenes->page == MENU_PLAYER &&
-                game->scenes[MENU_PLAYER].tab->page == STAT)
-                event_menu_player(game, event);
+            analyse_game_state(game, event);
         }
-        display(game, event);
-        draw_fps(frame, game);
-        sfRenderWindow_display(game->window);
+        if (sfRenderWindow_isOpen(game->window)) {
+            display(game, event);
+            draw_fps(frame, game);
+            sfRenderWindow_display(game->window);
+        }
     }
     return EXIT_SUCCESS;
 }
