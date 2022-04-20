@@ -9,25 +9,37 @@
 #include "printf.h"
 #include "rpg.h"
 
-void cuisiniere(game_t *game, ...)
+static void update_all_file(game_t *game, char *file)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
     char *health = parser(CUISINIERE, "health");
     char *strength = parser(CUISINIERE, "strength");
     char *speed = parser(CUISINIERE, "speed");
     char *defense = parser(CUISINIERE, "defense");
 
     if (!health || !strength || !speed || !defense) {
-        popup(game->settings->font, "FAILED TO OPEN\nconfig/cuisiniere.json");
+        popup(game->settings->font, "FAILED TO OPEN\nconfig/archere.json");
         return;
     }
     update_file(file, "health", health);
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
     update_file(file, "defense", defense);
+    update_file(file, "class", conc(coat(), conc("cooker", coat())));
     update_file(file, "new", "0");
+}
+
+void cuisiniere(game_t *game, ...)
+{
+    char *file = conc("saves/save", conc(game->player->save, ".json"));
+
+    update_all_file(game, file);
     reset(game);
     game->scenes->page = GAME;
+    sfTexture_destroy(game->scenes[GAME].elements[2]->texture);
+    game->scenes[GAME].elements[2]->texture =
+                                    sfTexture_createFromFile(COOKER_P, NULL);
+    sfSprite_setTexture(game->scenes[GAME].elements[2]->sprite,
+                            game->scenes[GAME].elements[2]->texture, sfFalse);
     free(file);
 }
 
