@@ -25,6 +25,7 @@ char *get_update(char *variable, FILE *fd, char *value)
     char *buffer = "";
 
     while ((read = getline(&line, &len, fd)) != -1) {
+        line[read] = '\0';
         if (my_strncmp(line, variable, my_strlen(variable)) == 0) {
             buffer = conc(buffer, conc(variable, conc(value,
                                     (line[read - 2] == ',') ? ",\n" : "\n")));
