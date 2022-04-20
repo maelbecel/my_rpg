@@ -60,6 +60,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_htp_second.c   		\
 						$(SOURCES)$(INIT)init_htp_third.c   		\
 						$(SOURCES)$(INIT)init_player.c   			\
+						$(SOURCES)$(INIT)init_inventory.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
 						$(SOURCES)$(DISP)draw_settings.c   			\
 						$(SOURCES)$(DISP)display_settings.c   		\

@@ -10,6 +10,7 @@
 
     typedef struct element_s element_t;
     typedef struct player player_t;
+    typedef struct inventory inventory_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Player struct.
@@ -20,6 +21,7 @@
     ////////////////////////////////////////////////////////////
     struct player {
         element_t *elem;
+        inventory_t *inventory;
         char *class;
         char *save;
         int hp;
@@ -27,6 +29,11 @@
         int spd;
         int def;
         int pt_stat;
+    };
+
+    struct inventory {
+        char *type;
+        int value;
     };
 
     ////////////////////////////////////////////////////////////
