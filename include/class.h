@@ -5,8 +5,8 @@
 ** rpg
 */
 
-#ifndef CLASS
-    #define CLASS
+#ifndef CLASS_H_
+    #define CLASS_H_
 
     ////////////////////////////////////////////////////////////
     /// \brief Draw knight stat
