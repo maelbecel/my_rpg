@@ -19,7 +19,7 @@
     typedef struct scene_s scene_t;
     typedef struct settings_s settings_t;
     typedef struct type_button_s type_button_t;
-    typedef struct inventory inventory_t;
+    typedef struct inventory_s inventory_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the main menu
