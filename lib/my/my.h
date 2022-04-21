@@ -252,13 +252,12 @@
     ////////////////////////////////////////////////////////////
     /// \brief Copy a string into an other string
     ///
-    /// \param dest destination string
     /// \param src  source string
     ///
     /// \return Destination string with copied source string
     ///
     ////////////////////////////////////////////////////////////
-    char *my_strcpy(char *dest, char const *src);
+    char *my_strcpy(char const *src);
 
     ////////////////////////////////////////////////////////////
     /// \brief Copy firsts characters of a string into an other string

@@ -10,10 +10,16 @@
 #include "rpg.h"
 
 void display_case_inventory(game_t *game, sfVector2f pos,
-                            inventory_t inventory)
+                            inventory_t *inventory)
 {
-    inventory.elem->pos = pos;
-    draw_element(game->window, inventory.elem);
+    inventory->button->pos = pos;
+    draw_button(game->window, inventory->button);
+    if (inventory->elem != NULL) {
+        inventory->elem->pos = pos;
+        inventory->elem->pos.y += 35;
+        inventory->elem->pos.x += 55;
+        draw_element(game->window, inventory->elem);
+    }
 }
 
 void display_inventory(game_t *game, sfEvent *event)
@@ -23,7 +29,7 @@ void display_inventory(game_t *game, sfEvent *event)
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
     display_button_menu_player(game, event, 3);
     for (int i = 1; i < SIZE_INVENTORY + 1; i++) {
-        display_case_inventory(game, pos, game->player->inventory[i]);
+        display_case_inventory(game, pos, game->player->inventory[i - 1]);
         pos.x += 220;
         if (i % 8 == 0 && i != 0) {
             pos.y += 200;

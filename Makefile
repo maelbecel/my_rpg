@@ -45,6 +45,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)sliders.c   				\
 						$(SOURCES)$(EVT)move.c		  				\
 						$(SOURCES)$(EVT)menu_event.c  			    \
+						$(SOURCES)$(EVT)inventory.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)init_scenes.c				\
 						$(SOURCES)$(INIT)update_stat.c				\

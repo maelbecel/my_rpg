@@ -51,7 +51,7 @@
     ////////////////////////////////////////////////////////////
     struct player_s {
         element_t *elem;
-        inventory_t *inventory;
+        inventory_t **inventory;
         char *class;
         char *save;
         int hp;
@@ -67,6 +67,7 @@
         char *type;
         int value;
         element_t *elem;
+        button_t *button;
     };
 
     ////////////////////////////////////////////////////////////

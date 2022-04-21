@@ -5,12 +5,17 @@
 ** star.c
 */
 
-char *my_strcpy(char *dest, char const *src)
+#include <stdlib.h>
+
+int my_strlen(char const *str);
+
+char *my_strcpy(char const *src)
 {
+    char *str = malloc(sizeof(char) * (my_strlen(src) + 1));
     int i = 0;
 
     for (; src[i] != '\0'; i++)
-        dest[i] = src[i];
-    dest[i] = '\0';
-    return dest;
+        str[i] = src[i];
+    str[i] = '\0';
+    return str;
 }
