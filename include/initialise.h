@@ -286,10 +286,10 @@
     ////////////////////////////////////////////////////////////
     /// \brief Initialize inventory of the player,
     ///
-    /// \return struct inventory_t* with the inventory of the player
+    /// \return struct inventory_t** with the inventory of the player
     ///
     ////////////////////////////////////////////////////////////
-    inventory_t *init_inventory(void);
+    inventory_t **init_inventory(void);
 
     ////////////////////////////////////////////////////////////
     /// \brief Initialize htp scenes

@@ -538,4 +538,13 @@
     ////////////////////////////////////////////////////////////
     bool already_def(game_t *game, int i);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief add an element to the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param type  type of the element to add
+    ///
+    ////////////////////////////////////////////////////////////
+    void add_elem(game_t *game, char *type);
+
 #endif

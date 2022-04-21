@@ -259,7 +259,7 @@
     ///
     ////////////////////////////////////////////////////////////
     void display_case_inventory(game_t *game, sfVector2f pos,
-                                inventory_t inventory);
+                                inventory_t *inventory);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the player info

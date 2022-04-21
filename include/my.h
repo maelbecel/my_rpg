@@ -26,7 +26,7 @@
     void my_sort_int_array(int *tab, int size);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Swap two int
+    /// \brief Swap to int
     ///
     /// \param a  first int
     /// \param b  second int
@@ -252,13 +252,12 @@
     ////////////////////////////////////////////////////////////
     /// \brief Copy a string into an other string
     ///
-    /// \param dest destination string
     /// \param src  source string
     ///
     /// \return Destination string with copied source string
     ///
     ////////////////////////////////////////////////////////////
-    char *my_strcpy(char *dest, char const *src);
+    char *my_strcpy(char const *src);
 
     ////////////////////////////////////////////////////////////
     /// \brief Copy firsts characters of a string into an other string
