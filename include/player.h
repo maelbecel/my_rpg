@@ -16,7 +16,7 @@
     #define MAGE_P "ressources/player/mage.png"
 
     typedef struct element_s element_t;
-    typedef struct player player_t;
+    typedef struct player_s player_t;
     typedef struct inventory inventory_t;
 
     ////////////////////////////////////////////////////////////
@@ -26,7 +26,7 @@
     /// base stats of the player
     ///
     ////////////////////////////////////////////////////////////
-    struct player {
+    struct player_s {
         element_t *elem;
         inventory_t *inventory;
         char *class;
