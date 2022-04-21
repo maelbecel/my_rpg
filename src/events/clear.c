@@ -21,6 +21,8 @@ void clear_1(UNUSED game_t *game, ...)
     update_file(SAVE1, "posx", "900");
     update_file(SAVE1, "posy", "500");
     update_file(SAVE1, "quests", "[0]");
+    update_file(SAVE1, "inventory", conc("[",
+                            conc(coat(), conc("none" ,conc(coat(), "]")))));
     game->scenes[LOAD].buttons[0]->action_clicked = new_game;
 }
 
@@ -36,6 +38,8 @@ void clear_2(UNUSED game_t *game, ...)
     update_file(SAVE2, "posx", "900");
     update_file(SAVE2, "posy", "500");
     update_file(SAVE2, "quests", "[0]");
+    update_file(SAVE2, "inventory", conc("[",
+                            conc(coat(), conc("none" ,conc(coat(), "]")))));
     game->scenes[LOAD].buttons[1]->action_clicked = new_game;
 }
 
@@ -51,5 +55,7 @@ void clear_3(UNUSED game_t *game, ...)
     update_file(SAVE3, "posx", "900");
     update_file(SAVE3, "posy", "500");
     update_file(SAVE3, "quests", "[0]");
+    update_file(SAVE3, "inventory", conc("[",
+                            conc(coat(), conc("none" ,conc(coat(), "]")))));
     game->scenes[LOAD].buttons[2]->action_clicked = new_game;
 }

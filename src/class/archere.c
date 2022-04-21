@@ -26,6 +26,8 @@ static void update_all_file(game_t *game, char *file)
     update_file(file, "defense", defense);
     update_file(file, "class", conc(coat(), conc("archer", coat())));
     update_file(file, "new", "0");
+    update_file(file, "inventory", conc("[",
+                        conc(coat(), conc("bow" ,conc(coat(), "]")))));
 }
 
 void archere(game_t *game, ...)

@@ -30,9 +30,6 @@ static int rpg(game_t *game, sfEvent *event)
     sfClock *fps = sfClock_create();
     sfTime frame;
 
-    add_elem(game, "apple");
-    add_elem(game, "sword");
-    add_elem(game, "apple");
     while (sfRenderWindow_isOpen(game->window)) {
         frame = sfClock_getElapsedTime(fps);
         sfClock_restart(fps);

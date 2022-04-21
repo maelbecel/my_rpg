@@ -42,6 +42,7 @@ void save(game_t *game, ...)
     update_file(file, "speed", inttochar(game->player->spd));
     update_file(file, "defense", inttochar(game->player->def));
     update_file(file, "point_stat", inttochar(game->player->pt_stat));
+    update_inventory(game);
 }
 
 button_t **pause_buttons(void)

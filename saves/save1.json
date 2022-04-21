@@ -4,9 +4,11 @@
     "health": 80,
     "strength": 7,
     "speed": 12,
-    "defense": 7,
+    "defense": 4,
     "point_stat": 0,
     "posx": 900,
     "posy": 500,
-    "quests": [3, 4, 2, 1]
+    "quests": [0],
+    "inventory": ["crossbow","bow","rouleau"]
 }
+

@@ -335,4 +335,22 @@
     ////////////////////////////////////////////////////////////
     void update_stat(button_t **buttons);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Set player at is old XY
+    ///
+    /// \param game   game_t struct containing the game data
+    /// \param getpos tuple of coordinates
+    ///
+    ////////////////////////////////////////////////////////////
+    void set_player(game_t *game, sfVector2f getpos);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Set player at is old inventory from save
+    ///
+    /// \param game   game_t struct containing the game data
+    /// \param file   file of the save
+    ///
+    ////////////////////////////////////////////////////////////
+    void set_player_inventory(game_t *game, char *file);
+
 #endif

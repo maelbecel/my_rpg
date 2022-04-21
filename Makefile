@@ -47,6 +47,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)menu_event.c  			    \
 						$(SOURCES)$(EVT)inventory.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
+						$(SOURCES)$(INIT)set_player.c				\
 						$(SOURCES)$(INIT)init_scenes.c				\
 						$(SOURCES)$(INIT)update_stat.c				\
 						$(SOURCES)$(INIT)init_main_menu.c   		\
@@ -81,6 +82,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(PARS)type_json.c   				\
 						$(SOURCES)$(PARS)update_file.c   			\
+						$(SOURCES)$(PARS)update_inventory.c			\
 						$(SOURCES)$(CINE)intro.c   					\
 						$(SOURCES)$(CINE)init_intro.c   			\
 						$(SOURCES)$(CINE)draw_intro.c   			\

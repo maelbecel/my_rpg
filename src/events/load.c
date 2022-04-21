@@ -31,21 +31,13 @@ void load_1(game_t *game, ...)
 
     game->player->save[0] = '1';
     check_save(game);
-    if (getpos.x > 900) {
-        game->scenes[GAME].elements[0]->rect.left = getpos.x - 900;
-        game->scenes[GAME].elements[2]->pos.x = 900;
-    } else
-        game->scenes[GAME].elements[2]->pos.x = getpos.x;
-    if (getpos.y > 500) {
-        game->scenes[GAME].elements[0]->rect.top = getpos.y - 500;
-        game->scenes[GAME].elements[2]->pos.y = 500;
-    } else
-        game->scenes[GAME].elements[2]->pos.y = getpos.y;
+    set_player(game, getpos);
     reset(game);
     game->scenes->page = GAME;
     game->player->nbquest = 0;
     game->player->quest = int_array_from_json(SAVE1, "quests",
                                                     &game->player->nbquest);
+    set_player_inventory(game, SAVE1);
 }
 
 void load_2(game_t *game, ...)
@@ -55,21 +47,13 @@ void load_2(game_t *game, ...)
 
     game->player->save[0] = '2';
     check_save(game);
-    if (getpos.x > 900) {
-        game->scenes[GAME].elements[0]->rect.left = getpos.x - 900;
-        game->scenes[GAME].elements[2]->pos.x = 900;
-    } else
-        game->scenes[GAME].elements[2]->pos.x = getpos.x;
-    if (getpos.y > 500) {
-        game->scenes[GAME].elements[0]->rect.top = getpos.y - 500;
-        game->scenes[GAME].elements[2]->pos.y = 500;
-    } else
-        game->scenes[GAME].elements[2]->pos.y = getpos.y;
+    set_player(game, getpos);
     reset(game);
     game->scenes->page = GAME;
     game->player->nbquest = 0;
     game->player->quest = int_array_from_json(SAVE2, "quests",
                                                     &game->player->nbquest);
+    set_player_inventory(game, SAVE2);
 }
 
 void load_3(game_t *game, ...)
@@ -79,24 +63,17 @@ void load_3(game_t *game, ...)
 
     game->player->save[0] = '3';
     check_save(game);
-    if (getpos.x > 900) {
-        game->scenes[GAME].elements[0]->rect.left = getpos.x - 900;
-        game->scenes[GAME].elements[2]->pos.x = 900;
-    } else
-        game->scenes[GAME].elements[2]->pos.x = getpos.x;
-    if (getpos.y > 500) {
-        game->scenes[GAME].elements[0]->rect.top = getpos.y - 500;
-        game->scenes[GAME].elements[2]->pos.y = 500;
-    } else
-        game->scenes[GAME].elements[2]->pos.y = getpos.y;
+    set_player(game, getpos);
     reset(game);
     game->scenes->page = GAME;
     game->player->nbquest = 0;
     game->player->quest = int_array_from_json(SAVE3, "quests",
                                                     &game->player->nbquest);
+    set_player_inventory(game, SAVE3);
 }
 
 void load(game_t *game, ...)
 {
+    game->player->inventory[0]->type = NULL;
     game->scenes->page = LOAD;
 }

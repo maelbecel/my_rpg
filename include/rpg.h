@@ -363,9 +363,19 @@
     ////////////////////////////////////////////////////////////
     /// \brief Clean a double coat at the start and end in a string
     ///
+    /// \param str string to clean
+    ///
     /// \return Return a str without coats
     ///
     ////////////////////////////////////////////////////////////
     char *clean_string(char *str);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Save inventory into a save file
+    ///
+    /// \param game game_t * element to save data
+    ///
+    ////////////////////////////////////////////////////////////
+    void update_inventory(game_t *game);
 
 #endif

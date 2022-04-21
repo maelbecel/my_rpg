@@ -2,11 +2,13 @@
     "new": 1,
     "class": null,
     "health": 0,
-    "strength": 7,
+    "strength": 10,
     "speed": 0,
     "defense": 0,
     "point_stat": 0,
     "posx": 900,
     "posy": 500,
-    "quests": [0]
+    "quests": [0],
+    "inventory": ["none"]
 }
+
