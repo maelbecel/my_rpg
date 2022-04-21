@@ -27,5 +27,6 @@ player_t *init_player(char *class)
                                             conc(class, ".json")), "defense"));
     player->pt_stat = my_getnbr(parser(conc("config/",
                                         conc(class, ".json")), "point_stat"));
+    player->inventory = init_inventory();
     return player;
 }

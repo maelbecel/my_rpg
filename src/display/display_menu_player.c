@@ -38,13 +38,6 @@ void display_player(game_t *game, sfEvent *event)
             game->settings->font, (sfVector3f){100, 450, 40}, game->window);
 }
 
-void display_inventory(game_t *game, sfEvent *event)
-{
-    for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
-        draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
-    display_button_menu_player(game, event, 3);
-}
-
 void draw_stat_char(game_t *game)
 {
     draw_text(conc("HP : ", inttochar(game->player->hp)),
