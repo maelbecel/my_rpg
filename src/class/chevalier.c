@@ -9,9 +9,8 @@
 #include "printf.h"
 #include "rpg.h"
 
-void chevalier(game_t *game, ...)
+static void update_all_file(game_t *game, char *file)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
     char *health = parser(CHEVALIER, "health");
     char *strength = parser(CHEVALIER, "strength");
     char *speed = parser(CHEVALIER, "speed");
@@ -25,9 +24,22 @@ void chevalier(game_t *game, ...)
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
     update_file(file, "defense", defense);
+    update_file(file, "class", conc(coat(), conc("chevalier", coat())));
     update_file(file, "new", "0");
+}
+
+void chevalier(game_t *game, ...)
+{
+    char *file = conc("saves/save", conc(game->player->save, ".json"));
+
+    update_all_file(game, file);
     reset(game);
     game->scenes->page = GAME;
+    sfTexture_destroy(game->scenes[GAME].elements[2]->texture);
+    game->scenes[GAME].elements[2]->texture =
+                                    sfTexture_createFromFile(KNIGHT_P, NULL);
+    sfSprite_setTexture(game->scenes[GAME].elements[2]->sprite,
+                            game->scenes[GAME].elements[2]->texture, sfFalse);
     free(file);
 }
 

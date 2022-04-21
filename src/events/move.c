@@ -15,7 +15,6 @@ void move_down(game_t *game)
             game->scenes[GAME].elements[0]->rect.top += 5;
     } else
         game->scenes[GAME].elements[2]->pos.y += 5;
-    game->scenes[GAME].elements[2]->rect.top += 32;
 }
 
 void move_up(game_t *game)

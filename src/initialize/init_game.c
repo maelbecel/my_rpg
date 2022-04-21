@@ -17,13 +17,13 @@ void play(game_t *game, ...)
 element_t **game_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 6);
-    elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0},
+    elements[0] = init_element("ressources/village.jpg", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1.5, 1.5});
     elements[1] = init_element("ressources/0-20.png",
         (sfVector2f){0, 0}, (sfVector2f){805, 1200}, (sfVector2f){0, 0});
-    elements[2] = init_element("ressources/perso.png", (sfVector2f){900, 500},
-                            (sfVector2f){1920, 1080}, (sfVector2f){0.8, 0.8});
-    elements[3] = init_element("ressources/map.png", (sfVector2f){1420, 0},
+    elements[2] = init_element(CROSSBOW_P, (sfVector2f){400, 120},
+                                    (sfVector2f){32, 48}, (sfVector2f){2, 2});
+    elements[3] = init_element("ressources/village.jpg", (sfVector2f){1420, 0},
                         (sfVector2f){1920, 1080}, (sfVector2f){0.05, 0.05});
     elements[4] = init_element("ressources/perso.png", (sfVector2f){1400, 0},
                         (sfVector2f){1920, 1080}, (sfVector2f){0.08, 0.08});
