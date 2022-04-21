@@ -42,6 +42,7 @@ void cuisiniere(game_t *game, ...)
                                     sfTexture_createFromFile(COOKER_P, NULL);
     sfSprite_setTexture(game->scenes[GAME].elements[2]->sprite,
                             game->scenes[GAME].elements[2]->texture, sfFalse);
+    set_player_inventory(game, file);
     free(file);
 }
 

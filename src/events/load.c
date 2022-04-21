@@ -74,6 +74,10 @@ void load_3(game_t *game, ...)
 
 void load(game_t *game, ...)
 {
-    game->player->inventory[0]->type = NULL;
+    for (int i = 0; i < SIZE_INVENTORY; i++) {
+        game->player->inventory[i]->type = NULL;
+        game->player->inventory[i]->value = 0;
+        game->player->inventory[i]->elem = NULL;
+    }
     game->scenes->page = LOAD;
 }
