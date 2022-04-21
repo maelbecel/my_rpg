@@ -49,5 +49,4 @@ void reset(game_t *game, ...)
     game->player->spd = int_from_json(file, "speed");
     game->player->def = int_from_json(file, "defense");
     game->player->pt_stat = int_from_json(file, "point_stat");
-    game->player->quest = NULL;
 }

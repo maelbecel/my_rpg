@@ -11,7 +11,8 @@
 
 inventory_t *init_inventory(void)
 {
-    inventory_t *inventory = malloc(sizeof(inventory_t) * (SIZE_INVENTORY));
+    inventory_t *inventory = malloc(sizeof(inventory_t) *
+                                        (SIZE_INVENTORY + 1));
 
     for (int i = 0; i < SIZE_INVENTORY + 1; i++) {
         inventory[i].type = NULL;

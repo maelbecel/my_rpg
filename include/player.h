@@ -37,6 +37,7 @@
         int def;
         int pt_stat;
         int *quest;
+        int nbquest;
     };
 
     struct inventory {

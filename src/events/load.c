@@ -43,6 +43,9 @@ void load_1(game_t *game, ...)
         game->scenes[GAME].elements[2]->pos.y = getpos.y;
     reset(game);
     game->scenes->page = GAME;
+    game->player->nbquest = 0;
+    game->player->quest = int_array_from_json(SAVE1, "quests",
+                                                    &game->player->nbquest);
 }
 
 void load_2(game_t *game, ...)
@@ -64,6 +67,9 @@ void load_2(game_t *game, ...)
         game->scenes[GAME].elements[2]->pos.y = getpos.y;
     reset(game);
     game->scenes->page = GAME;
+    game->player->nbquest = 0;
+    game->player->quest = int_array_from_json(SAVE2, "quests",
+                                                    &game->player->nbquest);
 }
 
 void load_3(game_t *game, ...)
@@ -85,6 +91,9 @@ void load_3(game_t *game, ...)
         game->scenes[GAME].elements[2]->pos.y = getpos.y;
     reset(game);
     game->scenes->page = GAME;
+    game->player->nbquest = 0;
+    game->player->quest = int_array_from_json(SAVE3, "quests",
+                                                    &game->player->nbquest);
 }
 
 void load(game_t *game, ...)
