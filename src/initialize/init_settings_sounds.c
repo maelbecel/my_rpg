@@ -17,8 +17,8 @@ void settings_sounds(game_t *game, ...)
 element_t **settings_sounds_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 6);
-    elements[0] = init_element("ressources/village.jpg", (sfVector2f){0, 0},
-                        (sfVector2f){2000, 2000}, (sfVector2f){0.2, 0.2});
+    elements[0] = init_element(BACKGROUND, (sfVector2f){0, 0},
+                        (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
     elements[1] = init_element("ressources/ui/button1.png",
         (sfVector2f){600, 400}, (sfVector2f){823, 201}, (sfVector2f){1, 0.3});
     elements[2] = init_element("ressources/ui/button1.png",

@@ -17,8 +17,8 @@ void htp_second(game_t *game, ...)
 element_t **htp_second_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 2);
-    elements[0] = init_element("ressources/village.jpg", (sfVector2f){0, 0},
-                        (sfVector2f){2000, 2000}, (sfVector2f){0.2, 0.2});
+    elements[0] = init_element(BACKGROUND, (sfVector2f){0, 0},
+                        (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
     elements[1] = NULL;
     return elements;
 }
