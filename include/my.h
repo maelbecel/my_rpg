@@ -26,7 +26,7 @@
     void my_sort_int_array(int *tab, int size);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Swap to int
+    /// \brief Swap two int
     ///
     /// \param a  first int
     /// \param b  second int
