@@ -72,6 +72,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_htp.c   			\
 						$(SOURCES)$(DISP)display_key_with_pnj.c		\
 						$(SOURCES)$(DISP)display_menu_player.c		\
+						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(PARS)update_file.c   			\

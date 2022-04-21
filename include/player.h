@@ -34,6 +34,7 @@
     struct inventory {
         char *type;
         int value;
+        element_t *elem;
     };
 
     ////////////////////////////////////////////////////////////
