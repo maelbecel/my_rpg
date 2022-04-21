@@ -62,8 +62,7 @@ static bool error_case(game_t *game, char **array, int i, int size)
 char *get_quests(game_t *game)
 {
     char *file = conc("saves/save", conc(game->player->save, ".json"));
-    char **array = my_str_to_word_array(clean_string(
-                                                parser(file, "quests")), ',');
+    char **array = str_array_from_json(file, "quests");
     char *buffer = "";
     int size = sizeof(Quests) / sizeof(char *) - 1;
 

@@ -26,8 +26,8 @@ void new_game(game_t *game, ...)
 
 void load_1(game_t *game, ...)
 {
-    sfVector2f getpos = (sfVector2f){my_getnbr(parser(SAVE1, "posx")),
-        my_getnbr(parser(SAVE1, "posy"))};
+    sfVector2f getpos = (sfVector2f){int_from_json(SAVE1, "posx"),
+                                    int_from_json(SAVE1, "posy")};
 
     game->player->save[0] = '1';
     check_save(game);
@@ -47,8 +47,8 @@ void load_1(game_t *game, ...)
 
 void load_2(game_t *game, ...)
 {
-    sfVector2f getpos = (sfVector2f){my_getnbr(parser(SAVE2, "posx")),
-        my_getnbr(parser(SAVE2, "posy"))};
+    sfVector2f getpos = (sfVector2f){int_from_json(SAVE2, "posx"),
+        int_from_json(SAVE2, "posy")};
 
     game->player->save[0] = '2';
     check_save(game);
@@ -68,8 +68,8 @@ void load_2(game_t *game, ...)
 
 void load_3(game_t *game, ...)
 {
-    sfVector2f getpos = (sfVector2f){my_getnbr(parser(SAVE3, "posx")),
-        my_getnbr(parser(SAVE3, "posy"))};
+    sfVector2f getpos = (sfVector2f){int_from_json(SAVE3, "posx"),
+        int_from_json(SAVE3, "posy")};
 
     game->player->save[0] = '3';
     check_save(game);

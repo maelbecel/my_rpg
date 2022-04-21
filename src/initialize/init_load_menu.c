@@ -21,13 +21,13 @@ element_t **load_menu_elements(void)
 static void check_sve(button_t **buttons)
 {
     buttons[0]->action_clicked =
-            (my_getnbr(parser("saves/save1.json", "new")) == 1) ?
+            (int_from_json("saves/save1.json", "new") == 1) ?
                                         new_game : buttons[0]->action_clicked;
     buttons[1]->action_clicked =
-            (my_getnbr(parser("saves/save2.json", "new")) == 1) ?
+            (int_from_json("saves/save2.json", "new") == 1) ?
                                         new_game : buttons[1]->action_clicked;
     buttons[2]->action_clicked =
-            (my_getnbr(parser("saves/save3.json", "new")) == 1) ?
+            (int_from_json("saves/save3.json", "new") == 1) ?
                                         new_game : buttons[2]->action_clicked;
 }
 

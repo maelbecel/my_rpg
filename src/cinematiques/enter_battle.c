@@ -11,7 +11,7 @@
 
 static bool skip(sfRenderWindow *window)
 {
-    int key = my_getnbr(parser(SETTINGS_FILE , "skip_key"));
+    int key = int_from_json(SETTINGS_FILE , "skip_key");
     sfEvent event;
     while (sfRenderWindow_pollEvent(window, &event))
         if (event.type == sfEvtKeyPressed && event.key.code == key)

@@ -17,16 +17,16 @@ player_t *init_player(char *class)
     player->save = malloc(sizeof(char) * 2);
     player->save[1] = '\0';
     player->class = class;
-    player->hp = my_getnbr(parser(conc("config/",
-                                            conc(class, ".json")), "health"));
-    player->strg = my_getnbr(parser(conc("config/",
-                                        conc(class, ".json")), "strength"));
-    player->spd = my_getnbr(parser(conc("config/",
-                                            conc(class, ".json")), "speed"));
-    player->def = my_getnbr(parser(conc("config/",
-                                            conc(class, ".json")), "defense"));
-    player->pt_stat = my_getnbr(parser(conc("config/",
-                                        conc(class, ".json")), "point_stat"));
+    player->hp = int_from_json(conc("config/",
+                                            conc(class, ".json")), "health");
+    player->strg = int_from_json(conc("config/",
+                                        conc(class, ".json")), "strength");
+    player->spd = int_from_json(conc("config/",
+                                            conc(class, ".json")), "speed");
+    player->def = int_from_json(conc("config/",
+                                            conc(class, ".json")), "defense");
+    player->pt_stat = int_from_json(conc("config/",
+                                        conc(class, ".json")), "point_stat");
     player->inventory = init_inventory();
     return player;
 }
