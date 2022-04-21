@@ -16,7 +16,7 @@
     typedef struct element_s element_t;
     typedef struct settings_s settings_t;
     typedef struct pos_perso_s pos_perso_t;
-    typedef struct inventory inventory_t;
+    typedef struct inventory_s inventory_t;
 
     enum menu_player {
         PLAYER,

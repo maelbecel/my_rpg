@@ -17,7 +17,7 @@
 
     typedef struct element_s element_t;
     typedef struct player_s player_t;
-    typedef struct inventory inventory_t;
+    typedef struct inventory_s inventory_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Player struct.
@@ -40,7 +40,7 @@
         int nbquest;
     };
 
-    struct inventory {
+    struct inventory_s {
         char *type;
         int value;
         element_t *elem;
