@@ -16,7 +16,7 @@ char *inttochar(int num)
     int i = 1;
 
     if (!res || num == 0)
-        return (!res) ? NULL : my_strdup("0");
+        return (!res) ? NULL : (char *)"0";
     res[0] = num % 10 + 48;
     while (division <= num) {
         res[i++] = ((num % mod) / division) + 48;

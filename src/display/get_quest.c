@@ -36,6 +36,7 @@ char *clean_string(char *str)
 static char *get_buf(char *buf, char *str, int size)
 {
     char *buffer = my_strdup(buf);
+
     buffer = conc(buffer, my_strdup(Quests[my_getnbr(str)]));
     if (my_getnbr(str) != 0)
         buffer = conc(buffer, conc(" (", conc(str, conc("/", conc(
@@ -66,6 +67,8 @@ char *get_quests(game_t *game)
     char *buffer = "";
     int size = sizeof(Quests) / sizeof(char *) - 1;
 
+    if (!array)
+        return NULL;
     for (int i = 0; array[i]; i++) {
         if (error_case(game, array, i, size))
             return "";

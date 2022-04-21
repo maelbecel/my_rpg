@@ -26,8 +26,9 @@ inventory_t *find_inventory(inventory_t **inventory, char *type)
 void add_elem(game_t *game, char *type)
 {
     inventory_t *inventory = find_inventory(game->player->inventory, type);
-    inventory->type = my_strcpy(type);
+    inventory->type = my_strdup(type);
     inventory->value += 1;
-    inventory->elem = init_element(conc("ressources/icons/", conc(type,".png")),
-        (sfVector2f){0, 0}, (sfVector2f){32, 32}, (sfVector2f){3, 3});
+    inventory->elem = init_element(conc("ressources/icons/",
+                conc(type, ".png")), (sfVector2f){0, 0}, (sfVector2f){32, 32},
+                (sfVector2f){3, 3});
 }
