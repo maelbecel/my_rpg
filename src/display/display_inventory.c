@@ -12,8 +12,12 @@
 void display_case_inventory(game_t *game, sfVector2f pos,
                             inventory_t inventory)
 {
-    inventory.elem->pos = pos;
-    draw_element(game->window, inventory.elem);
+    inventory.button->pos = pos;
+    draw_button(game->window, inventory.button);
+    if (inventory.elem != NULL) {
+        inventory.elem->pos = pos;
+        draw_element(game->window, inventory.elem);
+    }
 }
 
 void display_inventory(game_t *game, sfEvent *event)

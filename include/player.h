@@ -67,6 +67,7 @@
         char *type;
         int value;
         element_t *elem;
+        button_t *button;
     };
 
     ////////////////////////////////////////////////////////////
