@@ -310,4 +310,49 @@
     ////////////////////////////////////////////////////////////
     char *coat(void);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Get char * from a JSON file
+    ///
+    /// \param file Path to the JSON file
+    /// \param var  Variable to search in the JSON file
+    ///
+    /// \return Value of the variable from the JSON file or NULL if not found.
+    ///
+    ////////////////////////////////////////////////////////////
+    char *str_from_json(char *file, char *var);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Get char ** from a JSON file
+    ///
+    /// \param file Path to the JSON file
+    /// \param var  Variable to search in the JSON file
+    ///
+    /// \return Value of the variable from the JSON file or NULL if not found.
+    ///
+    ////////////////////////////////////////////////////////////
+    char **str_array_from_json(char *file, char *var);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Get int from a JSON file
+    ///
+    /// \param file Path to the JSON file
+    /// \param var  Variable to search in the JSON file
+    ///
+    /// \return Value of the variable from the JSON file or -1 if not found.
+    ///
+    ////////////////////////////////////////////////////////////
+    int int_from_json(char *file, char *var);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Get int * from a JSON file
+    ///
+    /// \param file Path to the JSON file
+    /// \param var  Variable to search in the JSON file
+    /// \param size Fill with size of the array
+    ///
+    /// \return Value of the variable from the JSON file or NULL if not found.
+    ///
+    ////////////////////////////////////////////////////////////
+    int *int_array_from_json(char *file, char *var, int *size);
+
 #endif

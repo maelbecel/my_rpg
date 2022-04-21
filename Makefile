@@ -76,6 +76,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
+						$(SOURCES)$(PARS)type_json.c   				\
 						$(SOURCES)$(PARS)update_file.c   			\
 						$(SOURCES)$(CINE)intro.c   					\
 						$(SOURCES)$(CINE)init_intro.c   			\

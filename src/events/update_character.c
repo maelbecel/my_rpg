@@ -49,4 +49,5 @@ void reset(game_t *game, ...)
     game->player->spd = my_getnbr(parser(file, "speed"));
     game->player->def = my_getnbr(parser(file, "defense"));
     game->player->pt_stat = my_getnbr(parser(file, "point_stat"));
+    game->player->quest = NULL;
 }
