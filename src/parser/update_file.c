@@ -22,9 +22,10 @@ char *get_update(char *variable, FILE *fd, char *value)
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
-    char *buffer = "\0";
+    char *buffer = "";
 
     while ((read = getline(&line, &len, fd)) != -1) {
+        line[read] = '\0';
         if (my_strncmp(line, variable, my_strlen(variable)) == 0) {
             buffer = conc(buffer, conc(variable, conc(value,
                                     (line[read - 2] == ',') ? ",\n" : "\n")));
@@ -43,10 +44,15 @@ void update_file(char *file, char *var, char *value)
     char *buffer;
     char *variable = conc("    ", conc(coat(),
                                     conc(var, conc(coat(), conc(":", " ")))));
+    sfFont *font = sfFont_createFromFile(BASIC_FONT);
+
     if (fd == NULL) {
-        my_printf("Can not open '%s' (Update failed)\n", file);
+        popup(font, conc("Error:\nCan't open '", conc(file, "'")));
+        sfFont_destroy(font);
+        free(variable);
         return;
     }
+    sfFont_destroy(font);
     buffer = get_update(variable, fd, value);
     fill_file(file, buffer);
 }

@@ -14,18 +14,18 @@ element_t **choosing_elements(void)
     element_t **elements = malloc(sizeof(element_t *) * 8);
     elements[0] = init_element("ressources/map.png", (sfVector2f){0, 0},
                         (sfVector2f){10001, 10080}, (sfVector2f){0.3, 0.3});
-    elements[1] = init_element("ressources/perso.png", (sfVector2f){400, 120},
-                        (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
-    elements[2] = init_element("ressources/perso.png", (sfVector2f){900, 120},
-                        (sfVector2f){1920, 10080}, (sfVector2f){0.3, 0.3});
-    elements[3] = init_element("ressources/perso.png", (sfVector2f){1400, 120},
-                        (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
-    elements[4] = init_element("ressources/perso.png", (sfVector2f){400, 630},
-                        (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
-    elements[5] = init_element("ressources/perso.png", (sfVector2f){900, 630},
-                        (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
-    elements[6] = init_element("ressources/perso.png", (sfVector2f){1400, 630},
-                        (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
+    elements[1] = init_element(CROSSBOW_P, (sfVector2f){400, 120},
+                                    (sfVector2f){32, 48}, (sfVector2f){2, 2});
+    elements[2] = init_element(ARCHER_P, (sfVector2f){900, 120},
+                                    (sfVector2f){32, 48}, (sfVector2f){2, 2});
+    elements[3] = init_element(KNIGHT_P, (sfVector2f){1400, 120},
+                                    (sfVector2f){32, 48}, (sfVector2f){2, 2});
+    elements[4] = init_element(COOKER_P, (sfVector2f){400, 630},
+                                    (sfVector2f){32, 48}, (sfVector2f){2, 2});
+    elements[5] = init_element(MAGE_P, (sfVector2f){900, 630},
+                                    (sfVector2f){32, 48}, (sfVector2f){2, 2});
+    elements[6] = init_element(VALKYRIE_P, (sfVector2f){1400, 630},
+                                    (sfVector2f){32, 48}, (sfVector2f){2, 2});
     elements[7] = NULL;
     return elements;
 }

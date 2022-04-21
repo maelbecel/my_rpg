@@ -12,10 +12,10 @@
 void arbaletier(game_t *game, ...)
 {
     char *file = conc("saves/save", conc(game->player->save, ".json"));
-    char *health = parser("config/arbaletier.json", "health");
-    char *strength = parser("config/arbaletier.json", "strength");
-    char *speed = parser("config/arbaletier.json", "speed");
-    char *defense = parser("config/arbaletier.json", "defense");
+    char *health = parser(ARBALETIER, "health");
+    char *strength = parser(ARBALETIER, "strength");
+    char *speed = parser(ARBALETIER, "speed");
+    char *defense = parser(ARBALETIER, "defense");
 
     if (!health || !strength || !speed || !defense) {
         popup(game->settings->font, "FAILED TO OPEN\nconfig/arbaletier.json");
@@ -33,10 +33,10 @@ void arbaletier(game_t *game, ...)
 
 void draw_arbaletier_char(sfRenderWindow *window, sfFont *font)
 {
-    char *health = parser("config/arbaletier.json", "health");
-    char *strength = parser("config/arbaletier.json", "strength");
-    char *speed = parser("config/arbaletier.json", "speed");
-    char *defense = parser("config/arbaletier.json", "defense");
+    char *health = parser(ARBALETIER, "health");
+    char *strength = parser(ARBALETIER, "strength");
+    char *speed = parser(ARBALETIER, "speed");
+    char *defense = parser(ARBALETIER, "defense");
 
     if (!health || !strength || !speed || !defense) {
         popup(font, "FAILED TO OPEN\nconfig/arbaletier.json");

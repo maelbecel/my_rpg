@@ -20,8 +20,8 @@ int is_elem_hoover(game_t *game, int i)
     size.y *= scale.y;
     if (click.x > pos.x && click.x < (pos.x + size.x))
         if (click.y > pos.y && click.y < (pos.y + size.y))
-            return 1;
-    return 0;
+            return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
 
 void set_slider_pos(game_t * game)
@@ -35,9 +35,9 @@ void set_slider_pos(game_t * game)
 
     game->scenes[SOUNDS].elements[3]->pos.x = pos_music;
     game->scenes[SOUNDS].elements[4]->pos.x = pos_fx;
-    update_file("config/settings.json", "fx_sound",
+    update_file(SETTINGS_FILE, "fx_sound",
                                         inttochar(game->settings->fx_volume));
-    update_file("config/settings.json", "music_sound",
+    update_file(SETTINGS_FILE, "music_sound",
                                     inttochar(game->settings->music_volume));
 }
 

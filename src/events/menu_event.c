@@ -15,7 +15,7 @@ int menu_event(game_t *game)
         game->scenes->page = GAME;
     else
         game->scenes->page = MENU_PLAYER;
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 int event_menu_player(game_t *game, sfEvent *event)
@@ -28,5 +28,5 @@ int event_menu_player(game_t *game, sfEvent *event)
         }
     }
     while (!sfRenderWindow_pollEvent(game->window, event));
-    return 0;
+    return EXIT_SUCCESS;
 }

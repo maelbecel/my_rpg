@@ -21,17 +21,17 @@ int is_hoover_menu(game_t *game, int b, int s, int t)
     if (click.x > pos.x && click.x < (pos.x + size.x)) {
         if (click.y > pos.y && click.y < (pos.y + size.y)) {
             game->scenes[s].tab[t].buttons[b]->action_hoover(game, b, t);
-            return 1;
+            return EXIT_FAILURE;
         }
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 int is_click_menu(game_t *game, int b, int s, int t)
 {
     if (!is_hoover_menu(game, b, s, t) || !sfRenderWindow_isOpen(game->window))
-        return 0;
-    return 1;
+        return EXIT_SUCCESS;
+    return EXIT_FAILURE;
 }
 
 int is_hoover(game_t *game, int b, int s)
@@ -46,15 +46,15 @@ int is_hoover(game_t *game, int b, int s)
     if (click.x > pos.x && click.x < (pos.x + size.x)) {
         if (click.y > pos.y && click.y < (pos.y + size.y)) {
             game->scenes[s].buttons[b]->action_hoover(game, b);
-            return 1;
+            return EXIT_FAILURE;
         }
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 int is_click(game_t *game, int b, int s)
 {
     if (!is_hoover(game, b, s) || !sfRenderWindow_isOpen(game->window))
-        return 0;
-    return 1;
+        return EXIT_SUCCESS;
+    return EXIT_FAILURE;
 }

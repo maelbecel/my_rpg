@@ -11,7 +11,7 @@
 
 void display_menu_player(game_t *game, sfEvent *event)
 {
-    for (int i = 0; game->scenes[MENU_PLAYER].buttons[i]; i++){
+    for (int i = 0; game->scenes[MENU_PLAYER].buttons[i]; i++) {
         sfTexture_destroy(game->scenes[MENU_PLAYER].buttons[i]->base->texture);
         game->scenes[MENU_PLAYER].buttons[i]->base->texture =
                 sfTexture_createFromFile("ressources/ui/button1.png", NULL);
@@ -55,8 +55,8 @@ void display_quest(game_t *game, sfEvent *event)
     for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
     display_button_menu_player(game, event, 2);
-    draw_text("NO QUEST ACTUALLY", game->settings->font,
-                                    (sfVector3f){400, 600, 80}, game->window);
+    draw_text(get_quests(game), game->settings->font,
+                                    (sfVector3f){350, 300, 80}, game->window);
 }
 
 void display_tab(game_t *game, sfEvent *event)

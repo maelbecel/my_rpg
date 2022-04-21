@@ -33,6 +33,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
 						$(SOURCES)$(EVT)button_state.c   			\
+						$(SOURCES)$(EVT)check_save.c   				\
 						$(SOURCES)$(EVT)load.c   					\
 						$(SOURCES)$(EVT)clear.c   					\
 						$(SOURCES)$(EVT)change_tab.c   				\
@@ -65,6 +66,8 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)draw_settings.c   			\
 						$(SOURCES)$(DISP)display_settings.c   		\
 						$(SOURCES)$(DISP)display.c   				\
+						$(SOURCES)$(DISP)set_good.c   				\
+						$(SOURCES)$(DISP)get_quest.c   				\
 						$(SOURCES)$(DISP)display_stat.c				\
 						$(SOURCES)$(DISP)display_load.c				\
 						$(SOURCES)$(DISP)set_settings.c				\

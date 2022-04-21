@@ -59,16 +59,16 @@ button_t **init_button_stat(void)
     button_t **buttons = malloc(sizeof(button_t *) * (5 + 1));
 
     buttons[0] = init_button("+", "ressources/ui/button1.png",
-                        (sfVector2f){500, 150}, (sfVector2i){300, 100});
+                        (sfVector2f){500, 170}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = add_hp;
     buttons[1] = init_button("+", "ressources/ui/button1.png",
-                        (sfVector2f){500, 250}, (sfVector2i){300, 100});
+                        (sfVector2f){500, 270}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = add_strenght;
     buttons[2] = init_button("+", "ressources/ui/button1.png",
-                        (sfVector2f){500, 350}, (sfVector2i){300, 100});
+                        (sfVector2f){500, 370}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = add_speed;
     buttons[3] = init_button("+", "ressources/ui/button1.png",
-                        (sfVector2f){500, 450}, (sfVector2i){300, 100});
+                        (sfVector2f){500, 470}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = add_defense;
     buttons[4] = init_button("RESET", "ressources/ui/button1.png",
                         (sfVector2f){100, 700}, (sfVector2i){300, 100});

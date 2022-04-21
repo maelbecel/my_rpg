@@ -11,10 +11,11 @@
 
 static void draw_free(int b, game_t *game, char * file)
 {
-    if (b < 3 && my_strcmp(parser(file, "new"), "1") == 0)
+    if (b < 3 && my_strcmp(parser(file, "new"), "1") == 0) {
         draw_text("FREE SPACE", game->settings->font,
         (sfVector3f){game->scenes[LOAD].buttons[b]->pos.x + 510,
         game->scenes[LOAD].buttons[b]->pos.y + 130, 30}, game->window);
+    }
 }
 
 void display_load(game_t *game, sfEvent *event)
@@ -23,6 +24,7 @@ void display_load(game_t *game, sfEvent *event)
     int e = 0;
     char *file;
 
+    set_good(game);
     while (game->scenes[LOAD].elements[e])
         draw_element(game->window, game->scenes[LOAD].elements[e++]);
     while (game->scenes[LOAD].buttons[b]) {

@@ -41,13 +41,13 @@ void display_player(game_t *game, sfEvent *event)
 void draw_stat_char(game_t *game)
 {
     draw_text(conc("HP : ", inttochar(game->player->hp)),
-            game->settings->font, (sfVector3f){100, 150, 40}, game->window);
+            game->settings->font, (sfVector3f){100, 200, 40}, game->window);
     draw_text(conc("STRENGHT : ", inttochar(game->player->strg)),
-            game->settings->font, (sfVector3f){100, 250, 40}, game->window);
+            game->settings->font, (sfVector3f){100, 300, 40}, game->window);
     draw_text(conc("SPEED : ", inttochar(game->player->spd)),
-            game->settings->font, (sfVector3f){100, 350, 40}, game->window);
+            game->settings->font, (sfVector3f){100, 400, 40}, game->window);
     draw_text(conc("DEFENSE : ", inttochar(game->player->def)),
-            game->settings->font, (sfVector3f){100, 450, 40}, game->window);
+            game->settings->font, (sfVector3f){100, 500, 40}, game->window);
     draw_text(conc("POINT STAT : ", inttochar(game->player->pt_stat)),
-            game->settings->font, (sfVector3f){100, 550, 40}, game->window);
+            game->settings->font, (sfVector3f){100, 600, 40}, game->window);
 }

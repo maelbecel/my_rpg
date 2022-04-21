@@ -1,12 +1,19 @@
 {
-    "new": 1,
+    "new": 0,
     "class": null,
-    "health": 0,
-    "strength": 4,
-    "speed": 0,
-    "defense": 0,
-    "point_stat": 0
+    "health": 80,
+    "strength": 7,
+    "speed": 12,
+    "defense": 4,
+    "point_stat": 0,
+    "posx": 900,
+    "posy": 500,
+    "quests": [0]
 }
+
+
+
+
 
 
 

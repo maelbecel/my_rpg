@@ -84,6 +84,15 @@
     void analyse_game(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Analyse game events and do some action in function of it
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void analyse_game_state(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Analyse menu player events and do some action in function of it
     ///
     /// \param game  game_t object who contain all game info
@@ -199,6 +208,24 @@
     ///
     ////////////////////////////////////////////////////////////
     void htp_first(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Save game state
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ... other information passed with va_list arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void save(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Check corrupted save
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ... other information passed with va_list arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void check_save(game_t *game);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to how to play second scene
@@ -501,5 +528,14 @@
     ///
     ////////////////////////////////////////////////////////////
     void reset(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Check if a key \a i is already use
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param i     key to check
+    ///
+    ////////////////////////////////////////////////////////////
+    bool already_def(game_t *game, int i);
 
 #endif

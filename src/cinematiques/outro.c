@@ -40,7 +40,8 @@ static int check_clock(int mul, sfClock *clock)
 
 static bool skip(sfRenderWindow *window)
 {
-    int key = my_getnbr(parser("config/settings.json", "skip_key"));
+    int key = my_getnbr(parser(SETTINGS_FILE , "skip_key"));
+
     sfEvent event;
     sfRenderWindow_pollEvent(window, &event);
     if (event.type == sfEvtKeyPressed && event.key.code == key)
