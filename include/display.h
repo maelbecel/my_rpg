@@ -16,6 +16,7 @@
     typedef struct element_s element_t;
     typedef struct settings_s settings_t;
     typedef struct pos_perso_s pos_perso_t;
+    typedef struct inventory inventory_t;
 
     enum menu_player {
         PLAYER,
@@ -248,6 +249,17 @@
     ///
     ////////////////////////////////////////////////////////////
     void display_inventory(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display one case of the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param pos position of the case
+    /// \param inventory case of the inventory
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_case_inventory(game_t *game, sfVector2f pos,
+                                inventory_t inventory);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the player info

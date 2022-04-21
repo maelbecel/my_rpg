@@ -8,6 +8,8 @@
 #ifndef INIT
     #define INIT
 
+    #define SIZE_INVENTORY 32
+
     ////////////////////////////////////////////////////////////
     // Structures
     ////////////////////////////////////////////////////////////
@@ -17,6 +19,7 @@
     typedef struct scene_s scene_t;
     typedef struct settings_s settings_t;
     typedef struct type_button_s type_button_t;
+    typedef struct inventory inventory_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the main menu
@@ -279,6 +282,14 @@
     ///
     ////////////////////////////////////////////////////////////
     settings_t *init_settings(void);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Initialize inventory of the player,
+    ///
+    /// \return struct inventory_t* with the inventory of the player
+    ///
+    ////////////////////////////////////////////////////////////
+    inventory_t *init_inventory(void);
 
     ////////////////////////////////////////////////////////////
     /// \brief Initialize htp scenes
