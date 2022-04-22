@@ -29,6 +29,8 @@ PARS		 =			parser/
 
 CLASS        =          class/
 
+FREE         =		  	free/
+
 SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
@@ -91,6 +93,9 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(CINE)enter_battle.c				\
 						$(SOURCES)$(CINE)fight_battle.c				\
 						$(SOURCES)$(CINE)outro.c                    \
+						$(SOURCES)$(FREE)free_all.c                 \
+						$(SOURCES)$(FREE)free_player.c              \
+						$(SOURCES)$(FREE)free_scenes.c              \
 						$(SOURCES)$(CLASS)chevalier.c               \
 						$(SOURCES)$(CLASS)cuisiniere.c              \
 						$(SOURCES)$(CLASS)archere.c        	        \

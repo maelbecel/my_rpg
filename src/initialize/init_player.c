@@ -15,8 +15,9 @@ player_t *init_player(char *class)
 
     player->elem = NULL;
     player->save = malloc(sizeof(char) * 2);
+    player->quest = NULL;
     player->save[1] = '\0';
-    player->class = class;
+    player->class = my_strdup(class);
     player->hp = int_from_json(conc("config/",
                                             conc(class, ".json")), "health");
     player->strg = int_from_json(conc("config/",

@@ -72,5 +72,6 @@ int main(int ac, UNUSED char **argv)
     game_t *game = init_game();
     rpg(game, &event);
     sfRenderWindow_destroy(game->window);
+    free(game);
     return EXIT_SUCCESS;
 }
