@@ -37,6 +37,7 @@ void load_1(game_t *game, ...)
     game->player->nbquest = 0;
     game->player->quest = int_array_from_json(SAVE1, "quests",
                                                     &game->player->nbquest);
+    game->player->xp = int_from_json(SAVE1, "xp");
     set_player_inventory(game, SAVE1);
 }
 
@@ -53,6 +54,7 @@ void load_2(game_t *game, ...)
     game->player->nbquest = 0;
     game->player->quest = int_array_from_json(SAVE2, "quests",
                                                     &game->player->nbquest);
+    game->player->xp = int_from_json(SAVE2, "xp");
     set_player_inventory(game, SAVE2);
 }
 
@@ -69,6 +71,7 @@ void load_3(game_t *game, ...)
     game->player->nbquest = 0;
     game->player->quest = int_array_from_json(SAVE3, "quests",
                                                     &game->player->nbquest);
+    game->player->xp = int_from_json(SAVE3, "xp");
     set_player_inventory(game, SAVE3);
 }
 

@@ -59,6 +59,7 @@
         int strg;
         int spd;
         int def;
+        int xp;
         int pt_stat;
         int *quest;
         int nbquest;

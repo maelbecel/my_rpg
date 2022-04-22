@@ -10,7 +10,7 @@ NAME         =		    my_rpg
 CSFML        =          -lcsfml-graphics -lcsfml-window \
 						-lcsfml-system -lcsfml-audio
 
-INCLUDE      =         	-I include/ -I include/lib/ -L lib/ -lmy -lmyprintf \
+INCLUDE      =         	-I include/ -I include/lib/ -L lib/ -lm -lmy -lmyprintf \
 						$(CSFML)
 
 CFLAGS      +=         -Wall -Wextra -Werror -fvisibility=hidden $(INCLUDE)
