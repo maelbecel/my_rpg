@@ -29,6 +29,16 @@ static void down_frame(game_t *game, ...)
     }
 }
 
+static void shower(game_t *game, ...)
+{
+    (void)game;
+    if (int_from_json(CONFIG_FILE, "show_fps") == 0) {
+        update_file(CONFIG_FILE, "show_fps", "1");
+    } else {
+        update_file(CONFIG_FILE, "show_fps", "0");
+    }
+}
+
 element_t **settings_elements_frame(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 2);
@@ -40,7 +50,7 @@ element_t **settings_elements_frame(void)
 
 button_t **settings_buttons_frame(void)
 {
-    button_t **buttons = malloc(sizeof(button_t *) * 4);
+    button_t **buttons = malloc(sizeof(button_t *) * 5);
     int i = 0;
 
     buttons[0] = init_button("FRAME -           ", "ressources/ui/button1.png",
@@ -52,7 +62,10 @@ button_t **settings_buttons_frame(void)
     buttons[2] = init_button("<-             ", "ressources/ui/button1.png",
                         (sfVector2f){50, 50}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = settings;
-    buttons[3] = NULL;
+    buttons[3] = init_button("Show fps :\t\t\t\t", "ressources/ui/button1.png",
+                        (sfVector2f){560, 650}, (sfVector2i){300, 100});
+    buttons[3]->action_clicked = shower;
+    buttons[4] = NULL;
     while (i < 3) {
         buttons[i]->base->scale = (sfVector2f){0.4, 1};
         buttons[i]->clicked->scale = (sfVector2f){0.4, 1};

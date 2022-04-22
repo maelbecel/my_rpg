@@ -1,5 +1,5 @@
 {
-    "framerate": 120,
-    "show_fps": 1,
+    "framerate": 150,
+    "show_fps": 0,
     "autosave": 0
 }
