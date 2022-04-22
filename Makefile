@@ -69,6 +69,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_htp_third.c   		\
 						$(SOURCES)$(INIT)init_player.c   			\
 						$(SOURCES)$(INIT)init_inventory.c  			\
+						$(SOURCES)$(INIT)init_npc.c  				\
 						$(SOURCES)$(DISP)draw.c   					\
 						$(SOURCES)$(DISP)draw_settings.c   			\
 						$(SOURCES)$(DISP)display_settings.c   		\
@@ -83,6 +84,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_key_with_pnj.c		\
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)display_inventory.c		\
+						$(SOURCES)$(DISP)display_npc.c				\
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(PARS)type_json.c   				\

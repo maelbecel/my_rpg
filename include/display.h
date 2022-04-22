@@ -17,6 +17,7 @@
     typedef struct settings_s settings_t;
     typedef struct pos_perso_s pos_perso_t;
     typedef struct inventory_s inventory_t;
+    typedef struct npc_s npc_t;
 
     enum menu_player {
         PLAYER,
@@ -97,6 +98,23 @@
     ////////////////////////////////////////////////////////////
     void draw_text_white(char *text, int size, sfVector2f pos,
                                                     sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw the npc
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param npc npc that will be displayed
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_npc(game_t *game, npc_t *npc);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the npc
+    ///
+    /// \param game  game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_npc(game_t *game);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the settings menu
