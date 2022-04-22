@@ -32,7 +32,7 @@ void add_elem(game_t *game, char *type)
         inventory->type = my_strdup(type);
         inventory->value += 1;
         inventory->elem = init_element(conc("assets/icons/",
-                    conc(type, ".png")), (sfVector2f){0, 0}, (sfVector2f){32, 32},
-                    (sfVector2f){3, 3});
+                            conc(type, ".png")), (sfVector2f){0, 0},
+                            (sfVector2f){32, 32}, (sfVector2f){3, 3});
     }
 }

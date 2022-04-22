@@ -395,4 +395,13 @@
     ////////////////////////////////////////////////////////////
     char *clean_string(char *str);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw an element on a window
+    ///
+    /// \param window  sfRenderWindow object where element should be display
+    /// \param str String who will be draw on the dialogue box
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_dialogue_box(sfRenderWindow *window, char *str);
+
 #endif

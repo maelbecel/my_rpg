@@ -29,6 +29,8 @@ PARS		 =			parser/
 
 CLASS        =          class/
 
+NPC			 =			npc/
+
 FREE         =		  	free/
 
 SRC          =         	$(SOURCES)main.c		                    \
@@ -68,6 +70,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_player.c   			\
 						$(SOURCES)$(INIT)init_inventory.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
+						$(SOURCES)$(DISP)draw_dialogue_box.c   		\
 						$(SOURCES)$(DISP)draw_settings.c   			\
 						$(SOURCES)$(DISP)display_settings.c   		\
 						$(SOURCES)$(DISP)display.c   				\
@@ -101,7 +104,8 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(CLASS)archere.c        	        \
 						$(SOURCES)$(CLASS)mage.c        	        \
 						$(SOURCES)$(CLASS)valkyrie.c       	        \
-						$(SOURCES)$(CLASS)arbaletier.c
+						$(SOURCES)$(CLASS)arbaletier.c				\
+						$(SOURCES)$(NPC)npc.c
 
 SRC_COUNT    =         $(words $(SRC))
 
