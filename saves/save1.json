@@ -1,10 +1,10 @@
 {
     "new": 0,
     "class": "chevalier",
-    "health": 120,
+    "health": 470,
     "strength": 4,
     "speed": 8,
-    "defense": 10,
+    "defense": 15,
     "point_stat": 0,
     "posx": 1825,
     "posy": 1350,
@@ -12,3 +12,4 @@
     "inventory": ["sword","shield"]
 
 }
+

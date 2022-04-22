@@ -74,9 +74,6 @@ void analyse_game_state(game_t *game, sfEvent *event, sfTime frame)
 {
     if (analyse_event(game, event) == 0)
         return;
-    if (game->scenes->page == MENU_PLAYER &&
-        game->scenes[MENU_PLAYER].tab->page == STAT)
-        event_menu_player(game, event);
     if (game->scenes->page != GAME) {
         display(game, event);
         draw_fps(frame, game);
