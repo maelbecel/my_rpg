@@ -17,8 +17,10 @@ void move_down(game_t *game)
     } else {
         game->scenes[GAME].elements[2]->pos.y += 5;
     }
-    game->scenes[GAME].elements[2]->rect.left +=
-        (game->scenes[GAME].elements[2]->rect.left >= 32 * 3) ? 32 : 0;
+    if (game->scenes[GAME].elements[2]->rect.left < 32 * 3)
+        game->scenes[GAME].elements[2]->rect.left += 32;
+    else
+        game->scenes[GAME].elements[2]->rect.left = 0;
 }
 
 void move_up(game_t *game)
@@ -29,8 +31,10 @@ void move_up(game_t *game)
     } else {
         game->scenes[GAME].elements[2]->pos.y -= 5;
     }
-    game->scenes[GAME].elements[2]->rect.left +=
-        (game->scenes[GAME].elements[2]->rect.left >= 32 * 3) ? 32 : 0;
+    if (game->scenes[GAME].elements[2]->rect.left < 32 * 3)
+        game->scenes[GAME].elements[2]->rect.left += 32;
+    else
+        game->scenes[GAME].elements[2]->rect.left = 0;
 }
 
 void move_left(game_t *game)
@@ -41,8 +45,10 @@ void move_left(game_t *game)
     } else {
         game->scenes[GAME].elements[2]->pos.x -= 5;
     }
-    game->scenes[GAME].elements[2]->rect.left +=
-        (game->scenes[GAME].elements[2]->rect.left >= 32 * 3) ? 32 : 0;
+    if (game->scenes[GAME].elements[2]->rect.left < 32 * 3)
+        game->scenes[GAME].elements[2]->rect.left += 32;
+    else
+        game->scenes[GAME].elements[2]->rect.left = 0;
 }
 
 void move_right(game_t *game)
@@ -53,6 +59,8 @@ void move_right(game_t *game)
     } else {
         game->scenes[GAME].elements[2]->pos.x += 5;
     }
-    game->scenes[GAME].elements[2]->rect.left +=
-        (game->scenes[GAME].elements[2]->rect.left >= 32 * 3) ? 32 : 0;
+    if (game->scenes[GAME].elements[2]->rect.left < 32 * 3)
+        game->scenes[GAME].elements[2]->rect.left += 32;
+    else
+        game->scenes[GAME].elements[2]->rect.left = 0;
 }
