@@ -1,19 +1,23 @@
 {
     "new": 0,
-    "class": "chevalier",
-    "health": 120,
-    "strength": 4,
-    "speed": 8,
-    "defense": 10,
+    "class": "arbeletier",
+    "health": 80,
+    "strength": 7,
+    "speed": 12,
+    "defense": 4,
     "point_stat": 0,
     "posx": 900,
     "posy": 500,
     "quests": [0],
-    "inventory": ["sword"]
+    "inventory": ["crossbow"]
 }
 ]
 }
 w","apple","apple"]
 }
 ]
+}
+}
+]
+}
 }

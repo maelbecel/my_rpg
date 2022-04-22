@@ -12,6 +12,9 @@
 npc_t *create_npc(char *name)
 {
     npc_t *npc = malloc(sizeof(npc_t));
+
+    if (!npc)
+        return NULL;
     int *pos = int_array_from_json(conc("config/npc/", conc(name, ".json")),
                                     "pos", NULL);
 

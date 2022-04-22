@@ -17,6 +17,9 @@ void main_menu(game_t *game, ...)
 element_t **main_menu_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 2);
+
+    if (!elements)
+        return NULL;
     elements[0] = init_element(BACKGROUND, (sfVector2f){0, 0},
                         (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
     elements[1] = NULL;
@@ -27,6 +30,8 @@ button_t **main_menu_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 5);
 
+    if (!buttons)
+        return NULL;
     buttons[0] = init_button("PLAY", "assets/ui/button1.png",
                         (sfVector2f){1200, 90}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = load;

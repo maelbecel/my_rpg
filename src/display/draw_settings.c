@@ -128,6 +128,8 @@ char *conc(char *a, char *b)
     char *res = malloc(my_strlen(a) + my_strlen(b) + 1);
     int x = 0;
 
+    if (!res)
+        return NULL;
     for (int i = 0; i < my_strlen(a); i++, x++)
         res[x] = a[i];
     for (int i = 0; i < my_strlen(b); i++, x++)

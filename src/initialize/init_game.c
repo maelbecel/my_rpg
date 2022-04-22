@@ -17,6 +17,9 @@ void play(game_t *game, ...)
 element_t **game_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 6);
+
+    if (!elements)
+        return NULL;
     elements[0] = init_element("assets/village.jpg", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1.5, 1.5});
     elements[1] = init_element("assets/0-20.png",
@@ -35,6 +38,9 @@ element_t **game_elements(void)
 button_t **game_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 1);
+
+    if (!buttons)
+        return NULL;
     buttons[0] = NULL;
     return buttons;
 }

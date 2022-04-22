@@ -13,6 +13,8 @@ static char *fill_inv(inventory_t **inventory)
 {
     char *buffer = malloc(sizeof(inventory_t **));
 
+    if (!buffer)
+        return NULL;
     buffer = "[";
     for (int i = 0; inventory[i]->type ; i++)
         for (int j = 0; j < inventory[i]->value; j++) {

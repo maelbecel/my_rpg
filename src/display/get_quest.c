@@ -27,6 +27,8 @@ char *clean_string(char *str)
     int i = 1;
     char *res = malloc(sizeof(char) * my_strlen(str));
 
+    if (!res || !str)
+        return NULL;
     for (; str[i]; i++)
         res[i - 1] = str[i];
     res[i - 2] = '\0';
