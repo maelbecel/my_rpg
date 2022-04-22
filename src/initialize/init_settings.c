@@ -28,10 +28,20 @@ element_t **settings_elements(void)
     return elements;
 }
 
+static void setscale(button_t **buttons)
+{
+    int i = 0;
+
+    while (buttons[i]) {
+        buttons[i]->base->scale = (sfVector2f){0.6, 1};
+        buttons[i]->clicked->scale = (sfVector2f){0.6, 1};
+        buttons[i++]->hoover->scale = (sfVector2f){0.6, 1};
+    }
+}
+
 button_t **settings_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 5);
-    int i = 0;
 
     buttons[0] = init_button("MAIN MENU        ", "assets/ui/button1.png",
                         (sfVector2f){700, 800}, (sfVector2i){300, 100});
@@ -46,10 +56,6 @@ button_t **settings_buttons(void)
                         (sfVector2f){700, 50}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = settings_frame;
     buttons[4] = NULL;
-    while (buttons[i]) {
-        buttons[i]->base->scale = (sfVector2f){0.6, 1};
-        buttons[i]->clicked->scale = (sfVector2f){0.6, 1};
-        buttons[i++]->hoover->scale = (sfVector2f){0.6, 1};
-    }
+    setscale(buttons);
     return buttons;
 }

@@ -27,7 +27,7 @@ static void update_all_file(game_t *game, char *file)
     update_file(file, "class", conc(coat(), conc("cooker", coat())));
     update_file(file, "new", "0");
     update_file(file, "inventory", conc("[",
-                        conc(coat(), conc("rouleau" ,conc(coat(), "]")))));
+                        conc(coat(), conc("rouleau", conc(coat(), "]")))));
 }
 
 void cuisiniere(game_t *game, ...)
