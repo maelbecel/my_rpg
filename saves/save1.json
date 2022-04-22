@@ -1,20 +1,15 @@
 {
     "new": 0,
     "class": "mage",
-    "health": 100,
-    "strength": 10,
+    "health": 20000000,
+    "strength": 670,
     "speed": 5,
     "defense": 7,
     "point_stat": 0,
-    "posx": 823,
-    "posy": 2179,
-    "quests": [0],
-    "inventory": ["baguette"]
+    "posx": 1415,
+    "posy": 683,
+    "quests": [1, 2],
+    "inventory": ["baguette","bow","crossbow"]
+
 }
-ld"]
-}
-}
-ld"]
-}
-}
-}
+
