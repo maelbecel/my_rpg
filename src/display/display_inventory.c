@@ -15,9 +15,14 @@ void draw_item(game_t *game, inventory_t *inventory, sfVector2f pos)
     inventory->elem->pos.y += 35;
     inventory->elem->pos.x += 55;
     draw_element(game->window, inventory->elem);
-    draw_text(inttochar(inventory->value), game->settings->font,
-    (sfVector3f){inventory->elem->pos.x + 100,
-    inventory->elem->pos.y + 70, 40}, game->window);
+    if (my_strlen(inttochar(inventory->value)) == 1)
+        draw_text(inttochar(inventory->value), game->settings->font,
+        (sfVector3f){inventory->elem->pos.x + 100,
+        inventory->elem->pos.y + 70, 40}, game->window);
+    else
+        draw_text(inttochar(inventory->value), game->settings->font,
+        (sfVector3f){inventory->elem->pos.x + 80,
+        inventory->elem->pos.y + 70, 40}, game->window);
 }
 
 void display_case_inventory(game_t *game, sfVector2f pos,
