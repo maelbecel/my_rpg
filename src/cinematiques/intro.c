@@ -50,7 +50,7 @@ int intro(sfRenderWindow *window)
     sfSprite *epitech = episprite();
     sfSprite *letter = lettersprite();
     sfRectangleShape *rect = init_rect_rad();
-    sfMusic *music = sfMusic_createFromFile("ressources/sounds/easports.ogg");
+    sfMusic *music = sfMusic_createFromFile("assets/sounds/easports.ogg");
 
     sfMusic_play(music);
     while (opacity < 250 && !skip(window)) {

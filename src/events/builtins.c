@@ -20,5 +20,6 @@ void quit(game_t *game, ...)
     va_start(arg, game);
     outro(game->window);
     sfRenderWindow_close(game->window);
+    free_all(game);
     va_end(arg);
 }

@@ -28,7 +28,7 @@ static void move(sfSprite *player, sfSprite *enemy, int i)
 static void init(sfSprite *player, sfSprite *enemy, sfSprite *background)
 {
     sfSprite_setTexture(background,
-        sfTexture_createFromFile("ressources/cinematiques/battle.png", NULL),
+        sfTexture_createFromFile("assets/cinematiques/battle.png", NULL),
                                                                     sfTrue);
     sfSprite_setPosition(player, (sfVector2f){0, 500});
     sfSprite_setPosition(enemy, (sfVector2f){1820, 500});
@@ -47,7 +47,7 @@ static void draw(sfRenderWindow *window, sfSprite *background,
 
 int battle(sfRenderWindow *window, sfSprite *a, sfSprite *b)
 {
-    sfMusic *music = sfMusic_createFromFile("ressources/sounds/fight.ogg");
+    sfMusic *music = sfMusic_createFromFile("assets/sounds/fight.ogg");
     sfSprite *player = sfSprite_copy(a);
     sfSprite *enemy = sfSprite_copy(b);
     sfSprite *background = sfSprite_create();
