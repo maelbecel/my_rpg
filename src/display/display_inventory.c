@@ -26,7 +26,6 @@ void display_case_inventory(game_t *game, sfVector2f pos,
     inventory->button->pos = pos;
     draw_button(game->window, inventory->button);
     if (inventory->elem != NULL) {
-        printf("type : %s\n", inventory->type);
         draw_item(game, inventory, pos);
     }
 }
