@@ -21,7 +21,9 @@ static const struct display_s Menu_list[] = {
     {HTP_3, display_htp_third},
     {PAUSE, display_pause},
     {LOAD, display_load},
-    {CHOOSING, display_choosing}
+    {CHOOSING, display_choosing},
+    {FRAME, display_frame},
+    {-1, NULL}
 };
 
 void display_main_menu(game_t *game, sfEvent *event)

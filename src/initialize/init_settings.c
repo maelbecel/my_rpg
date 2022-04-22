@@ -14,6 +14,11 @@ void settings(game_t *game, ...)
     game->scenes->page = SETTINGS;
 }
 
+void settings_frame(game_t *game, ...)
+{
+    game->scenes->page = FRAME;
+}
+
 element_t **settings_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 2);
@@ -25,20 +30,23 @@ element_t **settings_elements(void)
 
 button_t **settings_buttons(void)
 {
-    button_t **buttons = malloc(sizeof(button_t *) * 4);
+    button_t **buttons = malloc(sizeof(button_t *) * 5);
     int i = 0;
 
     buttons[0] = init_button("MAIN MENU        ", "ressources/ui/button1.png",
                         (sfVector2f){700, 800}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = main_menu;
     buttons[1] = init_button("KEYS      ", "ressources/ui/button1.png",
-                        (sfVector2f){700, 450}, (sfVector2i){300, 100});
+                        (sfVector2f){700, 550}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = settings_key;
     buttons[2] = init_button("SOUNDS       ", "ressources/ui/button1.png",
-                        (sfVector2f){700, 100}, (sfVector2i){300, 100});
+                        (sfVector2f){700, 300}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = settings_sounds;
-    buttons[3] = NULL;
-    while (buttons[i]){
+    buttons[3] = init_button("FRAME        ", "ressources/ui/button1.png",
+                        (sfVector2f){700, 50}, (sfVector2i){300, 100});
+    buttons[3]->action_clicked = settings_frame;
+    buttons[4] = NULL;
+    while (buttons[i]) {
         buttons[i]->base->scale = (sfVector2f){0.6, 1};
         buttons[i]->clicked->scale = (sfVector2f){0.6, 1};
         buttons[i++]->hoover->scale = (sfVector2f){0.6, 1};

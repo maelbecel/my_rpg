@@ -62,7 +62,7 @@ element_t *init_element(char *texture, sfVector2f pos,
 
 scene_t *init_scenes(sfRenderWindow *window)
 {
-    scene_t *scenes = malloc(sizeof(scene_t) * 12);
+    scene_t *scenes = malloc(sizeof(scene_t) * 13);
 
     scenes->page = 0;
     scenes[MAIN_MENU].buttons = main_menu_buttons();

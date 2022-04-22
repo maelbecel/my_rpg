@@ -126,6 +126,22 @@
     element_t **settings_sounds_elements(void);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Get buttons for the frame settings menu
+    ///
+    /// \return struct button_t ** with all buttons for the scene
+    ///
+    ////////////////////////////////////////////////////////////
+    button_t **settings_buttons_frame(void);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Get elements for the frame settings menu
+    ///
+    /// \return struct element_t ** with all elements for the scene
+    ///
+    ////////////////////////////////////////////////////////////
+    element_t **settings_elements_frame(void);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the first page of how to play
     ///
     /// \return struct button_t ** with all buttons for the scene

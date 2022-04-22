@@ -108,6 +108,15 @@
     void display_settings(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Display the settings menu
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_frame(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Display the sound settings menu
     ///
     /// \param game  game_t object who contain all game info

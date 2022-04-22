@@ -56,6 +56,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_choosing.c			\
 						$(SOURCES)$(INIT)init_settings.c   			\
 						$(SOURCES)$(INIT)init_settings_key.c   		\
+						$(SOURCES)$(INIT)init_settings_frame.c		\
 						$(SOURCES)$(INIT)init_settings_sounds.c   	\
 						$(SOURCES)$(INIT)init_menu_player.c   		\
 						$(SOURCES)$(INIT)init_load_menu.c   		\

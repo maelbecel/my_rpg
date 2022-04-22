@@ -27,6 +27,10 @@ void init_settings_menu(scene_t *scenes, sfRenderWindow *window)
     loading(13, window);
     scenes[PAUSE].elements = pause_elements();
     loading(14, window);
+    scenes[FRAME].buttons = settings_buttons_frame();
+    loading(15, window);
+    scenes[FRAME].elements = settings_elements_frame();
+    loading(16, window);
 }
 
 void init_menu_player(scene_t *scenes, sfRenderWindow *window)
@@ -42,11 +46,11 @@ void init_menu_player(scene_t *scenes, sfRenderWindow *window)
 void init_new_game(scene_t *scenes, sfRenderWindow *window)
 {
     scenes[LOAD].buttons = load_menu_buttons();
-    loading(21, window);
-    scenes[LOAD].elements = load_menu_elements();
-    loading(22, window);
-    scenes[CHOOSING].buttons = choosing_buttons();
     loading(23, window);
-    scenes[CHOOSING].elements = choosing_elements();
+    scenes[LOAD].elements = load_menu_elements();
     loading(24, window);
+    scenes[CHOOSING].buttons = choosing_buttons();
+    loading(25, window);
+    scenes[CHOOSING].elements = choosing_elements();
+    loading(26, window);
 }
