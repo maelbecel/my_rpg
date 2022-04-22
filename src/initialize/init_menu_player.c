@@ -27,13 +27,13 @@ static void update_scale(button_t **buttons)
 button_t **menu_player_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 5);
-    buttons[0] = init_button("PLAYER", "ressources/ui/button1.png",
+    buttons[0] = init_button("PLAYER", "assets/ui/button1.png",
                         (sfVector2f){25, 25}, (sfVector2i){300, 100});
-    buttons[1] = init_button("STAT", "ressources/ui/button1.png",
+    buttons[1] = init_button("STAT", "assets/ui/button1.png",
                         (sfVector2f){492.5, 25}, (sfVector2i){300, 100});
-    buttons[2] = init_button("QUEST", "ressources/ui/button1.png",
+    buttons[2] = init_button("QUEST", "assets/ui/button1.png",
                         (sfVector2f){960, 25}, (sfVector2i){300, 100});
-    buttons[3] = init_button("INVENTORY", "ressources/ui/button1.png",
+    buttons[3] = init_button("INVENTORY", "assets/ui/button1.png",
                         (sfVector2f){1427.5, 25}, (sfVector2i){300, 100});
     buttons[4] = NULL;
     update_scale(buttons);
@@ -47,7 +47,7 @@ button_t **menu_player_buttons(void)
 element_t **menu_player_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 3);
-    elements[0] = init_element("ressources/menu/resume.png",
+    elements[0] = init_element("assets/menu/resume.png",
             (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     elements[1] = NULL;
     elements[0]->rect = (sfIntRect){0, 0, 1920, 1080};
@@ -58,19 +58,19 @@ button_t **init_button_stat(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * (5 + 1));
 
-    buttons[0] = init_button("+", "ressources/ui/button1.png",
+    buttons[0] = init_button("+", "assets/ui/button1.png",
                         (sfVector2f){500, 170}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = add_hp;
-    buttons[1] = init_button("+", "ressources/ui/button1.png",
+    buttons[1] = init_button("+", "assets/ui/button1.png",
                         (sfVector2f){500, 270}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = add_strenght;
-    buttons[2] = init_button("+", "ressources/ui/button1.png",
+    buttons[2] = init_button("+", "assets/ui/button1.png",
                         (sfVector2f){500, 370}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = add_speed;
-    buttons[3] = init_button("+", "ressources/ui/button1.png",
+    buttons[3] = init_button("+", "assets/ui/button1.png",
                         (sfVector2f){500, 470}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = add_defense;
-    buttons[4] = init_button("RESET", "ressources/ui/button1.png",
+    buttons[4] = init_button("RESET", "assets/ui/button1.png",
                         (sfVector2f){100, 700}, (sfVector2i){300, 100});
     buttons[4]->action_clicked = reset;
     buttons[4]->action_hoover = hoover_menu;

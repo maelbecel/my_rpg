@@ -33,22 +33,22 @@ static void check_sve(button_t **buttons)
 
 static void fill_buttons(button_t **buttons)
 {
-    buttons[0] = init_button("SAVE 1", "ressources/ui/button1.png",
+    buttons[0] = init_button("SAVE 1", "assets/ui/button1.png",
                         (sfVector2f){50, 150}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = load_1;
-    buttons[1] = init_button("SAVE 2", "ressources/ui/button1.png",
+    buttons[1] = init_button("SAVE 2", "assets/ui/button1.png",
                         (sfVector2f){50, 400}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = load_2;
-    buttons[2] = init_button("SAVE 3", "ressources/ui/button1.png",
+    buttons[2] = init_button("SAVE 3", "assets/ui/button1.png",
                         (sfVector2f){50, 650}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = load_3;
-    buttons[3] = init_button("CLEAR", "ressources/ui/button1.png",
+    buttons[3] = init_button("CLEAR", "assets/ui/button1.png",
                         (sfVector2f){850, 150}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = clear_1;
-    buttons[4] = init_button("CLEAR", "ressources/ui/button1.png",
+    buttons[4] = init_button("CLEAR", "assets/ui/button1.png",
                         (sfVector2f){850, 400}, (sfVector2i){300, 100});
     buttons[4]->action_clicked = clear_2;
-    buttons[5] = init_button("CLEAR", "ressources/ui/button1.png",
+    buttons[5] = init_button("CLEAR", "assets/ui/button1.png",
                         (sfVector2f){850, 650}, (sfVector2i){300, 100});
     buttons[5]->action_clicked = clear_3;
     buttons[6] = NULL;

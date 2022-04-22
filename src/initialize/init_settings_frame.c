@@ -53,16 +53,16 @@ button_t **settings_buttons_frame(void)
     button_t **buttons = malloc(sizeof(button_t *) * 5);
     int i = 0;
 
-    buttons[0] = init_button("FRAME -           ", "ressources/ui/button1.png",
+    buttons[0] = init_button("FRAME -           ", "assets/ui/button1.png",
                         (sfVector2f){500, 400}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = down_frame;
-    buttons[1] = init_button("FRAME +           ", "ressources/ui/button1.png",
+    buttons[1] = init_button("FRAME +           ", "assets/ui/button1.png",
                         (sfVector2f){1100, 400}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = up_frame;
-    buttons[2] = init_button("<-             ", "ressources/ui/button1.png",
+    buttons[2] = init_button("<-             ", "assets/ui/button1.png",
                         (sfVector2f){50, 50}, (sfVector2i){300, 100});
     buttons[2]->action_clicked = settings;
-    buttons[3] = init_button("Show fps :\t\t\t\t", "ressources/ui/button1.png",
+    buttons[3] = init_button("Show fps :\t\t\t\t", "assets/ui/button1.png",
                         (sfVector2f){560, 650}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = shower;
     buttons[4] = NULL;
