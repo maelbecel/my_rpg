@@ -9,12 +9,6 @@
     "posx": 900,
     "posy": 500,
     "quests": [0],
-    "inventory": ["crossbow","bow","rouleau"]
-
-
-
-
-
-
+    "inventory": ["crossbow","bow","rouleau","bow"]
 }
 
