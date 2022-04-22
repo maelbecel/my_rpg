@@ -18,6 +18,7 @@ void quit(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
+    sfRenderWindow_setFramerateLimit(game->window, 30);
     outro(game->window);
     sfRenderWindow_close(game->window);
     free_all(game);

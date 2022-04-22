@@ -17,7 +17,6 @@ void resume(game_t *game, ...)
 void pause_menu(game_t *game, ...)
 {
     game->scenes->page = PAUSE;
-    my_printf("Go to pause\n");
 }
 
 element_t **pause_elements(void)

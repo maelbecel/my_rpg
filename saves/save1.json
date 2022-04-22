@@ -6,10 +6,10 @@
     "speed": 8,
     "defense": 15,
     "point_stat": 0,
-    "posx": 1825,
-    "posy": 1350,
+    "posx": 823,
+    "posy": 2179,
     "quests": [0],
     "inventory": ["sword","shield"]
 
 }
-
+}

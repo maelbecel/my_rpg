@@ -52,6 +52,7 @@
     struct player_s {
         element_t *elem;
         inventory_t **inventory;
+        sfClock *timer;
         char *class;
         char *save;
         int hp;

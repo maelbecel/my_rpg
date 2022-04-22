@@ -57,17 +57,22 @@ int analyse_event(game_t *game, sfEvent *event)
 
 void analyse_game(game_t *game, UNUSED sfEvent *event)
 {
-    if (sfKeyboard_isKeyPressed(game->settings->key_down)) {
-        move_down(game);
-    } if (sfKeyboard_isKeyPressed(game->settings->key_up)) {
-        move_up(game);
-    } if (sfKeyboard_isKeyPressed(game->settings->key_left)) {
-        move_left(game);
-    } if (sfKeyboard_isKeyPressed(game->settings->key_right)) {
-        move_right(game);
+    sfTime time = sfClock_getElapsedTime(game->player->timer);
+
+    if (time.microseconds > 40000) {
+        if (sfKeyboard_isKeyPressed(game->settings->key_down)) {
+            move_down(game);
+        } if (sfKeyboard_isKeyPressed(game->settings->key_up)) {
+            move_up(game);
+        } if (sfKeyboard_isKeyPressed(game->settings->key_left)) {
+            move_left(game);
+        } if (sfKeyboard_isKeyPressed(game->settings->key_right)) {
+            move_right(game);
+        }
+        sfSprite_setTextureRect(game->scenes[GAME].elements[0]->sprite,
+                                game->scenes[GAME].elements[0]->rect);
+        sfClock_restart(game->player->timer);
     }
-    sfSprite_setTextureRect(game->scenes[GAME].elements[0]->sprite,
-                            game->scenes[GAME].elements[0]->rect);
 }
 
 void analyse_game_state(game_t *game, sfEvent *event, sfTime frame)

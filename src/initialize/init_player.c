@@ -14,6 +14,7 @@ player_t *init_player(char *class)
     player_t *player = malloc(sizeof(player_t));
 
     player->elem = NULL;
+    player->timer = sfClock_create();
     player->save = malloc(sizeof(char) * 2);
     player->quest = NULL;
     player->save[1] = '\0';
