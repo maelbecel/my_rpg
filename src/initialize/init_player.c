@@ -32,7 +32,7 @@ player_t *init_player(char *class)
     player->elem = NULL;
     player->timer = sfClock_create();
     player->save = malloc(sizeof(char) * 2);
-    if (!save)
+    if (!player->save)
         return NULL;
     player->quest = NULL;
     player->save[1] = '\0';
