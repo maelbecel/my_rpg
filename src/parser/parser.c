@@ -23,6 +23,9 @@ char *get_value(char *line, char *var)
 char *coat(void)
 {
     char *coat = malloc(sizeof(char) * 2);
+
+    if (!coat)
+        return NULL;
     coat[0] = '"';
     coat[1] = '\0';
     return (coat);

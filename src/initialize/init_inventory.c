@@ -14,8 +14,12 @@ inventory_t **init_inventory(void)
     inventory_t **inventory = malloc(sizeof(inventory_t *) *
                                         (SIZE_INVENTORY + 1));
 
+    if (!inventory)
+        return NULL;
     for (int i = 0; i < SIZE_INVENTORY + 1; i++) {
         inventory[i] = malloc(sizeof(inventory_t));
+        if (!inventory[i])
+            return NULL;
         inventory[i]->type = NULL;
         inventory[i]->value = 0;
         inventory[i]->elem = NULL;

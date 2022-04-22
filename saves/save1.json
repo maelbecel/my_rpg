@@ -1,15 +1,29 @@
 {
-    "new": 0,
-    "class": "mage",
-    "health": 20000000,
+    "new": 1,
+    "class": null,
+    "health": 0,
     "strength": 670,
-    "speed": 5,
-    "defense": 7,
+    "speed": 0,
+    "defense": 0,
     "point_stat": 0,
-    "posx": 1415,
-    "posy": 683,
-    "quests": [1, 2],
-    "inventory": ["baguette","bow","crossbow"]
+    "posx": 900,
+    "posy": 500,
+    "quests": [0],
+    "inventory": ["none"]
+}
+}
+"]
+}
+}
+}
+ssbow"]
+}
+}
+"]
+}
+}
 
 }
+
+
 

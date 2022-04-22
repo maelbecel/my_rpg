@@ -12,6 +12,9 @@
 element_t **choosing_elements(void)
 {
     element_t **elements = malloc(sizeof(element_t *) * 8);
+
+    if (!elements)
+        return NULL;
     elements[0] = init_element(BACKGROUND, (sfVector2f){0, 0},
                         (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
     elements[1] = init_element(CROSSBOW_P, (sfVector2f){400, 120},

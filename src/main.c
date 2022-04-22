@@ -51,7 +51,10 @@ game_t *init_game(void)
     sfVideoMode mode = {1920, 1080, 32};
     game_t *game = malloc(sizeof(game_t));
 
-    game->settings = init_settings();
+    if (!game)
+        return NULL;
+    if ((game->settings = init_settings()) == NULL)
+        return NULL;
     game->window = sfRenderWindow_create(mode, "RPG no seed",
                                                         sfFullscreen, NULL);
     sfRenderWindow_setFramerateLimit(game->window, 31);
@@ -71,6 +74,8 @@ int main(int ac, UNUSED char **argv)
     sfEvent event;
     game_t *game = init_game();
 
+    if (!game)
+        return EXIT_ERROR;
     rpg(game, &event);
     sfRenderWindow_destroy(game->window);
     free(game);
