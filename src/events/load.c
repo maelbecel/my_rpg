@@ -38,9 +38,6 @@ void load_1(game_t *game, ...)
     game->player->quest = int_array_from_json(SAVE1, "quests",
                                                     &game->player->nbquest);
     set_player_inventory(game, SAVE1);
-    for (int i = 0; i < 100; i++) {
-        add_elem(game, "apple");
-    }
 }
 
 void load_2(game_t *game, ...)

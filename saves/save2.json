@@ -6,9 +6,9 @@
     "speed": 12,
     "defense": 4,
     "point_stat": 0,
-    "posx": 900,
-    "posy": 500,
+    "posx": 1675,
+    "posy": 930,
     "quests": [0],
-    "inventory": ["bow"]
-}
+    "inventory": ["bow","crossbow","apple","apple"]
 
+}
