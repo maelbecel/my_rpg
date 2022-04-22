@@ -45,7 +45,8 @@ int *int_array_from_json(char *file, char *var, int *size)
         int_array[i] = my_getnbr(array[i]);
         free(array[i]);
     }
-    *size = i;
+    if (size != NULL)
+        *size = i;
     free(array);
     return int_array;
 }

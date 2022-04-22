@@ -119,6 +119,7 @@
     #include "initialise.h"
     #include "player.h"
     #include "class.h"
+    #include "npc.h"
 
     ////////////////////////////////////////////////////////////
     // Structures
@@ -226,6 +227,7 @@
         sfText *text;
         element_t **elements;
         scene_t *tab;
+        npc_t **npc;
         int page;
     };
 

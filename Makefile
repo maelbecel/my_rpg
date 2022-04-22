@@ -29,6 +29,8 @@ PARS		 =			parser/
 
 CLASS        =          class/
 
+NPC			 =			npc/
+
 SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
@@ -96,7 +98,8 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(CLASS)archere.c        	        \
 						$(SOURCES)$(CLASS)mage.c        	        \
 						$(SOURCES)$(CLASS)valkyrie.c       	        \
-						$(SOURCES)$(CLASS)arbaletier.c
+						$(SOURCES)$(CLASS)arbaletier.c				\
+						$(SOURCES)$(NPC)npc.c
 
 SRC_COUNT    =         $(words $(SRC))
 
