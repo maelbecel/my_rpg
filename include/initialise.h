@@ -20,6 +20,7 @@
     typedef struct settings_s settings_t;
     typedef struct type_button_s type_button_t;
     typedef struct inventory_s inventory_t;
+    typedef struct npc_s npc_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the main menu
@@ -368,5 +369,11 @@
     ///
     ////////////////////////////////////////////////////////////
     void set_player_inventory(game_t *game, char *file);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief initialise npc in game scene
+    ///
+    ////////////////////////////////////////////////////////////
+    npc_t **game_npc(void);
 
 #endif

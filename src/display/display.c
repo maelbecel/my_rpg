@@ -66,6 +66,7 @@ void display_game(game_t *game, sfEvent *event)
     set_minimap(game);
     while (game->scenes[GAME].elements[e])
         draw_element(game->window, game->scenes[GAME].elements[e++]);
+    display_npc(game);
     while (game->scenes[GAME].buttons[b]) {
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, b, GAME)) {

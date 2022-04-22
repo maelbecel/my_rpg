@@ -22,4 +22,12 @@
         bool merchant;
     };
 
+    ////////////////////////////////////////////////////////////
+    /// \brief create a npc
+    ///
+    /// \param name name of the npc
+    ///
+    ////////////////////////////////////////////////////////////
+    npc_t *create_npc(char *name);
+
 #endif /* !NPC_H_ */
