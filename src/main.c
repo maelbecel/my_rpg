@@ -15,7 +15,7 @@ static int get_fps(sfTime frame)
     return (int)(1 / second);
 }
 
-static void draw_fps(sfTime frame, game_t *game)
+void draw_fps(sfTime frame, game_t *game)
 {
     char *show;
 
@@ -34,9 +34,10 @@ static int rpg(game_t *game, sfEvent *event)
         frame = sfClock_getElapsedTime(fps);
         sfClock_restart(fps);
         while (sfRenderWindow_pollEvent(game->window, event)) {
-            analyse_game_state(game, event);
+            analyse_game_state(game, event, frame);
         }
-        if (sfRenderWindow_isOpen(game->window)) {
+        if (sfRenderWindow_isOpen(game->window) &&
+            game->scenes->page == GAME) {
             display(game, event);
             draw_fps(frame, game);
             sfRenderWindow_display(game->window);

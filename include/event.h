@@ -88,9 +88,10 @@
     ///
     /// \param game  game_t object who contain all game info
     /// \param event sfEvent object where events are register
+    /// \param frame frame obj
     ///
     ////////////////////////////////////////////////////////////
-    void analyse_game_state(game_t *game, sfEvent *event);
+    void analyse_game_state(game_t *game, sfEvent *event, sfTime frame);
 
     ////////////////////////////////////////////////////////////
     /// \brief Analyse menu player events and do some action in function of it
