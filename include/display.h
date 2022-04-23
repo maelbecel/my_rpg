@@ -396,6 +396,14 @@
     void set_good(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Draw xp bar
+    ///
+    /// \param game  game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_xp_bar(game_t *game);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Get quest registered
     ///
     /// \param game  game_t object who contain all game info

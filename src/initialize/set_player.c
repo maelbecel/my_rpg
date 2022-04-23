@@ -11,14 +11,14 @@
 
 void set_player(game_t *game, sfVector2f getpos)
 {
-    if (getpos.x > 900) {
-        game->scenes[GAME].elements[0]->rect.left = getpos.x - 900;
-        game->scenes[GAME].elements[2]->pos.x = 900;
+    if (getpos.x > 1000) {
+        game->scenes[GAME].elements[0]->rect.left = getpos.x - 1000;
+        game->scenes[GAME].elements[2]->pos.x = 1000;
     } else
         game->scenes[GAME].elements[2]->pos.x = getpos.x;
-    if (getpos.y > 500) {
-        game->scenes[GAME].elements[0]->rect.top = getpos.y - 500;
-        game->scenes[GAME].elements[2]->pos.y = 500;
+    if (getpos.y > 1000) {
+        game->scenes[GAME].elements[0]->rect.top = getpos.y - 1000;
+        game->scenes[GAME].elements[2]->pos.y = 1000;
     } else
         game->scenes[GAME].elements[2]->pos.y = getpos.y;
 }

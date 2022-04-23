@@ -75,7 +75,6 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
     }
 }
 
-
 void analyse_game_state(game_t *game, sfEvent *event, sfTime frame)
 {
     (void)frame;

@@ -7,8 +7,8 @@
     "speed": 5,
     "defense": 7,
     "point_stat": 0,
-    "posx": 543,
-    "posy": 627,
+    "posx": 1519,
+    "posy": 547,
     "quests": [1, 2],
     "inventory": ["baguette","bow","crossbow"]
 

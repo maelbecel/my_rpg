@@ -75,6 +75,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)draw_settings.c   			\
 						$(SOURCES)$(DISP)display_settings.c   		\
 						$(SOURCES)$(DISP)display.c   				\
+						$(SOURCES)$(DISP)draw_xp_bar.c 				\
 						$(SOURCES)$(DISP)set_good.c   				\
 						$(SOURCES)$(DISP)get_quest.c   				\
 						$(SOURCES)$(DISP)display_stat.c				\

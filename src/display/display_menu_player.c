@@ -23,19 +23,12 @@ void display_button_menu_player(game_t *game, sfEvent *event, int nb)
     }
 }
 
-int get_level(int xp)
+static int get_level(int xp)
 {
     int level = 1;
 
-    for (; xp >= 1000 * exp(0.3 * level); level++);
+    for (; xp >= 500 * level * level; level++);
     return (level + 1);
-}
-
-int get_next_xp(int xp)
-{
-    int level = get_level(xp);
-
-    return (1000 * exp(0.3 * level));
 }
 
 void display_player(game_t *game, sfEvent *event)
@@ -53,8 +46,9 @@ void display_player(game_t *game, sfEvent *event)
             game->settings->font, (sfVector3f){100, 450, 40}, game->window);
     draw_text(conc("Level : ", inttochar(get_level(game->player->xp))),
             game->settings->font, (sfVector3f){100, 550, 40}, game->window);
-    draw_text(conc("XP : ", conc(inttochar(game->player->xp), conc(" / ", inttochar(get_next_xp(game->player->xp))))),
+    draw_text(conc("Total XP : ", inttochar(game->player->xp)),
             game->settings->font, (sfVector3f){100, 650, 40}, game->window);
+    draw_xp_bar(game);
 }
 
 void draw_stat_char(game_t *game)

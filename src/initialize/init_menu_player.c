@@ -49,13 +49,15 @@ button_t **menu_player_buttons(void)
 
 element_t **menu_player_elements(void)
 {
-    element_t **elements = malloc(sizeof(element_t *) * 3);
+    element_t **elements = malloc(sizeof(element_t *) * 4);
 
     if (!elements)
         return NULL;
     elements[0] = init_element("assets/menu/resume.png",
             (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     elements[1] = NULL;
+    elements[2] = init_element("assets/ui/load.png", (sfVector2f){480, 840},
+                                (sfVector2f){960, 100}, (sfVector2f){1, 1});
     elements[0]->rect = (sfIntRect){0, 0, 1920, 1080};
     return elements;
 }
