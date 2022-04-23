@@ -107,6 +107,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(CLASS)mage.c        	        \
 						$(SOURCES)$(CLASS)valkyrie.c       	        \
 						$(SOURCES)$(CLASS)arbaletier.c				\
+						$(SOURCES)$(NPC)check_npc.c					\
 						$(SOURCES)$(NPC)npc.c
 
 SRC_COUNT    =         $(words $(SRC))
