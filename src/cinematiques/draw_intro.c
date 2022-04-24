@@ -43,9 +43,6 @@ static void draw(sfRenderWindow *window, sfSprite *epitech, sfSprite *letter,
     } if (opmul.x < 40) {
         sfSprite_setPosition(letter, (sfVector2f){1050, 350});
         sfRenderWindow_drawSprite(window, letter, NULL);
-    } if (opmul.x <= 0) {
-        sfSprite_setPosition(letter, (sfVector2f){1190, 350});
-        sfRenderWindow_drawSprite(window, letter, NULL);
     }
     sfRenderWindow_drawSprite(window, epitech, NULL);
 }
