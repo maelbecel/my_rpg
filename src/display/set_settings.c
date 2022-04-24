@@ -56,3 +56,19 @@ void set_othr(game_t *game)
     sfText_setString(game->scenes[KEY].buttons[6]->clicked->text,
                             conc("MENU : ", getkey(game->settings->key_menu)));
 }
+
+void set_action(game_t *game)
+{
+    sfText_setString(game->scenes[KEY].buttons[7]->base->text,
+                        conc("SKIP : ", getkey(game->settings->key_skip)));
+    sfText_setString(game->scenes[KEY].buttons[7]->hoover->text,
+                        conc("SKIP : ", getkey(game->settings->key_skip)));
+    sfText_setString(game->scenes[KEY].buttons[7]->clicked->text,
+                        conc("SKIP : ", getkey(game->settings->key_skip)));
+    sfText_setString(game->scenes[KEY].buttons[8]->base->text,
+                        conc("ACTION : ", getkey(game->settings->key_action)));
+    sfText_setString(game->scenes[KEY].buttons[8]->hoover->text,
+                        conc("ACTION : ", getkey(game->settings->key_action)));
+    sfText_setString(game->scenes[KEY].buttons[8]->clicked->text,
+                        conc("ACTION : ", getkey(game->settings->key_action)));
+}

@@ -266,6 +266,8 @@
         int key_right;
         int key_pause;
         int key_menu;
+        int key_skip;
+        int key_action;
     };
 
     ////////////////////////////////////////////////////////////

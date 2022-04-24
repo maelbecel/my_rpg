@@ -9,21 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-bool already_def(game_t *game, int i)
-{
-    if (i == game->settings->key_down ||
-        i == game->settings->key_up ||
-        i == game->settings->key_left ||
-        i == game->settings->key_right ||
-        i == game->settings->key_pause ||
-        i == game->settings->key_skip ||
-        i == game->settings->key_action ||
-        i == game->settings->key_menu)
-        return true;
-    return false;
-}
-
-int set_pause(game_t *game, sfEvent *event)
+int set_act(game_t *game, sfEvent *event)
 {
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed &&
@@ -31,16 +17,16 @@ int set_pause(game_t *game, sfEvent *event)
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
             return EXIT_SUCCESS;
         } if (event->type == sfEvtKeyPressed) {
-            game->settings->key_pause = event->key.code;
-            update_file(SETTINGS_FILE , "pause_key",
-                                        inttochar(game->settings->key_pause));
+            game->settings->key_action = event->key.code;
+            update_file(SETTINGS_FILE , "action_key",
+                                        inttochar(game->settings->key_action));
             return EXIT_SUCCESS;
         }
     }
     return EXIT_FAILURE;
 }
 
-void wait_pause(game_t *game, ...)
+void wait_action(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -48,12 +34,12 @@ void wait_pause(game_t *game, ...)
     sfEvent *event = va_arg(arg, sfEvent *);
 
     while (sfRenderWindow_isOpen(game->window)) {
-        if (!set_pause(game, event))
+        if (!set_act(game, event))
             return;
     }
 }
 
-int set_menu(game_t *game, sfEvent *event)
+int set_skip(game_t *game, sfEvent *event)
 {
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed &&
@@ -61,16 +47,16 @@ int set_menu(game_t *game, sfEvent *event)
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
             return EXIT_SUCCESS;
         } if (event->type == sfEvtKeyPressed) {
-            game->settings->key_menu = event->key.code;
-            update_file(SETTINGS_FILE , "menu_key",
-                                        inttochar(game->settings->key_menu));
+            game->settings->key_skip = event->key.code;
+            update_file(SETTINGS_FILE , "skip_key",
+                                        inttochar(game->settings->key_skip));
             return EXIT_SUCCESS;
         }
     }
     return EXIT_FAILURE;
 }
 
-void wait_menu(game_t *game, ...)
+void wait_skip(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -78,7 +64,7 @@ void wait_menu(game_t *game, ...)
     sfEvent *event = va_arg(arg, sfEvent *);
 
     while (sfRenderWindow_isOpen(game->window)) {
-        if (!set_menu(game, event))
+        if (!set_skip(game, event))
             return;
     }
 }

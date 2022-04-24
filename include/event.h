@@ -256,6 +256,24 @@
     void pause_menu(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Wait for input for key skip
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ... other information passed with va_list arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void wait_skip(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Wait for input for key action
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ... other information passed with va_list arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void wait_action(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Wait for input for key up
     ///
     /// \param game  game_t object who contain all game info

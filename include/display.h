@@ -377,6 +377,14 @@
     void set_othr(game_t *game);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Set string form skip and action
+    ///
+    /// \param game  game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    void set_action(game_t *game);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Get touch name from key input
     ///
     /// \param key  key input

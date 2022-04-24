@@ -44,6 +44,7 @@ SRC          =         	$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
 						$(SOURCES)$(EVT)select_movement.c  			\
+						$(SOURCES)$(EVT)select_action.c  			\
 						$(SOURCES)$(EVT)select_menu.c				\
 						$(SOURCES)$(EVT)builtins.c   				\
 						$(SOURCES)$(EVT)sliders.c   				\

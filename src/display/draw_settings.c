@@ -145,6 +145,7 @@ void concat_settings(game_t *game)
     set_vert(game);
     set_hori(game);
     set_othr(game);
+    set_action(game);
     for (int i = 1; game->scenes[KEY].buttons[i];) {
         game->scenes[KEY].buttons[i]->base->text_pos = pos;
         game->scenes[KEY].buttons[i]->clicked->text_pos = pos;
