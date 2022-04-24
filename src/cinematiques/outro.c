@@ -66,6 +66,9 @@ int outro(sfRenderWindow *window)
         mul = (opacity <= 0) ? -mul : mul;
         draw_outro(window, epitech, rect, opacity);
     }
+    sfClock_destroy(clock);
+    sfSprite_destroy(epitech);
+    sfRectangleShape_destroy(rect);
     sfMusic_destroy(music);
     return 0;
 }

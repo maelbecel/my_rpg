@@ -42,6 +42,16 @@ static bool skip(sfRenderWindow *window)
     return false;
 }
 
+static void destroy(sfClock *clock, sfSprite *epitech,
+                                    sfRectangleShape *rect, sfSprite *letter)
+{
+    sfClock_destroy(clock);
+    sfSprite_destroy(epitech);
+    sfSprite_destroy(letter);
+    sfRectangleShape_destroy(rect);
+}
+
+
 int intro(sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
@@ -61,6 +71,7 @@ int intro(sfRenderWindow *window)
         what_draw(window, epitech, letter, (sfVector2f){opacity, mul});
         draw_voil(window, rect, opacity);
     }
+    destroy(clock, epitech, rect, letter);
     sfMusic_destroy(music);
     return 0;
 }
