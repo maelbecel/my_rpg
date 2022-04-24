@@ -10,5 +10,5 @@
     "posx": 1519,
     "posy": 547,
     "quests": [1, 2],
-    "inventory": ["hache"]
+    "inventory": ["none","hache"]
 }

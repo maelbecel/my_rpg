@@ -36,8 +36,6 @@ static int get_level(int xp)
 
 static int get_xp_for_level(int level)
 {
-    if (level <= 0)
-        return (0);
     return (500 * level * level);
 }
 

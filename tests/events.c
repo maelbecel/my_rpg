@@ -34,6 +34,42 @@ static game_t *initialize_new_game(void)
     return game;
 }
 
+Test(Initialize, Set_player_inventory_1, .timeout = 20)
+{
+    game_t *game = initialize_new_game();
+
+    cr_assert_not_null(game);
+    set_player_inventory(game, "tests/test.json");
+    sfRenderWindow_destroy(game->window);
+    free(game);
+}
+
+Test(Initialize, Set_player_1, .timeout = 20)
+{
+    game_t *game = initialize_new_game();
+    sfVector2f pos = {1500, 1500};
+
+    cr_assert_not_null(game);
+    set_player(game, pos);
+    cr_assert_eq(game->scenes[GAME].elements[2]->pos.x, 1000);
+    cr_assert_eq(game->scenes[GAME].elements[2]->pos.y, 1000);
+    sfRenderWindow_destroy(game->window);
+    free(game);
+}
+
+Test(Initialize, Set_player_2, .timeout = 20)
+{
+    game_t *game = initialize_new_game();
+    sfVector2f pos = {400, 400};
+
+    cr_assert_not_null(game);
+    set_player(game, pos);
+    cr_assert_eq(game->scenes[GAME].elements[2]->pos.x, 400);
+    cr_assert_eq(game->scenes[GAME].elements[2]->pos.y, 400);
+    sfRenderWindow_destroy(game->window);
+    free(game);
+}
+
 Test(Events, Key_already_def)
 {
     game_t *game = initialize_new_game();

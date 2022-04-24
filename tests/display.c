@@ -31,7 +31,29 @@ static game_t *init_game(void)
     return game;
 }
 
-Test(Display, Display_frame, .timeout = 5)
+Test(Display, Draw_xp_bar, .timeout = 20)
+{
+    game_t *game = init_game();
+
+    game->player->xp = 2000;
+    cr_assert_not_null(game);
+    draw_xp_bar(game);
+    sfRenderWindow_destroy(game->window);
+    free(game);
+}
+
+Test(Display, Draw_npc, .timeout = 20)
+{
+    game_t *game = init_game();
+    npc_t *npc = create_npc("pascal");
+
+    cr_assert_not_null(game);
+    draw_npc(game, npc);
+    sfRenderWindow_destroy(game->window);
+    free(game);
+}
+
+Test(Display, Display_frame, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -43,7 +65,7 @@ Test(Display, Display_frame, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_choosing, .timeout = 5)
+Test(Display, Draw_choosing, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -55,7 +77,7 @@ Test(Display, Display_choosing, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_load, .timeout = 5)
+Test(Display, Display_load, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -67,7 +89,7 @@ Test(Display, Display_load, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_pause, .timeout = 5)
+Test(Display, Display_pause, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -79,7 +101,7 @@ Test(Display, Display_pause, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_htp_third, .timeout = 5)
+Test(Display, Display_htp_third, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -91,7 +113,7 @@ Test(Display, Display_htp_third, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_htp_second, .timeout = 5)
+Test(Display, Display_htp_second, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -103,7 +125,7 @@ Test(Display, Display_htp_second, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_htp_first, .timeout = 5)
+Test(Display, Display_htp_first, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -115,7 +137,7 @@ Test(Display, Display_htp_first, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_menu_player, .timeout = 5)
+Test(Display, Display_menu_player, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -127,7 +149,7 @@ Test(Display, Display_menu_player, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_settings_sounds, .timeout = 5)
+Test(Display, Display_settings_sounds, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -139,7 +161,7 @@ Test(Display, Display_settings_sounds, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_settings_key, .timeout = 5)
+Test(Display, Display_settings_key, .timeout = 30)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -151,7 +173,7 @@ Test(Display, Display_settings_key, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_settings, .timeout = 5)
+Test(Display, Display_settings, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -163,7 +185,7 @@ Test(Display, Display_settings, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_main_menu, .timeout = 5)
+Test(Display, Display_main_menu, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
@@ -175,7 +197,7 @@ Test(Display, Display_main_menu, .timeout = 5)
     free(game);
 }
 
-Test(Display, Display_game, .timeout = 5)
+Test(Display, Display_game, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
