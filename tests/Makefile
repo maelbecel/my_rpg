@@ -36,8 +36,10 @@ NPC			 =			npc/
 
 FREE         =		  	free/
 
-TESTS        =          cinematiques.c \
-                        class.c        \
+TESTS        =          cinematiques.c		\
+                        class.c        		\
+                        events.c        	\
+                        display.c      		\
 						parser.c
 
 SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
