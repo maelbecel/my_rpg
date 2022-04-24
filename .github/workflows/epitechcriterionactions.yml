@@ -6,5 +6,6 @@ on:
 jobs:
   execute:
     runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker
     steps:
       - uses: MaximePremont/EpitechCriterionActions@master
