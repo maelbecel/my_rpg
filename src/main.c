@@ -46,7 +46,7 @@ static int rpg(game_t *game, sfEvent *event)
     return EXIT_SUCCESS;
 }
 
-game_t *init_game(void)
+static game_t *init_game(void)
 {
     sfVideoMode mode = {1920, 1080, 32};
     game_t *game = malloc(sizeof(game_t));
@@ -64,7 +64,8 @@ game_t *init_game(void)
     sfRenderWindow_setFramerateLimit(game->window,
                         int_from_json(CONFIG_FILE, "framerate"));
     game->player = init_player("chevalier");
-    game->hitbox = sfImage_createFromFile("assets/hitboxes/village_hitbox.png");
+    game->hitbox = sfImage_createFromFile(
+                                        "assets/hitboxes/village_hitbox.png");
     return game;
 }
 

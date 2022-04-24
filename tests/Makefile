@@ -12,7 +12,9 @@ CSFML        =          -lcsfml-graphics -lcsfml-window \
 
 INCLUDE      =         	-I ../include/ -I ../include/lib/ \
 						-L ../lib/ -lm -lmy -lmyprintf \
-						$(CSFML) -lcriterion --verbose --coverage
+						$(CSFML) \
+						-lcriterion --verbose --coverage \
+						-fprofile-arcs -ftest-coverage
 
 CFLAGS      +=         -Wall -Wextra -Werror -fvisibility=hidden $(INCLUDE)
 
@@ -34,7 +36,9 @@ NPC			 =			npc/
 
 FREE         =		  	free/
 
-TESTS        =         test.c
+TESTS        =          cinematiques.c \
+                        class.c        \
+						parser.c
 
 SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
@@ -122,7 +126,8 @@ NB           =         0
 
 OBJ          =	        $(SRC:.c=.o)
 
-TEMPFILES    =         *~ *vgcore* $(SRC:.c=.gcno) $(SRC:.c=.gcda)
+TEMPFILES    =         *~ *vgcore* $(SRC:.c=.gcno) $(SRC:.c=.gcda) \
+					   *.gcov
 
 RM           =         rm -f
 
@@ -142,10 +147,11 @@ $(NAME):	$(OBJ)
 			"Tests files sucessfully build. "$(DEFAULT))
 			@make -C ../lib/my/ --no-print-directory
 			@make -C ../lib/myprintf/ --no-print-directory
-			@gcc -o $(NAME) $(OBJ) $(INCLUDE) \
+			@gcc -o $(NAME) $(OBJ) $(INCLUDE) -lcriterion --verbose --coverage\
 			&& $(ECHO) $(BOLD) $(GREEN)"\n► BUILD SUCCESS !"$(DEFAULT) \
 			|| ($(ECHO) $(BOLD) $(RED)"\n► BUILD FAILED"$(DEFAULT) && exit 1)
-			mv $(NAME) ..
+			@mv $(NAME) ..
+
 
 clean:
 			@$(RM) $(OBJ)
@@ -157,6 +163,7 @@ fclean:		clean
 			@$(RM) $(OBJ)
 			@$(RM) $(TEMPFILES)
 			@($(ECHO) $(BOLD) $(GREEN)✓$(LIGHT_BLUE)" Fclean Tests "$(DEFAULT))
+
 %.o:		%.c
 			@$(eval NB=$(shell echo $$(($(NB)+1))))
 			@gcc -c -o $@ $^ $(CFLAGS) && python3 ../build/build.py $< $(NB) \
