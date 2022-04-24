@@ -5,17 +5,18 @@
 ## Makefile for my_rpg
 ##
 
-NAME         =		    my_rpg
+NAME         =		    unit_tests
 
 CSFML        =          -lcsfml-graphics -lcsfml-window \
 						-lcsfml-system -lcsfml-audio
 
-INCLUDE      =         	-I include/ -I include/lib/ -L lib/ -lm -lmy -lmyprintf \
-						$(CSFML)
+INCLUDE      =         	-I ../include/ -I ../include/lib/ \
+						-L ../lib/ -lm -lmy -lmyprintf \
+						$(CSFML) -lcriterion --verbose --coverage
 
 CFLAGS      +=         -Wall -Wextra -Werror -fvisibility=hidden $(INCLUDE)
 
-SOURCES      =         src/
+SOURCES      =         ../src/
 
 CINE		 =			cinematiques/
 
@@ -33,8 +34,9 @@ NPC			 =			npc/
 
 FREE         =		  	free/
 
-SRC          =			$(SOURCES)main.c		                    \
-						$(SOURCES)$(EVT)analyse_event.c   			\
+TESTS        =         test.c
+
+SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
 						$(SOURCES)$(EVT)button_state.c   			\
 						$(SOURCES)$(EVT)check_save.c   				\
@@ -110,9 +112,9 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(CLASS)valkyrie.c       	        \
 						$(SOURCES)$(CLASS)arbaletier.c				\
 						$(SOURCES)$(NPC)check_npc.c					\
-						$(SOURCES)$(NPC)npc.c
+						$(SOURCES)$(NPC)npc.c                       \
+						$(TESTS)
 
-TESTS        =         tests/test.c
 
 SRC_COUNT    =         $(words $(SRC))
 
@@ -137,44 +139,27 @@ all:	$(NAME)
 $(NAME):	$(OBJ)
 			@echo
 			@($(ECHO) $(BOLD) $(GREEN)✓$(LIGHT_BLUE) \
-			"SRC files sucessfully build. "$(DEFAULT))
-			@make -C lib/my/ --no-print-directory
-			@make -C lib/myprintf/ --no-print-directory
+			"Tests files sucessfully build. "$(DEFAULT))
+			@make -C ../lib/my/ --no-print-directory
+			@make -C ../lib/myprintf/ --no-print-directory
 			@gcc -o $(NAME) $(OBJ) $(INCLUDE) \
 			&& $(ECHO) $(BOLD) $(GREEN)"\n► BUILD SUCCESS !"$(DEFAULT) \
 			|| ($(ECHO) $(BOLD) $(RED)"\n► BUILD FAILED"$(DEFAULT) && exit 1)
-
-debug:		CFLAGS += -g3 -pg
-debug:		all
+			mv $(NAME) ..
 
 clean:
-			@make -C lib/my/ clean --no-print-directory
-			@make -C lib/myprintf/ clean --no-print-directory
-			@make -C tests fclean --no-print-directory
 			@$(RM) $(OBJ)
 			@$(RM) $(TEMPFILES)
-			@($(ECHO) $(BOLD) $(GREEN)✓$(LIGHT_BLUE)" Clean SRC "$(DEFAULT))
+			@($(ECHO) $(BOLD) $(GREEN)✓$(LIGHT_BLUE)" Clean Tests "$(DEFAULT))
 
 fclean:		clean
-			@make -C lib/myprintf/ fclean --no-print-directory
-			@make -C lib/my/ fclean --no-print-directory
-			@make -C tests fclean --no-print-directory
-			@$(RM) $(NAME)
+			@$(RM) ../$(NAME)
 			@$(RM) $(OBJ)
 			@$(RM) $(TEMPFILES)
-			@($(ECHO) $(BOLD) $(GREEN)✓$(LIGHT_BLUE)" Fclean SRC "$(DEFAULT))
-
-re:
-			@make fclean --no-print-directory
-			@make --no-print-directory
-
-tests_run:
-			@make fclean --no-print-directory
-			@make -C tests/ --no-print-directory
-
+			@($(ECHO) $(BOLD) $(GREEN)✓$(LIGHT_BLUE)" Fclean Tests "$(DEFAULT))
 %.o:		%.c
 			@$(eval NB=$(shell echo $$(($(NB)+1))))
-			@gcc -c -o $@ $^ $(CFLAGS) && python3 build/build.py $< $(NB) \
+			@gcc -c -o $@ $^ $(CFLAGS) && python3 ../build/build.py $< $(NB) \
 			$(SRC_COUNT)
 
 .PHONY: all re clean fclean debug
