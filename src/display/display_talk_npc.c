@@ -9,17 +9,16 @@
 #include "printf.h"
 #include "rpg.h"
 
-void display_merchant(UNUSED npc_t *npc)
+void display_merchant(UNUSED game_t *game, UNUSED npc_t *npc)
 {
-
-}
-
-void display_non_merchant(game_t *game, npc_t *npc)
-{
-    draw_text(conc(npc->name, ":"), game->settings->font,
-                    (sfVector3f){50, 760, 70}, game->window);
-    draw_text(npc->text, game->settings->font,
-                    (sfVector3f){50, 860, 70}, game->window);
+    game->scenes[NPC].elements[0] = init_element(conc("assets/npc/",
+        conc(npc->name, ".png")), (sfVector2f){100, 100}, (sfVector2f){32, 48},
+        (sfVector2f){4, 4});
+    for (int e = 0; game->scenes[NPC].elements[e]; e++)
+        draw_element(game->window, game->scenes[NPC].elements[e]);
+    // for (int b = 0; game->scenes[NPC].buttons[b]; b++)
+    //     draw_button(game->window, game->scenes[NPC].buttons[b]);
+    free_elements(game->scenes[NPC].elements[0]);
 }
 
 void display_talk_npc(game_t *game, sfEvent *event)
@@ -29,12 +28,14 @@ void display_talk_npc(game_t *game, sfEvent *event)
     for (int e = 0; game->scenes[GAME].elements[e]; e++)
         draw_element(game->window, game->scenes[GAME].elements[e]);
     display_npc(game);
-    if (npc->merchant == true)
-        display_merchant(npc);
-    else
-        display_non_merchant(game, npc);
-    draw_text("Press 'Enter' to skip the talk", game->settings->font,
-                    (sfVector3f){50, 960, 70}, game->window);
-    if (event->key.code == sfKeyEnter)
+    if (npc->merchant == true) {
+        display_merchant(game, npc);
+    }
+    printf("Test\n");
+    draw_dialogue_box(game->window, conc(npc->name, conc(" :\n", npc->text)),
+                                                        game->settings->font);
+    draw_pop_text(conc("Press '", conc(getkey(game->settings->key_skip),
+                        "'\nto leave")), game->settings->font, game->window);
+    if (event->key.code == game->settings->key_skip)
         go_game(game);
 }

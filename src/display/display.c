@@ -104,6 +104,7 @@ void display_pause(game_t *game, sfEvent *event)
 void display(game_t *game, sfEvent *event)
 {
     sfRenderWindow_clear(game->window, sfWhite);
+    printf("page : %d\n", game->scenes->page);
     for (int i = 0; Menu_list[i].scene != -1; i++) {
         if (Menu_list[i].scene == game->scenes->page) {
             Menu_list[i].func(game, event);

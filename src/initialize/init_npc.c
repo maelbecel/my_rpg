@@ -21,8 +21,8 @@ void go_game(game_t *game)
 
 void init_talk_npc(scene_t *scenes)
 {
-    scenes[NPC].elements = NULL;
-    scenes[NPC].buttons = NULL;
+    scenes[NPC].elements = npc_elements();
+    scenes[NPC].buttons = npc_buttons();
 }
 
 npc_t **game_npc(void)

@@ -63,18 +63,3 @@ void display_npc(game_t *game)
         draw_npc(game, game->scenes[GAME].npc[i]);
     }
 }
-
-void display_talk_npc(game_t *game, sfEvent *event)
-{
-    npc_t *npc = find_npc(game);
-
-    for (int e = 0; game->scenes[GAME].elements[e]; e++)
-        draw_element(game->window, game->scenes[GAME].elements[e]);
-    display_npc(game);
-    draw_dialogue_box(game->window, conc(npc->name, conc(" :\n", npc->text)),
-                                                        game->settings->font);
-    draw_pop_text(conc("Press '", conc(getkey(game->settings->key_skip),
-                        "'\nto leave")), game->settings->font, game->window);
-    if (event->key.code  == game->settings->key_skip)
-        go_game(game);
-}
