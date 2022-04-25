@@ -28,7 +28,7 @@ static game_t *init_game(void)
     game->player = init_player("chevalier");
     game->player->save = "1";
     game->hitbox = sfImage_createFromFile(
-                                        "assets/hitboxes/hitbox.png");
+                                        HITBOX);
     return game;
 }
 

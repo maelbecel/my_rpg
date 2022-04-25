@@ -66,7 +66,7 @@ static game_t *init_game(void)
     sfRenderWindow_setFramerateLimit(game->window,
                         int_from_json(CONFIG_FILE, "framerate"));
     game->player = init_player("chevalier");
-    game->hitbox = sfImage_createFromFile("assets/hitboxes/hitbox.png");
+    game->hitbox = sfImage_createFromFile(HITBOX);
     return game;
 }
 
