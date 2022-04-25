@@ -29,7 +29,6 @@ void check_npc(game_t *game, sfEvent *event)
                     (sfVector3f){200, 800, 70}, game->window);
             sfRenderWindow_pollEvent(game->window, event);
             if (event->key.code == sfKeyT) {
-                printf("test\n");
                 go_talk_npc(game);
             }
             // draw_dialogue_box(game->window, conc(npc[i]->name,

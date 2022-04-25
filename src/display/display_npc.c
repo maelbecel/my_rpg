@@ -43,6 +43,6 @@ void display_npc(game_t *game)
 void display_talk_npc(game_t *game, sfEvent *event)
 {
     display_game(game, event);
-    if (event->type == sfEvtKeyPressed && event->key.code == sfKeyEnter)
+    if (event->key.code == sfKeyEnter)
         go_game(game);
 }
