@@ -34,8 +34,25 @@
     /// \brief Check distance about npc and player
     ///
     /// \param game game_t struct with all game data
+    /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void check_npc(game_t *game);
+    void check_npc(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Go to scene talk to npc
+    ///
+    /// \param game game_t struct with all game data
+    ///
+    ////////////////////////////////////////////////////////////
+    void go_talk_npc(game_t *game);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Go to scene game
+    ///
+    /// \param game game_t struct with all game data
+    ///
+    ////////////////////////////////////////////////////////////
+    void go_game(game_t *game);
 
 #endif /* !NPC_H_ */

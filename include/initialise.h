@@ -345,6 +345,14 @@
     void init_new_game(scene_t *scenes, sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Initialize talk npc
+    ///
+    /// \param scenes  Scenes to initialize
+    ///
+    ////////////////////////////////////////////////////////////
+    void init_talk_npc(scene_t *scenes);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Update buttons for stat tab
     ///
     /// \param buttons  buttons array to update

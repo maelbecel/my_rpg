@@ -28,7 +28,7 @@ static int get_level(int xp)
     int level = 1;
 
     for (; xp >= 500 * level * level; level++);
-    return (level + 1);
+    return (level);
 }
 
 void display_player(game_t *game, sfEvent *event)
