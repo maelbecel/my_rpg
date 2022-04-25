@@ -19,7 +19,8 @@ static game_t *init_game(void)
 
     if (!game)
         return NULL;
-    if ((game->settings = init_settings()) == NULL)
+    game->settings = init_settings();
+    if (game->settings == NULL)
         return NULL;
     game->window = sfRenderWindow_create(mode, "RPG no seed",
                                                         sfFullscreen, NULL);
@@ -31,39 +32,8 @@ static game_t *init_game(void)
     game->player = init_player("chevalier");
     game->player->save = "1";
     game->hitbox = sfImage_createFromFile(
-                                        "assets/hitboxes/village_hitbox.png");
+                                        "assets/hitboxes/hitbox.png");
     return game;
-}
-
-
-Test(Class, Arbaletier)
-{
-    game_t *game = init_game();
-    arbaletier(game);
-    cr_assert_eq(game->scenes->page, GAME);
-    cr_assert_eq(game->player->hp, int_from_json("config/arbaletier.json",
-                                                                "health"));
-    cr_assert_eq(game->player->strg, int_from_json("config/arbaletier.json",
-                                                                "strength"));
-    cr_assert_eq(game->player->spd, int_from_json("config/arbaletier.json",
-                                                                "speed"));
-    cr_assert_eq(game->player->def, int_from_json("config/arbaletier.json",
-                                                                "defense"));
-}
-
-Test(Class, Archere)
-{
-    game_t *game = init_game();
-    archere(game);
-    cr_assert_eq(game->scenes->page, GAME);
-    cr_assert_eq(game->player->hp, int_from_json("config/archere.json",
-                                                                "health"));
-    cr_assert_eq(game->player->strg, int_from_json("config/archere.json",
-                                                                "strength"));
-    cr_assert_eq(game->player->spd, int_from_json("config/archere.json",
-                                                                "speed"));
-    cr_assert_eq(game->player->def, int_from_json("config/archere.json",
-                                                                "defense"));
 }
 
 Test(Class, Chevalier)

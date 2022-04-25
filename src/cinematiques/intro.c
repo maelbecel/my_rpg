@@ -51,7 +51,6 @@ static void destroy(sfClock *clock, sfSprite *epitech,
     sfRectangleShape_destroy(rect);
 }
 
-
 int intro(sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();

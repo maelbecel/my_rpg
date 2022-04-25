@@ -53,7 +53,8 @@ static game_t *init_game(void)
 
     if (!game)
         return NULL;
-    if ((game->settings = init_settings()) == NULL)
+    game->settings = init_settings();
+    if (game->settings == NULL)
         return NULL;
     game->window = sfRenderWindow_create(mode, "RPG no seed",
                                                         sfFullscreen, NULL);
@@ -61,11 +62,11 @@ static game_t *init_game(void)
     intro(game->window);
     sfRenderWindow_setFramerateLimit(game->window, 0);
     game->scenes = init_scenes(game->window);
+    game->scenes[GAME].npc = game_npc();
     sfRenderWindow_setFramerateLimit(game->window,
                         int_from_json(CONFIG_FILE, "framerate"));
     game->player = init_player("chevalier");
-    game->hitbox = sfImage_createFromFile(
-                                        "assets/hitboxes/village_hitbox.png");
+    game->hitbox = sfImage_createFromFile("assets/hitboxes/hitbox.png");
     return game;
 }
 

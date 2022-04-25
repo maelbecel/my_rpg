@@ -26,8 +26,8 @@ void check_npc(game_t *game)
         dist = sqrt(((npcpos.x - playerpos.x) * (npcpos.x - playerpos.x)) +
                     ((npcpos.y - playerpos.y) * (npcpos.y - playerpos.y)));
         if (dist < 100) {
-            draw_text(conc(npc[i]->name, conc(" :\n", npc[i]->text)), game->settings->font,
-            (sfVector3f){50, 900, 80}, game->window);
+            draw_text(conc(npc[i]->name, conc(" :\n", npc[i]->text)),
+                game->settings->font, (sfVector3f){50, 900, 80}, game->window);
             return;
         }
     }

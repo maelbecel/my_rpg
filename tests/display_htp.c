@@ -32,39 +32,50 @@ static game_t *init_game(void)
     return game;
 }
 
-Test(Display, Display_settings, .timeout = 20)
+Test(Display, Display_pause, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
 
     event->type = 1;
     cr_assert_not_null(game);
-    display_settings(game, event);
+    display_pause(game, event);
     sfRenderWindow_destroy(game->window);
     free(game);
 }
 
-Test(Display, Display_main_menu, .timeout = 20)
+Test(Display, Display_htp_third, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
 
     event->type = 1;
     cr_assert_not_null(game);
-    display_main_menu(game, event);
+    display_htp_third(game, event);
     sfRenderWindow_destroy(game->window);
     free(game);
 }
 
-// Test(Display, Display_game, .timeout = 20)
-// {
-//     game_t *game = init_game();
-//     sfEvent *event = malloc(sizeof(sfEvent));
+Test(Display, Display_htp_second, .timeout = 20)
+{
+    game_t *game = init_game();
+    sfEvent *event = malloc(sizeof(sfEvent));
 
-//     game->scenes->page = GAME;
-//     event->type = 1;
-//     cr_assert_not_null(game);
-//     display_game(game, event);
-//     sfRenderWindow_destroy(game->window);
-//     free(game);
-// }
+    event->type = 1;
+    cr_assert_not_null(game);
+    display_htp_second(game, event);
+    sfRenderWindow_destroy(game->window);
+    free(game);
+}
+
+Test(Display, Display_htp_first, .timeout = 20)
+{
+    game_t *game = init_game();
+    sfEvent *event = malloc(sizeof(sfEvent));
+
+    event->type = 1;
+    cr_assert_not_null(game);
+    display_htp_first(game, event);
+    sfRenderWindow_destroy(game->window);
+    free(game);
+}

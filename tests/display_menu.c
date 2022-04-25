@@ -32,39 +32,48 @@ static game_t *init_game(void)
     return game;
 }
 
-Test(Display, Display_settings, .timeout = 20)
+Test(Display, Draw_xp_bar, .timeout = 20)
+{
+    game_t *game = init_game();
+
+    game->player->xp = 2000;
+    cr_assert_not_null(game);
+    draw_xp_bar(game);
+    sfRenderWindow_destroy(game->window);
+    free(game);
+}
+
+Test(Display, Draw_npc, .timeout = 20)
+{
+    game_t *game = init_game();
+    npc_t *npc = create_npc("pascal");
+
+    cr_assert_not_null(game);
+    draw_npc(game, npc);
+    sfRenderWindow_destroy(game->window);
+    free(game);
+}
+
+Test(Display, Display_frame, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
 
     event->type = 1;
     cr_assert_not_null(game);
-    display_settings(game, event);
+    display_frame(game, event);
     sfRenderWindow_destroy(game->window);
     free(game);
 }
 
-Test(Display, Display_main_menu, .timeout = 20)
+Test(Display, Draw_choosing, .timeout = 20)
 {
     game_t *game = init_game();
     sfEvent *event = malloc(sizeof(sfEvent));
 
     event->type = 1;
     cr_assert_not_null(game);
-    display_main_menu(game, event);
+    display_choosing(game, event);
     sfRenderWindow_destroy(game->window);
     free(game);
 }
-
-// Test(Display, Display_game, .timeout = 20)
-// {
-//     game_t *game = init_game();
-//     sfEvent *event = malloc(sizeof(sfEvent));
-
-//     game->scenes->page = GAME;
-//     event->type = 1;
-//     cr_assert_not_null(game);
-//     display_game(game, event);
-//     sfRenderWindow_destroy(game->window);
-//     free(game);
-// }

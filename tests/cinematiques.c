@@ -17,7 +17,7 @@ Test(Cinematiques, Intro)
 {
     sfVideoMode mode = {1920, 1080, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "RPG no seed",
-                                                       sfFullscreen, NULL);
+                                                    sfFullscreen, NULL);
     cr_assert_eq(intro(window), EXIT_SUCCESS);
 }
 
@@ -25,7 +25,7 @@ Test(Cinematiques, Outro)
 {
     sfVideoMode mode = {1920, 1080, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "RPG no seed",
-                                                       sfFullscreen, NULL);
+                                                    sfFullscreen, NULL);
     cr_assert_eq(outro(window), EXIT_SUCCESS);
 }
 
@@ -33,7 +33,7 @@ Test(Cinematiques, Battle)
 {
     sfVideoMode mode = {1920, 1080, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "RPG no seed",
-                                                       sfFullscreen, NULL);
+                                                    sfFullscreen, NULL);
     sfSprite *a = sfSprite_create();
     sfSprite *b = sfSprite_create();
     cr_assert_eq(battle(window, a, b), EXIT_SUCCESS);

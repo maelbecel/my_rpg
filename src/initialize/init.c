@@ -80,7 +80,6 @@ scene_t *init_scenes(sfRenderWindow *window)
     scenes[GAME].buttons = game_buttons();
     loading(2, window);
     scenes[GAME].elements = game_elements();
-    scenes[GAME].npc = game_npc();
     loading(3, window);
     init_menu_player(scenes, window);
     init_settings_menu(scenes, window);
