@@ -1,14 +1,21 @@
 {
-    "new": 0,
-    "class": "cooker",
-    "health": 100,
+    "new": 1,
+    "class": null,
+    "health": 0,
     "strength": 10,
-    "speed": 5,
+    "speed": 0,
     "xp": 0,
-    "defense": 7,
+    "defense": 0,
     "point_stat": 0,
-    "posx": 1000,
-    "posy": 1000,
+    "posx": 800,
+    "posy": 800,
     "quests": [0],
-    "inventory": ["rouleau"]
+    "inventory": ["none"]
 }
+]
+}
+}
+
+}
+
+

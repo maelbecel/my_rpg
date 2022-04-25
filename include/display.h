@@ -442,9 +442,20 @@
     /// \brief Draw an element on a window
     ///
     /// \param window  sfRenderWindow object where element should be display
-    /// \param str String who will be draw on the dialogue box
+    /// \param str     String who will be draw on the dialogue box
+    /// \param font    font to use
     ///
     ////////////////////////////////////////////////////////////
-    void draw_dialogue_box(sfRenderWindow *window, char *str);
+    void draw_dialogue_box(sfRenderWindow *window, char *str, sfFont *font);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw a fake popup
+    ///
+    /// \param text    Text to type
+    /// \param font    font to use
+    /// \param window  sfRenderWindow object where element should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_pop_text(char *text, sfFont *font, sfRenderWindow *window);
 
 #endif
