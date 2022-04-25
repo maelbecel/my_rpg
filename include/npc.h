@@ -63,4 +63,7 @@
     ////////////////////////////////////////////////////////////
     npc_t *find_npc(game_t *game);
 
+    void move_npc(game_t *game, sfVector2f npcpos,
+                                    sfVector2f playerpos, int i);
+
 #endif /* !NPC_H_ */

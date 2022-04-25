@@ -33,8 +33,10 @@ npc_t *find_npc(game_t *game)
         dist = sqrt(((npcpos.x - playerpos.x) * (npcpos.x - playerpos.x)) +
                     ((npcpos.y - playerpos.y) * (npcpos.y - playerpos.y)));
         if (dist < 100) {
+            move_npc(game, npcpos, playerpos, i);
             return npc[i];
-        }
+        } else
+        game->scenes[GAME].npc[i]->elem->rect.top = 0;
     }
     return NULL;
 }
