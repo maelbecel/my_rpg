@@ -41,7 +41,7 @@ void check_npc(game_t *game, sfEvent *event)
 
     if (npc != NULL) {
         draw_pop_text(conc("Press '", conc(getkey(game->settings->key_action),
-                "' to interact")), game->settings->font, game->window);
+                conc("'to interact\nwith ", npc->name))), game->settings->font, game->window);
         // while (sfRenderWindow_pollEvent(game->window, event));
         if (event->key.code == game->settings->key_action) {
             draw_dialogue_box(game->window, conc(npc->name,

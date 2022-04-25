@@ -31,7 +31,6 @@ void display_talk_npc(game_t *game, sfEvent *event)
     if (npc->merchant == true) {
         display_merchant(game, npc);
     }
-    printf("Test\n");
     draw_dialogue_box(game->window, conc(npc->name, conc(" :\n", npc->text)),
                                                         game->settings->font);
     draw_pop_text(conc("Press '", conc(getkey(game->settings->key_skip),
