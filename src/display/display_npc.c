@@ -42,7 +42,9 @@ void display_npc(game_t *game)
 
 void display_talk_npc(game_t *game, sfEvent *event)
 {
-    display_game(game, event);
+    for (int e = 0; game->scenes[GAME].elements[e]; e++)
+        draw_element(game->window, game->scenes[GAME].elements[e]);
+    display_npc(game);
     if (event->key.code == sfKeyEnter)
         go_game(game);
 }
