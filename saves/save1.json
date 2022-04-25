@@ -1,15 +1,16 @@
 {
     "new": 0,
     "class": "archer",
-    "health": 80,
+    "health": 120,
     "xp": 40404000,
     "strength": 7,
     "speed": 12,
     "defense": 4,
-    "point_stat": 4,
-    "posx": 800,
-    "posy": 800,
+    "point_stat": 0,
+    "posx": 936,
+    "posy": 528,
     "quests": [1, 4],
     "inventory": ["bow","apple","apple"]
-}
 
+}
+}

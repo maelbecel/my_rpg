@@ -1,19 +1,20 @@
 {
     "new": 0,
-    "class": "archer",
-    "health": 80,
-    "strength": 7,
+    "class": "mage",
+    "health": 100,
+    "strength": 10,
     "xp": 0,
-    "speed": 12,
-    "defense": 4,
+    "speed": 5,
+    "defense": 7,
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
     "quests": [0],
-    "inventory": ["bow"]
+    "inventory": ["baguette"]
 }
 ]
 }
 }
 }
-
+}
+}
