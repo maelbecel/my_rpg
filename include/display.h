@@ -117,6 +117,15 @@
     void display_npc(game_t *game);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Display the talk to npc
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_talk_npc(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Display the settings menu
     ///
     /// \param game  game_t object who contain all game info

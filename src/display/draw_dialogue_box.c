@@ -19,4 +19,5 @@ void draw_dialogue_box(sfRenderWindow *window, char *str)
     sfRenderWindow_drawRectangleShape(window, rect, NULL);
     draw_text_white(str, 60, (sfVector2f) {15, 930}, window);
     sfRenderWindow_display(window);
+    sfRectangleShape_destroy(rect);
 }

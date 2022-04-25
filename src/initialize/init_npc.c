@@ -9,6 +9,22 @@
 #include "printf.h"
 #include "rpg.h"
 
+void go_talk_npc(game_t *game)
+{
+    game->scenes->page = NPC;
+}
+
+void go_game(game_t *game)
+{
+    game->scenes->page = GAME;
+}
+
+void init_talk_npc(scene_t *scenes)
+{
+    scenes[NPC].elements = NULL;
+    scenes[NPC].buttons = NULL;
+}
+
 npc_t **game_npc(void)
 {
     npc_t **npc = malloc(sizeof(npc_t *) * (5 + 1));

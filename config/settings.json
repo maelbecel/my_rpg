@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "fx_sound": 30,
     "music_sound": 28,
+=======
+    "fx_sound": 21,
+    "music_sound": 81,
+>>>>>>> feat/lucas
     "left_key": 16,
     "right_key": 3,
     "up_key": 25,

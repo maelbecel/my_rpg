@@ -39,3 +39,10 @@ void display_npc(game_t *game)
         draw_npc(game, game->scenes[GAME].npc[i]);
     }
 }
+
+void display_talk_npc(game_t *game, sfEvent *event)
+{
+    display_game(game, event);
+    if (event->key.code == sfKeyEnter)
+        go_game(game);
+}
