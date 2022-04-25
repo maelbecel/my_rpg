@@ -11,28 +11,15 @@
 
 void check_npc(game_t *game, sfEvent *event)
 {
-    int dist = 0;
-    sfVector2f playerpos = {game->scenes[GAME].elements[0]->rect.left +
-                                    game->scenes[GAME].elements[2]->pos.x,
-                            game->scenes[GAME].elements[0]->rect.top +
-                                    game->scenes[GAME].elements[2]->pos.y};
-    npc_t **npc = game->scenes[GAME].npc;
-    sfVector2f npcpos;
+    npc_t *npc = find_npc(game);
 
-    for (int i = 0; npc[i]; i++)
-    {
-        npcpos = npc[i]->elem->pos;
-        dist = sqrt(((npcpos.x - playerpos.x) * (npcpos.x - playerpos.x)) +
-                    ((npcpos.y - playerpos.y) * (npcpos.y - playerpos.y)));
-        if (dist < 100) {
-            draw_text(conc("Press '", conc(getkey(game->settings->key_action),
-                    "' to talk to the npc")), game->settings->font,
-                    (sfVector3f){200, 800, 70}, game->window);
-            // sfRenderWindow_pollEvent(game->window, event);
-            if (event->key.code == game->settings->key_action) {
-                go_talk_npc(game);
-            }
-            return;
+    if (npc != NULL) {
+        draw_text(conc("Press '", conc(getkey(game->settings->key_action),
+                "' to talk to the npc")), game->settings->font,
+                (sfVector3f){200, 800, 70}, game->window);
+        sfRenderWindow_pollEvent(game->window, event);
+        if (event->key.code == game->settings->key_action) {
+            go_talk_npc(game);
         }
     }
 }
