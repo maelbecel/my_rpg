@@ -25,8 +25,7 @@ void check_npc(game_t *game, sfEvent *event)
         dist = sqrt(((npcpos.x - playerpos.x) * (npcpos.x - playerpos.x)) +
                     ((npcpos.y - playerpos.y) * (npcpos.y - playerpos.y)));
         if (dist < 100) {
-            // draw_text(conc(npc[i]->name, conc(" :\n", npc[i]->text)),
-            //     game->settings->font, (sfVector3f){50, 900, 80}, game->window);
+            move_npc(game, npcpos, playerpos, i);
             draw_text("Press 'T' to talk to the npc", game->settings->font,
                     (sfVector3f){200, 800, 70}, game->window);
             sfRenderWindow_pollEvent(game->window, event);
@@ -34,6 +33,7 @@ void check_npc(game_t *game, sfEvent *event)
                 go_talk_npc(game);
             }
             return;
-        }
+        } else
+            game->scenes[GAME].npc[i]->elem->rect.top = 0;
     }
 }
