@@ -23,6 +23,7 @@ static const struct display_s Menu_list[] = {
     {LOAD, display_load},
     {CHOOSING, display_choosing},
     {FRAME, display_frame},
+    {NPC, display_talk_npc},
     {-1, NULL}
 };
 
@@ -77,7 +78,7 @@ void display_game(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[GAME].buttons[b++]);
     }
-    check_npc(game);
+    check_npc(game, event);
 }
 
 void display_pause(game_t *game, sfEvent *event)
@@ -103,6 +104,7 @@ void display_pause(game_t *game, sfEvent *event)
 void display(game_t *game, sfEvent *event)
 {
     sfRenderWindow_clear(game->window, sfWhite);
+    printf("page  : %i\n", game->scenes->page);
     for (int i = 0; Menu_list[i].scene != -1; i++) {
         if (Menu_list[i].scene == game->scenes->page) {
             Menu_list[i].func(game, event);
