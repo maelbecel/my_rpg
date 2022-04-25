@@ -18,9 +18,9 @@ void new_game(game_t *game, ...)
     game->player->save[0] = i + '0';
     game->scenes->page = CHOOSING;
     game->scenes[GAME].elements[0]->rect.left = 0;
-    game->scenes[GAME].elements[2]->pos.x = 1000;
+    game->scenes[GAME].elements[2]->pos.x = 800;
     game->scenes[GAME].elements[0]->rect.top = 0;
-    game->scenes[GAME].elements[2]->pos.y = 1000;
+    game->scenes[GAME].elements[2]->pos.y = 800;
     game->player->xp = 0;
     va_end(arg);
 }
