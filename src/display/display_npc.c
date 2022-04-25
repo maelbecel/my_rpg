@@ -63,20 +63,3 @@ void display_npc(game_t *game)
         draw_npc(game, game->scenes[GAME].npc[i]);
     }
 }
-
-void display_talk_npc(game_t *game, sfEvent *event)
-{
-    npc_t *npc = find_npc(game);
-
-    for (int e = 0; game->scenes[GAME].elements[e]; e++)
-        draw_element(game->window, game->scenes[GAME].elements[e]);
-    display_npc(game);
-    draw_text(conc(npc->name, ":"), game->settings->font,
-                    (sfVector3f){200, 800, 70}, game->window);
-    draw_text(npc->text, game->settings->font,
-                    (sfVector3f){200, 900, 70}, game->window);
-    draw_text("Press 'Enter' to skip the talk", game->settings->font,
-                    (sfVector3f){200, 1000, 70}, game->window);
-    if (event->key.code == sfKeyEnter)
-        go_game(game);
-}

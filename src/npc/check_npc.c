@@ -16,7 +16,7 @@ void check_npc(game_t *game, sfEvent *event)
     if (npc != NULL) {
         draw_text(conc("Press '", conc(getkey(game->settings->key_action),
                 "' to talk to the npc")), game->settings->font,
-                (sfVector3f){200, 800, 70}, game->window);
+                (sfVector3f){50, 960, 70}, game->window);
         if (event->key.code == game->settings->key_action) {
             go_talk_npc(game);
         }
