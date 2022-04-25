@@ -42,8 +42,12 @@ void check_npc(game_t *game, sfEvent *event)
     if (npc != NULL) {
         draw_pop_text(conc("Press '", conc(getkey(game->settings->key_action),
                 "' to interact")), game->settings->font, game->window);
-        sfRenderWindow_pollEvent(game->window, event);
+        while (sfRenderWindow_pollEvent(game->window, event));
         if (event->key.code == game->settings->key_action) {
+            draw_dialogue_box(game->window, conc(npc->name,
+                            conc(" :\n", npc->text)), game->settings->font);
+            draw_pop_text(conc("Press '", conc(getkey(game->settings->key_skip),
+                        "'\nto leave")), game->settings->font, game->window);
             go_talk_npc(game);
         }
     }
