@@ -60,11 +60,11 @@ void set_othr(game_t *game)
 void set_action(game_t *game)
 {
     sfText_setString(game->scenes[KEY].buttons[7]->base->text,
-                        conc("SKIP : ", getkey(game->settings->key_skip)));
+            conc("SKIP : ", getkey(int_from_json(SETTINGS_FILE, "skip_key"))));
     sfText_setString(game->scenes[KEY].buttons[7]->hoover->text,
-                        conc("SKIP : ", getkey(game->settings->key_skip)));
+            conc("SKIP : ", getkey(int_from_json(SETTINGS_FILE, "skip_key"))));
     sfText_setString(game->scenes[KEY].buttons[7]->clicked->text,
-                        conc("SKIP : ", getkey(game->settings->key_skip)));
+            conc("SKIP : ", getkey(int_from_json(SETTINGS_FILE, "skip_key"))));
     sfText_setString(game->scenes[KEY].buttons[8]->base->text,
                         conc("ACTION : ", getkey(game->settings->key_action)));
     sfText_setString(game->scenes[KEY].buttons[8]->hoover->text,

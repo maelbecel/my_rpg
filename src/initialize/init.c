@@ -103,6 +103,8 @@ settings_t *init_settings(void)
     set->key_right = int_from_json(SETTINGS_FILE, "right_key");
     set->key_pause = int_from_json(SETTINGS_FILE, "pause_key");
     set->key_menu = int_from_json(SETTINGS_FILE, "menu_key");
+    set->key_action = int_from_json(SETTINGS_FILE, "action_key");
+    set->key_skip = int_from_json(SETTINGS_FILE, "skip_key");
     set->music_volume = int_from_json(SETTINGS_FILE,
                                                             "music_sound");
     set->fx_volume = int_from_json(SETTINGS_FILE, "fx_sound");
