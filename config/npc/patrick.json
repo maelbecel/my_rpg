@@ -2,7 +2,7 @@
     "pos": [1125, 1500],
     "merchant": 1,
     "quest": 2,
-    "want": [["apple",2], ["carrot",3]],
-    "sell": [["sword",1], ["shield",1]],
+    "want": [["apple",2], ["carrot",3], ["sword",1]],
+    "sell": [["biere",1], ["biere",1], ["biere",1]],
     "text": "P'tit biere?"
 }
