@@ -66,4 +66,5 @@ void display_npc(game_t *game)
     }
     draw_element(game->window, game->scenes[GAME].elements[6]);
     draw_element(game->window, game->scenes[GAME].elements[2]);
+    draw_element(game->window, game->scenes[GAME].elements[5]);
 }

@@ -7,8 +7,8 @@
     "speed": 12,
     "defense": 4,
     "point_stat": 0,
-    "posx": 936,
-    "posy": 528,
+    "posx": 896,
+    "posy": 1632,
     "quests": [1, 4],
     "inventory": ["bow","apple","apple"]
 

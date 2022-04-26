@@ -70,6 +70,9 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
             move_right(game);
         }
         game->scenes[GAME].elements[5]->rect = game->scenes[GAME].elements[0]->rect;
+        game->scenes[GAME].elements[6]->rect = game->scenes[GAME].elements[0]->rect;
+        sfSprite_setTextureRect(game->scenes[GAME].elements[6]->sprite,
+                                game->scenes[GAME].elements[6]->rect);
         sfSprite_setTextureRect(game->scenes[GAME].elements[5]->sprite,
                                 game->scenes[GAME].elements[5]->rect);
         sfSprite_setTextureRect(game->scenes[GAME].elements[0]->sprite,

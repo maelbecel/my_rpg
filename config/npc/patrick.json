@@ -1,5 +1,5 @@
 {
-    "pos": [700, 800],
+    "pos": [1125, 1500],
     "merchant": 1,
     "quest": 2,
     "want": [["apple",2], ["carrot",3]],
