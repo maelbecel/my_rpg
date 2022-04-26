@@ -11,14 +11,14 @@
 
 void display_merchant(UNUSED game_t *game, UNUSED npc_t *npc)
 {
-    game->scenes[NPC].elements[0] = init_element(conc("assets/npc/",
+    game->scenes[NPC].elements[1] = init_element(conc("assets/npc/",
         conc(npc->name, ".png")), (sfVector2f){100, 150}, (sfVector2f){32, 48},
         (sfVector2f){8, 8});
     for (int e = 0; game->scenes[NPC].elements[e]; e++)
         draw_element(game->window, game->scenes[NPC].elements[e]);
     for (int b = 0; game->scenes[NPC].buttons[b]; b++)
         draw_button(game->window, game->scenes[NPC].buttons[b]);
-    free_elements(game->scenes[NPC].elements[0]);
+    free_elements(game->scenes[NPC].elements[1]);
 }
 
 void display_talk_npc(game_t *game, sfEvent *event)
