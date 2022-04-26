@@ -12,14 +12,18 @@
 void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
                 trade_t *trade)
 {
-    element_t *get = init_element(conc("assets/icons/",conc(trade->want, ".png")),
+    element_t *want = init_element(conc("assets/icons/",conc(trade->want, ".png")),
                                 pos_get, (sfVector2f){32, 32},
                                 (sfVector2f){3, 3});
-    element_t *want = init_element(conc("assets/icons/",conc(trade->give, ".png")),
+    element_t *get = init_element(conc("assets/icons/",conc(trade->give, ".png")),
                                 pos_want, (sfVector2f){32, 32},
                                 (sfVector2f){3, 3});
-    draw_element(game->window, get);
     draw_element(game->window, want);
+    draw_text(inttochar(trade->want_quantity), game->settings->font,
+            (sfVector3f){pos_get.x + 90, pos_get.y + 70, 50}, game->window);
+    draw_text(inttochar(trade->give_quantity), game->settings->font,
+            (sfVector3f){pos_want.x + 90, pos_want.y + 70, 50}, game->window);
+    draw_element(game->window, get);
     draw_text("->", game->settings->font, (sfVector3f){760, pos_want.y, 70},
                 game->window);
     free_elements(get);
@@ -33,8 +37,8 @@ void display_trade(game_t *game, trade_t **trade)
 
     for (int i = 0; trade[i] != NULL; i++) {
         draw_trade(game, pos_get, pos_want, trade[i]);
-        pos_get.y += 100;
-        pos_want.y += 100;
+        pos_get.y += 150;
+        pos_want.y += 150;
     }
 }
 
