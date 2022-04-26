@@ -1,6 +1,6 @@
 {
     "new": 0,
-    "class": "mage",
+    "class": "cooker",
     "health": 100,
     "strength": 10,
     "xp": 0,
@@ -10,9 +10,17 @@
     "posx": 800,
     "posy": 800,
     "quests": [0],
-    "inventory": ["baguette"]
+    "inventory": ["rouleau"]
 }
 ]
+}
+}
+}
+}
+}
+}
+}
+}
 }
 }
 }

@@ -35,19 +35,37 @@ void draw_pop_text(char *text, sfFont *font, sfRenderWindow *window)
     free_elements(pop);
 }
 
+static int getposition(int x)
+{
+    switch (x) {
+        case 0:
+            return (3);
+        case 1:
+            return (2);
+        case 2:
+            return (1);
+        case 3:
+            return (0);
+    }
+    return x;
+}
+
 void check_npc(game_t *game, sfEvent *event)
 {
     npc_t *npc = find_npc(game);
+    int pos;
 
     if (npc != NULL) {
         draw_pop_text(conc("Press '", conc(getkey(game->settings->key_action),
-                conc("'to interact\nwith ", npc->name))), game->settings->font, game->window);
+                conc("'to interact\nwith ", npc->name))), game->settings->font,
+                game->window);
         // while (sfRenderWindow_pollEvent(game->window, event));
         if (event->key.code == game->settings->key_action) {
-            draw_dialogue_box(game->window, conc(npc->name,
-                            conc(" :\n", npc->text)), game->settings->font);
-            draw_pop_text(conc("Press '", conc(getkey(game->settings->key_skip),
-                        "'\nto leave")), game->settings->font, game->window);
+            pos = getposition(npc->elem->rect.top / npc->elem->rect.height);
+            game->scenes[GAME].elements[2]->rect.top = pos *
+                            game->scenes[GAME].elements[2]->rect.height;
+            sfSprite_setTextureRect(game->scenes[GAME].elements[2]->sprite,
+                                    game->scenes[GAME].elements[2]->rect);
             go_talk_npc(game);
         }
     }

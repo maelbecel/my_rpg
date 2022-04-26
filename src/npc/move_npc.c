@@ -53,6 +53,6 @@ void move_npc(game_t *game, sfVector2f npcpos, sfVector2f playerpos, int i)
 
     game->scenes[GAME].npc[i]->elem->rect.top =
                             x * game->scenes[GAME].npc[i]->elem->rect.height;
-    sfSprite_setTextureRect(game->scenes[GAME].npc[i]->elem->sprite,
-                            game->scenes[GAME].npc[i]->elem->rect);
+    sfSprite_setTextureRect(game->scenes[GAME].elements[2]->sprite,
+                            game->scenes[GAME].elements[2]->rect);
 }
