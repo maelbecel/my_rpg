@@ -32,7 +32,7 @@ element_t **game_elements(void)
                         (sfVector2f){1920, 1080}, (sfVector2f){0.00, 0.0});
     elements[5] = init_element("assets/roof.png", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
-    elements[6] = init_element("assets/roof.png", (sfVector2f){0, 0},
+    elements[6] = init_element("assets/shop_map.png", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     elements[7] = NULL;
     elements[0]->rect = (sfIntRect){0, 0, 1920, 1080};
