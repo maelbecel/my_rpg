@@ -12,7 +12,7 @@
 void display_merchant(UNUSED game_t *game, UNUSED npc_t *npc)
 {
     game->scenes[NPC].elements[0] = init_element(conc("assets/npc/",
-        conc(npc->name, ".png")), (sfVector2f){100, 100}, (sfVector2f){32, 48},
+        conc(npc->name, ".png")), (sfVector2f){100, 150}, (sfVector2f){32, 48},
         (sfVector2f){8, 8});
     for (int e = 0; game->scenes[NPC].elements[e]; e++)
         draw_element(game->window, game->scenes[NPC].elements[e]);

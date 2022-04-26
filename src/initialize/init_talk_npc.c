@@ -15,7 +15,9 @@ element_t **npc_elements(void)
 
     elements[1] = init_element("assets/ui/button1.png", (sfVector2f){600, 0},
                                 (sfVector2f){793, 206}, (sfVector2f){3, 8});
-    elements[2] = NULL;
+    elements[2] = init_element("assets/shop.png", (sfVector2f){50, 50},
+                                (sfVector2f){119, 139}, (sfVector2f){3, 3.5});
+    elements[3] = NULL;
     return elements;
 }
 
