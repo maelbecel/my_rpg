@@ -9,7 +9,36 @@
 #include "printf.h"
 #include "rpg.h"
 
-void display_merchant(UNUSED game_t *game, UNUSED npc_t *npc)
+void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want)
+{
+    element_t *get = init_element(conc("assets/icons/",conc("apple", ".png")),
+                                pos_get, (sfVector2f){32, 32},
+                                (sfVector2f){3, 3});
+    element_t *want = init_element(conc("assets/icons/",conc("apple", ".png")),
+                                pos_want, (sfVector2f){32, 32},
+                                (sfVector2f){3, 3});
+    draw_element(game->window, get);
+    draw_element(game->window, want);
+    draw_text("->", game->settings->font, (sfVector3f){760, pos_want.y, 70},
+                game->window);
+    free_elements(get);
+    free_elements(want);
+}
+
+void display_trade(game_t *game, UNUSED npc_t *npc)
+{
+    int nb_trade = 2;
+    sfVector2f pos_get = {600, 200};
+    sfVector2f pos_want = {900, 200};
+
+    for (int i = 0; i < nb_trade; i++) {
+        draw_trade(game, pos_get, pos_want);
+        pos_get.y += 100;
+        pos_want.y += 100;
+    }
+}
+
+void display_merchant(game_t *game, npc_t *npc)
 {
     game->scenes[NPC].elements[1] = init_element(conc("assets/npc/",
         conc(npc->name, ".png")), (sfVector2f){100, 150}, (sfVector2f){32, 48},
@@ -18,6 +47,7 @@ void display_merchant(UNUSED game_t *game, UNUSED npc_t *npc)
         draw_element(game->window, game->scenes[NPC].elements[e]);
     for (int b = 0; game->scenes[NPC].buttons[b]; b++)
         draw_button(game->window, game->scenes[NPC].buttons[b]);
+    display_trade(game, npc);
     free_elements(game->scenes[NPC].elements[1]);
 }
 
