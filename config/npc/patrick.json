@@ -4,5 +4,5 @@
     "quest": 2,
     "want": [["apple",2], ["carrot",3], ["sword",1]],
     "sell": [["biere",1], ["biere",1], ["biere",1]],
-    "text": "P'tit biere?"
+    "text": "P'tite biere ?"
 }

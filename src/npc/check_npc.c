@@ -12,7 +12,8 @@
 static float getscale(char *text)
 {
     float i = 0.6;
-    for(int x = 0; text[x] != '\0'; x++)
+
+    for (int x = 0; text[x] != '\0'; x++)
         i = (text[x] == '\n') ? i + 0.1: i;
     return i;
 }
@@ -20,7 +21,8 @@ void draw_pop_text(char *text, sfFont *font, sfRenderWindow *window)
 {
     sfText *text_pop = sfText_create();
     sfVector2f pos = {1455, 70};
-    element_t *pop = init_element(BUTTON, (sfVector2f) {1425, 20},
+    element_t *pop = init_element("assets/ui/button1_pop.png",
+                (sfVector2f) {1425, 20},
                 (sfVector2f) {792, 206}, (sfVector2f) {0.6, getscale(text)});
 
     sfText_setString(text_pop, text);
@@ -58,7 +60,6 @@ void check_npc(game_t *game, sfEvent *event)
         draw_pop_text(conc("Press '", conc(getkey(game->settings->key_action),
                 conc("'to interact\nwith ", npc->name))), game->settings->font,
                 game->window);
-        // while (sfRenderWindow_pollEvent(game->window, event));
         if (event->key.code == game->settings->key_action) {
             pos = getposition(npc->elem->rect.top / npc->elem->rect.height);
             game->scenes[GAME].elements[2]->rect.top = pos *

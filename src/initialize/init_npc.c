@@ -29,7 +29,7 @@ npc_t **game_npc(void)
 {
     npc_t **npc = malloc(sizeof(npc_t *) * (6 + 1));
 
-    npc[0] = create_npc("bob");
+    npc[0] = create_npc("merlin");
     npc[1] = create_npc("erwann");
     npc[2] = create_npc("marine_lepen");
     npc[3] = create_npc("pascal");

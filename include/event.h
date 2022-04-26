@@ -566,4 +566,42 @@
     ////////////////////////////////////////////////////////////
     void add_elem(game_t *game, char *type);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief add \a n element to the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param type  type of the element to add
+    /// \param n     number of element to add
+    ///
+    ////////////////////////////////////////////////////////////
+    void add_element_n(game_t *game, char *type, int n);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief remove \a n element from the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param type  type of the element to remove
+    /// \param n     number of element to remove
+    ///
+    ////////////////////////////////////////////////////////////
+    void delete_element_n(game_t *game, char *type, int n);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief remove an element from the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param type  type of the element to remove
+    ///
+    ////////////////////////////////////////////////////////////
+    void delete_element(game_t *game, char *type);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief get nb of element
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param type  type of the element to remove
+    ///
+    ////////////////////////////////////////////////////////////
+    int get_nb_elem(game_t *game, char *type);
+
 #endif

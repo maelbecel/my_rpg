@@ -44,6 +44,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
 						$(SOURCES)$(EVT)select_movement.c  			\
+						$(SOURCES)$(EVT)get_inventory.c  			\
 						$(SOURCES)$(EVT)select_action.c  			\
 						$(SOURCES)$(EVT)select_menu.c				\
 						$(SOURCES)$(EVT)builtins.c   				\
@@ -73,6 +74,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_npc.c  				\
 						$(SOURCES)$(INIT)init_talk_npc.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
+						$(SOURCES)$(DISP)draw_text_red.c			\
 						$(SOURCES)$(DISP)draw_dialogue_box.c   		\
 						$(SOURCES)$(DISP)draw_settings.c   			\
 						$(SOURCES)$(DISP)display_settings.c   		\

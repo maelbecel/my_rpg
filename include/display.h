@@ -458,4 +458,27 @@
     ////////////////////////////////////////////////////////////
     void draw_pop_text(char *text, sfFont *font, sfRenderWindow *window);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw a text in red
+    ///
+    /// \param text    Text to type
+    /// \param font    font to use
+    /// \param pos     contain posx posy of the text and the size in posz
+    /// \param window  sfRenderWindow object where element should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_text_red(char *text, sfFont *font,
+                                    sfVector3f pos, sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw a text in green
+    ///
+    /// \param text    Text to type
+    /// \param font    font to use
+    /// \param pos     contain posx posy of the text and the size in posz
+    /// \param window  sfRenderWindow object where element should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_text_green(char *text, sfFont *font,
+                                    sfVector3f pos, sfRenderWindow *window);
 #endif
