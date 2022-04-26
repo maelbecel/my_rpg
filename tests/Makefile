@@ -56,6 +56,7 @@ SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)change_tab.c   				\
 						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
+						$(SOURCES)$(EVT)update_hitbox.c   			\
 						$(SOURCES)$(EVT)select_movement.c  			\
 						$(SOURCES)$(EVT)select_action.c  			\
 						$(SOURCES)$(EVT)select_menu.c				\

@@ -33,7 +33,8 @@ static int rpg(game_t *game, sfEvent *event)
     while (sfRenderWindow_isOpen(game->window)) {
         frame = sfClock_getElapsedTime(fps);
         sfClock_restart(fps);
-        while (sfRenderWindow_pollEvent(game->window, event) || game->scenes->page == NPC) {
+        while (sfRenderWindow_pollEvent(game->window, event) ||
+                game->scenes->page == NPC) {
             analyse_game_state(game, event, frame);
         }
         if (sfRenderWindow_isOpen(game->window) &&

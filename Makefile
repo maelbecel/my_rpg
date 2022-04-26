@@ -46,6 +46,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)select_movement.c  			\
 						$(SOURCES)$(EVT)get_inventory.c  			\
 						$(SOURCES)$(EVT)select_action.c  			\
+						$(SOURCES)$(EVT)update_hitbox.c   			\
 						$(SOURCES)$(EVT)select_menu.c				\
 						$(SOURCES)$(EVT)builtins.c   				\
 						$(SOURCES)$(EVT)sliders.c   				\
@@ -54,6 +55,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)inventory.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)set_player.c				\
+						$(SOURCES)$(INIT)set_tab.c			    	\
 						$(SOURCES)$(INIT)init_scenes.c				\
 						$(SOURCES)$(INIT)update_stat.c				\
 						$(SOURCES)$(INIT)init_main_menu.c   		\

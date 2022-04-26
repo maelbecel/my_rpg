@@ -47,7 +47,7 @@ trade_t **get_trade(npc_t *npc)
         return NULL;
     for (size_t i = 0; want[i]; i++) {
         trade[i] = malloc(sizeof(trade_t));
-        if(!trade[i])
+        if (!trade[i])
             return NULL;
         fill_trade(&trade, i, want, sell);
     }

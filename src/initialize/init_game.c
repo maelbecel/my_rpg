@@ -35,7 +35,6 @@ element_t **game_elements(void)
     elements[6] = init_element("assets/shop_map.png", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     elements[7] = NULL;
-    elements[0]->rect = (sfIntRect){0, 0, 1920, 1080};
     return elements;
 }
 

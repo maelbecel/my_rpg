@@ -9,6 +9,16 @@
 #include "printf.h"
 #include "rpg.h"
 
+static void arrow(game_t *game, trade_t *trade, sfVector2f pos_want)
+{
+    if (get_nb_elem(game, trade->want) >= trade->want_quantity)
+        draw_text_green("->", game->settings->font,
+            (sfVector3f){760, pos_want.y, 70}, game->window);
+    else
+        draw_text_red("->", game->settings->font,
+                (sfVector3f){760, pos_want.y, 70}, game->window);
+}
+
 void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
                 trade_t *trade)
 {
@@ -24,12 +34,7 @@ void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
     draw_text(inttochar(trade->give_quantity), game->settings->font,
             (sfVector3f){pos_want.x + 90, pos_want.y + 70, 50}, game->window);
     draw_element(game->window, get);
-    if (get_nb_elem(game, trade->want) >= trade->want_quantity)
-        draw_text_green("->", game->settings->font, (sfVector3f){760, pos_want.y, 70},
-                game->window);
-    else
-        draw_text_red("->", game->settings->font, (sfVector3f){760, pos_want.y, 70},
-                game->window);
+    arrow(game, trade, pos_want);
     free_elements(get);
     free_elements(want);
 }

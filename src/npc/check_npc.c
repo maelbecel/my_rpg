@@ -17,6 +17,7 @@ static float getscale(char *text)
         i = (text[x] == '\n') ? i + 0.1: i;
     return i;
 }
+
 void draw_pop_text(char *text, sfFont *font, sfRenderWindow *window)
 {
     sfText *text_pop = sfText_create();

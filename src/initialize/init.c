@@ -86,8 +86,7 @@ scene_t *init_scenes(sfRenderWindow *window)
     init_htp(scenes, window);
     init_new_game(scenes, window);
     init_talk_npc(scenes);
-    for (int i = 0; i < 14; i++)
-        scenes[i].tab = (i != MENU_PLAYER) ? NULL : scenes[i].tab;
+    set_tab(scenes);
     return scenes;
 }
 
