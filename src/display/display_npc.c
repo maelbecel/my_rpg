@@ -21,9 +21,11 @@ npc_t *find_npc(game_t *game)
 {
     int dist = 0;
     sfVector2f playerpos = {game->scenes[GAME].elements[0]->rect.left +
-                                    game->scenes[GAME].elements[2]->pos.x,
+                            game->scenes[GAME].elements[2]->rect.width / 2 +
+                            game->scenes[GAME].elements[2]->pos.x,
                             game->scenes[GAME].elements[0]->rect.top +
-                                    game->scenes[GAME].elements[2]->pos.y};
+                            game->scenes[GAME].elements[2]->rect.height / 2 +
+                            game->scenes[GAME].elements[2]->pos.y};
     npc_t **npc = game->scenes[GAME].npc;
     sfVector2f npcpos;
 
