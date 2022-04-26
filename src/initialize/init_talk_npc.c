@@ -11,7 +11,7 @@
 
 element_t **npc_elements(void)
 {
-    element_t **elements = malloc(sizeof(element_t *) * (2 + 1));
+    element_t **elements = malloc(sizeof(element_t *) * (3 + 1));
 
     elements[0] = init_element("assets/ui/button_1_full.png",
                     (sfVector2f){0, 0}, (sfVector2f){1920, 1080},
