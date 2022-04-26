@@ -16,7 +16,7 @@ void play(game_t *game, ...)
 
 element_t **game_elements(void)
 {
-    element_t **elements = malloc(sizeof(element_t *) * 7);
+    element_t **elements = malloc(sizeof(element_t *) * 8);
 
     if (!elements)
         return NULL;
@@ -30,9 +30,11 @@ element_t **game_elements(void)
                         (sfVector2f){192, 108}, (sfVector2f){0.0, 0.0});
     elements[4] = init_element(CROSSBOW_P, (sfVector2f){1400, 0},
                         (sfVector2f){1920, 1080}, (sfVector2f){0.00, 0.0});
-    elements[5] = init_element("assets/toits_village.png", (sfVector2f){0, 0},
+    elements[5] = init_element("assets/roof.png", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
-    elements[6] = NULL;
+    elements[6] = init_element("assets/roof.png", (sfVector2f){0, 0},
+                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    elements[7] = NULL;
     elements[0]->rect = (sfIntRect){0, 0, 1920, 1080};
     return elements;
 }
