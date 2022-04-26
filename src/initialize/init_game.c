@@ -20,17 +20,19 @@ element_t **game_elements(void)
 
     if (!elements)
         return NULL;
-    elements[0] = init_element("assets/forest.jpg", (sfVector2f){0, 0},
+    elements[0] = init_element("assets/village.jpg", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     elements[1] = init_element("assets/0-20.png",
         (sfVector2f){0, 0}, (sfVector2f){805, 1200}, (sfVector2f){0, 0});
     elements[2] = init_element(CROSSBOW_P, (sfVector2f){400, 120},
                                     (sfVector2f){32, 48}, (sfVector2f){2, 2});
-    elements[3] = init_element("assets/forest.jpg", (sfVector2f){1728, 0},
+    elements[3] = init_element("assets/village.jpg", (sfVector2f){1728, 0},
                         (sfVector2f){192, 108}, (sfVector2f){0.0, 0.0});
     elements[4] = init_element(CROSSBOW_P, (sfVector2f){1400, 0},
                         (sfVector2f){1920, 1080}, (sfVector2f){0.00, 0.0});
-    elements[5] = NULL;
+    elements[5] = init_element("assets/toits_village.png", (sfVector2f){0, 0},
+                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    elements[6] = NULL;
     elements[0]->rect = (sfIntRect){0, 0, 1920, 1080};
     return elements;
 }
