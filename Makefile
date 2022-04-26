@@ -118,7 +118,8 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(NPC)check_npc.c					\
 						$(SOURCES)$(NPC)trade_stat.c     			\
 						$(SOURCES)$(NPC)move_npc.c					\
-						$(SOURCES)$(NPC)npc.c
+						$(SOURCES)$(NPC)npc.c						\
+						$(SOURCES)$(NPC)trade.c
 
 TESTS        =         tests/test.c
 

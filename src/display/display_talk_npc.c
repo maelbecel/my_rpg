@@ -46,6 +46,7 @@ void display_trade(game_t *game, trade_t **trade)
 
     for (int i = 0; trade[i] != NULL; i++) {
         draw_trade(game, pos_get, pos_want, trade[i]);
+        draw_button(game->window, game->scenes[NPC].buttons[i]);
         pos_get.y += 150;
         pos_want.y += 150;
     }
@@ -60,8 +61,6 @@ void display_merchant(game_t *game, npc_t *npc)
         (sfVector2f){8, 8});
     for (int e = 0; game->scenes[NPC].elements[e]; e++)
         draw_element(game->window, game->scenes[NPC].elements[e]);
-    for (int b = 0; game->scenes[NPC].buttons[b]; b++)
-        draw_button(game->window, game->scenes[NPC].buttons[b]);
     display_trade(game, trade);
     free_elements(game->scenes[NPC].elements[1]);
 }
