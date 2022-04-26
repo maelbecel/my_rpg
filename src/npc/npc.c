@@ -16,7 +16,7 @@ npc_t *create_npc(char *name)
     if (!npc)
         return NULL;
     int *pos = int_array_from_json(conc("config/npc/", conc(name, ".json")),
-                                    "pos", NULL);
+                                                                "pos", NULL);
 
     npc->elem = init_element(conc("assets/npc/", conc(name, ".png")),
                 (sfVector2f){pos[0], pos[1]}, (sfVector2f){32, 48},

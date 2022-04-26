@@ -22,6 +22,19 @@ static char **get_trade_info(char *var, char *path)
     return val;
 }
 
+static void fill_trade(trade_t ***trade, size_t i, char **want, char **sell)
+{
+    char **buf = NULL;
+
+    buf = my_str_to_word_array(want[i], ',');
+    (*trade)[i]->want = clean_string(buf[0]);
+    (*trade)[i]->want_quantity = my_getnbr(buf[1]);
+    buf = my_str_to_word_array(sell[i], ',');
+    (*trade)[i]->give = clean_string(buf[0]);
+    (*trade)[i]->give_quantity = my_getnbr(buf[1]);
+    (*trade)[i + 1] = NULL;
+}
+
 trade_t **get_trade(npc_t *npc)
 {
     char *path = conc("config/npc/", conc(npc->name, ".json"));
@@ -29,17 +42,14 @@ trade_t **get_trade(npc_t *npc)
     char **sell = get_trade_info("sell", path);
     trade_t **trade = malloc(sizeof(trade_t *) *
                                     my_strlen(str_from_json(path, "want")));
-    char **buf;
 
-    for (int i = 0; want[i]; i++) {
+    if (!trade || !want || !sell || !path)
+        return NULL;
+    for (size_t i = 0; want[i]; i++) {
         trade[i] = malloc(sizeof(trade_t));
-        buf = my_str_to_word_array(want[i], ',');
-        trade[i]->want = clean_string(buf[0]);
-        trade[i]->want_quantity = my_getnbr(buf[1]);
-        buf = my_str_to_word_array(sell[i], ',');
-        trade[i]->give = clean_string(buf[0]);
-        trade[i]->give_quantity = my_getnbr(buf[1]);
-        trade[i + 1] = NULL;
+        if(!trade[i])
+            return NULL;
+        fill_trade(&trade, i, want, sell);
     }
     free(path);
     return (trade);

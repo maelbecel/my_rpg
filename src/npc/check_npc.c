@@ -20,9 +20,8 @@ void draw_pop_text(char *text, sfFont *font, sfRenderWindow *window)
 {
     sfText *text_pop = sfText_create();
     sfVector2f pos = {1455, 70};
-    element_t *pop = init_element("assets/ui/button1_pop.png",
-                            (sfVector2f){1425, 20},(sfVector2f){792, 206},
-                            (sfVector2f){0.6, getscale(text)});
+    element_t *pop = init_element(BUTTON, (sfVector2f) {1425, 20},
+                (sfVector2f) {792, 206}, (sfVector2f) {0.6, getscale(text)});
 
     sfText_setString(text_pop, text);
     sfText_setFont(text_pop, font);
