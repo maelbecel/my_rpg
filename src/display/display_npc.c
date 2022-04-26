@@ -64,5 +64,6 @@ void display_npc(game_t *game)
     for (int i = 0; game->scenes[GAME].npc[i] != NULL; i++) {
         draw_npc(game, game->scenes[GAME].npc[i]);
     }
+    draw_element(game->window, game->scenes[GAME].elements[2]);
     draw_element(game->window, game->scenes[GAME].elements[5]);
 }
