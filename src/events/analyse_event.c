@@ -69,6 +69,9 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
         } if (sfKeyboard_isKeyPressed(game->settings->key_right)) {
             move_right(game);
         }
+        game->scenes[GAME].elements[5]->rect = game->scenes[GAME].elements[0]->rect;
+        sfSprite_setTextureRect(game->scenes[GAME].elements[5]->sprite,
+                                game->scenes[GAME].elements[5]->rect);
         sfSprite_setTextureRect(game->scenes[GAME].elements[0]->sprite,
                                 game->scenes[GAME].elements[0]->rect);
         sfClock_restart(game->player->timer);
