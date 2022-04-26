@@ -13,6 +13,7 @@
     ////////////////////////////////////////////////////////////
     typedef struct element_s element_t;
     typedef struct npc_s npc_t;
+    typedef struct trade_s trade_t;
 
     struct npc_s {
         element_t *elem;
@@ -20,6 +21,13 @@
         char *text;
         int quest;
         bool merchant;
+    };
+
+    struct trade_s {
+        char *want;
+        int want_quantity;
+        char *give;
+        int give_quantity;
     };
 
     ////////////////////////////////////////////////////////////
@@ -63,7 +71,24 @@
     ////////////////////////////////////////////////////////////
     npc_t *find_npc(game_t *game);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Return npc_t if the npc is near
+    ///
+    /// \param game       game_t struct with all game data
+    /// \param npcpos     position of the npc
+    /// \param playerpos  position of the player
+    /// \param i          index of the npc
+    ///
+    ////////////////////////////////////////////////////////////
     void move_npc(game_t *game, sfVector2f npcpos,
                                     sfVector2f playerpos, int i);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Return trade struct of an npc
+    ///
+    /// \param npc npc_t *struct
+    ///
+    ////////////////////////////////////////////////////////////
+    trade_t **get_trade(npc_t *npc);
 
 #endif /* !NPC_H_ */

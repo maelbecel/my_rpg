@@ -9,8 +9,9 @@
 #include "printf.h"
 #include "rpg.h"
 
-void display_merchant(UNUSED game_t *game, UNUSED npc_t *npc)
+void display_merchant(game_t *game, npc_t *npc)
 {
+    trade_t **trade = get_trade(npc);
     game->scenes[NPC].elements[1] = init_element(conc("assets/npc/",
         conc(npc->name, ".png")), (sfVector2f){100, 150}, (sfVector2f){32, 48},
         (sfVector2f){8, 8});
