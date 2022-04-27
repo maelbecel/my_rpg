@@ -28,13 +28,15 @@ button_t **npc_buttons(void)
 
     buttons[0] = init_button("", BUTTON, (sfVector2f){1050, 200},
                             (sfVector2i){796, 206});
-    buttons[0]->base->scale = (sfVector2f){0.5, 0.7};
     buttons[1] = init_button("", BUTTON, (sfVector2f){1050, 350},
                             (sfVector2i){796, 206});
-    buttons[1]->base->scale = (sfVector2f){0.5, 0.7};
     buttons[2] = init_button("", BUTTON, (sfVector2f){1050, 500},
                             (sfVector2i){796, 206});
-    buttons[2]->base->scale = (sfVector2f){0.5, 0.7};
+    for (int i = 0; i < 3; i++) {
+        buttons[i]->base->scale = (sfVector2f){0.5, 0.7};
+        buttons[i]->hoover->scale = (sfVector2f){0.5, 0.7};
+        buttons[i]->clicked->scale = (sfVector2f){0.5, 0.7};
+    }
     buttons[3] = NULL;
     return buttons;
 }
