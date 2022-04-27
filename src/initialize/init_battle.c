@@ -15,12 +15,12 @@ button_t **battle_buttons(void)
 
     buttons[0] = init_button("Fuite", BUTTON, (sfVector2f){700, 850},
                             (sfVector2i){796, 206});
-    buttons[0]->action_clicked = go_game;
     buttons[1] = init_button("Attack", BUTTON, (sfVector2f){300, 600},
                             (sfVector2i){796, 206});
     buttons[2] = init_button("Inventory", BUTTON, (sfVector2f){1100, 600},
                             (sfVector2i){796, 206});
     for (int i = 0; i < 3; i++) {
+        buttons[i]->action_clicked = do_none;
         buttons[i]->base->scale = (sfVector2f){0.7, 0.9};
         buttons[i]->hoover->scale = (sfVector2f){0.7, 0.9};
         buttons[i]->clicked->scale = (sfVector2f){0.7, 0.9};
@@ -31,6 +31,7 @@ button_t **battle_buttons(void)
         buttons[i]->clicked->text_pos.x = 70;
         buttons[i]->clicked->text_pos.y = 50;
     }
+    buttons[0]->action_clicked = go_game;
     buttons[3] = NULL;
     return buttons;
 }
