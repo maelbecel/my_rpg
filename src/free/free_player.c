@@ -9,7 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-
 static void free_inventory(inventory_t **inventory)
 {
     for (int i = 0; i < SIZE_INVENTORY; i++) {

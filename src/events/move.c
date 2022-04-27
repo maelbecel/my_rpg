@@ -12,7 +12,7 @@
 static bool is_hitbox(game_t *game, sfVector2f move)
 {
     float x = (game->scenes[GAME].elements[2]->pos.x + move.x +
-                        (float)game->scenes[GAME].elements[0]->rect.left + 25);
+                        (float)game->scenes[GAME].elements[0]->rect.left + 30);
     float y = (game->scenes[GAME].elements[2]->pos.y + move.y +
                         (float)game->scenes[GAME].elements[0]->rect.top + 90);
     sfColor col = sfImage_getPixel(game->hitbox, x, y);

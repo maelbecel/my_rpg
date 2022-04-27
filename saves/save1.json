@@ -1,31 +1,15 @@
 {
     "new": 0,
-    "class": "archer",
-    "health": 80,
-    "xp": 0,
-    "strength": 7,
-    "speed": 12,
-    "defense": 4,
+    "class": "valkyrie",
+    "health": 120,
+    "xp": 40404000,
+    "strength": 4,
+    "speed": 8,
+    "defense": 10,
     "point_stat": 0,
-    "posx": 800,
-    "posy": 800,
-    "quests": [0],
-    "inventory": ["bow"]
-}
-e"]
-}
-}
-e"]
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
+    "posx": 896,
+    "posy": 1632,
+    "quests": [1, 4],
+    "inventory": ["hache","apple","apple","banana"]
 
+}

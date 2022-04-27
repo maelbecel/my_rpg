@@ -1,3 +1,6 @@
+[![wakatime](https://wakatime.com/badge/github/maelbecel/my_rpg.svg)](https://wakatime.com/badge/github/maelbecel/my_rpg)
+![coverage](https://img.shields.io/badge/coverage-58%25-yellow)
+![build](https://img.shields.io/badge/build-passed-green)
 # My RPG
 
 ## Goal of the project.

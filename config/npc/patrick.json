@@ -1,6 +1,8 @@
 {
-    "pos": [700, 800],
+    "pos": [1370, 1500],
     "merchant": 1,
     "quest": 2,
-    "text": "P'tit biere?"
+    "want": [["apple",2], ["carrot",3], ["sword",1]],
+    "sell": [["biere",1], ["biere",1], ["biere",1]],
+    "text": "P'tite biere ?"
 }

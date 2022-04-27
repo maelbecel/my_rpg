@@ -1,0 +1,8 @@
+{
+    "pos": [865, 1500],
+    "merchant": 1,
+    "quest": 3,
+    "want": [["carrot",2], ["apple",3]],
+    "sell": [["potion",1], ["gold",3]],
+    "text": "Tu veux du shit"
+}

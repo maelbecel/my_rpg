@@ -1,15 +1,15 @@
 {
     "new": 0,
-    "class": "cooker",
-    "health": 100,
-    "strength": 10,
+    "class": "arbeletier",
+    "health": 80,
+    "strength": 7,
     "xp": 0,
-    "speed": 5,
-    "defense": 7,
+    "speed": 12,
+    "defense": 4,
     "point_stat": 0,
-    "posx": 1000,
-    "posy": 1000,
+    "posx": 800,
+    "posy": 800,
     "quests": [0],
-    "inventory": ["rouleau"]
+    "inventory": ["crossbow"]
 }
 

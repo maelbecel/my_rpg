@@ -85,6 +85,7 @@ void display_pause(game_t *game, sfEvent *event)
 {
     for (int game_e = 0; game->scenes[GAME].elements[game_e];)
         draw_element(game->window, game->scenes[GAME].elements[game_e++]);
+    display_npc(game);
     for (int game_b = 0; game->scenes[GAME].buttons[game_b];)
         draw_button(game->window, game->scenes[GAME].buttons[game_b++]);
     for (int e = 0; game->scenes[PAUSE].elements[e];)

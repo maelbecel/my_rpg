@@ -1,6 +1,8 @@
 {
-    "pos": [666, 666],
+    "pos": [1125, 1490],
     "merchant": 1,
     "quest": 1,
-    "text": "J'ai un peu le seum la..."
+    "want": [["apple",2], ["banana",3]],
+    "sell": [["rouleau",1], ["rouleau",3]],
+    "text": "J'ai un peu le seum la... mais je suis contente"
 }
