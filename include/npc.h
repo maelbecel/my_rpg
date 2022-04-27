@@ -61,7 +61,7 @@
     /// \param game game_t struct with all game data
     ///
     ////////////////////////////////////////////////////////////
-    void go_game(game_t *game);
+    void go_game(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Return npc_t if the npc is near

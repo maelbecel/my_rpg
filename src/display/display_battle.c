@@ -9,8 +9,19 @@
 #include "printf.h"
 #include "rpg.h"
 
-int display_battle(UNUSED sfSprite *player, UNUSED sfSprite *enemy,
-UNUSED game_t *game)
+void display_battle(game_t *game, sfEvent *event)
 {
-    return EXIT_SUCCESS;
+    for (int i = 0; game->scenes[BATTLE].elements[i] != NULL; i++)
+        draw_element(game->window, game->scenes[BATTLE].elements[i]);
+    for (int i = 0; game->scenes[BATTLE].buttons[i] != NULL; i++){
+        if (event->type == sfEvtMouseButtonPressed &&
+            is_click(game, i, BATTLE)) {
+            draw_clicked(game->window, game->scenes[BATTLE].buttons[i]);
+            game->scenes[BATTLE].buttons[i]->action_clicked(game);
+        } else if (is_hoover(game, i, BATTLE))
+            draw_hoover(game->window, game->scenes[BATTLE].buttons[i]);
+        else
+            draw_button(game->window, game->scenes[BATTLE].buttons[i]);
+    }
+    return;
 }

@@ -24,6 +24,7 @@ static const struct display_s Menu_list[] = {
     {CHOOSING, display_choosing},
     {FRAME, display_frame},
     {NPC, display_talk_npc},
+    {BATTLE, display_battle},
     {-1, NULL}
 };
 

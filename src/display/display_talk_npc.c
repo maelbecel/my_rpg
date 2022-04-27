@@ -58,7 +58,6 @@ void display_trade(game_t *game, trade_t **trade, sfEvent *event)
 
     for (int i = 0; trade[i] != NULL; i++) {
         draw_trade(game, pos_get, pos_want, trade[i]);
-        draw_button(game->window, game->scenes[NPC].buttons[i]);
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, i, NPC)) {
             draw_clicked(game->window, game->scenes[NPC].buttons[i]);

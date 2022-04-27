@@ -68,7 +68,7 @@ element_t *init_element(char *texture, sfVector2f pos,
 
 scene_t *init_scenes(sfRenderWindow *window)
 {
-    scene_t *scenes = malloc(sizeof(scene_t) * 14);
+    scene_t *scenes = malloc(sizeof(scene_t) * 15);
 
     if (!scenes)
         return NULL;
@@ -87,6 +87,7 @@ scene_t *init_scenes(sfRenderWindow *window)
     init_new_game(scenes, window);
     init_talk_npc(scenes);
     set_tab(scenes);
+    init_battle(scenes);
     return scenes;
 }
 

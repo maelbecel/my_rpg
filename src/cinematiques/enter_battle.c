@@ -37,7 +37,7 @@ static void init(sfSprite *player, sfSprite *enemy, sfSprite *background)
 static void draw(game_t *game, sfSprite *background,
                                             sfSprite *player, sfSprite *enemy)
 {
-    // game->scenes->page = BATTLE;
+    game->scenes->page = BATTLE;
     sfRenderWindow_clear(game->window, sfBlack);
     sfRenderWindow_drawSprite(game->window, background, NULL);
     sfRenderWindow_drawSprite(game->window, player, NULL);
@@ -67,6 +67,5 @@ int battle(game_t *game, sfSprite *a, sfSprite *b)
         draw(game, background, player, enemy);
     }
     sfMusic_destroy(music);
-    display_battle(player, enemy, game);
     return EXIT_SUCCESS;
 }

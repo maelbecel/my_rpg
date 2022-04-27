@@ -78,6 +78,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_inventory.c  			\
 						$(SOURCES)$(INIT)init_npc.c  				\
 						$(SOURCES)$(INIT)init_talk_npc.c  			\
+						$(SOURCES)$(INIT)init_battle.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
 						$(SOURCES)$(DISP)display_battle.c   		\
 						$(SOURCES)$(DISP)draw_text_red.c			\

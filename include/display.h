@@ -485,11 +485,10 @@
     ////////////////////////////////////////////////////////////
     /// \brief Draw a text in green
     ///
-    /// \param player  Sprite of player
-    /// \param enemy   Sprite of enemy
     /// \param game    game_t object who contain all game info
+    /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    int display_battle(sfSprite *player, sfSprite *enemy, game_t *game);
+    void display_battle(game_t *game, sfEvent *event);
 
 #endif
