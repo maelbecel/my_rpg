@@ -5,8 +5,10 @@
 ** rpg
 */
 
-#ifndef CINE
-    #define CINE
+#ifndef CINE_H_
+    #define CINE_H_
+
+    #include "display.h"
 
     ////////////////////////////////////////////////////////////
     /// \brief Launch the intro scene
@@ -38,7 +40,7 @@
     /// \return 0
     ///
     ////////////////////////////////////////////////////////////
-    int battle(sfRenderWindow *window, sfSprite *a, sfSprite *b);
+    int battle(game_t *game, sfSprite *a, sfSprite *b);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display fight in cinematic

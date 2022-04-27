@@ -45,7 +45,7 @@ static void draw(sfRenderWindow *window, sfSprite *background,
     sfRenderWindow_display(window);
 }
 
-int battle(sfRenderWindow *window, sfSprite *a, sfSprite *b)
+int battle(game_t *game, sfSprite *a, sfSprite *b)
 {
     sfMusic *music = sfMusic_createFromFile("assets/sounds/fight.ogg");
     sfSprite *player = sfSprite_copy(a);
@@ -54,16 +54,17 @@ int battle(sfRenderWindow *window, sfSprite *a, sfSprite *b)
     int i = 0;
 
     init(player, enemy, background);
-    while (!skip(window)) {
+    while (!skip(game->window)) {
         if (i < 840)
             i += 15;
         else {
-            fight_display(music, window);
+            fight_display(music, game->window);
             break;
         }
         move(player, enemy, i);
-        draw(window, background, player, enemy);
+        draw(game->window, background, player, enemy);
     }
     sfMusic_destroy(music);
+    display_battle(player, enemy, game);
     return EXIT_SUCCESS;
 }
