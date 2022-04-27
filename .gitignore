@@ -6,6 +6,9 @@
 *.ko
 *.obj
 *.elf
+*.gcda
+*.gcno
+*.gcdo
 
 # Linker output
 *.ilk
