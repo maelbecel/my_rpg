@@ -10,5 +10,6 @@
     "posx": 896,
     "posy": 1632,
     "quests": [1, 4, 3, 8],
+    "end_quests": [0],
     "inventory": ["hache","apple","apple","banana"]
 }

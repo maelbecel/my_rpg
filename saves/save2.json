@@ -10,6 +10,7 @@
     "posx": 800,
     "posy": 800,
     "quests": [3],
+    "end_quests": [0],
     "inventory": ["rouleau"]
 }
 
