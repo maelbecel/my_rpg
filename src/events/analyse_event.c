@@ -62,12 +62,16 @@ void analyse_game(game_t *game, UNUSED sfEvent *event)
     if (time.microseconds > 40000) {
         if (sfKeyboard_isKeyPressed(game->settings->key_down)) {
             move_down(game);
+            check_enemy(game);
         } if (sfKeyboard_isKeyPressed(game->settings->key_up)) {
             move_up(game);
+            check_enemy(game);
         } if (sfKeyboard_isKeyPressed(game->settings->key_left)) {
             move_left(game);
+            check_enemy(game);
         } if (sfKeyboard_isKeyPressed(game->settings->key_right)) {
             move_right(game);
+            check_enemy(game);
         }
         update_hitbox(game);
     }
