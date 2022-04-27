@@ -9,7 +9,6 @@
     "point_stat": 0,
     "posx": 896,
     "posy": 1632,
-    "quests": [1, 4],
+    "quests": [1, 4, 3, 8],
     "inventory": ["hache","apple","apple","banana"]
-
 }
