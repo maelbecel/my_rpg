@@ -39,7 +39,7 @@ void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
     free_elements(want);
 }
 
-void display_trade(game_t *game, trade_t **trade)
+void display_trade(game_t *game, trade_t **trade, sfEvent *event)
 {
     sfVector2f pos_get = {600, 200};
     sfVector2f pos_want = {900, 200};
@@ -47,12 +47,21 @@ void display_trade(game_t *game, trade_t **trade)
     for (int i = 0; trade[i] != NULL; i++) {
         draw_trade(game, pos_get, pos_want, trade[i]);
         draw_button(game->window, game->scenes[NPC].buttons[i]);
+        if (event->type == sfEvtMouseButtonPressed &&
+            is_click(game, i, NPC)) {
+            draw_clicked(game->window, game->scenes[NPC].buttons[i]);
+            game->scenes[NPC].buttons[i]->action_clicked(game, trade[i]->give,
+            trade[i]->want, trade[i]->give_quantity, trade[i]->want_quantity);
+        } else if (is_hoover(game, i, NPC))
+            draw_hoover(game->window, game->scenes[NPC].buttons[i]);
+        else
+            draw_button(game->window, game->scenes[NPC].buttons[i]);
         pos_get.y += 150;
         pos_want.y += 150;
     }
 }
 
-void display_merchant(game_t *game, npc_t *npc)
+void display_merchant(game_t *game, npc_t *npc, sfEvent *event)
 {
     UNUSED trade_t **trade = get_trade(npc);
 
@@ -61,7 +70,7 @@ void display_merchant(game_t *game, npc_t *npc)
         (sfVector2f){8, 8});
     for (int e = 0; game->scenes[NPC].elements[e]; e++)
         draw_element(game->window, game->scenes[NPC].elements[e]);
-    display_trade(game, trade);
+    display_trade(game, trade, event);
     free_elements(game->scenes[NPC].elements[1]);
 }
 
@@ -73,7 +82,7 @@ void display_talk_npc(game_t *game, sfEvent *event)
         draw_element(game->window, game->scenes[GAME].elements[e]);
     display_npc(game);
     if (npc->merchant == true) {
-        display_merchant(game, npc);
+        display_merchant(game, npc, event);
     }
     draw_dialogue_box(game->window, conc(npc->name, conc(" :\n", npc->text)),
                                                         game->settings->font);
