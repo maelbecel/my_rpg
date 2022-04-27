@@ -15,9 +15,10 @@ void trade(game_t *game, ...)
     va_start(arg, game);
     char *get = va_arg(arg, char *);
     char *want = va_arg(arg, char *);
-    sfVector2f nb = va_arg(arg, sfVector2f);
+    int get_nb = va_arg(arg, int);
+    int want_nb = va_arg(arg, int);
 
-    add_element_n(game, get, nb.x);
-    delete_element_n(game, want, nb.y);
+    add_element_n(game, get, get_nb);
+    delete_element_n(game, want, want_nb);
     va_end(arg);
 }
