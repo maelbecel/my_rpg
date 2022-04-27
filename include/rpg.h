@@ -108,7 +108,7 @@
     ////////////////////////////////////////////////////////////
     /// \def HITBOX
     ////////////////////////////////////////////////////////////
-    #define HITBOX "assets/hitbox.png"
+    #define HITBOX "assets/hitboxes/hitbox.png"
 
     ////////////////////////////////////////////////////////////
     /// \def MICRO 1000000
@@ -152,6 +152,7 @@
     typedef struct game_s game_t;
     typedef struct settings_s settings_t;
     typedef struct pos_perso_s pos_perso_t;
+    typedef struct weather_s weather_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Enumerates all scenes.
@@ -290,6 +291,7 @@
         settings_t *settings;
         player_t *player;
         sfImage *hitbox;
+        weather_t *weather;
     };
 
     ////////////////////////////////////////////////////////////
@@ -303,6 +305,15 @@
     struct key_s {
         int key;
         char *name;
+    };
+
+    struct weather_s {
+        sfSprite *sprite;
+        sfTexture *tex;
+        sfColor *pix;
+        size_t i;
+        size_t y;
+        size_t count;
     };
 
     ////////////////////////////////////////////////////////////
@@ -470,5 +481,7 @@
     ///
     ////////////////////////////////////////////////////////////
     void free_button(button_t *button);
+
+    weather_t *init_weather();
 
 #endif

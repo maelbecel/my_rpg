@@ -76,6 +76,7 @@ int main(int ac, UNUSED char **argv)
         return 84;
     sfEvent event;
     game_t *game = init_game();
+    game->weather = init_weather();
 
     if (!game)
         return EXIT_ERROR;

@@ -11,10 +11,14 @@
 
 char *getkey(int);
 
-void display_key_with_pnj(game_t *game)
+weather_t *init_weather()
 {
-    if ((game->scenes[GAME].elements[2]->pos.x - 900) <
-        game->scenes[GAME].elements[1]->rect.left)
-        draw_text(conc("CLICK ON : ", getkey(game->settings->key_menu)),
-            game->settings->font, (sfVector3f){860, 940, 30}, game->window);
+    weather_t *weather = malloc(sizeof(weather_t));
+
+    weather->count = 0;
+    weather->i = 0;
+    weather->pix = malloc(sizeof(sfColor) * (1920 * 1080));
+    weather->sprite = sfSprite_create();
+    weather->tex = sfTexture_create(1920, 1080);
+    return weather;
 }
