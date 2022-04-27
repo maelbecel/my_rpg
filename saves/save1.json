@@ -7,9 +7,13 @@
     "speed": 8,
     "defense": 10,
     "point_stat": 0,
-    "posx": 896,
-    "posy": 1632,
-    "quests": [1, 4, 3, 8, 2],
+    "posx": 944,
+    "posy": 1624,
+    "quests": [8, 3, 2],
     "end_quests": [0],
-    "inventory": ["hache","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","banana"]
+    "inventory": ["hache","apple","banana","biere","potion","potion"]
+
 }
+
+
+

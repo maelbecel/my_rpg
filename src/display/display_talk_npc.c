@@ -39,6 +39,19 @@ void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
     free_elements(want);
 }
 
+static void update_trade(game_t *game, trade_t **trade)
+{
+    for (int i = 0; trade[i] != NULL; i++) {
+        if (get_nb_elem(game, trade[i]->want) >= trade[i]->want_quantity)
+        draw_text_green("TRADE", game->settings->font,
+            (sfVector3f){1150, 245 + i * 150, 50}, game->window);
+        else
+            draw_text_red("NOT ENOUGH", game->settings->font,
+                    (sfVector3f){1075, 245 + i * 150, 50}, game->window);
+    }
+}
+
+
 void display_trade(game_t *game, trade_t **trade, sfEvent *event)
 {
     sfVector2f pos_get = {600, 200};
@@ -59,6 +72,7 @@ void display_trade(game_t *game, trade_t **trade, sfEvent *event)
         pos_get.y += 150;
         pos_want.y += 150;
     }
+    update_trade(game, trade);
 }
 
 void display_merchant(game_t *game, npc_t *npc, sfEvent *event)

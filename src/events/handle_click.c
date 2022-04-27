@@ -41,6 +41,7 @@ int is_hoover(game_t *game, int b, int s)
     sfVector2u size = sfTexture_getSize(
                                 game->scenes[s].buttons[b]->hoover->texture);
     sfVector2i click = sfMouse_getPositionRenderWindow(game->window);
+
     size.x *= scale.x;
     size.y *= scale.y;
     if (click.x > pos.x && click.x < (pos.x + size.x)) {
