@@ -16,7 +16,7 @@ void play(game_t *game, ...)
 
 element_t **game_elements(void)
 {
-    element_t **elements = malloc(sizeof(element_t *) * 8);
+    element_t **elements = malloc(sizeof(element_t *) * 9);
 
     if (!elements)
         return NULL;
@@ -34,7 +34,9 @@ element_t **game_elements(void)
                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     elements[6] = init_element("assets/shop_map.png", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
-    elements[7] = NULL;
+    elements[7] = init_element("assets/battle_scene.jpg", (sfVector2f){0, 0},
+                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    elements[8] = NULL;
     return elements;
 }
 
