@@ -34,15 +34,17 @@ static void init(sfSprite *player, sfSprite *enemy, sfSprite *background)
     sfSprite_setPosition(enemy, (sfVector2f){1820, 500});
 }
 
-static void draw(sfRenderWindow *window, sfSprite *background,
+static void draw(game_t *game, sfSprite *background,
                                             sfSprite *player, sfSprite *enemy)
 {
-    sfRenderWindow_clear(window, sfBlack);
-    sfRenderWindow_drawSprite(window, background, NULL);
-    sfRenderWindow_drawSprite(window, player, NULL);
-    sfRenderWindow_drawSprite(window, enemy, NULL);
-    draw_text_white("PRESS 'S' TO SKIP", 60, (sfVector2f){1300, 930}, window);
-    sfRenderWindow_display(window);
+    // game->scenes->page = BATTLE;
+    sfRenderWindow_clear(game->window, sfBlack);
+    sfRenderWindow_drawSprite(game->window, background, NULL);
+    sfRenderWindow_drawSprite(game->window, player, NULL);
+    sfRenderWindow_drawSprite(game->window, enemy, NULL);
+    draw_text_white(conc("Press '", conc(getkey(game->settings->key_skip),
+                    "' to skip")), 60, (sfVector2f){1200, 930}, game->window);
+    sfRenderWindow_display(game->window);
 }
 
 int battle(game_t *game, sfSprite *a, sfSprite *b)
@@ -62,7 +64,7 @@ int battle(game_t *game, sfSprite *a, sfSprite *b)
             break;
         }
         move(player, enemy, i);
-        draw(game->window, background, player, enemy);
+        draw(game, background, player, enemy);
     }
     sfMusic_destroy(music);
     display_battle(player, enemy, game);
