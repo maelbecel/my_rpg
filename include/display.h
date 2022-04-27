@@ -490,6 +490,6 @@
     /// \param game    game_t object who contain all game info
     ///
     ////////////////////////////////////////////////////////////
-    int display_battle(sfSprite *player, sfSprite *enemy, game_t *game)
+    int display_battle(sfSprite *player, sfSprite *enemy, game_t *game);
 
 #endif
