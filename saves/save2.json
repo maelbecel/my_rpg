@@ -7,10 +7,11 @@
     "xp": 0,
     "defense": 7,
     "point_stat": 0,
-    "posx": 360,
-    "posy": 448,
-    "quests": [0],
+    "posx": 800,
+    "posy": 800,
+    "quests": [3],
+    "end_quests": [0],
     "inventory": ["rouleau"]
-
 }
+
 

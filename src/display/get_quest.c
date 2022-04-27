@@ -18,7 +18,7 @@ static const char *Quests[] = {
     "Talk to the merchant",
     "Talk to the innkeeper",
     "Talk to the farmer",
-    "Talk to the butcher",
+    "Faire un commit",
     "Talk to the baker"
 };
 
