@@ -51,7 +51,6 @@ static void update_trade(game_t *game, trade_t **trade)
     }
 }
 
-
 void display_trade(game_t *game, trade_t **trade, sfEvent *event)
 {
     sfVector2f pos_get = {600, 200};
