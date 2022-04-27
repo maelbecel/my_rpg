@@ -62,6 +62,7 @@ void check_npc(game_t *game, sfEvent *event)
                 conc("'to interact\nwith ", npc->name))), game->settings->font,
                 game->window);
         if (event->key.code == game->settings->key_action) {
+            give_quest(game, npc);
             pos = getposition(npc->elem->rect.top / npc->elem->rect.height);
             game->scenes[GAME].elements[2]->rect.top = pos *
                             game->scenes[GAME].elements[2]->rect.height;
