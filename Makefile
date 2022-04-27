@@ -180,9 +180,6 @@ re:
 tests_run:
 			@make fclean --no-print-directory
 			@make -C tests/ --no-print-directory
-			@./unit_tests
-			@gcovr src/ --branches
-			@make fclean --no-print-directory
 
 %.o:		%.c
 			@$(eval NB=$(shell echo $$(($(NB)+1))))

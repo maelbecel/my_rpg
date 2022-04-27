@@ -47,7 +47,7 @@ TESTS        =          cinematiques.c		\
 						key.c   	   		\
 						parser.c
 
-SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
+SRC         =			$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
 						$(SOURCES)$(EVT)button_state.c   			\
 						$(SOURCES)$(EVT)check_save.c   				\
@@ -56,9 +56,10 @@ SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)change_tab.c   				\
 						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
-						$(SOURCES)$(EVT)update_hitbox.c   			\
 						$(SOURCES)$(EVT)select_movement.c  			\
+						$(SOURCES)$(EVT)get_inventory.c  			\
 						$(SOURCES)$(EVT)select_action.c  			\
+						$(SOURCES)$(EVT)update_hitbox.c   			\
 						$(SOURCES)$(EVT)select_menu.c				\
 						$(SOURCES)$(EVT)builtins.c   				\
 						$(SOURCES)$(EVT)sliders.c   				\
@@ -67,6 +68,7 @@ SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)inventory.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)set_player.c				\
+						$(SOURCES)$(INIT)set_tab.c			    	\
 						$(SOURCES)$(INIT)init_scenes.c				\
 						$(SOURCES)$(INIT)update_stat.c				\
 						$(SOURCES)$(INIT)init_main_menu.c   		\
@@ -85,7 +87,9 @@ SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(INIT)init_player.c   			\
 						$(SOURCES)$(INIT)init_inventory.c  			\
 						$(SOURCES)$(INIT)init_npc.c  				\
+						$(SOURCES)$(INIT)init_talk_npc.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
+						$(SOURCES)$(DISP)draw_text_red.c			\
 						$(SOURCES)$(DISP)draw_dialogue_box.c   		\
 						$(SOURCES)$(DISP)draw_settings.c   			\
 						$(SOURCES)$(DISP)display_settings.c   		\
@@ -102,6 +106,7 @@ SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\
+						$(SOURCES)$(DISP)display_talk_npc.c			\
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(PARS)type_json.c   				\
@@ -124,7 +129,10 @@ SRC          =         	$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(CLASS)valkyrie.c       	        \
 						$(SOURCES)$(CLASS)arbaletier.c				\
 						$(SOURCES)$(NPC)check_npc.c					\
-						$(SOURCES)$(NPC)npc.c                       \
+						$(SOURCES)$(NPC)trade_stat.c     			\
+						$(SOURCES)$(NPC)move_npc.c					\
+						$(SOURCES)$(NPC)npc.c						\
+						$(SOURCES)$(NPC)trade.c                     \
 						$(TESTS)
 
 

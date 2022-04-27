@@ -1,15 +1,15 @@
 {
     "new": 0,
-    "class": "archer",
+    "class": "valkyrie",
     "health": 120,
     "xp": 40404000,
-    "strength": 7,
-    "speed": 12,
-    "defense": 4,
+    "strength": 4,
+    "speed": 8,
+    "defense": 10,
     "point_stat": 0,
     "posx": 896,
     "posy": 1632,
     "quests": [1, 4],
-    "inventory": ["bow","apple","apple"]
+    "inventory": ["hache","apple","apple","banana"]
 
 }
