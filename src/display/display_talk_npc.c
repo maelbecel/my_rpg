@@ -50,7 +50,8 @@ void display_trade(game_t *game, trade_t **trade, sfEvent *event)
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, i, NPC)) {
             draw_clicked(game->window, game->scenes[NPC].buttons[i]);
-            game->scenes[NPC].buttons[i]->action_clicked(game, i);
+            game->scenes[NPC].buttons[i]->action_clicked(game, trade[i]->give,
+            trade[i]->want, trade[i]->give_quantity, trade[i]->want_quantity);
         } else if (is_hoover(game, i, NPC))
             draw_hoover(game->window, game->scenes[NPC].buttons[i]);
         else

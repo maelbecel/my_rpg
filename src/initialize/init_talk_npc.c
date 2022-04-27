@@ -36,6 +36,7 @@ button_t **npc_buttons(void)
         buttons[i]->base->scale = (sfVector2f){0.5, 0.7};
         buttons[i]->hoover->scale = (sfVector2f){0.5, 0.7};
         buttons[i]->clicked->scale = (sfVector2f){0.5, 0.7};
+        buttons[i]->action_clicked = trade;
     }
     buttons[3] = NULL;
     return buttons;
