@@ -79,6 +79,7 @@ void display_game(game_t *game, sfEvent *event)
             draw_button(game->window, game->scenes[GAME].buttons[b++]);
     }
     check_npc(game, event);
+    weather(game, game->weather);
 }
 
 void display_pause(game_t *game, sfEvent *event)

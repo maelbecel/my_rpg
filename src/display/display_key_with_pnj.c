@@ -1,15 +1,13 @@
 /*
 ** EPITECH PROJECT, 2022
-** display_key_with_pnj
+** init_weather
 ** File description:
-** display_key_with_pnj for rpg
+** init_weather for rpg
 */
 
 #include "my.h"
 #include "printf.h"
 #include "rpg.h"
-
-char *getkey(int);
 
 weather_t *init_weather()
 {
@@ -17,8 +15,8 @@ weather_t *init_weather()
 
     weather->count = 0;
     weather->i = 0;
-    weather->pix = malloc(sizeof(sfColor) * (1920 * 1080));
+    weather->pix = malloc(sizeof(sfColor) * (1920 * 2160) * 2);
     weather->sprite = sfSprite_create();
-    weather->tex = sfTexture_create(1920, 1080);
+    weather->tex = sfTexture_create(1920, 2160);
     return weather;
 }

@@ -484,4 +484,6 @@
 
     weather_t *init_weather();
 
+    void weather(game_t *game, weather_t *weather);
+
 #endif
