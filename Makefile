@@ -66,6 +66,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_game.c  				\
 						$(SOURCES)$(INIT)init_pause.c  				\
 						$(SOURCES)$(INIT)init_choosing.c			\
+						$(SOURCES)$(INIT)init_weather.c				\
 						$(SOURCES)$(INIT)init_settings.c   			\
 						$(SOURCES)$(INIT)init_settings_key.c   		\
 						$(SOURCES)$(INIT)init_settings_frame.c		\
@@ -95,7 +96,6 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)set_settings.c				\
 						$(SOURCES)$(DISP)popup.c	   				\
 						$(SOURCES)$(DISP)display_htp.c   			\
-						$(SOURCES)$(DISP)display_key_with_pnj.c		\
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\

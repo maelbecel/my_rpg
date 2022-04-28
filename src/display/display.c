@@ -80,7 +80,10 @@ void display_game(game_t *game, sfEvent *event)
             draw_button(game->window, game->scenes[GAME].buttons[b++]);
     }
     check_npc(game, event);
-    weather(game, game->weather);
+    if (game->weather->oui < 40) {
+        weather(game, game->weather);
+        game->weather->oui++;
+    }
 }
 
 void display_pause(game_t *game, sfEvent *event)
