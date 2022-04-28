@@ -39,5 +39,7 @@ void display_battle(game_t *game, sfEvent *event)
     }
     draw_text(game->enemy->buf_text, game->settings->font,
                     (sfVector3f){100, 900, 50}, game->window);
+    draw_life(game->enemy->life, game->enemy->total_life, game,
+                (sfVector2f){1300, 300});
     return;
 }

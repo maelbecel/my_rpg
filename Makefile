@@ -90,6 +90,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)draw_xp_bar.c 				\
 						$(SOURCES)$(DISP)set_good.c   				\
 						$(SOURCES)$(DISP)get_quest.c   				\
+						$(SOURCES)$(DISP)draw_life.c   				\
 						$(SOURCES)$(DISP)display_stat.c				\
 						$(SOURCES)$(DISP)display_load.c				\
 						$(SOURCES)$(DISP)set_settings.c				\

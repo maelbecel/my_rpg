@@ -491,4 +491,15 @@
     ////////////////////////////////////////////////////////////
     void display_battle(game_t *game, sfEvent *event);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw a life bar
+    ///
+    /// \param at      actual life
+    /// \param on      max life
+    /// \param game    game_t object who contain all game info
+    /// \param pos     position of the bar
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_life(int at, int on, game_t *game, sfVector2f pos);
+
 #endif
