@@ -11,12 +11,12 @@
 
 int my_random(void)
 {
-    char random[1];
+    char random[3];
     int fd = open("/dev/urandom", O_RDONLY);
 
     if (fd == -1)
         return -1;
-    read(fd, random, 1);
+    read(fd, random, 3);
     close(fd);
-    return random[0];
+    return ABS(random[0] + random[1] + random[2]);
 }
