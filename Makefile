@@ -58,6 +58,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)inventory.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)set_player.c				\
+						$(SOURCES)$(INIT)create_enemy.c				\
 						$(SOURCES)$(INIT)set_tab.c			    	\
 						$(SOURCES)$(INIT)init_scenes.c				\
 						$(SOURCES)$(INIT)update_stat.c				\
