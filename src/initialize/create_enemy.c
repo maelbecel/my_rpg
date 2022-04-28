@@ -31,6 +31,7 @@ enemy_t *create_enemy(char *type, player_t *player)
     enemy->text = str_array_from_json(file, "text");
     enemy->level = addlevel(player->xp);
     enemy->life = int_from_json(file, "life") * enemy->level;
+    enemy->total_life = int_from_json(file, "life") * enemy->level;
     enemy->damage = int_from_json(file, "damage") * enemy->level;
     enemy->exp = int_from_json(file, "exp") * enemy->level;
     enemy->loot = str_array_from_json(file, "loot");

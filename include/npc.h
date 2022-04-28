@@ -29,6 +29,7 @@
         char *name;
         char **text;
         int life;
+        int total_life;
         int damage;
         int exp;
         int level;

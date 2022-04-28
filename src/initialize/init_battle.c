@@ -9,6 +9,12 @@
 #include "printf.h"
 #include "rpg.h"
 
+void attack(game_t *game, ...)
+{
+    game->enemy->life -= game->player->strg;
+    printf("%s has %i PV\n", game->enemy->name, game->enemy->life);
+}
+
 button_t **battle_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * (3 + 1));
@@ -32,6 +38,7 @@ button_t **battle_buttons(void)
         buttons[i]->clicked->text_pos.y = 50;
     }
     buttons[0]->action_clicked = go_game;
+    buttons[1]->action_clicked = attack;
     buttons[3] = NULL;
     return buttons;
 }
