@@ -16,7 +16,7 @@ void play(game_t *game, ...)
 
 element_t **game_elements(void)
 {
-    element_t **elements = malloc(sizeof(element_t *) * 8);
+    element_t **elements = malloc(sizeof(element_t *) * 9);
 
     if (!elements)
         return NULL;

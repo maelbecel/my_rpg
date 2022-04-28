@@ -481,4 +481,14 @@
     ////////////////////////////////////////////////////////////
     void draw_text_green(char *text, sfFont *font,
                                     sfVector3f pos, sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw a text in green
+    ///
+    /// \param game    game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_battle(game_t *game, sfEvent *event);
+
 #endif

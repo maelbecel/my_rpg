@@ -33,11 +33,14 @@ NPC			 =			npc/
 
 FREE         =		  	free/
 
+BATTLE		 =			battle/
+
 SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
 						$(SOURCES)$(EVT)button_state.c   			\
 						$(SOURCES)$(EVT)check_save.c   				\
+						$(SOURCES)$(EVT)give_quest.c   				\
 						$(SOURCES)$(EVT)load.c   					\
 						$(SOURCES)$(EVT)clear.c   					\
 						$(SOURCES)$(EVT)change_tab.c   				\
@@ -55,6 +58,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)inventory.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)set_player.c				\
+						$(SOURCES)$(INIT)create_enemy.c				\
 						$(SOURCES)$(INIT)set_tab.c			    	\
 						$(SOURCES)$(INIT)init_scenes.c				\
 						$(SOURCES)$(INIT)update_stat.c				\
@@ -75,7 +79,9 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_inventory.c  			\
 						$(SOURCES)$(INIT)init_npc.c  				\
 						$(SOURCES)$(INIT)init_talk_npc.c  			\
+						$(SOURCES)$(INIT)init_battle.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
+						$(SOURCES)$(DISP)display_battle.c   		\
 						$(SOURCES)$(DISP)draw_text_red.c			\
 						$(SOURCES)$(DISP)draw_dialogue_box.c   		\
 						$(SOURCES)$(DISP)draw_settings.c   			\
@@ -120,7 +126,9 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(NPC)trade_stat.c     			\
 						$(SOURCES)$(NPC)move_npc.c					\
 						$(SOURCES)$(NPC)npc.c						\
-						$(SOURCES)$(NPC)trade.c
+						$(SOURCES)$(NPC)trade.c						\
+						$(SOURCES)$(BATTLE)check_enemy.c						\
+						$(SOURCES)$(BATTLE)random.c						\
 
 TESTS        =         tests/test.c
 

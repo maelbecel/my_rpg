@@ -34,18 +34,20 @@ static void init(sfSprite *player, sfSprite *enemy, sfSprite *background)
     sfSprite_setPosition(enemy, (sfVector2f){1820, 500});
 }
 
-static void draw(sfRenderWindow *window, sfSprite *background,
+static void draw(game_t *game, sfSprite *background,
                                             sfSprite *player, sfSprite *enemy)
 {
-    sfRenderWindow_clear(window, sfBlack);
-    sfRenderWindow_drawSprite(window, background, NULL);
-    sfRenderWindow_drawSprite(window, player, NULL);
-    sfRenderWindow_drawSprite(window, enemy, NULL);
-    draw_text_white("PRESS 'S' TO SKIP", 60, (sfVector2f){1300, 930}, window);
-    sfRenderWindow_display(window);
+    game->scenes->page = BATTLE;
+    sfRenderWindow_clear(game->window, sfBlack);
+    sfRenderWindow_drawSprite(game->window, background, NULL);
+    sfRenderWindow_drawSprite(game->window, player, NULL);
+    sfRenderWindow_drawSprite(game->window, enemy, NULL);
+    draw_text_white(conc("Press '", conc(getkey(game->settings->key_skip),
+                    "' to skip")), 60, (sfVector2f){1200, 930}, game->window);
+    sfRenderWindow_display(game->window);
 }
 
-int battle(sfRenderWindow *window, sfSprite *a, sfSprite *b)
+int battle(game_t *game, sfSprite *a, sfSprite *b)
 {
     sfMusic *music = sfMusic_createFromFile("assets/sounds/fight.ogg");
     sfSprite *player = sfSprite_copy(a);
@@ -53,16 +55,17 @@ int battle(sfRenderWindow *window, sfSprite *a, sfSprite *b)
     sfSprite *background = sfSprite_create();
     int i = 0;
 
+    sfRenderWindow_setFramerateLimit(game->window, 80);
     init(player, enemy, background);
-    while (!skip(window)) {
+    while (!skip(game->window)) {
         if (i < 840)
             i += 15;
         else {
-            fight_display(music, window);
+            fight_display(music, game->window);
             break;
         }
         move(player, enemy, i);
-        draw(window, background, player, enemy);
+        draw(game, background, player, enemy);
     }
     sfMusic_destroy(music);
     return EXIT_SUCCESS;

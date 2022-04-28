@@ -61,6 +61,7 @@ char *parser(char *file, char *var)
         popup(font, conc("Error:\nCan't open '", conc(file, "'")));
         sfFont_destroy(font);
         free(variable);
+        free(file);
         return NULL;
     }
     sfFont_destroy(font);

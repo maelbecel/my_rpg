@@ -14,7 +14,7 @@ void go_talk_npc(game_t *game)
     game->scenes->page = NPC;
 }
 
-void go_game(game_t *game)
+void go_game(game_t *game, ...)
 {
     game->scenes->page = GAME;
 }

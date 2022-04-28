@@ -10,6 +10,6 @@
     "posx": 800,
     "posy": 800,
     "quests": [0],
+    "end_quests": [0],
     "inventory": ["crossbow"]
 }
-

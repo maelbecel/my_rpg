@@ -13,6 +13,7 @@
     ////////////////////////////////////////////////////////////
     typedef struct element_s element_t;
     typedef struct npc_s npc_t;
+    typedef struct enemy_s enemy_t;
     typedef struct trade_s trade_t;
 
     struct npc_s {
@@ -21,6 +22,18 @@
         char *text;
         int quest;
         bool merchant;
+    };
+
+    struct enemy_s {
+        element_t *elem;
+        char *name;
+        char **text;
+        int life;
+        int damage;
+        int exp;
+        int level;
+        char *buf_text;
+        char **loot;
     };
 
     struct trade_s {
@@ -61,7 +74,7 @@
     /// \param game game_t struct with all game data
     ///
     ////////////////////////////////////////////////////////////
-    void go_game(game_t *game);
+    void go_game(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Return npc_t if the npc is near
@@ -90,5 +103,32 @@
     ///
     ////////////////////////////////////////////////////////////
     trade_t **get_trade(npc_t *npc);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief give quest
+    ///
+    /// \param game  game_t struct with all game data
+    /// \param npc   npc_t *struct
+    ///
+    ////////////////////////////////////////////////////////////
+    void give_quest(game_t *game, npc_t *npc);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief trade
+    ///
+    /// \param game  game_t struct with all game data
+    /// \param ... other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void trade(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Create a new ennemy
+    ///
+    /// \param type   type of ennemy
+    /// \param player players info
+    ///
+    ////////////////////////////////////////////////////////////
+    enemy_t *create_enemy(char *type, player_t *player);
 
 #endif /* !NPC_H_ */
