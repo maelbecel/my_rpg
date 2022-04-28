@@ -1,6 +1,6 @@
 {
     "new": 0,
-    "class": "arbeletier",
+    "class": "archer",
     "health": 80,
     "strength": 7,
     "xp": 0,
@@ -9,7 +9,8 @@
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
-    "quests": [0],
+    "quests": [3],
     "end_quests": [0],
-    "inventory": ["crossbow"]
+    "inventory": ["bow"]
 }
+
