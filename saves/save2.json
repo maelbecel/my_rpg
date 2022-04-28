@@ -1,15 +1,24 @@
 {
     "new": 0,
-    "class": "arbeletier",
-    "health": 80,
-    "strength": 7,
-    "speed": 12,
+    "class": "cooker",
+    "health": 100,
+    "strength": 10,
+    "speed": 5,
     "xp": 0,
-    "defense": 4,
+    "defense": 7,
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["crossbow"]
+    "inventory": ["rouleau"]
 }
+,"potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","biere","biere","biere","biere","biere","biere","biere","biere","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple"]
+}
+
+
+
+
+ple"]
+}
+

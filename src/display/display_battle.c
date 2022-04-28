@@ -9,8 +9,21 @@
 #include "printf.h"
 #include "rpg.h"
 
+void win(game_t *game, ...)
+{
+    game->player->pt_stat += 3;
+    game->player->xp += game->enemy->exp;
+    for (int i = 0; game->enemy->loot[i]; i++)
+        add_elem(game, clean_string(game->enemy->loot[i]));
+    go_game(game);
+}
+
 void display_battle(game_t *game, sfEvent *event)
 {
+    if (game->enemy->life <= 0) {
+        win(game, event);
+        return;
+    }
     for (int i = 0; game->scenes[BATTLE].elements[i] != NULL; i++)
         draw_element(game->window, game->scenes[BATTLE].elements[i]);
     draw_element(game->window, game->enemy->elem);
