@@ -1,21 +1,15 @@
 {
-    "new": 1,
-    "class": null,
-    "health": 0,
+    "new": 0,
+    "class": "mage",
+    "health": 100,
     "strength": 10,
-    "speed": 0,
+    "speed": 5,
     "xp": 0,
-    "defense": 0,
+    "defense": 7,
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["none"]
+    "inventory": ["baguette"]
 }
-,"banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","beef","beef","apple","apple","apple","apple","apple","apple","apple","apple","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana"]
-}
-
-}
-}
-
