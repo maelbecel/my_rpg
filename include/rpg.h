@@ -514,17 +514,19 @@
     void free_button(button_t *button);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Free a button
+    /// \brief Get a random int
     ///
-    /// \param type  button to free
+    /// \return random number
     ///
     ////////////////////////////////////////////////////////////
     int my_random(void);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Free a button
+    /// \brief Check for enemy
     ///
-    /// \param type  button to free
+    /// \param game game_t *struct with all data
+    ///
+    /// \return Return -1 if there is an enemy, 0 if not
     ///
     ////////////////////////////////////////////////////////////
     int check_enemy(game_t *game);

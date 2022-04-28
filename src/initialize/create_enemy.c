@@ -13,7 +13,7 @@ static int addlevel(int xp)
 {
     int level = 1;
     for (; xp >= 500 * level * level; level++);
-    level += (my_random() % level + 1) - level / 2;
+    level += (my_random() % level + 1) - level / 2 - level / 4;
     if (level < 1)
         return 1;
     return level;

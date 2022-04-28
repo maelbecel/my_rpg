@@ -66,6 +66,7 @@ void display_game(game_t *game, sfEvent *event)
     check_save(game);
     analyse_game(game, event);
     set_minimap(game);
+    game->player->hp = game->player->total_hp;
     while (game->scenes[GAME].elements[e])
         draw_element(game->window, game->scenes[GAME].elements[e++]);
     display_npc(game);
