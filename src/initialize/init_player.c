@@ -21,6 +21,7 @@ static void get_info_from_config(player_t *player, char *class)
                                             conc(class, ".json")), "defense");
     player->pt_stat = int_from_json(conc("config/",
                                         conc(class, ".json")), "point_stat");
+    player->total_hp = player->hp;
 }
 
 player_t *init_player(char *class)

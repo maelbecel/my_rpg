@@ -56,6 +56,7 @@
         char *class;
         char *save;
         int hp;
+        int total_hp;
         int strg;
         int spd;
         int def;

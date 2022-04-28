@@ -20,10 +20,6 @@ void win(game_t *game, ...)
 
 void display_battle(game_t *game, sfEvent *event)
 {
-    if (game->enemy->life <= 0) {
-        win(game, event);
-        return;
-    }
     for (int i = 0; game->scenes[BATTLE].elements[i] != NULL; i++)
         draw_element(game->window, game->scenes[BATTLE].elements[i]);
     draw_element(game->window, game->enemy->elem);
@@ -37,9 +33,19 @@ void display_battle(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[BATTLE].buttons[i]);
     }
+    if (game->enemy->life <= 0) {
+        win(game, event);
+        return;
+    }
+    if (game->player->hp <= 0) {
+        go_game(game);
+        return;
+    }
     draw_text(game->enemy->buf_text, game->settings->font,
-                    (sfVector3f){100, 900, 50}, game->window);
+                    (sfVector3f){100, 850, 50}, game->window);
     draw_life(game->enemy->life, game->enemy->total_life, game,
-                (sfVector2f){1300, 300});
+                (sfVector2f){1222, 330});
+    draw_life(game->player->hp, game->player->total_hp, game,
+                (sfVector2f){515, 530});
     return;
 }
