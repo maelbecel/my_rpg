@@ -1,5 +1,6 @@
 {
     "framerate": 180,
     "show_fps": 1,
-    "autosave": 0
+    "autosave": 0,
+    "enemy_list": ["enemy"]
 }

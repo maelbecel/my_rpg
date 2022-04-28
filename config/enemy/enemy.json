@@ -1,0 +1,9 @@
+{
+    "image": "assets/npc/pascal.png",
+    "name": "Pascal",
+    "exp": 367,
+    "damage": 10,
+    "life": 100,
+    "text": ["AHAHAH","ARGHHHH"],
+    "loot": ["apple","apple","banana","biere","potion","potion"]
+}

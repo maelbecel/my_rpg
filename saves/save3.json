@@ -1,16 +1,15 @@
 {
     "new": 0,
-    "class": "mage",
-    "health": 100,
-    "strength": 10,
-    "xp": 30000,
-    "speed": 5,
-    "defense": 7,
+    "class": "arbeletier",
+    "health": 80,
+    "strength": 7,
+    "xp": 0,
+    "speed": 12,
+    "defense": 4,
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["baguette"]
+    "inventory": ["crossbow"]
 }
-
