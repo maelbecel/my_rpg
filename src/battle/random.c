@@ -17,5 +17,6 @@ int my_random(void)
     if (fd == -1)
         return -1;
     read(fd, random, 1);
+    close(fd);
     return random[0];
 }

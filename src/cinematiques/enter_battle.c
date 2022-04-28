@@ -55,6 +55,7 @@ int battle(game_t *game, sfSprite *a, sfSprite *b)
     sfSprite *background = sfSprite_create();
     int i = 0;
 
+    sfRenderWindow_setFramerateLimit(game->window, 80);
     init(player, enemy, background);
     while (!skip(game->window)) {
         if (i < 840)

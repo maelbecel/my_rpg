@@ -13,6 +13,7 @@
     ////////////////////////////////////////////////////////////
     typedef struct element_s element_t;
     typedef struct npc_s npc_t;
+    typedef struct enemy_s enemy_t;
     typedef struct trade_s trade_t;
 
     struct npc_s {
@@ -21,6 +22,18 @@
         char *text;
         int quest;
         bool merchant;
+    };
+
+    struct enemy_s {
+        element_t *elem;
+        char *name;
+        char **text;
+        int life;
+        int damage;
+        int exp;
+        int level;
+        char *buf_text;
+        char **loot;
     };
 
     struct trade_s {
@@ -108,5 +121,14 @@
     ///
     ////////////////////////////////////////////////////////////
     void trade(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Create a new ennemy
+    ///
+    /// \param type   type of ennemy
+    /// \param player players info
+    ///
+    ////////////////////////////////////////////////////////////
+    enemy_t *create_enemy(char *type, player_t *player);
 
 #endif /* !NPC_H_ */
