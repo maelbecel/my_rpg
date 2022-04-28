@@ -1,6 +1,6 @@
 {
     "new": 0,
-    "class": "cooker",
+    "class": "mage",
     "health": 100,
     "strength": 10,
     "speed": 5,
@@ -9,11 +9,12 @@
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
-    "quests": [0],
+    "quests": [5],
     "end_quests": [0],
-    "inventory": ["rouleau"]
+    "inventory": ["baguette"]
 }
-,"potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","biere","biere","biere","biere","biere","biere","biere","biere","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple"]
+}
+"potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","biere","biere","biere","biere","biere","biere","biere","biere","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple"]
 }
 
 

@@ -5,5 +5,5 @@
     "damage": 10,
     "life": 100,
     "text": ["AHAHAH","ARGHHHH","HEHEHEHA"],
-    "loot": ["apple","apple","banana","biere","potion","potion"]
+    "loot": ["beef","apple","apple","apple","apple"]
 }
