@@ -502,4 +502,13 @@
     ////////////////////////////////////////////////////////////
     void draw_life(int at, int on, game_t *game, sfVector2f pos);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Display frames per second or not
+    ///
+    /// \param frame   the value of frame in real time
+    /// \param game    game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_fps(sfTime frame, game_t *game);
+
 #endif
