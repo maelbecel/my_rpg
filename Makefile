@@ -35,6 +35,8 @@ FREE         =		  	free/
 
 BATTLE		 =			battle/
 
+ERROR		 =			error_handling/
+
 SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
@@ -127,8 +129,9 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(NPC)move_npc.c					\
 						$(SOURCES)$(NPC)npc.c						\
 						$(SOURCES)$(NPC)trade.c						\
-						$(SOURCES)$(BATTLE)check_enemy.c						\
-						$(SOURCES)$(BATTLE)random.c						\
+						$(SOURCES)$(BATTLE)check_enemy.c			\
+						$(SOURCES)$(BATTLE)random.c					\
+						$(SOURCES)$(ERROR)check_set.c					\
 
 TESTS        =         tests/test.c
 

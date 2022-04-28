@@ -98,6 +98,8 @@ settings_t *init_settings(void)
     if (!set)
         return NULL;
     set->font = sfFont_createFromFile(BASIC_FONT);
+    if (!set->font)
+        return NULL;
     set->key_down = int_from_json(SETTINGS_FILE, "down_key");
     set->key_up = int_from_json(SETTINGS_FILE, "up_key");
     set->key_left = int_from_json(SETTINGS_FILE, "left_key");

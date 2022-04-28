@@ -54,7 +54,7 @@ static game_t *init_game(void)
     if (!game)
         return NULL;
     game->settings = init_settings();
-    if (game->settings == NULL)
+    if (!game->settings || check_set(game->settings) == EXIT_FAILURE)
         return NULL;
     game->window = sfRenderWindow_create(mode, "RPG no seed",
                                                         sfFullscreen, NULL);
@@ -72,16 +72,18 @@ static game_t *init_game(void)
 
 int main(int ac, UNUSED char **argv)
 {
+    int exit_code = EXIT_SUCCESS;
+
     if (ac != 1)
-        return 84;
+        return EXIT_ERROR;
     sfEvent event;
     game_t *game = init_game();
 
     if (!game)
         return EXIT_ERROR;
-    rpg(game, &event);
+    exit_code = rpg(game, &event);
     sfRenderWindow_destroy(game->window);
     free_all(game);
     free(game);
-    return EXIT_SUCCESS;
+    return exit_code;
 }
