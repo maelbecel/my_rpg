@@ -12,7 +12,7 @@
 void attack(game_t *game, ...)
 {
     int x = my_random() % game->enemy->damage - game->player->def;
-    if (x > 0)
+    if (x < 0)
         game->enemy->buf_text = conc(game->enemy->name, " missed his attack !");
     else
         game->enemy->buf_text = conc(game->enemy->name, conc(" say :\n", clean_string(game->enemy->text[my_random() % my_strarraylen(game->enemy->text)])));
