@@ -18,7 +18,7 @@ Test(Cinematiques, Intro)
     sfVideoMode mode = {1920, 1080, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "RPG no seed",
                                                     sfFullscreen, NULL);
-    cr_assert_eq(intro(window), EXIT_SUCCESS);
+    cr_assert_eq(intro(window, -4, 249), EXIT_SUCCESS);
 }
 
 Test(Cinematiques, Outro)

@@ -35,6 +35,8 @@ FREE         =		  	free/
 
 BATTLE		 =			battle/
 
+ERROR		 =			error_handling/
+
 SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
@@ -81,7 +83,10 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_npc.c  				\
 						$(SOURCES)$(INIT)init_talk_npc.c  			\
 						$(SOURCES)$(INIT)init_battle.c  			\
+						$(SOURCES)$(INIT)init_button.c  			\
+						$(SOURCES)$(INIT)init_element.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
+						$(SOURCES)$(DISP)display_fps.c   			\
 						$(SOURCES)$(DISP)display_battle.c   		\
 						$(SOURCES)$(DISP)draw_text_red.c			\
 						$(SOURCES)$(DISP)draw_dialogue_box.c   		\
@@ -102,6 +107,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\
 						$(SOURCES)$(DISP)display_talk_npc.c			\
+						$(SOURCES)$(DISP)draw_text_white.c			\
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(PARS)type_json.c   				\
@@ -128,8 +134,10 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(NPC)move_npc.c					\
 						$(SOURCES)$(NPC)npc.c						\
 						$(SOURCES)$(NPC)trade.c						\
-						$(SOURCES)$(BATTLE)check_enemy.c						\
-						$(SOURCES)$(BATTLE)random.c						\
+						$(SOURCES)$(BATTLE)check_enemy.c			\
+						$(SOURCES)$(BATTLE)random.c					\
+						$(SOURCES)$(ERROR)check_set.c					\
+						$(SOURCES)$(ERROR)my_put_error.c					\
 
 TESTS        =         tests/test.c
 
