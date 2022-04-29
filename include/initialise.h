@@ -315,7 +315,7 @@
     /// \param window  Window to display loading bar
     ///
     ////////////////////////////////////////////////////////////
-    void init_htp(scene_t *scenes, sfRenderWindow *window);
+    int init_htp(scene_t *scenes, sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
     /// \brief Initialize settings menus
@@ -324,7 +324,7 @@
     /// \param window  Window to display loading bar
     ///
     ////////////////////////////////////////////////////////////
-    void init_settings_menu(scene_t *scenes, sfRenderWindow *window);
+    int init_settings_menu(scene_t *scenes, sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
     /// \brief Initialize player menus
@@ -333,7 +333,7 @@
     /// \param window  Window to display loading bar
     ///
     ////////////////////////////////////////////////////////////
-    void init_menu_player(scene_t *scenes, sfRenderWindow *window);
+    int init_menu_player(scene_t *scenes, sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
     /// \brief Initialize new game
@@ -342,7 +342,7 @@
     /// \param window  Window to display loading bar
     ///
     ////////////////////////////////////////////////////////////
-    void init_new_game(scene_t *scenes, sfRenderWindow *window);
+    int init_new_game(scene_t *scenes, sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
     /// \brief Initialize talk npc
@@ -350,7 +350,7 @@
     /// \param scenes  Scenes to initialize
     ///
     ////////////////////////////////////////////////////////////
-    void init_talk_npc(scene_t *scenes);
+    int init_talk_npc(scene_t *scenes);
 
     ////////////////////////////////////////////////////////////
     /// \brief Update buttons for stat tab
@@ -414,7 +414,7 @@
     /// \param scenes scene_t struct containing the scene
     ///
     ////////////////////////////////////////////////////////////
-    void init_battle(scene_t *scenes);
+    int init_battle(scene_t *scenes);
 
     ////////////////////////////////////////////////////////////
     /// \brief Get buttons for the inventory

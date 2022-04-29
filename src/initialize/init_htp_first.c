@@ -23,6 +23,8 @@ element_t **htp_first_elements(void)
     elements[0] = init_element(BACKGROUND, (sfVector2f){0, 0},
                         (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
     elements[1] = NULL;
+    if (!elements[0])
+        return NULL;
     return elements;
 }
 
@@ -48,7 +50,7 @@ button_t **htp_first_buttons(void)
     return buttons;
 }
 
-void init_htp(scene_t *scenes, sfRenderWindow *window)
+int init_htp(scene_t *scenes, sfRenderWindow *window)
 {
     scenes[HTP_1].buttons = htp_first_buttons();
     loading(17, window);
@@ -62,4 +64,5 @@ void init_htp(scene_t *scenes, sfRenderWindow *window)
     loading(21, window);
     scenes[HTP_3].elements = htp_third_elements();
     loading(22, window);
+    return EXIT_SUCCESS;
 }
