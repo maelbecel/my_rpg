@@ -45,7 +45,6 @@ void weather(game_t *game, weather_t *weather)
 {
     weather->time = sfClock_getElapsedTime(weather->clock);
     weather->seconds = weather->time.microseconds / 1000000.0;
-    printf("%f\n", weather->seconds);
     if (weather->seconds > 0.03) {
         weather->timer++;
         sfClock_restart(weather->clock);

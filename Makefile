@@ -107,11 +107,8 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\
 						$(SOURCES)$(DISP)display_talk_npc.c			\
-<<<<<<< HEAD
 						$(SOURCES)$(DISP)display_weather.c			\
-=======
 						$(SOURCES)$(DISP)draw_text_white.c			\
->>>>>>> d9583dd1d6dfdb85e039dd392bfd47062ae7f736
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(PARS)type_json.c   				\
