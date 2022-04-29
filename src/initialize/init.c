@@ -15,12 +15,16 @@ type_button_t *init_button_type(char *text, char *texture, sfVector2i size)
 
     if (!type)
         return NULL;
-    type->texture = sfTexture_createFromFile(texture, NULL);
-    type->sprite = sfSprite_create();
+    if (!(type->texture = sfTexture_createFromFile(texture, NULL)))
+        return NULL;
+    if (!(type->sprite = sfSprite_create()))
+        return NULL;
     type->scale = (sfVector2f) {1, 1};
     type->rect = (sfIntRect){0, 0, size.x, size.y};
-    type->text = sfText_create();
-    type->font = sfFont_createFromFile(BASIC_FONT);
+    if (!(type->text = sfText_create()))
+        return NULL;
+    if (!(type->font = sfFont_createFromFile(BASIC_FONT)))
+        return NULL;
     type->text_size = BASIC_TEXT_SIZE;
     type->text_pos = (sfVector2f){(size.x - my_strlen(text) *
             (BASIC_TEXT_SIZE / 4 )), (size.y - BASIC_TEXT_SIZE +
@@ -38,9 +42,12 @@ button_t *init_button(char *text, char *texture,
 
     if (!button)
         return NULL;
-    button->base = init_button_type(text, texture, size);
-    button->hoover = init_button_type(text, texture, size);
-    button->clicked = init_button_type(text, texture, size);
+    if (!(button->base = init_button_type(text, texture, size)))
+        return NULL;
+    if (!(button->hoover = init_button_type(text, texture, size)))
+        return NULL;
+    if (!(button->clicked = init_button_type(text, texture, size)))
+        return NULL;
     button->pos.x = pos.x;
     button->pos.y = pos.y;
     button->action_clicked = clicked;
@@ -55,8 +62,10 @@ element_t *init_element(char *texture, sfVector2f pos,
 
     if (!type)
         return NULL;
-    type->texture = sfTexture_createFromFile(texture, NULL);
-    type->sprite = sfSprite_create();
+    if (!(type->texture = sfTexture_createFromFile(texture, NULL)))
+        return NULL;
+    if (!(type->sprite = sfSprite_create()))
+        return NULL;
     type->scale = scale;
     type->rect = (sfIntRect){0, 0, size.x, size.y};
     type->pos = pos;
@@ -73,9 +82,11 @@ scene_t *init_scenes(sfRenderWindow *window)
     if (!scenes)
         return NULL;
     scenes->page = 0;
-    scenes[MAIN_MENU].buttons = main_menu_buttons();
+    if (!(scenes[MAIN_MENU].buttons = main_menu_buttons()))
+        return NULL;
     loading(0, window);
-    scenes[MAIN_MENU].elements = main_menu_elements();
+    if (!(scenes[MAIN_MENU].elements = main_menu_elements()))
+        return NULL;
     loading(1, window);
     scenes[GAME].buttons = game_buttons();
     loading(2, window);
@@ -108,8 +119,7 @@ settings_t *init_settings(void)
     set->key_menu = int_from_json(SETTINGS_FILE, "menu_key");
     set->key_action = int_from_json(SETTINGS_FILE, "action_key");
     set->key_skip = int_from_json(SETTINGS_FILE, "skip_key");
-    set->music_volume = int_from_json(SETTINGS_FILE,
-                                                            "music_sound");
+    set->music_volume = int_from_json(SETTINGS_FILE, "music_sound");
     set->fx_volume = int_from_json(SETTINGS_FILE, "fx_sound");
     return set;
 }

@@ -30,6 +30,23 @@ static int rpg(game_t *game, sfEvent *event)
     return EXIT_SUCCESS;
 }
 
+static int do_intro(game_t *game)
+{
+    if (intro(game->window, -4, 249) == EXIT_FAILURE) {
+        free(game);
+        return EXIT_FAILURE;
+    }
+    sfRenderWindow_setFramerateLimit(game->window, 0);
+    if (!(game->scenes= init_scenes(game->window)))
+        return EXIT_FAILURE;
+    game->scenes[GAME].npc = game_npc();
+    sfRenderWindow_setFramerateLimit(game->window,
+                        int_from_json(CONFIG_FILE, "framerate"));
+    game->player = init_player("chevalier");
+    game->hitbox = sfImage_createFromFile(HITBOX);
+    return EXIT_SUCCESS;
+}
+
 static game_t *init_game(void)
 {
     sfVideoMode mode = {1920, 1080, 32};
@@ -49,17 +66,8 @@ static game_t *init_game(void)
         return NULL;
     }
     sfRenderWindow_setFramerateLimit(game->window, 31);
-    if (intro(game->window, -4, 249) == EXIT_FAILURE) {
-        free(game);
+    if (do_intro(game) == EXIT_FAILURE)
         return NULL;
-    }
-    sfRenderWindow_setFramerateLimit(game->window, 0);
-    game->scenes = init_scenes(game->window);
-    game->scenes[GAME].npc = game_npc();
-    sfRenderWindow_setFramerateLimit(game->window,
-                        int_from_json(CONFIG_FILE, "framerate"));
-    game->player = init_player("chevalier");
-    game->hitbox = sfImage_createFromFile(HITBOX);
     return game;
 }
 

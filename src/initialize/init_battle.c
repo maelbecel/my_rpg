@@ -54,7 +54,7 @@ element_t **battle_elements(void)
 
     elements[0] = init_element(BATTLE_BG, (sfVector2f){0, 0},
                         (sfVector2f){1050, 540}, (sfVector2f){2, 2});
-    elements[1]= init_element("assets/ui/button1.png",
+    elements[1]= init_element(BUTTON,
         (sfVector2f){30, 780}, (sfVector2f){792, 206}, (sfVector2f){1.8, 1.3});
     elements[2] = NULL;
     elements[3] = NULL;

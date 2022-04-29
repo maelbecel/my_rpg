@@ -13,7 +13,7 @@ void draw_dialogue_box(sfRenderWindow *window, char *str, sfFont *font)
 {
     sfText *text_pop = sfText_create();
     sfVector2f pos = {140, 820};
-    element_t *pop = init_element("assets/ui/button1.png",
+    element_t *pop = init_element(BUTTON,
         (sfVector2f){50, 750}, (sfVector2f){792, 206}, (sfVector2f){2.3, 1.5});
 
     sfText_setString(text_pop, str);
