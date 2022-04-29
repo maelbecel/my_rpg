@@ -72,6 +72,8 @@
     /// \param window  sfRenderWindow object where element should be display
     /// \param element Element object who will be draw on the window
     ///
+    /// \return 1 if failed when loading element, 0 otherwise
+    ///
     ////////////////////////////////////////////////////////////
     void draw_element(sfRenderWindow *window, element_t *element);
 
@@ -96,7 +98,7 @@
     /// \param window  sfRenderWindow object where text should be display
     ///
     ////////////////////////////////////////////////////////////
-    void draw_text_white(char *text, int size, sfVector2f pos,
+    int draw_text_white(char *text, int size, sfVector2f pos,
                                                     sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////

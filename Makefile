@@ -104,6 +104,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\
 						$(SOURCES)$(DISP)display_talk_npc.c			\
+						$(SOURCES)$(DISP)draw_text_white.c			\
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(PARS)type_json.c   				\
@@ -133,6 +134,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(BATTLE)check_enemy.c			\
 						$(SOURCES)$(BATTLE)random.c					\
 						$(SOURCES)$(ERROR)check_set.c					\
+						$(SOURCES)$(ERROR)my_put_error.c					\
 
 TESTS        =         tests/test.c
 

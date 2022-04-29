@@ -38,12 +38,21 @@ static game_t *init_game(void)
     if (!game)
         return NULL;
     game->settings = init_settings();
-    if (!game->settings || check_set(game->settings) == EXIT_FAILURE)
+    if (!game->settings || check_set(game->settings) == EXIT_FAILURE) {
+        free(game);
         return NULL;
+    }
     game->window = sfRenderWindow_create(mode, "RPG no seed",
                                                         sfFullscreen, NULL);
+    if (!game->window) {
+        free(game);
+        return NULL;
+    }
     sfRenderWindow_setFramerateLimit(game->window, 31);
-    intro(game->window);
+    if (intro(game->window, -4, 249) == EXIT_FAILURE) {
+        free(game);
+        return NULL;
+    }
     sfRenderWindow_setFramerateLimit(game->window, 0);
     game->scenes = init_scenes(game->window);
     game->scenes[GAME].npc = game_npc();
@@ -57,12 +66,11 @@ static game_t *init_game(void)
 int main(int ac, UNUSED char **argv)
 {
     int exit_code = EXIT_SUCCESS;
-
-    if (ac != 1)
-        return EXIT_ERROR;
     sfEvent event;
     game_t *game = init_game();
 
+    if (ac != 1)
+        return EXIT_ERROR;
     if (!game)
         return EXIT_ERROR;
     exit_code = rpg(game, &event);
