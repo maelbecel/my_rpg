@@ -67,6 +67,7 @@ static game_t *init_game(void)
                         int_from_json(CONFIG_FILE, "framerate"));
     game->player = init_player("chevalier");
     game->hitbox = sfImage_createFromFile(HITBOX);
+    game->is_inv = false;
     return game;
 }
 

@@ -60,3 +60,21 @@ int is_click_inventory(game_t *game, int i)
         return EXIT_SUCCESS;
     return EXIT_FAILURE;
 }
+
+void menu_inventory(game_t *game, ...)
+{
+    va_list arg;
+    va_start(arg, game);
+    sfVector2f pos = va_arg(arg, sfVector2f);
+    pos.y += 150;
+    if (game->is_inv)
+        game->is_inv = false;
+    else {
+        game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[0]->pos = pos;
+        game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[0]->pos.x -= 225;
+        game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[1]->pos = pos;
+        game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[1]->pos.x += 125;
+        game->is_inv = true;
+    }
+    va_end(arg);
+}

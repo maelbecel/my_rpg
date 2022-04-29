@@ -28,7 +28,7 @@ inventory_t **init_inventory(void)
         inventory[i]->button->base->scale = (sfVector2f){0.25, 0.8};
         inventory[i]->button->hoover->scale = (sfVector2f){0.25, 0.8};
         inventory[i]->button->clicked->scale = (sfVector2f){0.25, 0.8};
-        inventory[i]->button->action_clicked = clicked_inventory;
+        inventory[i]->button->action_clicked = menu_inventory;
         inventory[i]->button->action_hoover = hoover_inventory;
     }
     return inventory;
@@ -42,6 +42,12 @@ button_t **button_inventory(void)
                             (sfVector2i){792, 206});
     buttons[1] = init_button("", BUTTON, (sfVector2f){0, 0},
                             (sfVector2i){792, 206});
+    for (int i = 0; i < 2; i++) {
+        buttons[i]->action_hoover = hoover_menu;
+        buttons[i]->base->scale = (sfVector2f){0.4, 0.6};
+        buttons[i]->hoover->scale = (sfVector2f){0.4, 0.6};
+        buttons[i]->clicked->scale = (sfVector2f){0.4, 0.6};
+    }
     buttons[2] = NULL;
     return buttons;
 }

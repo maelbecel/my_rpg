@@ -332,6 +332,7 @@
         player_t *player;
         sfImage *hitbox;
         enemy_t *enemy;
+        bool is_inv;
     };
 
     ////////////////////////////////////////////////////////////

@@ -652,4 +652,13 @@
     ////////////////////////////////////////////////////////////
     void hoover_inventory(game_t *game, ...);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Display menu if click on inventory item
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void menu_inventory(game_t *game, ...);
+
 #endif
