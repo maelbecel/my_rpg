@@ -1,5 +1,6 @@
 {
     "pos": [1370, 1500],
+    "map": 1,
     "merchant": 1,
     "quest": 0,
     "want": [["apple",2], ["carrot",3], ["eye2",1]],
