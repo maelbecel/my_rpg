@@ -40,8 +40,10 @@ button_t **button_inventory(void)
 
     buttons[0] = init_button("Use", BUTTON, (sfVector2f){0, 0},
                             (sfVector2i){792, 206});
+    buttons[0]->action_clicked = do_none;
     buttons[1] = init_button("Delete", BUTTON, (sfVector2f){0, 0},
                             (sfVector2i){792, 206});
+    buttons[1]->action_clicked = delete_item;
     for (int i = 0; i < 2; i++) {
         buttons[i]->action_hoover = hoover_menu;
         buttons[i]->base->scale = (sfVector2f){0.4, 0.6};

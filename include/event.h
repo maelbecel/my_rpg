@@ -661,4 +661,22 @@
     ////////////////////////////////////////////////////////////
     void menu_inventory(game_t *game, ...);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Find item with button tab menu player
+    ///
+    /// \param game     game_t object who contain all game info
+    /// \param button   button_t object;
+    ///
+    ////////////////////////////////////////////////////////////
+    inventory_t *find_item(game_t *game, button_t *button);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Delete the item
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void delete_item(game_t *game, ...);
+
 #endif

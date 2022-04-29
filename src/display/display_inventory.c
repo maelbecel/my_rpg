@@ -52,12 +52,16 @@ void display_button_inventory(game_t *game, sfEvent *event)
 
 void display_tab_inventory(game_t *game, sfEvent *event)
 {
+    inventory_t *tmp = find_item(game,
+                        game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[0]);
+    if (!tmp)
+        return;
     for (int i = 0; i < 2; i++) {
         if (event->type == sfEvtMouseButtonPressed &&
             is_click_menu(game, i, MENU_PLAYER, INVENTORY)) {
             draw_clicked(game->window, game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]);
             game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]->\
-                action_clicked(game);
+                action_clicked(game, tmp->type);
         } else if (is_hoover_menu(game, i, MENU_PLAYER, INVENTORY))
             draw_hoover(game->window, game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]);
         else
