@@ -54,3 +54,32 @@ void init_new_game(scene_t *scenes, sfRenderWindow *window)
     scenes[CHOOSING].elements = choosing_elements();
     loading(26, window);
 }
+
+scene_t *init_scenes(sfRenderWindow *window)
+{
+    scene_t *scenes = malloc(sizeof(scene_t) * 15);
+
+    if (!scenes)
+        return NULL;
+    scenes->page = 0;
+    if (!(scenes[MAIN_MENU].buttons = main_menu_buttons()))
+        return NULL;
+    loading(0, window);
+    if (!(scenes[MAIN_MENU].elements = main_menu_elements()))
+        return NULL;
+    loading(1, window);
+    if (!(scenes[GAME].buttons = game_buttons()))
+        return NULL;
+    loading(2, window);
+    if (!(scenes[GAME].elements = game_elements()))
+        return NULL;
+    loading(3, window);
+    init_menu_player(scenes, window);
+    init_settings_menu(scenes, window);
+    init_htp(scenes, window);
+    init_new_game(scenes, window);
+    init_talk_npc(scenes);
+    set_tab(scenes);
+    init_battle(scenes);
+    return scenes;
+}
