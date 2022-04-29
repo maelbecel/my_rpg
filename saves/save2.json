@@ -1,16 +1,26 @@
 {
     "new": 0,
+<<<<<<< HEAD
     "class": "chevalier",
     "health": 120,
     "strength": 4,
     "speed": 8,
     "xp": 0,
     "defense": 10,
+=======
+    "class": "mage",
+    "health": 100,
+    "strength": 10,
+    "speed": 5,
+    "xp": 0,
+    "defense": 7,
+>>>>>>> cdb318a3228a68e331f2da346ed03465eb0da4e8
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
     "quests": [0],
     "end_quests": [0],
+<<<<<<< HEAD
     "inventory": ["sword"]
 }
 "banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","beef","beef","apple","apple","apple","apple","apple","apple","apple","apple","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana"]
@@ -19,3 +29,7 @@
 }
 }
 
+=======
+    "inventory": ["baguette"]
+}
+>>>>>>> cdb318a3228a68e331f2da346ed03465eb0da4e8
