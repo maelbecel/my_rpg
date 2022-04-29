@@ -34,7 +34,7 @@ npc_t *find_npc(game_t *game)
         npcpos = npc[i]->elem->pos;
         dist = sqrt(((npcpos.x - playerpos.x) * (npcpos.x - playerpos.x)) +
                     ((npcpos.y - playerpos.y) * (npcpos.y - playerpos.y)));
-        if (dist < 100) {
+        if (dist < 100 && npc[i]->map == game->player->map) {
             move_npc(game, npcpos, playerpos, i);
             return npc[i];
         } else
@@ -62,7 +62,8 @@ void draw_npc(game_t *game, npc_t *npc)
 void display_npc(game_t *game)
 {
     for (int i = 0; game->scenes[GAME].npc[i] != NULL; i++) {
-        draw_npc(game, game->scenes[GAME].npc[i]);
+        if (game->scenes[GAME].npc[i]->map == game->player->map)
+            draw_npc(game, game->scenes[GAME].npc[i]);
     }
     draw_element(game->window, game->scenes[GAME].elements[6]);
     draw_element(game->window, game->scenes[GAME].elements[2]);
