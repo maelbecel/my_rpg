@@ -28,6 +28,16 @@ element_t **htp_first_elements(void)
     return elements;
 }
 
+void init_htp_buttons(button_t **buttons)
+{
+    buttons[0]->base->scale = (sfVector2f){0.4, 1};
+    buttons[0]->clicked->scale = (sfVector2f){0.4, 1};
+    buttons[0]->hoover->scale = (sfVector2f){0.4, 1};
+    buttons[1]->base->scale = (sfVector2f){0.4, 1};
+    buttons[1]->clicked->scale = (sfVector2f){0.4, 1};
+    buttons[1]->hoover->scale = (sfVector2f){0.4, 1};
+}
+
 button_t **htp_first_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 3);
@@ -36,33 +46,38 @@ button_t **htp_first_buttons(void)
         return NULL;
     buttons[0] = init_button("<-             ", BUTTON,
                         (sfVector2f){50, 50}, (sfVector2i){300, 100});
+    if (!buttons[0])
+        return NULL;
     buttons[0]->action_clicked = main_menu;
     buttons[1] = init_button("->             ", BUTTON,
                         (sfVector2f){50, 250}, (sfVector2i){300, 100});
+    if (!(buttons[1]))
+        return NULL;
     buttons[1]->action_clicked = htp_second;
     buttons[2] = NULL;
-    buttons[0]->base->scale = (sfVector2f){0.4, 1};
-    buttons[0]->clicked->scale = (sfVector2f){0.4, 1};
-    buttons[0]->hoover->scale = (sfVector2f){0.4, 1};
-    buttons[1]->base->scale = (sfVector2f){0.4, 1};
-    buttons[1]->clicked->scale = (sfVector2f){0.4, 1};
-    buttons[1]->hoover->scale = (sfVector2f){0.4, 1};
+    init_htp_buttons(buttons);
     return buttons;
 }
 
 int init_htp(scene_t *scenes, sfRenderWindow *window)
 {
-    scenes[HTP_1].buttons = htp_first_buttons();
+    if (!(scenes[HTP_1].buttons = htp_first_buttons()))
+        return EXIT_FAILURE;
     loading(17, window);
-    scenes[HTP_1].elements = htp_first_elements();
+    if (!(scenes[HTP_1].elements = htp_first_elements()))
+        return EXIT_FAILURE;
     loading(18, window);
-    scenes[HTP_2].buttons = htp_second_buttons();
+    if (!(scenes[HTP_2].buttons = htp_second_buttons()))
+        return EXIT_FAILURE;
     loading(19, window);
-    scenes[HTP_2].elements = htp_second_elements();
+    if (!(scenes[HTP_2].elements = htp_second_elements()))
+        return EXIT_FAILURE;
     loading(20, window);
-    scenes[HTP_3].buttons = htp_third_buttons();
+    if (!(scenes[HTP_3].buttons = htp_third_buttons()))
+        return EXIT_FAILURE;
     loading(21, window);
-    scenes[HTP_3].elements = htp_third_elements();
+    if (!(scenes[HTP_3].elements = htp_third_elements()))
+        return EXIT_FAILURE;
     loading(22, window);
     return EXIT_SUCCESS;
 }
