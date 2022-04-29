@@ -11,6 +11,9 @@
 
 void update_hitbox(game_t *game)
 {
+    if (game->scenes[GAME].elements[6] == NULL ||
+        game->scenes[GAME].elements[5] == NULL)
+        return;
     game->scenes[GAME].elements[5]->rect =
                                     game->scenes[GAME].elements[0]->rect;
     game->scenes[GAME].elements[6]->rect =

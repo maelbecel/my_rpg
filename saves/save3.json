@@ -1,26 +1,26 @@
 {
     "new": 0,
-    "class": "mage",
-    "health": 100,
-    "strength": 19,
-    "xp": 8074,
-    "speed": 5,
-    "defense": 25,
+    "class": "chevalier",
+    "health": 120,
+    "strength": 4,
+    "xp": 0,
+    "speed": 8,
+    "defense": 10,
     "point_stat": 0,
-    "posx": 616,
-    "posy": 1512,
+    "posx": 800,
+    "map": 0,
+    "posy": 800,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["baguette","beef","beef","beef","beef","beef","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana"]
-
+    "inventory": ["sword"]
 }
-ana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana"]
+eef","beef","beef","beef","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana"]
 }
-a"]
-}
-
 
 }
 
 }
+
+}
+
 

@@ -1,15 +1,16 @@
 {
     "new": 0,
     "class": "mage",
-    "health": 100,
-    "strength": 10,
+    "health": 110,
+    "strength": 18,
     "speed": 5,
-    "xp": 0,
-    "defense": 7,
+    "xp": 6239,
+    "defense": 16,
     "point_stat": 0,
-    "posx": 800,
-    "posy": 800,
-    "quests": [3],
+    "posx": 696,
+    "posy": 1320,
+    "map": 0,
+    "quests": [3, 8, 5],
     "end_quests": [0],
-    "inventory": ["baguette"]
+    "inventory": ["baguette","potion","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","eye2","blob","blob","blob","blob","apple","apple"]
 }

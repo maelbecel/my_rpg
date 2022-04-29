@@ -2,7 +2,7 @@
     "image": "assets/monsters/spider.png",
     "name": "Spider",
     "exp": 367,
-    "damage": 14,
+    "damage": 10,
     "life": 60,
     "text": ["tsssss","hagrah"],
     "loot": ["eye2","ruby","ruby"]
