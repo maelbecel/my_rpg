@@ -1,9 +1,0 @@
-{
-    "image": "assets/npc/karim.png",
-    "name": "Mamadou",
-    "exp": 367,
-    "damage": 10,
-    "life": 100,
-    "text": ["OUGA","WAKANDA","BANANA"],
-    "loot": ["banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana"]
-}

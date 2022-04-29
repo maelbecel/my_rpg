@@ -1,0 +1,9 @@
+{
+    "image": "assets/monsters/slime.png",
+    "name": "Slime",
+    "exp": 367,
+    "damage": 10,
+    "life": 100,
+    "text": ["blob","pas cool mec"],
+    "loot": ["blob","blob","apple"]
+}
