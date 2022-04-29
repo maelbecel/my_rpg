@@ -336,7 +336,11 @@
         size_t i;
         size_t y;
         size_t count;
-        int oui;
+        sfClock *clock;
+        sfTime time;
+        float seconds;
+        size_t rand_weather;
+        size_t timer;
     };
 
     ////////////////////////////////////////////////////////////

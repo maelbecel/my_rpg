@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
     "framerate": 200,
-=======
-    "framerate": 200,
->>>>>>> 88824284d35b46f85f01659703fe63fc1564531f
     "show_fps": 1,
     "autosave": 0,
     "enemy_list": ["enemy","mechant"]
