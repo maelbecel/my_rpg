@@ -7,14 +7,15 @@
     "speed": 8,
     "defense": 10,
     "point_stat": 0,
-    "posx": 800,
-    "map": 0,
-    "posy": 800,
+    "posx": 896,
+    "map": 1,
+    "posy": 580,
     "quests": [0],
     "end_quests": [0],
     "inventory": ["sword"]
+
 }
-eef","beef","beef","beef","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana"]
+ef","beef","beef","beef","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana"]
 }
 
 }
