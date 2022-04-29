@@ -22,6 +22,7 @@ static int *add_quest(int *quest, int nb, int quest_give)
 {
     int *new_quest = malloc(sizeof(int) * (nb + 1));
 
+    printf("add quest %d\n", quest_give);
     for (int i = 0; i < nb; i++)
         new_quest[i] = quest[i];
     new_quest[nb] = quest_give;

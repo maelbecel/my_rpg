@@ -612,4 +612,44 @@
     ////////////////////////////////////////////////////////////
     void update_hitbox(game_t *game);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Check if a button is hoover
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param i  number of the case inventory
+    ///
+    /// \return 1 if button is hoovered, 0 if not
+    ///
+    ////////////////////////////////////////////////////////////
+    int is_hoover_inventory(game_t *game, int i);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Check if a button is clicked
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param i  number of the case inventory
+    ///
+    /// \return 1 if button is clicked, 0 if not
+    ///
+    ////////////////////////////////////////////////////////////
+    int is_click_inventory(game_t *game, int i);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display clicked
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void clicked_inventory(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display hoover
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void hoover_inventory(game_t *game, ...);
+
 #endif

@@ -28,6 +28,8 @@ element_t **settings_elements(void)
     elements[0] = init_element(BACKGROUND, (sfVector2f){0, 0},
                         (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
     elements[1] = NULL;
+    if (!elements[0])
+        return NULL;
     return elements;
 }
 

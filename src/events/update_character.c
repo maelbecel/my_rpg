@@ -21,7 +21,7 @@ const void *CLASS[6][2] = {
 void add_hp(game_t *game, ...)
 {
     if (game->player->pt_stat > 0) {
-        game->player->hp += 10;
+        game->player->total_hp += 10;
         game->player->pt_stat -= 1;
     }
 }
@@ -55,7 +55,8 @@ void reset(game_t *game, ...)
     char *file = conc("saves/save", conc(game->player->save, ".json"));
     char *class = clean_string(parser(file, "class"));
 
-    game->player->hp = int_from_json(file, "health");
+    game->player->total_hp = int_from_json(file, "health");
+    game->player->hp = game->player->total_hp;
     game->player->strg = int_from_json(file, "strength");
     game->player->spd = int_from_json(file, "speed");
     game->player->def = int_from_json(file, "defense");

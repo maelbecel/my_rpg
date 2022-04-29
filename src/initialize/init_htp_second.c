@@ -32,10 +32,10 @@ button_t **htp_second_buttons(void)
 
     if (!buttons)
         return NULL;
-    buttons[0] = init_button("<-             ", "assets/ui/button1.png",
+    buttons[0] = init_button("<-             ", BUTTON,
                         (sfVector2f){50, 50}, (sfVector2i){300, 100});
     buttons[0]->action_clicked = htp_first;
-    buttons[1] = init_button("->             ", "assets/ui/button1.png",
+    buttons[1] = init_button("->             ", BUTTON,
                         (sfVector2f){50, 250}, (sfVector2i){300, 100});
     buttons[1]->action_clicked = htp_third;
     buttons[2] = NULL;

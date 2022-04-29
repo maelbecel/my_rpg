@@ -35,6 +35,8 @@ FREE         =		  	free/
 
 BATTLE		 =			battle/
 
+ERROR		 =			error_handling/
+
 SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(EVT)handle_click.c   			\
@@ -56,6 +58,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)move.c		  				\
 						$(SOURCES)$(EVT)menu_event.c  			    \
 						$(SOURCES)$(EVT)inventory.c  			    \
+						$(SOURCES)$(EVT)click_inventory.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)set_player.c				\
 						$(SOURCES)$(INIT)create_enemy.c				\
@@ -81,7 +84,10 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_npc.c  				\
 						$(SOURCES)$(INIT)init_talk_npc.c  			\
 						$(SOURCES)$(INIT)init_battle.c  			\
+						$(SOURCES)$(INIT)init_button.c  			\
+						$(SOURCES)$(INIT)init_element.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
+						$(SOURCES)$(DISP)display_fps.c   			\
 						$(SOURCES)$(DISP)display_battle.c   		\
 						$(SOURCES)$(DISP)draw_text_red.c			\
 						$(SOURCES)$(DISP)draw_dialogue_box.c   		\
@@ -91,6 +97,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)draw_xp_bar.c 				\
 						$(SOURCES)$(DISP)set_good.c   				\
 						$(SOURCES)$(DISP)get_quest.c   				\
+						$(SOURCES)$(DISP)draw_life.c   				\
 						$(SOURCES)$(DISP)display_stat.c				\
 						$(SOURCES)$(DISP)display_load.c				\
 						$(SOURCES)$(DISP)set_settings.c				\
@@ -100,7 +107,11 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\
 						$(SOURCES)$(DISP)display_talk_npc.c			\
+<<<<<<< HEAD
 						$(SOURCES)$(DISP)display_weather.c			\
+=======
+						$(SOURCES)$(DISP)draw_text_white.c			\
+>>>>>>> d9583dd1d6dfdb85e039dd392bfd47062ae7f736
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(PARS)type_json.c   				\
@@ -127,8 +138,10 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(NPC)move_npc.c					\
 						$(SOURCES)$(NPC)npc.c						\
 						$(SOURCES)$(NPC)trade.c						\
-						$(SOURCES)$(BATTLE)check_enemy.c						\
-						$(SOURCES)$(BATTLE)random.c						\
+						$(SOURCES)$(BATTLE)check_enemy.c			\
+						$(SOURCES)$(BATTLE)random.c					\
+						$(SOURCES)$(ERROR)check_set.c					\
+						$(SOURCES)$(ERROR)my_put_error.c					\
 
 TESTS        =         tests/test.c
 

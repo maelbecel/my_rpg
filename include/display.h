@@ -72,6 +72,8 @@
     /// \param window  sfRenderWindow object where element should be display
     /// \param element Element object who will be draw on the window
     ///
+    /// \return 1 if failed when loading element, 0 otherwise
+    ///
     ////////////////////////////////////////////////////////////
     void draw_element(sfRenderWindow *window, element_t *element);
 
@@ -96,7 +98,7 @@
     /// \param window  sfRenderWindow object where text should be display
     ///
     ////////////////////////////////////////////////////////////
-    void draw_text_white(char *text, int size, sfVector2f pos,
+    int draw_text_white(char *text, int size, sfVector2f pos,
                                                     sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
@@ -490,5 +492,25 @@
     ///
     ////////////////////////////////////////////////////////////
     void display_battle(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw a life bar
+    ///
+    /// \param at      actual life
+    /// \param on      max life
+    /// \param game    game_t object who contain all game info
+    /// \param pos     position of the bar
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_life(int at, int on, game_t *game, sfVector2f pos);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display frames per second or not
+    ///
+    /// \param frame   the value of frame in real time
+    /// \param game    game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    void draw_fps(sfTime frame, game_t *game);
 
 #endif

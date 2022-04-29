@@ -1,6 +1,6 @@
 {
     "new": 0,
-    "class": "cooker",
+    "class": "mage",
     "health": 100,
     "strength": 10,
     "speed": 5,
@@ -11,7 +11,5 @@
     "posy": 800,
     "quests": [3],
     "end_quests": [0],
-    "inventory": ["rouleau"]
+    "inventory": ["baguette"]
 }
-
-

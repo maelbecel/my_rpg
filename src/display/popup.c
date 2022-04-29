@@ -19,6 +19,7 @@ void popup(sfFont *font, char *str)
                                                         sfClose, NULL);
     sfRenderWindow_setPosition(pop, (sfVector2i){660 , 440});
     sfEvent event;
+
     while (sfRenderWindow_isOpen(pop)) {
         while (sfRenderWindow_pollEvent(pop, &event));
         if (event.type == sfEvtClosed )
@@ -28,5 +29,6 @@ void popup(sfFont *font, char *str)
         draw_text(str, font, (sfVector3f){20, 50, 30}, pop);
         sfRenderWindow_display(pop);
     }
+    free(str);
     sfRenderWindow_destroy(pop);
 }

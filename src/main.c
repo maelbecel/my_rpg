@@ -9,22 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-static int get_fps(sfTime frame)
-{
-    float second = (float)frame.microseconds / (float)MICRO;
-    return (int)(1 / second) + 1;
-}
-
-void draw_fps(sfTime frame, game_t *game)
-{
-    char *show;
-
-    if ((show = parser(CONFIG_FILE, "show_fps")) != NULL &&
-                                                        my_getnbr(show) == 1)
-        draw_text_white(conc("FPS :", inttochar(get_fps(frame))), 40,
-                                        (sfVector2f){50, 50}, game->window);
-}
-
 static int rpg(game_t *game, sfEvent *event)
 {
     sfClock *fps = sfClock_create();
@@ -46,6 +30,23 @@ static int rpg(game_t *game, sfEvent *event)
     return EXIT_SUCCESS;
 }
 
+static int do_intro(game_t *game)
+{
+    if (intro(game->window, -4, 249) == EXIT_FAILURE) {
+        free(game);
+        return EXIT_FAILURE;
+    }
+    sfRenderWindow_setFramerateLimit(game->window, 0);
+    if (!(game->scenes= init_scenes(game->window)))
+        return EXIT_FAILURE;
+    game->scenes[GAME].npc = game_npc();
+    sfRenderWindow_setFramerateLimit(game->window,
+                        int_from_json(CONFIG_FILE, "framerate"));
+    game->player = init_player("chevalier");
+    game->hitbox = sfImage_createFromFile(HITBOX);
+    return EXIT_SUCCESS;
+}
+
 static game_t *init_game(void)
 {
     sfVideoMode mode = {1920, 1080, 32};
@@ -54,35 +55,36 @@ static game_t *init_game(void)
     if (!game)
         return NULL;
     game->settings = init_settings();
-    if (game->settings == NULL)
+    if (!game->settings || check_set(game->settings) == EXIT_FAILURE) {
+        free(game);
         return NULL;
+    }
     game->window = sfRenderWindow_create(mode, "RPG no seed",
                                                         sfFullscreen, NULL);
+    if (!game->window) {
+        free(game);
+        return NULL;
+    }
     sfRenderWindow_setFramerateLimit(game->window, 31);
-    intro(game->window);
-    sfRenderWindow_setFramerateLimit(game->window, 0);
-    game->scenes = init_scenes(game->window);
-    game->scenes[GAME].npc = game_npc();
-    sfRenderWindow_setFramerateLimit(game->window,
-                        int_from_json(CONFIG_FILE, "framerate"));
-    game->player = init_player("chevalier");
-    game->hitbox = sfImage_createFromFile(HITBOX);
+    if (do_intro(game) == EXIT_FAILURE)
+        return NULL;
     return game;
 }
 
 int main(int ac, UNUSED char **argv)
 {
-    if (ac != 1)
-        return 84;
+    int exit_code = EXIT_SUCCESS;
     sfEvent event;
     game_t *game = init_game();
     game->weather = init_weather();
 
+    if (ac != 1)
+        return EXIT_ERROR;
     if (!game)
         return EXIT_ERROR;
-    rpg(game, &event);
+    exit_code = rpg(game, &event);
     sfRenderWindow_destroy(game->window);
     free_all(game);
     free(game);
-    return EXIT_SUCCESS;
+    return exit_code;
 }

@@ -29,9 +29,23 @@ void display_case_inventory(game_t *game, sfVector2f pos,
                             inventory_t *inventory)
 {
     inventory->button->pos = pos;
-    draw_button(game->window, inventory->button);
+    // draw_button(game->window, inventory->button);
     if (inventory->elem != NULL) {
         draw_item(game, inventory, pos);
+    }
+}
+
+void display_button_inventory(game_t *game, sfEvent *event)
+{
+    for (int i = 0; i < SIZE_INVENTORY; i++) {
+        if (event->type == sfEvtMouseButtonPressed &&
+            is_click_inventory(game, i)) {
+            draw_clicked(game->window, game->player->inventory[i]->button);
+            game->player->inventory[i]->button->action_clicked(game, i);
+        } else if (is_hoover_inventory(game, i))
+            draw_hoover(game->window, game->player->inventory[i]->button);
+        else
+            draw_button(game->window, game->player->inventory[i]->button);
     }
 }
 
@@ -41,6 +55,7 @@ void display_inventory(game_t *game, sfEvent *event)
     for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
     display_button_menu_player(game, event, 3);
+    display_button_inventory(game, event);
     for (int i = 1; i < SIZE_INVENTORY + 1; i++) {
         display_case_inventory(game, pos, game->player->inventory[i - 1]);
         pos.x += 220;

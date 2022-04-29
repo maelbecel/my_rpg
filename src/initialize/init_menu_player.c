@@ -92,5 +92,6 @@ scene_t *menu_player_tab(void)
         return NULL;
     scenes->page = 0;
     scenes[STAT].buttons = init_button_stat();
+    scenes[INVENTORY].buttons = button_inventory();
     return scenes;
 }
