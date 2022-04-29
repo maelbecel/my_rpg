@@ -180,6 +180,7 @@
     #include "initialise.h"
     #include "player.h"
     #include "class.h"
+    #include "error.h"
     #include "npc.h"
 
     ////////////////////////////////////////////////////////////
@@ -531,5 +532,25 @@
     ///
     ////////////////////////////////////////////////////////////
     int check_enemy(game_t *game);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Check if values settings are equal to -1
+    ///
+    /// \param set settings struct with values
+    ///
+    /// \return Return 1 if have a problem, 0 if not
+    ///
+    ////////////////////////////////////////////////////////////
+    int check_set(settings_t *set);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Write a string in the error output
+    ///
+    /// \param str string to write
+    ///
+    /// \return 1
+    ///
+    ////////////////////////////////////////////////////////////
+    int my_put_error(char const *str);
 
 #endif

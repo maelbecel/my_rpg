@@ -1,9 +1,0 @@
-{
-    "image": "assets/npc/pascal.png",
-    "name": "Pascal",
-    "exp": 367,
-    "damage": 10,
-    "life": 100,
-    "text": ["Nique ta mere","HEHEHEHA"],
-    "loot": ["beef","apple","apple","apple","apple"]
-}

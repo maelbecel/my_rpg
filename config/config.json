@@ -1,6 +1,6 @@
 {
-    "framerate": 180,
+    "framerate": 200,
     "show_fps": 1,
     "autosave": 0,
-    "enemy_list": ["enemy","mechant"]
+    "enemy_list": ["slime","spider"]
 }

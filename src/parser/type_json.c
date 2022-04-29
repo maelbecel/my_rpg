@@ -25,9 +25,14 @@ char **str_array_from_json(char *file, char *var)
 
 int int_from_json(char *file, char *var)
 {
-    if (parser(file, var) == NULL)
+    int value = 0;
+    char *parse = NULL;
+
+    parse = parser(file, var);
+    if (parse == NULL)
         return -1;
-    return my_getnbr(parser(file, var));
+    value = my_getnbr(parse);
+    return value;
 }
 
 int *int_array_from_json(char *file, char *var, int *size)

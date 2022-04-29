@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-void init_settings_menu(scene_t *scenes, sfRenderWindow *window)
+int init_settings_menu(scene_t *scenes, sfRenderWindow *window)
 {
     scenes[SETTINGS].buttons = settings_buttons();
     loading(7, window);
@@ -31,26 +31,78 @@ void init_settings_menu(scene_t *scenes, sfRenderWindow *window)
     loading(15, window);
     scenes[FRAME].elements = settings_elements_frame();
     loading(16, window);
+    return EXIT_SUCCESS;
 }
 
-void init_menu_player(scene_t *scenes, sfRenderWindow *window)
+int init_menu_player(scene_t *scenes, sfRenderWindow *window)
 {
-    scenes[MENU_PLAYER].buttons = menu_player_buttons();
+    if (!(scenes[MENU_PLAYER].buttons = menu_player_buttons()))
+        return EXIT_FAILURE;
     loading(4, window);
-    scenes[MENU_PLAYER].elements = menu_player_elements();
+    if (!(scenes[MENU_PLAYER].elements = menu_player_elements()))
+        return EXIT_FAILURE;
     loading(5, window);
-    scenes[MENU_PLAYER].tab = menu_player_tab();
+    if (!(scenes[MENU_PLAYER].tab = menu_player_tab()))
+        return EXIT_FAILURE;
     loading(6, window);
+    return EXIT_SUCCESS;
 }
 
-void init_new_game(scene_t *scenes, sfRenderWindow *window)
+int init_new_game(scene_t *scenes, sfRenderWindow *window)
 {
-    scenes[LOAD].buttons = load_menu_buttons();
+    if (!(scenes[LOAD].buttons = load_menu_buttons()))
+        return EXIT_FAILURE;
     loading(23, window);
-    scenes[LOAD].elements = load_menu_elements();
+    if (!(scenes[LOAD].elements = load_menu_elements()))
+        return EXIT_FAILURE;
     loading(24, window);
-    scenes[CHOOSING].buttons = choosing_buttons();
+    if (!(scenes[CHOOSING].buttons = choosing_buttons()))
+        return EXIT_FAILURE;
     loading(25, window);
-    scenes[CHOOSING].elements = choosing_elements();
+    if (!(scenes[CHOOSING].elements = choosing_elements()))
+        return EXIT_FAILURE;
     loading(26, window);
+    return EXIT_SUCCESS;
+}
+
+int init_other_scenes(sfRenderWindow *window, scene_t *scenes)
+{
+    if (init_menu_player(scenes, window) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (init_settings_menu(scenes, window)== EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (init_htp(scenes, window)== EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (init_new_game(scenes, window)== EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (init_talk_npc(scenes)== EXIT_FAILURE)
+        return EXIT_FAILURE;
+    set_tab(scenes);
+    if (init_battle(scenes)== EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
+}
+
+scene_t *init_scenes(sfRenderWindow *window)
+{
+    scene_t *scenes = malloc(sizeof(scene_t) * 15);
+
+    if (!scenes)
+        return NULL;
+    scenes->page = 0;
+    if (!(scenes[MAIN_MENU].buttons = main_menu_buttons()))
+        return NULL;
+    loading(0, window);
+    if (!(scenes[MAIN_MENU].elements = main_menu_elements()))
+        return NULL;
+    loading(1, window);
+    if (!(scenes[GAME].buttons = game_buttons()))
+        return NULL;
+    loading(2, window);
+    if (!(scenes[GAME].elements = game_elements()))
+        return NULL;
+    loading(3, window);
+    if (init_other_scenes(window, scenes) == EXIT_FAILURE)
+        return NULL;
+    return scenes;
 }
