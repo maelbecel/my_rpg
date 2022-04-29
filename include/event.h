@@ -679,4 +679,15 @@
     ////////////////////////////////////////////////////////////
     void delete_item(game_t *game, ...);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Teleport the player
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param move  next move
+    ///
+    /// \return true if the player was successfully teleported
+    ///  false if the player was not successfully teleported
+    ////////////////////////////////////////////////////////////
+    bool teleportation(game_t *game, sfVector2f move);
+
 #endif

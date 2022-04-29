@@ -45,6 +45,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)give_quest.c   				\
 						$(SOURCES)$(EVT)load.c   					\
 						$(SOURCES)$(EVT)clear.c   					\
+						$(SOURCES)$(EVT)teleportation.c 			\
 						$(SOURCES)$(EVT)change_tab.c   				\
 						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
