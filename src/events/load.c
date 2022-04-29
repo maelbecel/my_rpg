@@ -31,7 +31,7 @@ void new_game(game_t *game, ...)
             (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
     game->hitbox = sfImage_createFromFile("assets/hitboxes/forest_hitbox.png");
     game->scenes[GAME].elements[5] = init_element("assets/forest_roof.png",
-                (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
+            (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
     game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
     sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                         game->scenes[GAME].elements[6]->scale);
@@ -58,10 +58,10 @@ void load_1(game_t *game, ...)
         free_elements(game->scenes[GAME].elements[0]);
         free_elements(game->scenes[GAME].elements[5]);
         game->scenes[GAME].elements[0] = init_element("assets/forest_start.jpg",
-                (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
+            (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
         game->hitbox = sfImage_createFromFile("assets/hitboxes/forest_hitbox.png");
         game->scenes[GAME].elements[5] = init_element("assets/forest_roof.png",
-                (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
+            (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
         game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
         sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                             game->scenes[GAME].elements[6]->scale);
@@ -89,10 +89,10 @@ void load_2(game_t *game, ...)
         free_elements(game->scenes[GAME].elements[0]);
         free_elements(game->scenes[GAME].elements[5]);
         game->scenes[GAME].elements[0] = init_element("assets/forest_start.jpg",
-                (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
+            (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
         game->hitbox = sfImage_createFromFile("assets/hitboxes/forest_hitbox.png");
         game->scenes[GAME].elements[5] = init_element("assets/forest_roof.png",
-                (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
+            (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
         game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
         sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                             game->scenes[GAME].elements[6]->scale);
@@ -119,10 +119,10 @@ void load_3(game_t *game, ...)
         free_elements(game->scenes[GAME].elements[0]);
         free_elements(game->scenes[GAME].elements[5]);
         game->scenes[GAME].elements[0] = init_element("assets/forest_start.jpg",
-                (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
+            (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
         game->hitbox = sfImage_createFromFile("assets/hitboxes/forest_hitbox.png");
         game->scenes[GAME].elements[5] = init_element("assets/forest_roof.png",
-                (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
+            (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
         game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
         sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                             game->scenes[GAME].elements[6]->scale);
