@@ -14,6 +14,8 @@ void delete_item(game_t *game, ...)
     va_list arg;
     va_start(arg, game);
     char *type = va_arg(arg, char *);
+    if (!type)
+        return;
     delete_element(game, type);
 }
 
@@ -21,7 +23,7 @@ inventory_t *find_item(game_t *game, button_t *button)
 {
     sfVector2f pos = {button->pos.x + 225, button->pos.y - 150};
 
-    for (int i = 0; game->player->inventory[i]->type != NULL; i++) {
+    for (int i = 0; i < SIZE_INVENTORY; i++) {
         if (pos.x == game->player->inventory[i]->button->pos.x &&
             pos.y == game->player->inventory[i]->button->pos.y) {
             return game->player->inventory[i];
