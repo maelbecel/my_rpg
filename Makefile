@@ -56,6 +56,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)move.c		  				\
 						$(SOURCES)$(EVT)menu_event.c  			    \
 						$(SOURCES)$(EVT)inventory.c  			    \
+						$(SOURCES)$(EVT)click_inventory.c  			    \
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)set_player.c				\
 						$(SOURCES)$(INIT)create_enemy.c				\
