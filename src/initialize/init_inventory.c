@@ -38,15 +38,21 @@ button_t **button_inventory(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * (2 + 1));
 
-    buttons[0] = init_button("", BUTTON, (sfVector2f){0, 0},
+    buttons[0] = init_button("Use", BUTTON, (sfVector2f){0, 0},
                             (sfVector2i){792, 206});
-    buttons[1] = init_button("", BUTTON, (sfVector2f){0, 0},
+    buttons[1] = init_button("Delete", BUTTON, (sfVector2f){0, 0},
                             (sfVector2i){792, 206});
     for (int i = 0; i < 2; i++) {
         buttons[i]->action_hoover = hoover_menu;
         buttons[i]->base->scale = (sfVector2f){0.4, 0.6};
         buttons[i]->hoover->scale = (sfVector2f){0.4, 0.6};
         buttons[i]->clicked->scale = (sfVector2f){0.4, 0.6};
+        buttons[i]->base->text_pos.x = 50;
+        buttons[i]->base->text_pos.y = 30;
+        buttons[i]->hoover->text_pos.x = 50;
+        buttons[i]->hoover->text_pos.y = 30;
+        buttons[i]->clicked->text_pos.x = 50;
+        buttons[i]->clicked->text_pos.y = 30;
     }
     buttons[2] = NULL;
     return buttons;
