@@ -23,7 +23,7 @@ void tp_village(game_t *game, ...)
                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     game->scenes[GAME].elements[6] = init_element("assets/shop_map.png", (sfVector2f){0, 0},
                             (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
-    game->scenes[GAME].elements[2]->pos = (sfVector2f){800, 500};
+    game->scenes[GAME].elements[2]->pos = (sfVector2f){600, 600};
 }
 
 void tp_forest(game_t *game, ...)
@@ -57,10 +57,10 @@ bool teleportation(game_t *game, sfVector2f move)
     sfColor village = TP_VILLAGE;
 
     if (col.r == forest.r && col.g == forest.g && col.b == forest.b) {
-        tp_forest(game);
+        transition(game, tp_forest);
         return true;
     } else if (col.r == village.r && col.g == village.g && col.b == village.b) {
-        tp_village(game);
+        transition(game, tp_village);
         return true;
     }
     return false;

@@ -120,4 +120,13 @@
     void draw_outro(sfRenderWindow *window, sfSprite *epitech,
                                         sfRectangleShape *rect, int opacity);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw a transition scene
+    ///
+    /// \param game game object to use
+    /// \param func function to use
+    ///
+    ////////////////////////////////////////////////////////////
+    void transition(game_t *game, void func(game_t *game, ...));
+
 #endif
