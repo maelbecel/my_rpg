@@ -54,16 +54,13 @@ static void prep_battle(game_t *game)
     game->scenes[GAME].elements[2]->rect.left = 0;
     sfSprite_setTextureRect(game->scenes[GAME].elements[2]->sprite,
                             game->scenes[GAME].elements[2]->rect);
-    battle(game, game->scenes[GAME].elements[2]->sprite,
-                                game->enemy->elem->sprite);
-    sfRenderWindow_setFramerateLimit(game->window,
-                    int_from_json(CONFIG_FILE, "framerate"));
     game->scenes[BATTLE].elements[2] =
                             element_copy(game->scenes[GAME].elements[2]);
     game->scenes[BATTLE].elements[2]->pos = BATTLE_POS;
     game->scenes[BATTLE].elements[2]->scale = BATTLE_SCALE;
     sfSprite_setScale(game->scenes[BATTLE].elements[2]->sprite,
                         game->scenes[BATTLE].elements[2]->scale);
+    battle(game);
 }
 
 int check_enemy(game_t *game)
@@ -74,6 +71,7 @@ int check_enemy(game_t *game)
         return -1;
     if (random % 100 == 0) {
         prep_battle(game);
+        game->scenes->page = BATTLE;
     }
     return EXIT_SUCCESS;
 }
