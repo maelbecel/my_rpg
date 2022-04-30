@@ -1,27 +1,16 @@
 {
     "new": 0,
-    "class": "chevalier",
-    "health": 120,
-    "strength": 4,
+    "class": "arbeletier",
+    "health": 80,
+    "strength": 7,
     "xp": 0,
-    "speed": 8,
-    "defense": 10,
+    "speed": 12,
+    "defense": 4,
     "point_stat": 0,
-    "posx": 896,
-    "map": 1,
-    "posy": 580,
+    "posx": 800,
+    "map": 0,
+    "posy": 800,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["sword"]
-
+    "inventory": ["crossbow"]
 }
-ef","beef","beef","beef","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana","banana"]
-}
-
-}
-
-}
-
-}
-
-

@@ -53,8 +53,8 @@ bool teleportation(game_t *game, sfVector2f move)
     float y = (game->scenes[GAME].elements[2]->pos.y + move.y +
                         (float)game->scenes[GAME].elements[0]->rect.top + 90);
     sfColor col = sfImage_getPixel(game->hitbox, x, y);
-    sfColor forest = TP_2;
-    sfColor village = TP_1;
+    sfColor forest = TP_FOREST;
+    sfColor village = TP_VILLAGE;
 
     if (col.r == forest.r && col.g == forest.g && col.b == forest.b) {
         tp_forest(game);
