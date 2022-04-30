@@ -36,3 +36,9 @@ void add_elem(game_t *game, char *type)
                             (sfVector2f){32, 32}, (sfVector2f){3, 3});
     }
 }
+
+void open_inventory(game_t* game, ...)
+{
+    game->scenes[MENU_PLAYER].tab->page = INVENTORY;
+    game->scenes[BATTLE].page = 1;
+}

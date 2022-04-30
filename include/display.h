@@ -513,4 +513,22 @@
     ////////////////////////////////////////////////////////////
     void draw_fps(sfTime frame, game_t *game);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the button of the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_button_inventory(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Display the button of the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_tab_inventory(game_t *game, sfEvent *event);
+
 #endif

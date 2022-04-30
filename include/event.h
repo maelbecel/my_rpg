@@ -690,4 +690,13 @@
     ////////////////////////////////////////////////////////////
     bool teleportation(game_t *game, sfVector2f move);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Open the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void open_inventory(game_t* game, ...);
+
 #endif

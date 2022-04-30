@@ -18,7 +18,27 @@ void win(game_t *game, ...)
     go_game(game);
 }
 
-void display_battle(game_t *game, sfEvent *event)
+void display_inventory_battle(game_t *game, sfEvent *event)
+{
+    if (event->type == sfEvtKeyPressed &&
+        event->key.code == game->settings->key_menu)
+        game->scenes[BATTLE].page = 0;
+    sfVector2f pos = (sfVector2f){100, 200};
+    draw_element(game->window, game->scenes[BATTLE].tab[0].elements[0]);
+    display_button_inventory(game, event);
+    for (int i = 1; i < SIZE_INVENTORY + 1; i++) {
+        display_case_inventory(game, pos, game->player->inventory[i - 1]);
+        pos.x += 220;
+        if (i % 8 == 0 && i != 0) {
+            pos.y += 200;
+            pos.x = 100;
+        }
+    }
+    if (game->is_inv)
+        display_tab_inventory(game, event);
+}
+
+void display_normal_battle(game_t *game, sfEvent *event)
 {
     for (int i = 0; game->scenes[BATTLE].elements[i] != NULL; i++)
         draw_element(game->window, game->scenes[BATTLE].elements[i]);
@@ -47,5 +67,14 @@ void display_battle(game_t *game, sfEvent *event)
                 (sfVector2f){1222, 330});
     draw_life(game->player->hp, game->player->total_hp, game,
                 (sfVector2f){515, 530});
+}
+
+void display_battle(game_t *game, sfEvent *event)
+{
+    if (game->scenes[BATTLE].page == 0) {
+        display_normal_battle(game, event);
+    } else {
+        display_inventory_battle(game, event);
+    }
     return;
 }

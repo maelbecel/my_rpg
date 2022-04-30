@@ -29,7 +29,6 @@ void display_case_inventory(game_t *game, sfVector2f pos,
                             inventory_t *inventory)
 {
     inventory->button->pos = pos;
-    // draw_button(game->window, inventory->button);
     if (inventory->elem != NULL) {
         draw_item(game, inventory, pos);
     }
