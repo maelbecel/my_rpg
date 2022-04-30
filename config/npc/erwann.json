@@ -1,5 +1,6 @@
 {
     "pos": [2000, 2000],
+    "map": 0,
     "merchant": 0,
     "quest": 8,
     "text": "Bonjour, je suis frauduleux car j'ai 2 commits"

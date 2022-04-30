@@ -46,13 +46,12 @@
     /// \brief Launch the battle scene
     ///
     /// \param window  sfRenderWindow object where outro should be display
-    /// \param a       Player sprite to display
-    /// \param b       Enemy sprite to display
+    /// \param ...     other useful arguments
     ///
     /// \return 0
     ///
     ////////////////////////////////////////////////////////////
-    int battle(game_t *game, sfSprite *a, sfSprite *b);
+    int battle(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display fight in cinematic
@@ -120,5 +119,14 @@
     ////////////////////////////////////////////////////////////
     void draw_outro(sfRenderWindow *window, sfSprite *epitech,
                                         sfRectangleShape *rect, int opacity);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Draw a transition scene
+    ///
+    /// \param game game object to use
+    /// \param func function to use
+    ///
+    ////////////////////////////////////////////////////////////
+    void transition(game_t *game, void func(game_t *game, ...));
 
 #endif

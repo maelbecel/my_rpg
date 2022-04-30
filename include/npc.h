@@ -22,6 +22,7 @@
         char *text;
         int quest;
         bool merchant;
+        int map;
     };
 
     struct enemy_s {

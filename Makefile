@@ -45,6 +45,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)give_quest.c   				\
 						$(SOURCES)$(EVT)load.c   					\
 						$(SOURCES)$(EVT)clear.c   					\
+						$(SOURCES)$(EVT)teleportation.c 			\
 						$(SOURCES)$(EVT)change_tab.c   				\
 						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
@@ -58,7 +59,8 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)move.c		  				\
 						$(SOURCES)$(EVT)menu_event.c  			    \
 						$(SOURCES)$(EVT)inventory.c  			    \
-						$(SOURCES)$(EVT)click_inventory.c  			    \
+						$(SOURCES)$(EVT)click_inventory.c  			\
+						$(SOURCES)$(EVT)find_item.c  				\
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)set_player.c				\
 						$(SOURCES)$(INIT)create_enemy.c				\
@@ -119,6 +121,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(CINE)draw_outro.c   			\
 						$(SOURCES)$(CINE)enter_battle.c				\
 						$(SOURCES)$(CINE)fight_battle.c				\
+						$(SOURCES)$(CINE)tp_transition.c		    \
 						$(SOURCES)$(CINE)outro.c                    \
 						$(SOURCES)$(FREE)free_all.c                 \
 						$(SOURCES)$(FREE)free_player.c              \

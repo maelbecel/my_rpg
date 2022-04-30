@@ -43,6 +43,16 @@
     typedef struct inventory_s inventory_t;
 
     ////////////////////////////////////////////////////////////
+    /// \brief Enumerates all maps
+    ///
+    ////////////////////////////////////////////////////////////
+    enum maps {
+        START,
+        MAIN,
+        DONGEON
+    };
+
+    ////////////////////////////////////////////////////////////
     /// \brief Player struct.
     ///
     /// Contain the element, the hp, the strenght, the speed and the defense
@@ -53,6 +63,7 @@
         element_t *elem;
         inventory_t **inventory;
         sfClock *timer;
+        int map;
         char *class;
         char *save;
         int hp;
