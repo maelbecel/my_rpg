@@ -1,17 +1,17 @@
 {
     "new": 0,
-    "class": "valkyrie",
-    "health": 120,
-    "xp": 40404000,
-    "strength": 4,
-    "speed": 8,
-    "defense": 10,
+    "class": "archer",
+    "health": 70,
+    "xp": 0,
+    "strength": 6,
+    "speed": 13,
+    "defense": 4,
     "point_stat": 0,
-    "posx": 1188,
-    "posy": 912,
-    "map": 0,
+    "posx": 472,
+    "posy": 1088,
+    "map": 1,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["hache","apple","banana","biere","potion","potion"]
+    "inventory": ["bow"]
 
 }

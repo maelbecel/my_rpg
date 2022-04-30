@@ -1,7 +1,7 @@
 {
     "image": "assets/monsters/slime.png",
     "name": "Slime",
-    "exp": 367,
+    "exp": 300,
     "damage": 5,
     "life": 130,
     "text": ["blob","pas cool mec"],
