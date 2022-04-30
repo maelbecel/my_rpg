@@ -1,17 +1,16 @@
 {
     "new": 0,
-    "class": "archer",
-    "health": 70,
+    "class": "arbeletier",
+    "health": 80,
     "xp": 0,
-    "strength": 6,
-    "speed": 13,
+    "strength": 7,
+    "speed": 12,
     "defense": 4,
     "point_stat": 0,
-    "posx": 472,
-    "posy": 1088,
-    "map": 1,
+    "posx": 800,
+    "posy": 800,
+    "map": 0,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["bow"]
-
+    "inventory": ["crossbow"]
 }
