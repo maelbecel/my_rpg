@@ -39,7 +39,8 @@ static int do_intro(game_t *game)
     sfRenderWindow_setFramerateLimit(game->window, 0);
     if (!(game->scenes= init_scenes(game->window)))
         return EXIT_FAILURE;
-    game->scenes[GAME].npc = game_npc();
+    if (!(game->scenes[GAME].npc = game_npc()))
+        return EXIT_FAILURE;
     sfRenderWindow_setFramerateLimit(game->window,
                         int_from_json(CONFIG_FILE, "framerate"));
     game->player = init_player("chevalier");
