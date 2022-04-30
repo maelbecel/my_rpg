@@ -46,7 +46,6 @@ void load_1(game_t *game, ...)
 
     game->player->save[0] = '1';
     check_save(game);
-    set_player(game, getpos);
     reset(game);
     game->scenes->page = GAME;
     game->player->nbquest = 0;
@@ -66,7 +65,19 @@ void load_1(game_t *game, ...)
         game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
         sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                             game->scenes[GAME].elements[6]->scale);
+    } else if (game->player->map == 1) {
+        free_elements(game->scenes[GAME].elements[0]);
+        free_elements(game->scenes[GAME].elements[5]);
+        game->scenes[GAME].elements[0] = init_element("assets/village.jpg", (sfVector2f){0, 0},
+                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+        game->scenes[GAME].elements[5] = init_element("assets/roof.png", (sfVector2f){0, 0},
+                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+        game->scenes[GAME].elements[6]->scale = (sfVector2f){1, 1};
+        game->hitbox = sfImage_createFromFile("assets/hitboxes/hitbox.png");
+        sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
+                            game->scenes[GAME].elements[6]->scale);
     }
+    set_player(game, getpos);
 }
 
 void load_2(game_t *game, ...)
@@ -76,7 +87,6 @@ void load_2(game_t *game, ...)
 
     game->player->save[0] = '2';
     check_save(game);
-    set_player(game, getpos);
     reset(game);
     game->scenes->page = GAME;
     game->player->nbquest = 0;
@@ -97,7 +107,19 @@ void load_2(game_t *game, ...)
         game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
         sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                             game->scenes[GAME].elements[6]->scale);
+    } else if (game->player->map == 1) {
+        free_elements(game->scenes[GAME].elements[0]);
+        free_elements(game->scenes[GAME].elements[5]);
+        game->scenes[GAME].elements[0] = init_element("assets/village.jpg", (sfVector2f){0, 0},
+                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+        game->scenes[GAME].elements[5] = init_element("assets/roof.png", (sfVector2f){0, 0},
+                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+        game->scenes[GAME].elements[6]->scale = (sfVector2f){1, 1};
+        game->hitbox = sfImage_createFromFile("assets/hitboxes/hitbox.png");
+        sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
+                            game->scenes[GAME].elements[6]->scale);
     }
+    set_player(game, getpos);
 }
 
 void load_3(game_t *game, ...)
@@ -107,7 +129,6 @@ void load_3(game_t *game, ...)
 
     game->player->save[0] = '3';
     check_save(game);
-    set_player(game, getpos);
     reset(game);
     game->scenes->page = GAME;
     game->player->nbquest = 0;
@@ -127,7 +148,19 @@ void load_3(game_t *game, ...)
         game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
         sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                             game->scenes[GAME].elements[6]->scale);
+    } else if (game->player->map == 1) {
+        free_elements(game->scenes[GAME].elements[0]);
+        free_elements(game->scenes[GAME].elements[5]);
+        game->scenes[GAME].elements[0] = init_element("assets/village.jpg", (sfVector2f){0, 0},
+                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+        game->scenes[GAME].elements[5] = init_element("assets/roof.png", (sfVector2f){0, 0},
+                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+        game->scenes[GAME].elements[6]->scale = (sfVector2f){1, 1};
+        game->hitbox = sfImage_createFromFile("assets/hitboxes/hitbox.png");
+        sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
+                            game->scenes[GAME].elements[6]->scale);
     }
+    set_player(game, getpos);
 }
 
 void load(game_t *game, ...)

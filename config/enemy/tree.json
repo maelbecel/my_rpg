@@ -1,0 +1,9 @@
+{
+    "image": "assets/icons/flower.png",
+    "name": "Treeman",
+    "exp": 400,
+    "damage": 8,
+    "life": 60,
+    "text": ["tsssss","hagrah"],
+    "loot": ["apple","apple","apple","flower","flower","flower","apple"]
+}

@@ -23,16 +23,32 @@ element_t *element_copy(element_t *element)
     return copy;
 }
 
-static char *get_enemy(void)
+static bool colision(sfColor a, sfColor b)
+{
+    if (a.r == b.r && a.g == b.g && a.b == b.b)
+        return true;
+    return false;
+}
+
+static char *get_enemy(game_t *game)
 {
     char **types = str_array_from_json(CONFIG_FILE, "enemy_list");
-    char *type = types[my_random() % my_strarraylen(types)];
-    return clean_string(type);
+    float x = (game->scenes[GAME].elements[2]->pos.x +
+                        (float)game->scenes[GAME].elements[0]->rect.left + 30);
+    float y = (game->scenes[GAME].elements[2]->pos.y +
+                        (float)game->scenes[GAME].elements[0]->rect.top + 90);
+    sfColor place = sfImage_getPixel(game->hitbox, x, y);
+
+    if (colision(place, SPIDER))
+        return my_strdup("spider");
+    if (colision(place, SLIME))
+        return my_strdup("slime");
+    return clean_string(types[my_random() % my_strarraylen(types)]);
 }
 
 static void prep_battle(game_t *game)
 {
-    game->enemy = create_enemy(get_enemy(), game->player);
+    game->enemy = create_enemy(get_enemy(game), game->player);
     game->scenes[GAME].elements[2]->rect.top =
                         2 * game->scenes[GAME].elements[2]->rect.height;
     game->scenes[GAME].elements[2]->rect.left = 0;
