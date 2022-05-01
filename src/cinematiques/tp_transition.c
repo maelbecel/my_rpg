@@ -28,6 +28,18 @@ static void draw_game(game_t *game)
         draw_button(game->window, game->scenes[GAME].buttons[b++]);
 }
 
+static void draw_all(game_t *game, sfCircleShape *circle,
+                                            sfVector2f pos, int radius)
+{
+    sfRenderWindow_clear(game->window, sfBlack);
+    draw_game(game);
+    sfCircleShape_setPosition(circle, pos);
+    sfCircleShape_setRadius(circle, radius);
+    sfRenderWindow_drawCircleShape(game->window, circle, NULL);
+    sfRenderWindow_display(game->window);
+
+}
+
 void transition(game_t *game, void func(game_t *game, ...))
 {
     sfClock *clock = sfClock_create();
@@ -44,22 +56,15 @@ void transition(game_t *game, void func(game_t *game, ...))
         sfClock_restart(clock);
         if (radius > 1920) {
             func(game);
-            sfRenderWindow_clear(game->window, sfBlack);
             radius -= update;
             update *= -1;
         } else {
             radius += update;
             pos.x -= update;
             pos.y -= update;
-            sfRenderWindow_clear(game->window, sfBlack);
-            draw_game(game);
-            sfCircleShape_setPosition(circle, pos);
-            sfCircleShape_setRadius(circle, radius);
-            sfRenderWindow_drawCircleShape(game->window, circle, NULL);
-            sfRenderWindow_display(game->window);
         }
+        draw_all(game, circle, pos, radius);
     }
     sfClock_destroy(clock);
     sfCircleShape_destroy(circle);
 }
-
