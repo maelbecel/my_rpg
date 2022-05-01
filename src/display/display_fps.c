@@ -20,7 +20,8 @@ void draw_fps(sfTime frame, game_t *game)
     char *show;
 
     if ((show = parser(CONFIG_FILE, "show_fps")) != NULL &&
-                                                        my_getnbr(show) == 1)
+            (game->scenes->page == GAME || game->scenes->page == BATTLE) &&
+            my_getnbr(show) == 1)
         draw_text_white(conc("FPS :", inttochar(get_fps(frame))), 40,
                                         (sfVector2f){50, 50}, game->window);
 }

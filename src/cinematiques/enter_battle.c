@@ -49,16 +49,16 @@ int battle(game_t *game, ...)
     sfClock *clock = sfClock_create();
     sfTime time;
     element_t *bg = init_element("assets/cinematiques/transition.png",
-        (sfVector2f){-3010, 0}, (sfVector2f){3000, 1080}, (sfVector2f){1, 1});
+        (sfVector2f){-3600, 0}, (sfVector2f){3500, 1080}, (sfVector2f){1, 1});
 
-    while (bg->pos.x < 1920 && !skip(game->window)) {
+    while (bg->pos.x < 3600 && !skip(game->window)) {
         time = sfClock_getElapsedTime(clock);
         if (time.microseconds / 1000  < 0.01)
             continue;
         sfClock_restart(clock);
         bg->pos.x += 20;
         sfRenderWindow_clear(game->window, sfBlack);
-        if (bg->pos.x < -40)
+        if (bg->pos.x < -500)
             draw_game(game);
         else
             draw_battle(game);

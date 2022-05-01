@@ -65,9 +65,9 @@ static void prep_battle(game_t *game)
 
 int check_enemy(game_t *game)
 {
-    int random = 0;
+    int random = my_random();
 
-    if ((random = my_random()) == -1)
+    if (random == -1)
         return -1;
     if (random % 100 == 0) {
         prep_battle(game);

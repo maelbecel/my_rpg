@@ -13,7 +13,7 @@ int my_random(void)
 {
     char random[100];
     int fd = open("/dev/urandom", O_RDONLY);
-    int res;
+    int res = 0;
 
     if (fd == -1)
         return -1;
