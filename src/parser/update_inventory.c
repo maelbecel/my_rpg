@@ -36,4 +36,6 @@ void update_inventory(game_t *game)
     if (!game->player->inventory[0]->type)
         buffer = "[\"none\"]";
     update_file(file, "inventory", buffer);
+    free(file);
+    free(buffer);
 }

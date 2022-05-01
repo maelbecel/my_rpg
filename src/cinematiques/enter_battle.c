@@ -65,5 +65,6 @@ int battle(game_t *game, ...)
         draw_element(game->window, bg);
         sfRenderWindow_display(game->window);
     }
+    sfClock_destroy(clock);
     return EXIT_SUCCESS;
 }

@@ -697,6 +697,6 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void open_inventory(game_t* game, ...);
+    void open_inventory(game_t *game, ...);
 
 #endif

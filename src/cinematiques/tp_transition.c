@@ -59,5 +59,7 @@ void transition(game_t *game, void func(game_t *game, ...))
             sfRenderWindow_display(game->window);
         }
     }
+    sfClock_destroy(clock);
+    sfCircleShape_destroy(circle);
 }
 
