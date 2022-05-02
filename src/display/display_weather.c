@@ -9,11 +9,10 @@
 
 void random_rain(weather_t *weather)
 {
-    size_t ran_num = rand() % 2 + 1480;
     size_t ran_drop;
     for (size_t i = 0; i != (1920 * 1180); i++)
         weather->pix[i] = sfTransparent;
-    for (;weather->count <= (1920 * 1180); weather->count += ran_num) {
+    for (;weather->count <= (1920 * 1180); weather->count += 1480) {
         ran_drop = rand() % 14 + 6;
         for (size_t i = 0; i != ran_drop; i++) {
             weather->pix[weather->count + (1920 * i)] = sfBlue;
