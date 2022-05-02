@@ -14,7 +14,7 @@ weather_t *init_weather()
     weather_t *weather = malloc(sizeof(weather_t));
 
     weather->count = 0;
-    weather->i = 0;
+    weather->next_start = 0;
     weather->pix = malloc(sizeof(sfColor) * (1920 * 2160) * 2);
     weather->sprite = sfSprite_create();
     weather->tex = sfTexture_create(1920, 2160);

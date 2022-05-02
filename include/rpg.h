@@ -198,7 +198,6 @@
     typedef struct game_s game_t;
     typedef struct settings_s settings_t;
     typedef struct pos_perso_s pos_perso_t;
-    typedef struct weather_s weather_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Enumerates all scenes.
@@ -339,7 +338,6 @@
         player_t *player;
         sfImage *hitbox;
         enemy_t *enemy;
-        weather_t *weather;
         bool is_inv;
     };
 
@@ -354,20 +352,6 @@
     struct key_s {
         int key;
         char *name;
-    };
-
-    struct weather_s {
-        sfSprite *sprite;
-        sfTexture *tex;
-        sfColor *pix;
-        size_t i;
-        size_t y;
-        size_t count;
-        sfClock *clock;
-        sfTime time;
-        float seconds;
-        size_t rand_weather;
-        size_t timer;
     };
 
     ////////////////////////////////////////////////////////////
@@ -535,10 +519,6 @@
     ///
     ////////////////////////////////////////////////////////////
     void free_button(button_t *button);
-
-    weather_t *init_weather();
-
-    void weather(game_t *game, weather_t *weather);
 
     ////////////////////////////////////////////////////////////
     /// \brief Get a random int

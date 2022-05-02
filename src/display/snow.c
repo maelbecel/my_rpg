@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2022
-** weather
+** snow
 ** File description:
-** weather for rpg
+** snow gor rpg
 */
 
+#include "my.h"
 #include "rpg.h"
 
-void random_rain(weather_t *weather)
+void random_snow(weather_t *weather)
 {
     size_t ran_drop;
     for (size_t i = 0; i != (1920 * 1180); i++)
@@ -23,7 +24,7 @@ void random_rain(weather_t *weather)
     }
 }
 
-void rain(game_t *game, weather_t *weather)
+void snow(game_t *game, weather_t *weather)
 {
     if (weather->count >= (1920 * 1080)) {
         weather->next_start += 1920;
@@ -31,28 +32,11 @@ void rain(game_t *game, weather_t *weather)
     }
     if (weather->next_start >= (1920 * 114))
         weather->next_start = 0;
-    if (fmodf(weather->timer, 2) == 0)
-        random_rain(weather);
+    if (fmodf(weather->timer, 20) == 0)
+        random_snow(weather);
     sfTexture_updateFromPixels(weather->tex, (sfUint8*)weather->pix,
     1920, 1180, 0, 0);
     sfSprite_setTexture(weather->sprite, weather->tex, sfTrue);
     sfSprite_setPosition(weather->sprite, (sfVector2f){0, -100});
     sfRenderWindow_drawSprite(game->window, weather->sprite, NULL);
-}
-
-void weather(game_t *game, weather_t *weather)
-{
-    weather->time = sfClock_getElapsedTime(weather->clock);
-    weather->seconds = weather->time.microseconds / 1000000.0;
-    if (weather->seconds > 0.03) {
-        weather->timer++;
-        sfClock_restart(weather->clock);
-    }
-    if (fmodf(weather->timer, 2000) == 0)
-        weather->rand_weather = rand() % 3;
-    if (weather->rand_weather == 1)
-        rain(game, weather);
-    if (weather->rand_weather == 2)
-        snow();
-
 }
