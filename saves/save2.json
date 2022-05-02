@@ -7,12 +7,12 @@
     "xp": 0,
     "defense": 10,
     "point_stat": 0,
-    "posx": 800,
-    "posy": 800,
-    "map": 0,
+    "posx": 1904,
+    "posy": 600,
+    "map": 1,
     "quests": [0],
     "end_quests": [0],
     "inventory": ["sword"]
-}
 
 }
+
