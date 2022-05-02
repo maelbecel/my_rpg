@@ -111,6 +111,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_npc.c				\
 						$(SOURCES)$(DISP)display_talk_npc.c			\
 						$(SOURCES)$(DISP)display_weather.c			\
+						$(SOURCES)$(DISP)snow.c						\
 						$(SOURCES)$(DISP)draw_text_white.c			\
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\

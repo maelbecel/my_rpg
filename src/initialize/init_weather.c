@@ -19,7 +19,7 @@ weather_t *init_weather()
     weather->sprite = sfSprite_create();
     weather->tex = sfTexture_create(1920, 2160);
     weather->clock = sfClock_create();
-    weather->rand_weather = 1;
+    weather->rand_weather = 0;
     weather->timer = 0;
     return weather;
 }
