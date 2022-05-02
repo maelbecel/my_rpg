@@ -11,6 +11,7 @@
 void random_snow(weather_t *weather)
 {
     size_t ran_drop;
+
     for (size_t i = 0; i != (1920 * 1580); i++)
         weather->pix[i] = sfTransparent;
     for (;weather->count <= (1920 * 1580); weather->count += 1482) {

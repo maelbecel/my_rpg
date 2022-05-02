@@ -209,6 +209,7 @@
     typedef struct settings_s settings_t;
     typedef struct pos_perso_s pos_perso_t;
     typedef struct weather_s weather_t;
+    typedef struct music_s music_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Enumerates all scenes.
@@ -351,6 +352,7 @@
         enemy_t *enemy;
         weather_t *weather;
         bool is_inv;
+        music_t *music;
     };
 
     ////////////////////////////////////////////////////////////
@@ -377,6 +379,10 @@
         float seconds;
         size_t rand_weather;
         size_t timer;
+    };
+
+    struct music_s {
+        sfMusic *sound;
     };
 
     ////////////////////////////////////////////////////////////
