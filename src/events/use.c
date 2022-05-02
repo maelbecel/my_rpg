@@ -21,6 +21,8 @@ void use_item(game_t* game, item_t item)
 {
     if (game->player->stat->hp < game->player->total_hp)
         game->player->stat->hp += item.hp;
+    if (game->player->stat->hp > game->player->total_hp)
+        game->player->stat->hp = game->player->total_hp;
     game->player->stat->strg += item.strg;
     game->player->stat->def += item.def;
     game->player->stat->spd += item.spd;
