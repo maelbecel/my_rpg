@@ -10,9 +10,9 @@
     "posx": 1904,
     "posy": 600,
     "map": 1,
-    "quests": [0],
+    "quests": [1],
     "end_quests": [0],
     "inventory": ["sword"]
-
 }
+
 
