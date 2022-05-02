@@ -24,15 +24,14 @@ static void update_all_file(game_t *game, char *file)
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
     update_file(file, "defense", defense);
-    update_file(file, "class", conc(coat(), conc("valkyrie", coat())));
+    update_file(file, "class", format("\"%s\"", "valkyrie"));
     update_file(file, "new", "0");
-    update_file(file, "inventory", conc("[",
-                        conc(coat(), conc("hache", conc(coat(), "]")))));
+    update_file(file, "inventory", format("[\"%s\"]", "hache"));
 }
 
 void valkyrie(game_t *game, ...)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
 
     update_all_file(game, file);
     reset(game);
@@ -58,12 +57,12 @@ void draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
         return;
     }
     draw_text("VALKYRIE", font, (sfVector3f){1350, 760, 40}, window);
-    draw_text(conc("HEALTH : ", health), font, (sfVector3f){1350, 840, 30},
+    draw_text(format("HEALTH : %s", health), font, (sfVector3f){1350, 840, 30},
                                                                     window);
-    draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){1350, 880, 30},
+    draw_text(format("STRENGTH : %s", strength), font, (sfVector3f){1350, 880, 30},
                                                                     window);
-    draw_text(conc("SPEED : ", speed), font, (sfVector3f){1350, 920, 30},
+    draw_text(format("SPEED : %s", speed), font, (sfVector3f){1350, 920, 30},
                                                                     window);
-    draw_text(conc("DEFENSE: ", defense), font, (sfVector3f){1350, 960, 30},
+    draw_text(format("DEFENSE: %s", defense), font, (sfVector3f){1350, 960, 30},
                                                                     window);
 }

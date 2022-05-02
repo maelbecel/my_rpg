@@ -197,6 +197,7 @@
     #include "class.h"
     #include "error.h"
     #include "npc.h"
+    #include "formatstring.h"
 
     ////////////////////////////////////////////////////////////
     // Structures

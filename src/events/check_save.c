@@ -11,7 +11,7 @@
 
 void check_save(game_t *game)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
     char *posx = parser(file, "posx");
     char *posy = parser(file, "posy");
     char *hp = parser(file, "health");

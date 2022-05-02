@@ -37,8 +37,7 @@ static char *get_buf(char *buf, char *str, int size)
 
     buffer = conc(buffer, my_strdup(Quests[my_getnbr(str)]));
     if (my_getnbr(str) != 0)
-        buffer = conc(buffer, conc(" (", conc(str, conc("/", conc(
-                                                    inttochar(size), ")")))));
+        buffer = format("%s (%s / %i)", buffer, str, size);
     buffer = conc(buffer, "\n");
     return buffer;
 }
@@ -60,7 +59,7 @@ static bool error_case(game_t *game, char **array, int i, int size)
 
 char *get_quests(game_t *game)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
     char **array = str_array_from_json(file, "quests");
     char *buffer = "";
     int size = sizeof(Quests) / sizeof(char *) - 1;

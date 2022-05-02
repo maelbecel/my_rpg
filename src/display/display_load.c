@@ -28,7 +28,7 @@ void display_load(game_t *game, sfEvent *event)
     while (game->scenes[LOAD].elements[e])
         draw_element(game->window, game->scenes[LOAD].elements[e++]);
     while (game->scenes[LOAD].buttons[b]) {
-        file = conc("saves/save", conc(inttochar(b + 1), ".json"));
+        file = format("saves/save%i.json", b + 1);
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, b, LOAD)) {
             draw_clicked(game->window, game->scenes[LOAD].buttons[b]);

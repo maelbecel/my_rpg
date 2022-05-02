@@ -28,10 +28,13 @@ void loading(int number, sfRenderWindow *window)
     sfRectangleShape_setFillColor(red, sfColor_fromRGB(200, 10, 50));
     sfRenderWindow_drawRectangleShape(window, red, NULL);
     sfRenderWindow_drawRectangleShape(window, rect, NULL);
-    draw_text_white(conc(inttochar((int)((float)(number + 1) /
-            (NB_SCENES) * 100)), "%"), 60, (sfVector2f){1450, 530}, window);
+    draw_tewt_white(format("%i%%", (int)((float)(number + 1) /
+                    (NB_SCENES) * 100)), 60, (sfVector2f){1450, 530}, window);
     draw_text_white("LOADING ...", 60, (sfVector2f){840, 460}, window);
     sfRenderWindow_display(window);
     sfRectangleShape_destroy(rect);
     sfRectangleShape_destroy(red);
 }
+
+
+draw_tewt_white(format("%i%%", (int)((float)(number + 1) / (NB_SCENES) * 100))

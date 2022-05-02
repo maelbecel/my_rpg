@@ -22,12 +22,10 @@ static void arrow(game_t *game, trade_t *trade, sfVector2f pos_want)
 void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
                 trade_t *trade)
 {
-    element_t *want = init_element(conc("assets/icons/",
-                    conc(trade->want, ".png")), pos_get, (sfVector2f) {32, 32},
-                                                        (sfVector2f) {3, 3});
-    element_t *get = init_element(conc("assets/icons/",
-                conc(trade->give, ".png")), pos_want, (sfVector2f) {32, 32},
-                                                        (sfVector2f) {3, 3});
+    element_t *want = init_element(format("assets/icons/%s.png", trade->want),
+                        pos_get, (sfVector2f) {32, 32}, (sfVector2f) {3, 3});
+    element_t *get = init_element(format("assets/icons/%s.png", trade->give),
+                        pos_want, (sfVector2f) {32, 32}, (sfVector2f) {3, 3});
     draw_element(game->window, want);
     draw_text(inttochar(trade->want_quantity), game->settings->font,
             (sfVector3f){pos_get.x + 90, pos_get.y + 70, 50}, game->window);
@@ -77,9 +75,9 @@ void display_merchant(game_t *game, npc_t *npc, sfEvent *event)
 {
     trade_t **trade = get_trade(npc);
 
-    game->scenes[NPC].elements[1] = init_element(conc("assets/npc/",
-        conc(npc->name, ".png")), (sfVector2f){100, 150}, (sfVector2f){32, 48},
-        (sfVector2f){8, 8});
+    game->scenes[NPC].elements[1] = init_element(
+                format("assets/npc/%s.png", npc->name), (sfVector2f){100, 150},
+                (sfVector2f){32, 48}, (sfVector2f){8, 8});
     for (int e = 0; game->scenes[NPC].elements[e]; e++)
         draw_element(game->window, game->scenes[NPC].elements[e]);
     display_trade(game, trade, event);
@@ -96,10 +94,10 @@ void display_talk_npc(game_t *game, sfEvent *event)
     if (npc->merchant == true) {
         display_merchant(game, npc, event);
     }
-    draw_dialogue_box(game->window, conc(npc->name, conc(" :\n", npc->text)),
+    draw_dialogue_box(game->window, format("%s:\n%s", npc->name, npc->text),
                                                         game->settings->font);
-    draw_pop_text(conc("Press '", conc(getkey(game->settings->key_skip),
-                        "'\nto leave")), game->settings->font, game->window);
+    draw_pop_text(format("PRESS %s to leave", getkey(game->settings->key_skip)),
+                                        game->settings->font, game->window);
     if (event->key.code == game->settings->key_skip)
         go_game(game);
 }

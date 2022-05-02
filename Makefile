@@ -10,7 +10,8 @@ NAME         =		    my_rpg
 CSFML        =          -lcsfml-graphics -lcsfml-window \
 						-lcsfml-system -lcsfml-audio
 
-INCLUDE      =         	-I include/ -I include/lib/ -L lib/ -lm -lmy -lmyprintf \
+INCLUDE      =         	-I include/ -I include/lib/ -L lib/ -lm \
+						-lmy -lmyprintf -lformatstring \
 						$(CSFML)
 
 CFLAGS      +=         -Wall -Wextra -Werror -fvisibility=hidden $(INCLUDE)
@@ -172,6 +173,7 @@ $(NAME):	$(OBJ)
 			"SRC files sucessfully build. "$(DEFAULT))
 			@make -C lib/my/ --no-print-directory
 			@make -C lib/myprintf/ --no-print-directory
+			@make -C lib/formatstring/ --no-print-directory
 			@gcc -o $(NAME) $(OBJ) $(INCLUDE) \
 			&& $(ECHO) $(BOLD) $(GREEN)"\n► BUILD SUCCESS !"$(DEFAULT) \
 			|| ($(ECHO) $(BOLD) $(RED)"\n► BUILD FAILED"$(DEFAULT) && exit 1)
@@ -182,6 +184,7 @@ debug:		all
 clean:
 			@make -C lib/my/ clean --no-print-directory
 			@make -C lib/myprintf/ clean --no-print-directory
+			@make -C lib/formatstring/ clean --no-print-directory
 			@make -C tests clean --no-print-directory
 			@$(RM) $(OBJ)
 			@$(RM) $(TEMPFILES)
@@ -190,6 +193,7 @@ clean:
 fclean:		clean
 			@make -C lib/myprintf/ fclean --no-print-directory
 			@make -C lib/my/ fclean --no-print-directory
+			@make -C lib/formatstring/ clean --no-print-directory
 			@make -C tests fclean --no-print-directory
 			@$(RM) $(NAME)
 			@$(RM) $(OBJ)
