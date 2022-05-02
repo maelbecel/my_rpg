@@ -47,6 +47,8 @@ void use(game_t *game, ...)
     va_list arg;
     va_start(arg, game);
     char *type = va_arg(arg, char *);
+    if (game->scenes->page != BATTLE)
+        return;
     if (!type)
         return;
     for (int i = 0; i < (int) (sizeof(item) / sizeof(item_t)); i++) {
