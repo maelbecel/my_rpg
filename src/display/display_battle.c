@@ -57,7 +57,7 @@ void display_normal_battle(game_t *game, sfEvent *event)
         win(game, event);
         return;
     }
-    if (game->player->hp <= 0) {
+    if (game->player->stat->hp <= 0) {
         go_game(game);
         return;
     }
