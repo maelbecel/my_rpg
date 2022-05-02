@@ -64,13 +64,11 @@ char *parser(char *file, char *var)
 
     if (!font) {
         my_put_error(conc("Error: Failed to load the font %s.\n", BASIC_FONT));
-        free(file);
         return NULL;
     }
     if (fd == NULL) {
         popup(font, conc("Error:\nCan't open '", conc(file, "'")));
         sfFont_destroy(font);
-        free(file);
         return NULL;
     }
     variable = conc("    ", conc(coat(), conc(var, conc(coat(),

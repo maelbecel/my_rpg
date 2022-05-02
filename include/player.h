@@ -41,6 +41,8 @@
     typedef struct element_s element_t;
     typedef struct player_s player_t;
     typedef struct inventory_s inventory_t;
+    typedef struct item_s item_t;
+    typedef struct battle_s battle_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Enumerates all maps
@@ -63,6 +65,7 @@
         element_t *elem;
         inventory_t **inventory;
         sfClock *timer;
+        battle_t *stat;
         int map;
         char *class;
         char *save;
@@ -84,6 +87,21 @@
         button_t *button;
     };
 
+    struct item_s {
+        char *type;
+        int hp;
+        int strg;
+        int spd;
+        int def;
+    };
+
+    struct battle_s {
+        int hp;
+        int strg;
+        int spd;
+        int def;
+    };
+
     ////////////////////////////////////////////////////////////
     /// \brief Initialize the player with it's base stats
     ///
@@ -102,5 +120,14 @@
     ///
     ////////////////////////////////////////////////////////////
     void reset(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Use an item
+    ///
+    /// \param game Actual game state
+    /// \param ...  Other uselful data
+    ///
+    ////////////////////////////////////////////////////////////
+    void use(game_t *game, ...);
 
 #endif /* !PLAYER_H_ */

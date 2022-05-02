@@ -39,9 +39,17 @@ static void draw_battle(game_t *game)
                     (sfVector3f){100, 850, 50}, game->window);
     draw_life(game->enemy->life, game->enemy->total_life, game,
                 (sfVector2f){1222, 330});
-    draw_life(game->player->hp, game->player->total_hp, game,
+    draw_life(game->player->stat->hp, game->player->total_hp, game,
                 (sfVector2f){515, 530});
     return;
+}
+
+void init_stat_battle(game_t *game)
+{
+    game->player->stat->hp = game->player->total_hp;
+    game->player->stat->strg = game->player->strg;
+    game->player->stat->def = game->player->def;
+    game->player->stat->spd = game->player->spd;
 }
 
 int battle(game_t *game, ...)
@@ -50,7 +58,7 @@ int battle(game_t *game, ...)
     sfTime time;
     element_t *bg = init_element("assets/cinematiques/transition.png",
         (sfVector2f){-3600, 0}, (sfVector2f){3500, 1080}, (sfVector2f){1, 1});
-
+    init_stat_battle(game);
     while (bg->pos.x < 3600 && !skip(game->window)) {
         time = sfClock_getElapsedTime(clock);
         if (time.microseconds / 1000  < 0.01)

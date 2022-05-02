@@ -10,7 +10,7 @@
     "posx": 800,
     "posy": 800,
     "map": 0,
-    "quests": [0],
+    "quests": [3],
     "end_quests": [0],
     "inventory": ["hache","apple","banana","biere","potion","potion"]
 

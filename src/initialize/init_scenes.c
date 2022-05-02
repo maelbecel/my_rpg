@@ -11,26 +11,16 @@
 
 int init_settings_menu(scene_t *scenes, sfRenderWindow *window)
 {
-    scenes[SETTINGS].buttons = settings_buttons();
-    loading(7, window);
-    scenes[SETTINGS].elements = settings_elements();
-    loading(8, window);
-    scenes[SOUNDS].buttons = settings_sounds_buttons();
-    loading(9, window);
-    scenes[SOUNDS].elements = settings_sounds_elements();
-    loading(10, window);
-    scenes[KEY].buttons = settings_key_buttons();
-    loading(11, window);
-    scenes[KEY].elements = settings_key_elements();
-    loading(12, window);
-    scenes[PAUSE].buttons = pause_buttons();
-    loading(13, window);
-    scenes[PAUSE].elements = pause_elements();
-    loading(14, window);
-    scenes[FRAME].buttons = settings_buttons_frame();
-    loading(15, window);
-    scenes[FRAME].elements = settings_elements_frame();
-    loading(16, window);
+    scenes[SETTINGS].buttons = settings_buttons(), loading(7, window);
+    scenes[SETTINGS].elements = settings_elements(), loading(8, window);
+    scenes[SOUNDS].buttons = settings_sounds_buttons(), loading(9, window);
+    scenes[SOUNDS].elements = settings_sounds_elements(), loading(10, window);
+    scenes[KEY].buttons = settings_key_buttons(), loading(11, window);
+    scenes[KEY].elements = settings_key_elements(), loading(12, window);
+    scenes[PAUSE].buttons = pause_buttons(), loading(13, window);
+    scenes[PAUSE].elements = pause_elements(), loading(14, window);
+    scenes[FRAME].buttons = settings_buttons_frame(), loading(15, window);
+    scenes[FRAME].elements = settings_elements_frame(), loading(16, window);
     return EXIT_SUCCESS;
 }
 
