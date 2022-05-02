@@ -652,4 +652,51 @@
     ////////////////////////////////////////////////////////////
     void hoover_inventory(game_t *game, ...);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Display menu if click on inventory item
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void menu_inventory(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Find item with button tab menu player
+    ///
+    /// \param game     game_t object who contain all game info
+    /// \param button   button_t object;
+    ///
+    ////////////////////////////////////////////////////////////
+    inventory_t *find_item(game_t *game, button_t *button);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Delete the item
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void delete_item(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Teleport the player
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param move  next move
+    ///
+    /// \return true if the player was successfully teleported
+    ///  false if the player was not successfully teleported
+    ////////////////////////////////////////////////////////////
+    bool teleportation(game_t *game, sfVector2f move);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Open the inventory
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void open_inventory(game_t *game, ...);
+
 #endif

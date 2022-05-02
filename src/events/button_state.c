@@ -43,8 +43,9 @@ void hoover_menu(game_t *game, ...)
     va_start(arg, game);
     int i = va_arg(arg, int);
     int t = va_arg(arg, int);
+    int s = va_arg(arg, int);
     sfSprite_setTexture(
-            game->scenes[game->scenes->page].tab[t].buttons[i]->hoover->sprite,
+            game->scenes[s].tab[t].buttons[i]->hoover->sprite,
             sfTexture_createFromFile("assets/ui/button1_hoover.png", NULL),
                                         sfTrue);
     va_end(arg);

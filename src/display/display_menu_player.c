@@ -53,7 +53,7 @@ void display_player(game_t *game, sfEvent *event)
 
 void draw_stat_char(game_t *game)
 {
-    draw_text(conc("HP : ", inttochar(game->player->hp)),
+    draw_text(conc("HP : ", inttochar(game->player->total_hp)),
             game->settings->font, (sfVector3f){100, 200, 40}, game->window);
     draw_text(conc("STRENGHT : ", inttochar(game->player->strg)),
             game->settings->font, (sfVector3f){100, 300, 40}, game->window);

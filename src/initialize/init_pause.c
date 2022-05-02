@@ -39,6 +39,7 @@ void save(game_t *game, ...)
     update_file(file, "posy",
                         inttochar(game->scenes[GAME].elements[0]->rect.top +
                                     game->scenes[GAME].elements[2]->pos.y));
+    update_file(file, "map", inttochar(game->player->map));
     update_file(file, "health", inttochar(game->player->hp));
     update_file(file, "strength", inttochar(game->player->strg));
     update_file(file, "speed", inttochar(game->player->spd));

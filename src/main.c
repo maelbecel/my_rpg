@@ -17,15 +17,14 @@ static int rpg(game_t *game, sfEvent *event)
     while (sfRenderWindow_isOpen(game->window)) {
         frame = sfClock_getElapsedTime(fps);
         sfClock_restart(fps);
-        while (sfRenderWindow_pollEvent(game->window, event)) {
+        if (sfRenderWindow_pollEvent(game->window, event))
             analyse_game_state(game, event, frame);
-        }
-        if (sfRenderWindow_isOpen(game->window) &&
-            game->scenes->page == GAME) {
+        else if (sfRenderWindow_isOpen(game->window)) {
+            event->type = -1;
             display(game, event);
-            draw_fps(frame, game);
-            sfRenderWindow_display(game->window);
         }
+        draw_fps(frame, game);
+        sfRenderWindow_display(game->window);
     }
     return EXIT_SUCCESS;
 }
@@ -39,7 +38,8 @@ static int do_intro(game_t *game)
     sfRenderWindow_setFramerateLimit(game->window, 0);
     if (!(game->scenes= init_scenes(game->window)))
         return EXIT_FAILURE;
-    game->scenes[GAME].npc = game_npc();
+    if (!(game->scenes[GAME].npc = game_npc()))
+        return EXIT_FAILURE;
     sfRenderWindow_setFramerateLimit(game->window,
                         int_from_json(CONFIG_FILE, "framerate"));
     game->player = init_player("chevalier");
@@ -66,6 +66,7 @@ static game_t *init_game(void)
         return NULL;
     }
     sfRenderWindow_setFramerateLimit(game->window, 31);
+    game->is_inv = false;
     if (do_intro(game) == EXIT_FAILURE)
         return NULL;
     return game;

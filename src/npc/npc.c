@@ -28,5 +28,7 @@ npc_t *create_npc(char *name)
                     "quest");
     npc->text = str_from_json(conc("config/npc/", conc(name, ".json")),
                     "text");
+    npc->map = int_from_json(conc("config/npc/", conc(name, ".json")),
+                    "map");
     return npc;
 }

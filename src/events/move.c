@@ -24,7 +24,8 @@ static bool is_hitbox(game_t *game, sfVector2f move)
 
 void move_down(game_t *game)
 {
-    if (is_hitbox(game, (sfVector2f){0, 8}))
+    if (is_hitbox(game, (sfVector2f){0, 8}) ||
+        teleportation(game, (sfVector2f){0, 8}))
         return;
     game->scenes[GAME].elements[2]->rect.top = 0;
     if (game->scenes[GAME].elements[2]->pos.y > 680) {
@@ -40,7 +41,8 @@ void move_down(game_t *game)
 
 void move_up(game_t *game)
 {
-    if (is_hitbox(game, (sfVector2f){0, -8}))
+    if (is_hitbox(game, (sfVector2f){0, -8})  ||
+        teleportation(game, (sfVector2f){0, -8}))
         return;
     if (game->scenes[GAME].elements[0]->rect.top <= 0 &&
         game->scenes[GAME].elements[2]->pos.y < 220)
@@ -59,7 +61,8 @@ void move_up(game_t *game)
 
 void move_left(game_t *game)
 {
-    if (is_hitbox(game, (sfVector2f){-8, 0}))
+    if (is_hitbox(game, (sfVector2f){-8, 0})  ||
+        teleportation(game, (sfVector2f){-8, 0}))
         return;
     if (game->scenes[GAME].elements[0]->rect.left <= 0 &&
         game->scenes[GAME].elements[2]->pos.x < 220)
@@ -78,7 +81,8 @@ void move_left(game_t *game)
 
 void move_right(game_t *game)
 {
-    if (is_hitbox(game, (sfVector2f){8, 0}))
+    if (is_hitbox(game, (sfVector2f){8, 0})  ||
+        teleportation(game, (sfVector2f){8, 0}))
         return;
     if (game->scenes[GAME].elements[0]->rect.left >= 2000 &&
         game->scenes[GAME].elements[2]->pos.y > 1500)

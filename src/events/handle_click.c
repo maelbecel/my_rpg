@@ -20,7 +20,7 @@ int is_hoover_menu(game_t *game, int b, int s, int t)
     size.y *= scale.y;
     if (click.x > pos.x && click.x < (pos.x + size.x)) {
         if (click.y > pos.y && click.y < (pos.y + size.y)) {
-            game->scenes[s].tab[t].buttons[b]->action_hoover(game, b, t);
+            game->scenes[s].tab[t].buttons[b]->action_hoover(game, b, t, s);
             return EXIT_FAILURE;
         }
     }

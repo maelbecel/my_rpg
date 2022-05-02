@@ -46,6 +46,7 @@ button_t **battle_buttons(void)
     }
     buttons[0]->action_clicked = go_game;
     buttons[1]->action_clicked = attack;
+    buttons[2]->action_clicked = open_inventory;
     buttons[3] = NULL;
     return buttons;
 }
@@ -67,11 +68,25 @@ element_t **battle_elements(void)
     return elements;
 }
 
+scene_t *tab_battle(void)
+{
+    scene_t *scenes = malloc(sizeof(scene_t));
+    element_t **elements = malloc(sizeof(element_t *) * 2);
+    elements[0] = init_element("assets/ui/button_1_full.png",
+                    (sfVector2f){0, 0}, (sfVector2f){1920, 1080},
+                    (sfVector2f){1, 1});
+    elements[1] = NULL;
+    scenes->elements = elements;
+    return scenes;
+}
+
 int init_battle(scene_t *scenes)
 {
     if (!(scenes[BATTLE].buttons = battle_buttons()))
         return EXIT_FAILURE;
     if (!(scenes[BATTLE].elements = battle_elements()))
         return EXIT_FAILURE;
+    scenes[BATTLE].tab = tab_battle();
+    scenes[BATTLE].page = 0;
     return EXIT_SUCCESS;
 }

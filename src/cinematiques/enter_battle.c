@@ -19,54 +19,52 @@ static bool skip(sfRenderWindow *window)
     return false;
 }
 
-static void move(sfSprite *player, sfSprite *enemy, int i)
+static void draw_game(game_t *game)
 {
-    sfSprite_setPosition(player, (sfVector2f){i, 500});
-    sfSprite_setPosition(enemy, (sfVector2f){1920 - i - 100, 500});
+    for (int e = 0; game->scenes[GAME].elements[e];)
+        draw_element(game->window, game->scenes[GAME].elements[e++]);
+    display_npc(game);
+    for (int b = 0; game->scenes[GAME].buttons[b];)
+        draw_button(game->window, game->scenes[GAME].buttons[b++]);
 }
 
-static void init(sfSprite *player, sfSprite *enemy, sfSprite *background)
+static void draw_battle(game_t *game)
 {
-    sfSprite_setTexture(background,
-        sfTexture_createFromFile("assets/cinematiques/battle.png", NULL),
-                                                                    sfTrue);
-    sfSprite_setPosition(player, (sfVector2f){0, 500});
-    sfSprite_setPosition(enemy, (sfVector2f){1820, 500});
+    for (int i = 0; game->scenes[BATTLE].elements[i] != NULL; i++)
+        draw_element(game->window, game->scenes[BATTLE].elements[i]);
+    draw_element(game->window, game->enemy->elem);
+    for (int i = 0; game->scenes[BATTLE].buttons[i] != NULL; i++)
+        draw_button(game->window, game->scenes[BATTLE].buttons[i]);
+    draw_text(game->enemy->buf_text, game->settings->font,
+                    (sfVector3f){100, 850, 50}, game->window);
+    draw_life(game->enemy->life, game->enemy->total_life, game,
+                (sfVector2f){1222, 330});
+    draw_life(game->player->hp, game->player->total_hp, game,
+                (sfVector2f){515, 530});
+    return;
 }
 
-static void draw(game_t *game, sfSprite *background,
-                                            sfSprite *player, sfSprite *enemy)
+int battle(game_t *game, ...)
 {
-    game->scenes->page = BATTLE;
-    sfRenderWindow_clear(game->window, sfBlack);
-    sfRenderWindow_drawSprite(game->window, background, NULL);
-    sfRenderWindow_drawSprite(game->window, player, NULL);
-    sfRenderWindow_drawSprite(game->window, enemy, NULL);
-    draw_text_white(conc("Press '", conc(getkey(game->settings->key_skip),
-                    "' to skip")), 60, (sfVector2f){1200, 930}, game->window);
-    sfRenderWindow_display(game->window);
-}
+    sfClock *clock = sfClock_create();
+    sfTime time;
+    element_t *bg = init_element("assets/cinematiques/transition.png",
+        (sfVector2f){-3600, 0}, (sfVector2f){3500, 1080}, (sfVector2f){1, 1});
 
-int battle(game_t *game, sfSprite *a, sfSprite *b)
-{
-    sfMusic *music = sfMusic_createFromFile("assets/sounds/fight.ogg");
-    sfSprite *player = sfSprite_copy(a);
-    sfSprite *enemy = sfSprite_copy(b);
-    sfSprite *background = sfSprite_create();
-    int i = 0;
-
-    sfRenderWindow_setFramerateLimit(game->window, 80);
-    init(player, enemy, background);
-    while (!skip(game->window)) {
-        if (i < 840)
-            i += 15;
-        else {
-            fight_display(music, game->window);
-            break;
-        }
-        move(player, enemy, i);
-        draw(game, background, player, enemy);
+    while (bg->pos.x < 3600 && !skip(game->window)) {
+        time = sfClock_getElapsedTime(clock);
+        if (time.microseconds / 1000  < 0.01)
+            continue;
+        sfClock_restart(clock);
+        bg->pos.x += 20;
+        sfRenderWindow_clear(game->window, sfBlack);
+        if (bg->pos.x < -500)
+            draw_game(game);
+        else
+            draw_battle(game);
+        draw_element(game->window, bg);
+        sfRenderWindow_display(game->window);
     }
-    sfMusic_destroy(music);
+    sfClock_destroy(clock);
     return EXIT_SUCCESS;
 }
