@@ -49,5 +49,6 @@ player_t *init_player(char *class)
         return NULL;
     if (!(player->inventory = init_inventory()))
         return NULL;
+    player->stat = malloc(sizeof(battle_t));
     return player;
 }

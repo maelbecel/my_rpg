@@ -17,12 +17,12 @@ void tp_village(game_t *game, ...)
     free_elements(game->scenes[GAME].elements[6]);
     sfImage_destroy(game->hitbox);
     game->hitbox = sfImage_createFromFile("assets/hitboxes/hitbox.png");
-    game->scenes[GAME].elements[0] = init_element("assets/village.jpg", (sfVector2f){0, 0},
-                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
-    game->scenes[GAME].elements[5] = init_element("assets/roof.png", (sfVector2f){0, 0},
-                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
-    game->scenes[GAME].elements[6] = init_element("assets/shop_map.png", (sfVector2f){0, 0},
-                            (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    game->scenes[GAME].elements[0] = init_element("assets/village.jpg",
+            (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    game->scenes[GAME].elements[5] = init_element("assets/roof.png",
+            (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    game->scenes[GAME].elements[6] = init_element("assets/shop_map.png",
+            (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     game->scenes[GAME].elements[2]->pos = (sfVector2f){600, 600};
 }
 
@@ -46,6 +46,23 @@ void tp_forest(game_t *game, ...)
 
 }
 
+void tp_dungeon(game_t *game, ...)
+{
+    game->player->map = 1;
+    free_elements(game->scenes[GAME].elements[0]);
+    free_elements(game->scenes[GAME].elements[5]);
+    free_elements(game->scenes[GAME].elements[6]);
+    sfImage_destroy(game->hitbox);
+    game->hitbox = sfImage_createFromFile("assets/hitboxes/hitbox.png");
+    game->scenes[GAME].elements[0] = init_element("assets/village.jpg",
+            (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    game->scenes[GAME].elements[5] = init_element("assets/roof.png",
+            (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    game->scenes[GAME].elements[6] = init_element("assets/shop_map.png",
+            (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    game->scenes[GAME].elements[2]->pos = (sfVector2f){600, 600};
+}
+
 bool teleportation(game_t *game, sfVector2f move)
 {
     float x = (game->scenes[GAME].elements[2]->pos.x + move.x +
@@ -55,12 +72,17 @@ bool teleportation(game_t *game, sfVector2f move)
     sfColor col = sfImage_getPixel(game->hitbox, x, y);
     sfColor forest = TP_FOREST;
     sfColor village = TP_VILLAGE;
+    sfColor dungeon = TP_DUNGEON;
+    void (*func)(game_t *game, ...) = NULL;
 
-    if (col.r == forest.r && col.g == forest.g && col.b == forest.b) {
-        transition(game, tp_forest);
-        return true;
-    } else if (col.r == village.r && col.g == village.g && col.b == village.b) {
-        transition(game, tp_village);
+    if (col.r == forest.r && col.g == forest.g && col.b == forest.b)
+        func = tp_forest;
+    if (col.r == village.r && col.g == village.g && col.b == village.b)
+        func = tp_village;
+    if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b && col.a == dungeon.a)
+        func = tp_dungeon;
+    if (func != NULL) {
+        transition(game, func);
         return true;
     }
     return false;

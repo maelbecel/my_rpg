@@ -50,6 +50,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
 						$(SOURCES)$(EVT)select_movement.c  			\
+						$(SOURCES)$(EVT)quest_completion.c       	\
 						$(SOURCES)$(EVT)get_inventory.c  			\
 						$(SOURCES)$(EVT)select_action.c  			\
 						$(SOURCES)$(EVT)update_hitbox.c   			\
@@ -61,6 +62,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)inventory.c  			    \
 						$(SOURCES)$(EVT)click_inventory.c  			\
 						$(SOURCES)$(EVT)find_item.c  				\
+						$(SOURCES)$(EVT)use.c  						\
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)set_player.c				\
 						$(SOURCES)$(INIT)create_enemy.c				\

@@ -2,15 +2,18 @@
     "new": 0,
     "class": "arbeletier",
     "health": 80,
-    "xp": 0,
+    "xp": 800,
     "strength": 7,
     "speed": 12,
     "defense": 4,
-    "point_stat": 0,
-    "posx": 800,
-    "posy": 800,
+    "point_stat": 3,
+    "posx": 736,
+    "posy": 496,
     "map": 0,
-    "quests": [0],
+    "quests": [3],
     "end_quests": [0],
-    "inventory": ["crossbow"]
+    "inventory": ["crossbow","eye2","ruby","ruby"]
 }
+
+}
+

@@ -3,7 +3,7 @@
     "map": 1,
     "merchant": 1,
     "quest": 0,
-    "want": [["apple",2], ["carrot",3], ["eye2",1]],
+    "want": [["apple",8], ["carrot",3], ["eye2",1]],
     "sell": [["biere",1], ["biere",1], ["biere",1]],
     "text": "P'tite biere ?"
 }

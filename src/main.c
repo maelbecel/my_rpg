@@ -17,9 +17,11 @@ static int rpg(game_t *game, sfEvent *event)
     while (sfRenderWindow_isOpen(game->window)) {
         frame = sfClock_getElapsedTime(fps);
         sfClock_restart(fps);
-        if (sfRenderWindow_pollEvent(game->window, event))
+        if (sfRenderWindow_pollEvent(game->window, event)) {
             analyse_game_state(game, event, frame);
-        else if (sfRenderWindow_isOpen(game->window)) {
+            while (sfRenderWindow_pollEvent(game->window, event))
+                analyse_game_state(game, event, frame);
+        } else if (sfRenderWindow_isOpen(game->window)) {
             event->type = -1;
             display(game, event);
         }

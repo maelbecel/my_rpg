@@ -65,7 +65,7 @@ void display_normal_battle(game_t *game, sfEvent *event)
                     (sfVector3f){100, 850, 50}, game->window);
     draw_life(game->enemy->life, game->enemy->total_life, game,
                 (sfVector2f){1222, 330});
-    draw_life(game->player->hp, game->player->total_hp, game,
+    draw_life(game->player->stat->hp, game->player->total_hp, game,
                 (sfVector2f){515, 530});
 }
 

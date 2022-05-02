@@ -11,13 +11,13 @@
 
 void attack(game_t *game, ...)
 {
-    int x = my_random() % game->enemy->damage - game->player->def;
+    int x = my_random() % game->enemy->damage - game->player->stat->def;
     if (x < 0)
         game->enemy->buf_text = conc(game->enemy->name, " missed his attack !");
     else
         game->enemy->buf_text = conc(game->enemy->name, conc(" say :\n", clean_string(game->enemy->text[my_random() % my_strarraylen(game->enemy->text)])));
-    game->enemy->life -= game->player->strg;
-    game->player->hp = (x > 0) ? game->player->hp - x : game->player->hp;
+    game->enemy->life -= game->player->stat->strg;
+    game->player->stat->hp = (x > 0) ? game->player->stat->hp - x : game->player->stat->hp;
 }
 
 button_t **battle_buttons(void)
