@@ -31,7 +31,9 @@ static int rpg(game_t *game, sfEvent *event)
 
 static int do_intro(game_t *game)
 {
-    if (intro(game->window, -4, 249) == EXIT_FAILURE) {
+    int frame = int_from_json(CONFIG_FILE, "framerate");
+
+    if (frame == -1 || intro(game->window, -4, 249) == EXIT_FAILURE) {
         free(game);
         return EXIT_FAILURE;
     }
@@ -40,10 +42,11 @@ static int do_intro(game_t *game)
         return EXIT_FAILURE;
     if (!(game->scenes[GAME].npc = game_npc()))
         return EXIT_FAILURE;
-    sfRenderWindow_setFramerateLimit(game->window,
-                        int_from_json(CONFIG_FILE, "framerate"));
-    game->player = init_player("chevalier");
-    game->hitbox = sfImage_createFromFile(HITBOX);
+    sfRenderWindow_setFramerateLimit(game->window, frame);
+    if (!(game->player = init_player("chevalier")))
+        return EXIT_FAILURE;
+    if (!(game->hitbox = sfImage_createFromFile(HITBOX)))
+        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
 

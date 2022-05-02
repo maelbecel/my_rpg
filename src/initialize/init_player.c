@@ -9,19 +9,24 @@
 #include "printf.h"
 #include "rpg.h"
 
-static void get_info_from_config(player_t *player, char *class)
+static int get_info_from_config(player_t *player, char *class)
 {
-    player->hp = int_from_json(conc("config/",
-                                            conc(class, ".json")), "health");
-    player->strg = int_from_json(conc("config/",
-                                        conc(class, ".json")), "strength");
-    player->spd = int_from_json(conc("config/",
-                                            conc(class, ".json")), "speed");
-    player->def = int_from_json(conc("config/",
-                                            conc(class, ".json")), "defense");
-    player->pt_stat = int_from_json(conc("config/",
-                                        conc(class, ".json")), "point_stat");
-    player->total_hp = player->hp;
+    if ((player->hp = int_from_json(conc("config/",
+                                    conc(class, ".json")), "health")) == -1)
+        return EXIT_FAILURE;
+    if ((player->strg = int_from_json(conc("config/",
+                                conc(class, ".json")), "strength")) == -1)
+        return EXIT_FAILURE;
+    if ((player->spd = int_from_json(conc("config/",
+                                        conc(class, ".json")), "speed")) == -1)
+        return EXIT_FAILURE;
+    if ((player->def = int_from_json(conc("config/",
+                                    conc(class, ".json")), "defense")) == -1)
+        return EXIT_FAILURE;
+    if ((player->pt_stat = int_from_json(conc("config/",
+                                conc(class, ".json")), "point_stat")) == -1)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
 
 player_t *init_player(char *class)
@@ -31,14 +36,18 @@ player_t *init_player(char *class)
     if (!player)
         return NULL;
     player->elem = NULL;
-    player->timer = sfClock_create();
+    if (!(player->timer = sfClock_create()))
+        return NULL;
     player->save = malloc(sizeof(char) * 2);
     if (!player->save)
         return NULL;
     player->quest = NULL;
     player->save[1] = '\0';
-    player->class = my_strdup(class);
-    get_info_from_config(player, class);
-    player->inventory = init_inventory();
+    if (!(player->class = my_strdup(class)))
+        return NULL;
+    if (get_info_from_config(player, class) == EXIT_FAILURE)
+        return NULL;
+    if (!(player->inventory = init_inventory()))
+        return NULL;
     return player;
 }
