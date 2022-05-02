@@ -11,9 +11,10 @@
 
 static const item_t item[] = {
     {"apple", 50, 0, 0, 0},
-    {"banana", 7, 0, 0, 0},
+    {"banana", 70, 0, 0, 0},
     {"sword", 0, 5, 0, 0},
-    {"shield", 0, 0, 0, 5}
+    {"shield", 0, 0, 0, 5},
+    {"biere", 500, 0, 0, 0}
 };
 
 void use_item(game_t* game, item_t item)

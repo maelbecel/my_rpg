@@ -57,6 +57,7 @@ void check_npc(game_t *game, sfEvent *event)
     npc_t *npc = find_npc(game);
     int pos;
 
+    check_quest(game);
     if (npc != NULL) {
         draw_pop_text(conc("Press '", conc(getkey(game->settings->key_action),
                 conc("'to interact\nwith ", npc->name))), game->settings->font,

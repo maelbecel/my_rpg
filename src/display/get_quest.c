@@ -10,16 +10,12 @@
 #include "rpg.h"
 
 static const char *Quests[] = {
-    "No quest actually",
-    "Talk to the forgeron",
-    "Talk to the blacksmith",
-    "Talk to the alchemist",
-    "Talk to the priest",
-    "Talk to the merchant",
-    "Talk to the innkeeper",
-    "Talk to the farmer",
-    "Faire un commit",
-    "Talk to the baker"
+    "No quest curently",
+    "Kill a spider",
+    "Collect 10 apples",
+    "Buy 5 rolling pin",
+    "Collect 8 beers from Patrick",
+    "Enter in the dungeon"
 };
 
 char *clean_string(char *str)
