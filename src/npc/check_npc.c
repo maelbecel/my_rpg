@@ -37,21 +37,6 @@ void draw_pop_text(char *text, sfFont *font, sfRenderWindow *window)
     free_elements(pop);
 }
 
-static int getposition(int x)
-{
-    switch (x) {
-        case 0:
-            return (3);
-        case 1:
-            return (2);
-        case 2:
-            return (1);
-        case 3:
-            return (0);
-    }
-    return x;
-}
-
 static int get_level(int xp)
 {
     int level = 1;
@@ -63,7 +48,6 @@ static int get_level(int xp)
 void check_npc(game_t *game, sfEvent *event)
 {
     npc_t *npc = find_npc(game);
-    int pos;
     float x = (game->scenes[GAME].elements[2]->pos.x + 10 +
                         (float)game->scenes[GAME].elements[0]->rect.left + 30);
     float y = (game->scenes[GAME].elements[2]->pos.y +
@@ -76,17 +60,10 @@ void check_npc(game_t *game, sfEvent *event)
         draw_pop_text(format("Press '%s'\nto interact with %s",
                 getkey(game->settings->key_action), npc->name),
                 game->settings->font, game->window);
-        if (event->key.code == game->settings->key_action) {
-            give_quest(game, npc);
-            pos = getposition(npc->elem->rect.top / npc->elem->rect.height);
-            game->scenes[GAME].elements[2]->rect.top = pos *
-                            game->scenes[GAME].elements[2]->rect.height;
-            sfSprite_setTextureRect(game->scenes[GAME].elements[2]->sprite,
-                                    game->scenes[GAME].elements[2]->rect);
-            go_talk_npc(game);
-        }
+        show_npc(game, npc, event);
     }
-    if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b && col.a == dungeon.a && get_level(game->player->xp) < 20)
+    if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b &&
+        col.a == dungeon.a && get_level(game->player->xp) < 20)
             draw_pop_text("You need to be lvl 20\nto enter the dungeon",
                                     game->settings->font, game->window);
 }

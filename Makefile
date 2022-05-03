@@ -144,6 +144,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(NPC)trade_stat.c     			\
 						$(SOURCES)$(NPC)move_npc.c					\
 						$(SOURCES)$(NPC)npc.c						\
+						$(SOURCES)$(NPC)show_npc.c   				\
 						$(SOURCES)$(NPC)trade.c						\
 						$(SOURCES)$(BATTLE)check_enemy.c			\
 						$(SOURCES)$(BATTLE)treeman_exception.c   	\

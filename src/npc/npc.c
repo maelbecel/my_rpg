@@ -18,7 +18,8 @@ npc_t *create_npc(char *name)
     char *file = format("config/npc/%s.json", name);
     int *pos = int_array_from_json(file, "pos", NULL);
 
-    npc->elem = init_element(format("assets/npc/%s.png", name), (sfVector2f){pos[0], pos[1]},
+    npc->elem = init_element(format("assets/npc/%s.png", name),
+                                    (sfVector2f){pos[0], pos[1]},
                                     (sfVector2f){32, 48}, (sfVector2f){2, 2});
     npc->name = my_strdup(name);
     npc->merchant = int_from_json(file, "merchant");

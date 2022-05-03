@@ -133,4 +133,15 @@
     ////////////////////////////////////////////////////////////
     enemy_t *create_enemy(char *type, player_t *player);
 
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Handle NPC action_clicked
+    ///
+    /// \param game  game_t struct with all game data
+    /// \param npc   npc to interact
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void show_npc(game_t *game, npc_t *npc, sfEvent *event);
+
 #endif /* !NPC_H_ */

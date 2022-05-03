@@ -77,8 +77,8 @@ int draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
     draw_text("VALKYRIE", font, (sfVector3f){1350, 760, 40}, window);
     draw_text(format("HEALTH : %s", health), font, (sfVector3f){1350, 840, 30},
                                                                     window);
-    draw_text(format("STRENGTH : %s", strength), font, (sfVector3f){1350, 880, 30},
-                                                                    window);
+    draw_text(format("STRENGTH : %s", strength), font,
+                                        (sfVector3f){1350, 880, 30}, window);
     draw_text(format("SPEED : %s", speed), font, (sfVector3f){1350, 920, 30},
                                                                     window);
     draw_text(format("DEFENSE: %s", defense), font, (sfVector3f){1350, 960, 30},
