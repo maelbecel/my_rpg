@@ -131,6 +131,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(CINE)fight_battle.c				\
 						$(SOURCES)$(CINE)tp_transition.c		    \
 						$(SOURCES)$(CINE)lore.c		    			\
+						$(SOURCES)$(CINE)lore_outro.c		    	\
 						$(SOURCES)$(CINE)outro.c                    \
 						$(SOURCES)$(FREE)free_all.c                 \
 						$(SOURCES)$(FREE)free_player.c              \

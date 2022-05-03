@@ -16,7 +16,7 @@ scene_t *init_lore(void)
 {
     scene_t *scenes = malloc(sizeof(scene_t));
 
-    scenes->elements = malloc(sizeof(element_t *) * (5 + 1));
+    scenes->elements = malloc(sizeof(element_t *) * (7 + 1));
     scenes->elements[0] = init_element("assets/lore/Sky.png",
         (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     scenes->elements[1] = init_element("assets/lore/DownLayer.png",
@@ -27,10 +27,13 @@ scene_t *init_lore(void)
         (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     scenes->elements[4] = init_element("assets/lore/Light.png",
         (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
-    scenes->elements[5] = NULL;
-    for (int i = 0; i < 5; i++) {
+    scenes->elements[5] = init_element("assets/npc/old_men.png",
+            (sfVector2f){300, 600}, (sfVector2f){32, 48}, (sfVector2f){8, 8});
+    scenes->elements[6] =  init_element(BUTTON, (sfVector2f){700, 300},
+                                (sfVector2f){792, 206}, (sfVector2f){1, 2});
+    scenes->elements[7] = NULL;
+    for (int i = 0; i < 5; i++)
         sfTexture_setRepeated(scenes->elements[i]->texture, sfTrue);
-    }
     return scenes;
 }
 
@@ -61,10 +64,11 @@ int draw_lore(sfRenderWindow* window, scene_t* scenes, char *tmp, clock_bg_t **c
 {
     sfRenderWindow_clear(window, sfBlack);
     for (int i = 0; scenes->elements[i] != NULL; i++) {
-        anim_sprite(scenes->elements[i], clock[i]);
+        if (i < 5)
+            anim_sprite(scenes->elements[i], clock[i]);
         draw_element(window, scenes->elements[i]);
     }
-    if (draw_text_white(tmp, 60, (sfVector2f){50, 500},
+    if (draw_text_white(tmp, 50, (sfVector2f){740, 370},
                                         window) == EXIT_FAILURE)
         return EXIT_FAILURE;
     sfRenderWindow_display(window);
