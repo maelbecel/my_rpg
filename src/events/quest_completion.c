@@ -112,7 +112,6 @@ void check_quest(game_t *game)
     if (game->player->quest[0] == 0)
         return;
     for (int i = 0; i < game->player->nbquest; i++) {
-        my_printf("check for quest %i\n", game->player->quest[i]);
         Quests[game->player->quest[i]].func(game);
     }
 }

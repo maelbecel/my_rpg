@@ -32,7 +32,6 @@ static bool colision(sfColor a, sfColor b)
 
 static char *get_enemy(game_t *game)
 {
-    char **types = str_array_from_json(CONFIG_FILE, "enemy_list");
     float x = (game->scenes[GAME].elements[2]->pos.x +
                         (float)game->scenes[GAME].elements[0]->rect.left + 30);
     float y = (game->scenes[GAME].elements[2]->pos.y +
@@ -43,12 +42,17 @@ static char *get_enemy(game_t *game)
         return my_strdup("spider");
     if (colision(place, SLIME))
         return my_strdup("slime");
-    return clean_string(types[my_random() % my_strarraylen(types)]);
+    if (colision(place, TREEMAN))
+        return my_strdup("treeman");
+    return NULL;
 }
 
 static void prep_battle(game_t *game)
 {
-    game->enemy = create_enemy(get_enemy(game), game->player);
+    char *type = get_enemy(game);
+    if (type == NULL)
+        return;
+    game->enemy = create_enemy(type, game->player);
     game->scenes[GAME].elements[2]->rect.top =
                         2 * game->scenes[GAME].elements[2]->rect.height;
     game->scenes[GAME].elements[2]->rect.left = 0;
@@ -60,6 +64,14 @@ static void prep_battle(game_t *game)
     game->scenes[BATTLE].elements[2]->scale = BATTLE_SCALE;
     sfSprite_setScale(game->scenes[BATTLE].elements[2]->sprite,
                         game->scenes[BATTLE].elements[2]->scale);
+    game->scenes->page = BATTLE;
+    if (my_strcmp(type, "treeman") == 0) {
+        game->enemy->elem->pos.x  -= 50;
+        game->enemy->elem->rect = (sfIntRect){0, 0, 150, 180};
+        game->enemy->elem->scale = (sfVector2f){1.5, 1.5};
+        sfSprite_setScale(game->enemy->elem->sprite,
+                            game->enemy->elem->scale);
+    }
     battle(game);
 }
 
@@ -71,7 +83,6 @@ int check_enemy(game_t *game)
         return -1;
     if (random % 100 == 0) {
         prep_battle(game);
-        game->scenes->page = BATTLE;
     }
     return EXIT_SUCCESS;
 }
