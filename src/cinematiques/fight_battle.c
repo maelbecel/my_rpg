@@ -19,7 +19,7 @@ static bool skip(sfRenderWindow *window)
     return false;
 }
 
-void my_sleep(int time, sfRenderWindow *window)
+static void my_sleep(int time, sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
     sfTime time_s = sfClock_getElapsedTime(clock);
