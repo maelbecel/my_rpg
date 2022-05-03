@@ -59,9 +59,9 @@ void check_npc(game_t *game, sfEvent *event)
 
     check_quest(game);
     if (npc != NULL) {
-        draw_pop_text(conc("Press '", conc(getkey(game->settings->key_action),
-                conc("'to interact\nwith ", npc->name))), game->settings->font,
-                game->window);
+        draw_pop_text(format("Press '%s' to interact with %s",
+                getkey(game->settings->key_action), npc->name),
+                game->settings->font, game->window);
         if (event->key.code == game->settings->key_action) {
             give_quest(game, npc);
             pos = getposition(npc->elem->rect.top / npc->elem->rect.height);

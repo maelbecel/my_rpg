@@ -16,7 +16,7 @@ void htp_third(game_t *game, ...)
 
 element_t **htp_third_elements(void)
 {
-    element_t **elements = malloc(sizeof(element_t *) * (3 + 1));
+    element_t **elements = malloc(sizeof(element_t *) * (4 + 1));
 
     if (!elements)
         return NULL;

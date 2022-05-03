@@ -15,20 +15,15 @@ npc_t *create_npc(char *name)
 
     if (!npc)
         return NULL;
-    int *pos = int_array_from_json(conc("config/npc/", conc(name, ".json")),
-                                                                "pos", NULL);
+    char *file = format("config/npc/%s.json", name);
+    int *pos = int_array_from_json(file, "pos", NULL);
 
-    npc->elem = init_element(conc("assets/npc/", conc(name, ".png")),
-                (sfVector2f){pos[0], pos[1]}, (sfVector2f){32, 48},
-                (sfVector2f){2, 2});
+    npc->elem = init_element(format("assets/npc/%s.png", name), (sfVector2f){pos[0], pos[1]},
+                                    (sfVector2f){32, 48}, (sfVector2f){2, 2});
     npc->name = my_strdup(name);
-    npc->merchant = int_from_json(conc("config/npc/", conc(name, ".json")),
-                    "merchant");
-    npc->quest = int_from_json(conc("config/npc/", conc(name, ".json")),
-                    "quest");
-    npc->text = str_from_json(conc("config/npc/", conc(name, ".json")),
-                    "text");
-    npc->map = int_from_json(conc("config/npc/", conc(name, ".json")),
-                    "map");
+    npc->merchant = int_from_json(file, "merchant");
+    npc->quest = int_from_json(file, "quest");
+    npc->text = str_from_json(file, "text");
+    npc->map = int_from_json(file, "map");
     return npc;
 }

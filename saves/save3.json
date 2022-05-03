@@ -1,18 +1,20 @@
 {
     "new": 0,
-    "class": "arbeletier",
-    "health": 80,
-    "strength": 7,
+    "class": "mage",
+    "health": 100,
+    "strength": 10,
     "xp": 0,
-    "speed": 12,
-    "defense": 4,
+    "speed": 5,
+    "defense": 7,
     "point_stat": 0,
     "posx": 800,
     "map": 0,
     "posy": 800,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["crossbow"]
+    "inventory": ["baguette"]
+}
+"]
 }
 ,"biere","biere","biere","biere","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","rouleau","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","eye2","eye2","eye2","eye2","eye2"]
 }

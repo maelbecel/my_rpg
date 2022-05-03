@@ -89,7 +89,7 @@ void remove_quest(game_t *game, int q)
 {
     int *new = malloc(sizeof(int) * game->player->nbquest);
     int x = 0;
-    char *save = conc("saves/save", conc(game->player->save, ".json"));
+    char *save = format("saves/save%s.json", game->player->save);
 
     for (int i = 0; i < game->player->nbquest; i++) {
         new[x] = game->player->quest[i];
