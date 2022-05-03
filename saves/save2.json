@@ -1,22 +1,22 @@
 {
-    "new": 0,
-    "class": "chevalier",
-    "health": 120,
+    "new": 1,
+    "class": null,
+    "health": 0,
     "strength": 4,
-    "speed": 8,
+    "speed": 0,
     "xp": 0,
-    "defense": 10,
+    "defense": 0,
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
     "map": 0,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["sword"]
+    "inventory": ["none"]
 }]
 }w"]
 }]
 }}}
 }}}
 }}}
-}}}}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}

@@ -54,9 +54,8 @@ int battle(game_t *game, ...)
         if (time.microseconds / 1000  < 0.01)
             continue;
         sfClock_restart(clock);
-        bg->pos.x += 20;
         sfRenderWindow_clear(game->window, sfBlack);
-        if (bg->pos.x < -500)
+        if (bg->pos.x += 20 < -500)
             draw_game(game);
         else
             draw_battle(game);
