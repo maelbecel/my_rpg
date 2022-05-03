@@ -29,7 +29,7 @@ char *get_update(char *variable, FILE *fd, char *value)
         if (my_strcmp(line, "\n") == 0)
             continue;
         if (my_strcmp(line, "}\n") == 0)
-            return conc(buffer, line);
+            return format("%s%s", buffer, line);
         if (my_strncmp(line, variable, my_strlen(variable)) == 0) {
             buffer = format("%s%s%s%s", buffer, variable, value,
                                     (line[read - 2] == ',') ? ",\n" : "\n");
@@ -45,8 +45,7 @@ void update_file(char *file, char *var, char *value)
 {
     FILE *fd = fopen(file, "r");
     char *buffer;
-    char *variable = conc("    ", conc(coat(),
-                                    conc(var, conc(coat(), conc(":", " ")))));
+    char *variable = format("    \"%s\": ", var);
     sfFont *font = sfFont_createFromFile(BASIC_FONT);
 
     if (fd == NULL) {
