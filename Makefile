@@ -129,7 +129,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(CINE)enter_battle.c				\
 						$(SOURCES)$(CINE)fight_battle.c				\
 						$(SOURCES)$(CINE)tp_transition.c		    \
-						$(SOURCES)$(CINE)lore.c		    \
+						$(SOURCES)$(CINE)lore.c		    			\
 						$(SOURCES)$(CINE)outro.c                    \
 						$(SOURCES)$(FREE)free_all.c                 \
 						$(SOURCES)$(FREE)free_player.c              \
@@ -146,9 +146,10 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(NPC)npc.c						\
 						$(SOURCES)$(NPC)trade.c						\
 						$(SOURCES)$(BATTLE)check_enemy.c			\
+						$(SOURCES)$(BATTLE)treeman_exception.c   	\
 						$(SOURCES)$(BATTLE)random.c					\
-						$(SOURCES)$(ERROR)check_set.c					\
-						$(SOURCES)$(ERROR)my_put_error.c					\
+						$(SOURCES)$(ERROR)check_set.c				\
+						$(SOURCES)$(ERROR)my_put_error.c
 
 TESTS        =         tests/test.c
 

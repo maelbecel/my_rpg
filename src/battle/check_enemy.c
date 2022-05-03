@@ -52,6 +52,7 @@ static char *get_enemy(game_t *game)
 static void prep_battle(game_t *game)
 {
     char *type = get_enemy(game);
+
     if (type == NULL)
         return;
     game->enemy = create_enemy(type, game->player);
@@ -67,13 +68,7 @@ static void prep_battle(game_t *game)
     sfSprite_setScale(game->scenes[BATTLE].elements[2]->sprite,
                         game->scenes[BATTLE].elements[2]->scale);
     game->scenes->page = BATTLE;
-    if (my_strcmp(type, "treeman") == 0) {
-        game->enemy->elem->pos.x  -= 50;
-        game->enemy->elem->rect = (sfIntRect){0, 0, 150, 180};
-        game->enemy->elem->scale = (sfVector2f){1.5, 1.5};
-        sfSprite_setScale(game->enemy->elem->sprite,
-                            game->enemy->elem->scale);
-    }
+    treeman_exception(game, type);
     battle(game);
 }
 

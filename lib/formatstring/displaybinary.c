@@ -37,9 +37,7 @@ char *fdisplaybinary(va_list argv)
         r = r / 2;
         i++;
     }
-    i--;
-    for (; i >= 0; i--)
-        ret[x++] = res[i];
+    for (i -= 1; i >= 0; ret[x++] = res[i], i--);
     ret[x] = '\0';
     free(res);
     return ret;

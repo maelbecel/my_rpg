@@ -29,6 +29,7 @@ char *fdisplayoctal(int nb)
     char *ret = malloc(20);
     int j = 0;
     int x = 0;
+
     if (!res || !ret)
         return NULL;
     for (;quotient != 0; j++) {
@@ -36,10 +37,8 @@ char *fdisplayoctal(int nb)
         res[j] = base[r];
         quotient /= 8;
     }
-    for (; my_strlen(res) != 3; j++)
-        res[j] = '0';
-    for (int i = j; i >= 0; i--)
-        ret[x++] = res[i];
+    for (; my_strlen(res) != 3; res[j] = '0', j++);
+    for (int i = j; i >= 0; ret[x++] = res[i], i--);
     ret[x] = '\0';
     free(res);
     return ret;

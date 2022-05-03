@@ -20,17 +20,14 @@ char *fmy_putadress(long long nb)
     int j = 0;
     int x = 0;
 
-
     if (!res || !ret)
         return NULL;
     while (quotient != 0) {
         r = quotient % 16;
-        res[j] = base[r];
+        res[j++] = base[r];
         quotient /= 16;
-        j++;
     }
-    for (int i = j; i >= 0; i--)
-        ret[x++] = res[i];
+    for (int i = j; i >= 0; ret[x++] = res[i], i--);
     ret[x] = '\0';
     free(res);
     return ret;
