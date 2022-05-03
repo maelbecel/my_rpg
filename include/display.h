@@ -531,4 +531,21 @@
     ////////////////////////////////////////////////////////////
     void display_tab_inventory(game_t *game, sfEvent *event);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Skip
+    ///
+    /// \param window  sfRenderWindow object where element should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    bool skip(sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief sleep
+    ///
+    /// \param time    seconds to wait
+    /// \param window  sfRenderWindow object where element should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    void my_sleep(int time, sfRenderWindow *window);
+
 #endif

@@ -12,28 +12,20 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-static bool skip(sfRenderWindow *window)
+scene_t *init_lore(void)
 {
-    int key = int_from_json(SETTINGS_FILE , "skip_key");
-    sfEvent event;
-    while (sfRenderWindow_pollEvent(window, &event))
-        if (event.type == sfEvtKeyPressed && event.key.code == key)
-            return true;
-    return false;
-}
+    scene_t *scenes = malloc(sizeof(scene_t));
 
-static void my_sleep(int time, sfRenderWindow *window)
-{
-    sfClock *clock = sfClock_create();
-    sfTime time_s = sfClock_getElapsedTime(clock);
-
-    while (time_s.microseconds / MICRO < time && !skip(window))
-        time_s = sfClock_getElapsedTime(clock);
-    sfClock_destroy(clock);
+    scenes->elements = malloc(sizeof(element_t *) * (1 + 1));
+    scenes->elements[0] = init_element("assets/lore/Sky.png",
+        (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    scenes->elements[1] = NULL;
+    return scenes;
 }
 
 int lore(sfRenderWindow *window)
 {
+    scene_t *scenes = init_lore();
     sfClock *clock = sfClock_create();
     char *buffer = "You need to find your seed \n(je developpe demain je \nsuis trop fatigue wesh)";
     sfTime time;
@@ -51,11 +43,14 @@ int lore(sfRenderWindow *window)
         time = sfClock_restart(clock);
         tmp = format("%s%c", tmp, buffer[i]);
         sfRenderWindow_clear(window, sfBlack);
+        draw_element(window, scenes->elements[0]);
         if (draw_text_white(tmp, 60, (sfVector2f){50, 500},
                                             window) == EXIT_FAILURE)
             return EXIT_FAILURE;
         i++;
         sfRenderWindow_display(window);
+        if (skip(window))
+            return EXIT_SUCCESS;
     }
     my_sleep(3, window);
     return EXIT_SUCCESS;
