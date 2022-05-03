@@ -1,30 +1,17 @@
 {
-    "new": 1,
-    "class": null,
-    "health": 0,
+    "new": 0,
+    "class": "archere",
+    "health": 70,
     "xp": 0,
-    "strength": 7,
-    "speed": 0,
-    "defense": 0,
+    "strength": 6,
+    "speed": 13,
+    "defense": 4,
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
     "map": 0,
     "quests": [0],
     "end_quests": [0],
-<<<<<<< HEAD
-    "inventory": ["none"]
-=======
-    "inventory": ["none"]
->>>>>>> 84ee8e882b555c69f3adc55773770f6c5f8b52f1
-}
->>>> 84ee8e882b555c69f3adc55773770f6c5f8b52f1
-}
-
-
-52f1
-}
-
-b52f1
+    "inventory": ["bow"]
 }
 

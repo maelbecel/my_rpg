@@ -36,7 +36,7 @@ void add_elem(game_t *game, char *type)
     }
 }
 
-int open_inventory(game_t* game, ...)
+int open_inventory(game_t *game, ...)
 {
     game->scenes[MENU_PLAYER].tab->page = INVENTORY;
     game->scenes[BATTLE].page = 1;

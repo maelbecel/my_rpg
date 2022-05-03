@@ -26,14 +26,6 @@ void draw_load(int at, int on, sfRenderWindow *window)
     sfRectangleShape_destroy(rect);
 }
 
-static int get_level(int xp)
-{
-    int level = 1;
-
-    for (; xp >= 500 * level * level; level++);
-    return (level);
-}
-
 static int get_xp_for_level(int level)
 {
     return (500 * level * level);
