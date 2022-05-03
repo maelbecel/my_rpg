@@ -1,14 +1,8 @@
 {
     "new": 0,
-<<<<<<< HEAD
     "class": "arbaletier",
     "health": 80,
     "strength": 7,
-=======
-    "class": "mage",
-    "health": 100,
-    "strength": 10,
->>>>>>> cabbee2142efa60a8253539aa7e9c18a86b31347
     "xp": 0,
     "speed": 5,
     "defense": 7,
@@ -20,15 +14,3 @@
     "end_quests": [0],
     "inventory": ["baguette"]
 }
-"]
-}
-,"biere","biere","biere","biere","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","ruby","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","blob","rouleau","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","flower","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","gold","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","eye2","eye2","eye2","eye2","eye2"]
-}
-
-}
-}
-]
-}
-
-}
-
