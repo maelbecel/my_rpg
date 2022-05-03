@@ -9,9 +9,10 @@
 #include "printf.h"
 #include "rpg.h"
 
-void settings_key(game_t *game, ...)
+int settings_key(game_t *game, ...)
 {
     game->scenes->page = KEY;
+    return EXIT_SUCCESS;
 }
 
 element_t **settings_key_elements(void)

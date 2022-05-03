@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-static void set_pause(game_t *game)
+static int set_pause(game_t *game)
 {
     game->scenes[SETTINGS].buttons[0]->action_clicked = pause_menu;
     sfText_setString(game->scenes[SETTINGS].buttons[0]->base->text,
@@ -18,9 +18,10 @@ static void set_pause(game_t *game)
                                                                 "PAUSE MENU");
     sfText_setString(game->scenes[SETTINGS].buttons[0]->hoover->text,
                                                                 "PAUSE MENU");
+    return EXIT_SUCCESS;
 }
 
-static void set_menu(game_t *game)
+static int set_menu(game_t *game)
 {
     game->scenes[SETTINGS].buttons[0]->action_clicked = main_menu;
     sfText_setString(game->scenes[SETTINGS].buttons[0]->base->text,
@@ -29,6 +30,7 @@ static void set_menu(game_t *game)
                                                                 "MAIN MENU");
     sfText_setString(game->scenes[SETTINGS].buttons[0]->hoover->text,
                                                                 "MAIN MENU");
+    return EXIT_SUCCESS;
 }
 
 int analyse_event(game_t *game, sfEvent *event)

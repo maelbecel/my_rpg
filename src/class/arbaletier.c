@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-static void update_all_file(game_t *game, char *file)
+static int update_all_file(game_t *game, char *file)
 {
     char *health = parser(ARBALETIER, "health");
     char *strength = parser(ARBALETIER, "strength");
@@ -18,22 +18,33 @@ static void update_all_file(game_t *game, char *file)
 
     if (!health || !strength || !speed || !defense) {
         popup(game->settings->font, "FAILED TO OPEN\nconfig/arbaletier.json");
-        return;
+        return EXIT_FAILURE;
     }
-    update_file(file, "health", health);
-    update_file(file, "strength", strength);
-    update_file(file, "speed", speed);
-    update_file(file, "defense", defense);
-    update_file(file, "class", format("\"%s\"", "arbaletier"));
-    update_file(file, "new", "0");
-    update_file(file, "inventory", format("[\"%s\"]", "crossbow"));
+    if (update_file(file, "health", health) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "strength", strength) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "speed", speed) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "defense", defense) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "class", format("\"%s\"", "arbaletier")) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "new", "0") == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "inventory", format("[\"%s\"]", "crossbow")) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
 
-void arbaletier(game_t *game, ...)
+int arbaletier(game_t *game, ...)
 {
     char *file = format("saves/save%s.json", game->player->save);
 
-    update_all_file(game, file);
+    if (!file)
+        return EXIT_FAILURE;
+    if (update_all_file(game, file) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     reset(game);
     game->scenes->page = GAME;
     sfTexture_destroy(game->scenes[GAME].elements[2]->texture);
@@ -43,9 +54,10 @@ void arbaletier(game_t *game, ...)
                             game->scenes[GAME].elements[2]->texture, sfFalse);
     set_player_inventory(game, file);
     free(file);
+    return EXIT_SUCCESS;
 }
 
-void draw_arbaletier_char(sfRenderWindow *window, sfFont *font)
+int draw_arbaletier_char(sfRenderWindow *window, sfFont *font)
 {
     char *health = parser(ARBALETIER, "health");
     char *strength = parser(ARBALETIER, "strength");
@@ -54,7 +66,7 @@ void draw_arbaletier_char(sfRenderWindow *window, sfFont *font)
 
     if (!health || !strength || !speed || !defense) {
         popup(font, "FAILED TO OPEN\nconfig/arbaletier.json");
-        return;
+        return EXIT_FAILURE;
     }
     draw_text("CROSSBOWMAN", font, (sfVector3f){260, 240, 40}, window);
     draw_text(conc("HEALTH : ", health), font, (sfVector3f){350, 320, 30},
@@ -65,4 +77,5 @@ void draw_arbaletier_char(sfRenderWindow *window, sfFont *font)
                                                                     window);
     draw_text(conc("DEFENSE: ", defense), font, (sfVector3f){350, 440, 30},
                                                                     window);
+    return EXIT_SUCCESS;
 }

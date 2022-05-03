@@ -57,14 +57,21 @@ void update_load(game_t *game)
     }
 }
 
-static void draw_chars(game_t *game)
+static int draw_chars(game_t *game)
 {
-    draw_arbaletier_char(game->window, game->settings->font);
-    draw_archere_char(game->window, game->settings->font);
-    draw_chevalier_char(game->window, game->settings->font);
-    draw_cuisiniere_char(game->window, game->settings->font);
-    draw_mage_char(game->window, game->settings->font);
-    draw_valkyrie_char(game->window, game->settings->font);
+    if (draw_arbaletier_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_archere_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_chevalier_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_cuisiniere_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_mage_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_valkyrie_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
 
 int display_choosing(game_t *game, sfEvent *event)
@@ -87,6 +94,7 @@ int display_choosing(game_t *game, sfEvent *event)
     }
     while (game->scenes[CHOOSING].elements[e])
         draw_element(game->window, game->scenes[CHOOSING].elements[e++]);
-    draw_chars(game);
+    if (draw_chars(game) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

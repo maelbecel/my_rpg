@@ -25,7 +25,8 @@ static int rpg(game_t *game, sfEvent *event)
                 analyse_game_state(game, event, frame);
         } else if (sfRenderWindow_isOpen(game->window)) {
             event->type = -1;
-            display(game, event);
+            if (display(game, event) == EXIT_FAILURE)
+                return EXIT_ERROR;
         }
         if (draw_fps(frame, game) == EXIT_FAILURE)
             return EXIT_ERROR;

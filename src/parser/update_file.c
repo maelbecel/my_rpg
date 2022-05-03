@@ -41,7 +41,7 @@ char *get_update(char *variable, FILE *fd, char *value)
     return buffer;
 }
 
-void update_file(char *file, char *var, char *value)
+int update_file(char *file, char *var, char *value)
 {
     FILE *fd = fopen(file, "r");
     char *buffer;
@@ -52,9 +52,10 @@ void update_file(char *file, char *var, char *value)
         popup(font, conc("Error:\nCan't open '", conc(file, "'")));
         sfFont_destroy(font);
         free(variable);
-        return;
+        return EXIT_FAILURE;
     }
     sfFont_destroy(font);
     buffer = get_update(variable, fd, value);
     fill_file(file, buffer);
+    return EXIT_SUCCESS;
 }

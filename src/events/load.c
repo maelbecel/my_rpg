@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-void new_game(game_t *game, ...)
+int new_game(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -38,6 +38,7 @@ void new_game(game_t *game, ...)
                         game->scenes[GAME].elements[6]->scale);
     lore(game->window);
     va_end(arg);
+    return EXIT_SUCCESS;
 }
 
 void load_1(game_t *game, ...)
@@ -164,7 +165,7 @@ void load_3(game_t *game, ...)
     set_player(game, getpos);
 }
 
-void load(game_t *game, ...)
+int load(game_t *game, ...)
 {
     for (int i = 0; i < SIZE_INVENTORY; i++) {
         game->player->inventory[i]->type = NULL;
@@ -172,4 +173,5 @@ void load(game_t *game, ...)
         game->player->inventory[i]->elem = NULL;
     }
     game->scenes->page = LOAD;
+    return EXIT_SUCCESS;
 }

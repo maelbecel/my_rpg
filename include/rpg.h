@@ -288,7 +288,7 @@
         type_button_t *clicked;
         sfVector2f pos;
         void (*action_hoover)(game_t *game, ...);
-        void (*action_clicked)(game_t *game, ...);
+        int (*action_clicked)(game_t *game, ...);
         int x;
         int y;
     };
@@ -384,7 +384,7 @@
     /// \param value Value to update in the JSON file
     ///
     ////////////////////////////////////////////////////////////
-    void update_file(char *file, char *var, char *value);
+    int update_file(char *file, char *var, char *value);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display loading bar

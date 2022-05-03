@@ -112,8 +112,7 @@ int display(game_t *game, sfEvent *event)
     sfRenderWindow_clear(game->window, sfWhite);
     for (int i = 0; Menu_list[i].scene != -1; i++) {
         if (Menu_list[i].scene == game->scenes->page) {
-            Menu_list[i].func(game, event);
-            return EXIT_SUCCESS;
+            return Menu_list[i].func(game, event);
         }
     }
     return EXIT_FAILURE;

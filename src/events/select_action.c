@@ -26,7 +26,7 @@ int set_act(game_t *game, sfEvent *event)
     return EXIT_FAILURE;
 }
 
-void wait_action(game_t *game, ...)
+int wait_action(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -35,8 +35,9 @@ void wait_action(game_t *game, ...)
 
     while (sfRenderWindow_isOpen(game->window)) {
         if (!set_act(game, event))
-            return;
+            return EXIT_FAILURE;
     }
+    return EXIT_SUCCESS;
 }
 
 int set_skip(game_t *game, sfEvent *event)
@@ -56,7 +57,7 @@ int set_skip(game_t *game, sfEvent *event)
     return EXIT_FAILURE;
 }
 
-void wait_skip(game_t *game, ...)
+int wait_skip(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -65,6 +66,7 @@ void wait_skip(game_t *game, ...)
 
     while (sfRenderWindow_isOpen(game->window)) {
         if (!set_skip(game, event))
-            return;
+            return EXIT_FAILURE;
     }
+    return EXIT_SUCCESS;
 }

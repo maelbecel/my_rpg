@@ -160,7 +160,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void quit(game_t *game, ...);
+    int quit(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to game
@@ -178,7 +178,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void main_menu(game_t *game, ...);
+    int main_menu(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to settings menu
@@ -187,7 +187,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void settings(game_t *game, ...);
+    int settings(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to sounds settings
@@ -196,7 +196,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void settings_sounds(game_t *game, ...);
+    int settings_sounds(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to keys settings
@@ -205,7 +205,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void settings_key(game_t *game, ...);
+    int settings_key(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to how to play first scene
@@ -214,7 +214,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void htp_first(game_t *game, ...);
+    int htp_first(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Save game state
@@ -223,7 +223,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void save(game_t *game, ...);
+    int save(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Check corrupted save
@@ -259,7 +259,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void pause_menu(game_t *game, ...);
+    int pause_menu(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait for input for key skip
@@ -268,7 +268,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void wait_skip(game_t *game, ...);
+    int wait_skip(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait for input for key action
@@ -277,7 +277,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void wait_action(game_t *game, ...);
+    int wait_action(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait for input for key up
@@ -286,7 +286,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void wait_up(game_t *game, ...);
+    int wait_up(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait for input for key down
@@ -295,7 +295,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void wait_down(game_t *game, ...);
+    int wait_down(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait for input for key right
@@ -304,7 +304,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void wait_right(game_t *game, ...);
+    int wait_right(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait for input for key left
@@ -313,7 +313,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void wait_left(game_t *game, ...);
+    int wait_left(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait for input for key pause
@@ -322,7 +322,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void wait_pause(game_t *game, ...);
+    int wait_pause(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait for input for key menu
@@ -331,7 +331,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void wait_menu(game_t *game, ...);
+    int wait_menu(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to load menu
@@ -340,7 +340,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void load(game_t *game, ...);
+    int load(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set game to menu
@@ -444,7 +444,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void new_game(game_t *game, ...);
+    int new_game(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Clear the save 1

@@ -9,27 +9,31 @@
 #include "printf.h"
 #include "rpg.h"
 
-static void up_frame(game_t *game, ...)
+static int up_frame(game_t *game, ...)
 {
     int i = int_from_json(CONFIG_FILE, "framerate");
+
     if (i < 200) {
         i += 10;
         update_file(CONFIG_FILE, "framerate", inttochar(i));
         sfRenderWindow_setFramerateLimit(game->window, i);
     }
+    return EXIT_SUCCESS;
 }
 
-static void down_frame(game_t *game, ...)
+static int down_frame(game_t *game, ...)
 {
     int i = int_from_json(CONFIG_FILE, "framerate");
+
     if (i > 20) {
         i -= 10;
         update_file(CONFIG_FILE, "framerate", inttochar(i));
         sfRenderWindow_setFramerateLimit(game->window, i);
     }
+    return EXIT_SUCCESS;
 }
 
-static void shower(game_t *game, ...)
+static int shower(game_t *game, ...)
 {
     (void)game;
     if (int_from_json(CONFIG_FILE, "show_fps") == 0) {
@@ -37,6 +41,7 @@ static void shower(game_t *game, ...)
     } else {
         update_file(CONFIG_FILE, "show_fps", "0");
     }
+    return EXIT_SUCCESS;
 }
 
 element_t **settings_elements_frame(void)
