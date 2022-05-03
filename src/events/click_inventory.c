@@ -61,7 +61,7 @@ int is_click_inventory(game_t *game, int i)
     return EXIT_FAILURE;
 }
 
-void menu_inventory(game_t *game, ...)
+int menu_inventory(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -77,4 +77,5 @@ void menu_inventory(game_t *game, ...)
         game->is_inv = true;
     }
     va_end(arg);
+    return EXIT_SUCCESS;
 }

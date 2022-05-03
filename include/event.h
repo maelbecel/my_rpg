@@ -115,7 +115,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void clicked(game_t *game, ...);
+    int clicked(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Change button in menu player state on clicked
@@ -124,7 +124,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void clicked_menu(game_t *game, ...);
+    int clicked_menu(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Change button state on hoover
@@ -151,7 +151,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void do_none(game_t *game, ...);
+    int do_none(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Exit the game
@@ -241,7 +241,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void htp_second(game_t *game, ...);
+    int htp_second(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to how to play third scene
@@ -250,7 +250,7 @@
     /// \param ... other information passed with va_list arguments
     ///
     ////////////////////////////////////////////////////////////
-    void htp_third(game_t *game, ...);
+    int htp_third(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to pause menu
@@ -408,7 +408,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void clicked_menu(game_t *game, ...);
+    int clicked_menu(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display clicked
@@ -417,7 +417,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void clicked(game_t *game, ...);
+    int clicked(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display menu hoover
@@ -453,7 +453,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void clear_1(UNUSED game_t *game, ...);
+    int clear_1(UNUSED game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Clear the save 2
@@ -462,7 +462,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void clear_2(UNUSED game_t *game, ...);
+    int clear_2(UNUSED game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Clear the save 3
@@ -471,7 +471,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void clear_3(UNUSED game_t *game, ...);
+    int clear_3(UNUSED game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to player tab
@@ -480,7 +480,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void go_to_player(game_t *game, ...);
+    int go_to_player(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to stat tab
@@ -489,7 +489,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void go_to_stat(game_t *game, ...);
+    int go_to_stat(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to quest tab
@@ -498,7 +498,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void go_to_quest(game_t *game, ...);
+    int go_to_quest(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to inventory tab
@@ -507,7 +507,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void go_to_inventory(game_t *game, ...);
+    int go_to_inventory(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Add HP to player
@@ -516,7 +516,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void add_hp(game_t *game, ...);
+    int add_hp(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Add Strenght to player
@@ -525,7 +525,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void add_strenght(game_t *game, ...);
+    int add_strenght(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Add Speed to player
@@ -534,7 +534,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void add_speed(game_t *game, ...);
+    int add_speed(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Add Defense to player
@@ -543,7 +543,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void add_defense(game_t *game, ...);
+    int add_defense(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Apply save to player struct
@@ -552,7 +552,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void reset(game_t *game, ...);
+    int reset(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Check if a key \a i is already use
@@ -665,7 +665,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void menu_inventory(game_t *game, ...);
+    int menu_inventory(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Find item with button tab menu player
@@ -683,7 +683,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void delete_item(game_t *game, ...);
+    int delete_item(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Teleport the player
@@ -703,7 +703,7 @@
     /// \param ...   other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void open_inventory(game_t *game, ...);
+    int open_inventory(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Check all quest

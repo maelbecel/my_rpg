@@ -123,7 +123,7 @@
     /// \param ... other arguments to pass
     ///
     ////////////////////////////////////////////////////////////
-    void load_1(game_t *game, ...);
+    int load_1(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Load save from save2.json
@@ -132,7 +132,7 @@
     /// \param ... other arguments to pass
     ///
     ////////////////////////////////////////////////////////////
-    void load_2(game_t *game, ...);
+    int load_2(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Load save from save3.json
@@ -141,6 +141,6 @@
     /// \param ... other arguments to pass
     ///
     ////////////////////////////////////////////////////////////
-    void load_3(game_t *game, ...);
+    int load_3(game_t *game, ...);
 
 #endif

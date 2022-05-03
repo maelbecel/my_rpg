@@ -42,18 +42,19 @@ void use_item(game_t* game, item_t item)
     delete_element(game, item.type);
 }
 
-void use(game_t *game, ...)
+int use(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
     char *type = va_arg(arg, char *);
     if (game->scenes->page != BATTLE)
-        return;
+        return EXIT_FAILURE;
     if (!type)
-        return;
+        return EXIT_FAILURE;
     for (int i = 0; i < (int) (sizeof(item) / sizeof(item_t)); i++) {
         if (my_strcmp(type, item[i].type) == 0) {
             use_item(game, item[i]);
         }
     }
+    return EXIT_SUCCESS;
 }

@@ -18,39 +18,43 @@ const void *CLASS[6][2] = {
     {"arbeletier", CROSSBOW_P},
 };
 
-void add_hp(game_t *game, ...)
+int add_hp(game_t *game, ...)
 {
     if (game->player->pt_stat > 0) {
         game->player->total_hp += 10;
         game->player->pt_stat -= 1;
     }
+    return EXIT_SUCCESS;
 }
 
-void add_strenght(game_t *game, ...)
+int add_strenght(game_t *game, ...)
 {
     if (game->player->pt_stat > 0) {
         game->player->strg += 1;
         game->player->pt_stat -= 1;
     }
+    return EXIT_SUCCESS;
 }
 
-void add_speed(game_t *game, ...)
+int add_speed(game_t *game, ...)
 {
     if (game->player->pt_stat > 0) {
         game->player->spd += 1;
         game->player->pt_stat -= 1;
     }
+    return EXIT_SUCCESS;
 }
 
-void add_defense(game_t *game, ...)
+int add_defense(game_t *game, ...)
 {
     if (game->player->pt_stat > 0) {
         game->player->def += 1;
         game->player->pt_stat -= 1;
     }
+    return EXIT_SUCCESS;
 }
 
-void reset(game_t *game, ...)
+int reset(game_t *game, ...)
 {
     char *file = format("saves/save%s.json", game->player->save);
     char *class = clean_string(parser(file, "class"));
@@ -68,7 +72,8 @@ void reset(game_t *game, ...)
                                 sfTexture_createFromFile(CLASS[i][1], NULL);
             sfSprite_setTexture(game->scenes[GAME].elements[2]->sprite,
                             game->scenes[GAME].elements[2]->texture, sfFalse);
-            return;
+            return EXIT_FAILURE;
         }
     }
+    return EXIT_SUCCESS;
 }

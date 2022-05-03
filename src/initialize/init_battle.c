@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-void attack(game_t *game, ...)
+int attack(game_t *game, ...)
 {
     int x = my_random() % game->enemy->damage - game->player->stat->def;
     if (x < 0)
@@ -21,6 +21,7 @@ void attack(game_t *game, ...)
                                 my_strarraylen(game->enemy->text)]));
     game->enemy->life -= game->player->stat->strg;
     game->player->stat->hp = (x > 0) ? game->player->stat->hp - x : game->player->stat->hp;
+    return EXIT_SUCCESS;
 }
 
 button_t **battle_buttons(void)

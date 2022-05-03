@@ -41,7 +41,7 @@ int new_game(game_t *game, ...)
     return EXIT_SUCCESS;
 }
 
-void load_1(game_t *game, ...)
+int load_1(game_t *game, ...)
 {
     sfVector2f getpos = (sfVector2f){int_from_json(SAVE1, "posx"),
                                     int_from_json(SAVE1, "posy")};
@@ -80,9 +80,10 @@ void load_1(game_t *game, ...)
                             game->scenes[GAME].elements[6]->scale);
     }
     set_player(game, getpos);
+    return EXIT_SUCCESS;
 }
 
-void load_2(game_t *game, ...)
+int load_2(game_t *game, ...)
 {
     sfVector2f getpos = (sfVector2f){int_from_json(SAVE2, "posx"),
         int_from_json(SAVE2, "posy")};
@@ -122,9 +123,10 @@ void load_2(game_t *game, ...)
                             game->scenes[GAME].elements[6]->scale);
     }
     set_player(game, getpos);
+    return EXIT_SUCCESS;
 }
 
-void load_3(game_t *game, ...)
+int load_3(game_t *game, ...)
 {
     sfVector2f getpos = (sfVector2f){int_from_json(SAVE3, "posx"),
         int_from_json(SAVE3, "posy")};
@@ -163,6 +165,7 @@ void load_3(game_t *game, ...)
                             game->scenes[GAME].elements[6]->scale);
     }
     set_player(game, getpos);
+    return EXIT_SUCCESS;
 }
 
 int load(game_t *game, ...)

@@ -9,9 +9,10 @@
 #include "printf.h"
 #include "rpg.h"
 
-void htp_second(game_t *game, ...)
+int htp_second(game_t *game, ...)
 {
     game->scenes->page = HTP_2;
+    return EXIT_SUCCESS;
 }
 
 element_t **htp_second_elements(void)

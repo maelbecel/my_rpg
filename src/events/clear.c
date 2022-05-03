@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-void clear_1(UNUSED game_t *game, ...)
+int clear_1(UNUSED game_t *game, ...)
 {
     update_file(SAVE1, "new", "1");
     update_file(SAVE1, "class", "null");
@@ -25,9 +25,10 @@ void clear_1(UNUSED game_t *game, ...)
     update_file(SAVE1, "quests", "[0]");
     update_file(SAVE1, "inventory", format("[\"none\"]"));
     game->scenes[LOAD].buttons[0]->action_clicked = new_game;
+    return EXIT_SUCCESS;
 }
 
-void clear_2(UNUSED game_t *game, ...)
+int clear_2(UNUSED game_t *game, ...)
 {
     update_file(SAVE2, "new", "1");
     update_file(SAVE2, "xp", "0");
@@ -43,9 +44,10 @@ void clear_2(UNUSED game_t *game, ...)
     update_file(SAVE2, "quests", "[0]");
     update_file(SAVE2, "inventory", format("[\"none\"]"));
     game->scenes[LOAD].buttons[1]->action_clicked = new_game;
+    return EXIT_SUCCESS;
 }
 
-void clear_3(UNUSED game_t *game, ...)
+int clear_3(UNUSED game_t *game, ...)
 {
     update_file(SAVE3, "new", "1");
     update_file(SAVE3, "class", "null");
@@ -61,4 +63,5 @@ void clear_3(UNUSED game_t *game, ...)
     update_file(SAVE3, "quests", "[0]");
     update_file(SAVE3, "inventory", format("[\"none\"]"));
     game->scenes[LOAD].buttons[2]->action_clicked = new_game;
+    return EXIT_SUCCESS;
 }

@@ -9,14 +9,16 @@
 #include "printf.h"
 #include "rpg.h"
 
-void go_talk_npc(game_t *game)
+int go_talk_npc(game_t *game)
 {
     game->scenes->page = NPC;
+    return EXIT_SUCCESS;
 }
 
-void go_game(game_t *game, ...)
+int go_game(game_t *game, ...)
 {
     game->scenes->page = GAME;
+    return EXIT_SUCCESS;
 }
 
 int init_talk_npc(scene_t *scenes)

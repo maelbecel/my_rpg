@@ -9,9 +9,10 @@
 #include "printf.h"
 #include "rpg.h"
 
-void do_none(game_t *game, ...)
+int do_none(game_t *game, ...)
 {
     (void)(game);
+    return EXIT_SUCCESS;
 }
 
 int quit(game_t *game, ...)

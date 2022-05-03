@@ -54,6 +54,7 @@ int cuisiniere(game_t *game, ...)
                             game->scenes[GAME].elements[2]->texture, sfFalse);
     set_player_inventory(game, file);
     free(file);
+    return EXIT_SUCCESS;
 }
 
 int draw_cuisiniere_char(sfRenderWindow *window, sfFont *font)
