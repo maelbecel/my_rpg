@@ -21,7 +21,7 @@ element_t **htp_first_elements(void)
     if (!elements)
         return NULL;
     elements[0] = init_element("assets/ui/button_1_full.png",
-            (sfVector2f){0, 0}, (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
+            (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     elements[1] = init_element("assets/htp/frame.png", (sfVector2f){50, 600},
                         (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
     elements[2] = init_element("assets/htp/sound.png", (sfVector2f){680, 600},
@@ -29,7 +29,7 @@ element_t **htp_first_elements(void)
     elements[3] = init_element("assets/htp/key.png", (sfVector2f){1310, 600},
                         (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
     elements[4] = NULL;
-    if (!elements[0] || !elements[1])
+    if (!elements[0] || !elements[1] || !elements[2] || !elements[3])
         return NULL;
     return elements;
 }

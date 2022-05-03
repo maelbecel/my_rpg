@@ -13,7 +13,7 @@ static void display_txt(game_t *game)
 {
     draw_text("HOW TO PLAY : SETTINGS", game->settings->font,
                                     (sfVector3f){550, 100, 100}, game->window);
-    draw_text("You can personalize a lot of things like the framerate,\n\
+    draw_text("You can personalize a lot of things like the\framerate,\n\
 the sound or even change the key", game->settings->font,
         (sfVector3f){500, 300, 40}, game->window);
 }
