@@ -67,12 +67,11 @@ char *parser(char *file, char *var)
         return NULL;
     }
     if (fd == NULL) {
-        popup(font, conc("Error:\nCan't open '", conc(file, "'")));
+        popup(font, format("Error:\nCan't open '%s'", file));
         sfFont_destroy(font);
         return NULL;
     }
-    variable = conc("    ", conc(coat(), conc(var, conc(coat(),
-                                                            conc(":", " ")))));
+    variable = format("    \"%s\": ", var);
     sfFont_destroy(font);
     return get_line_pars(fd, variable);
 }

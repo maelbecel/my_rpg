@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "new": 1,
     "class": null,
     "health": 0,
@@ -6,17 +7,34 @@
     "speed": 0,
     "xp": 0,
     "defense": 0,
+=======
+    "new": 0,
+    "class": "archere",
+    "health": 70,
+    "strength": 6,
+    "speed": 13,
+    "xp": 0,
+    "defense": 4,
+>>>>>>> cabbee2142efa60a8253539aa7e9c18a86b31347
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
     "map": 0,
     "quests": [0],
     "end_quests": [0],
+<<<<<<< HEAD
     "inventory": ["none"]
+=======
+    "inventory": ["bow"]
+>>>>>>> cabbee2142efa60a8253539aa7e9c18a86b31347
 }
 
+"]
 }
 
+<<<<<<< HEAD
 eau"]
 }
+=======
+>>>>>>> cabbee2142efa60a8253539aa7e9c18a86b31347
 }

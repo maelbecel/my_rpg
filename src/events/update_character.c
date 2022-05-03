@@ -52,7 +52,7 @@ void add_defense(game_t *game, ...)
 
 void reset(game_t *game, ...)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
     char *class = clean_string(parser(file, "class"));
 
     game->player->total_hp = int_from_json(file, "health");

@@ -22,7 +22,7 @@ static int addlevel(int xp)
 enemy_t *create_enemy(char *type, player_t *player)
 {
     enemy_t *enemy = malloc(sizeof(enemy_t));
-    char *file = conc("config/enemy/",conc(type, ".json"));
+    char *file = format("config/enemy/%s.json", type);
     char *texture = str_from_json(file, "image");
 
     enemy->elem = init_element(texture, ENEMY_POS,
@@ -35,8 +35,8 @@ enemy_t *create_enemy(char *type, player_t *player)
     enemy->damage = int_from_json(file, "damage") * enemy->level;
     enemy->exp = int_from_json(file, "exp") * enemy->level;
     enemy->loot = str_array_from_json(file, "loot");
-    enemy->buf_text =  conc("It's a ",
-            conc(enemy->name, conc(" of level ", inttochar(enemy->level))));
+    enemy->buf_text = format("It's a %s of level %d", enemy->name,
+                                                                enemy->level);
     free(file);
     free(texture);
     return enemy;
