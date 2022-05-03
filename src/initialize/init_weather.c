@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-weather_t *init_weather()
+weather_t *init_weather(void)
 {
     weather_t *weather = malloc(sizeof(weather_t));
 

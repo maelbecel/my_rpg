@@ -13,9 +13,7 @@ type_button_t *init_button_type(char *text, char *texture, sfVector2i size)
 {
     type_button_t *type = malloc(sizeof(type_button_t));
 
-    if (!type)
-        return NULL;
-    if (!(type->texture = sfTexture_createFromFile(texture, NULL)))
+    if (!type || !(type->texture = sfTexture_createFromFile(texture, NULL)))
         return NULL;
     if (!(type->sprite = sfSprite_create()))
         return NULL;

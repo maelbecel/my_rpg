@@ -548,7 +548,7 @@
     ////////////////////////////////////////////////////////////
     void free_button(button_t *button);
 
-    weather_t *init_weather();
+    weather_t *init_weather(void);
 
     void weather(game_t *game, weather_t *weather);
 
