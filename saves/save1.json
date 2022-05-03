@@ -12,7 +12,10 @@
     "map": 1,
     "quests": [4],
     "end_quests": [0],
+<<<<<<< HEAD
+    "inventory": ["hache","apple","banana","biere","potion","potion"]
+=======
     "inventory": ["crossbow"]
+>>>>>>> 84ee8e882b555c69f3adc55773770f6c5f8b52f1
 
 }
-
