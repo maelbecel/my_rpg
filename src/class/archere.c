@@ -9,6 +9,24 @@
 #include "printf.h"
 #include "rpg.h"
 
+static int check_file_re(char *file, char *strength,
+                                                    char *speed, char *defense)
+{
+    if (update_file(file, "strength", strength) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "speed", speed) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "defense", defense) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "class", format("\"%s\"", "archere")) == 1)
+        return EXIT_FAILURE;
+    if (update_file(file, "new", "0") == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "inventory", format("[\"%s\"]", "bow")) == 1)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
+}
+
 static int update_all_file(game_t *game, char *file)
 {
     char *health = parser(ARCHERE, "health");
@@ -22,19 +40,7 @@ static int update_all_file(game_t *game, char *file)
     }
     if (update_file(file, "health", health) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (update_file(file, "strength", strength) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "speed", speed) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "defense", defense) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "class", format("\"%s\"", "archer")) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "new", "0") == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "inventory", format("[\"%s\"]", "bow")) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    return EXIT_SUCCESS;
+    return check_file_re(file, strength, speed, defense);
 }
 
 int archere(game_t *game, ...)

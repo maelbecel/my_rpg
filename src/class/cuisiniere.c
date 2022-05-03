@@ -9,6 +9,24 @@
 #include "printf.h"
 #include "rpg.h"
 
+static int check_file_re(char *file, char *strength,
+                                                    char *speed, char *defense)
+{
+    if (update_file(file, "strength", strength) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "speed", speed) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "defense", defense) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "class", format("\"%s\"", "cuisiniere")) == 1)
+        return EXIT_FAILURE;
+    if (update_file(file, "new", "0") == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "inventory", format("[\"%s\"]", "rouleau")) == 1)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
+}
+
 static int update_all_file(game_t *game, char *file)
 {
     char *health = parser(CUISINIERE, "health");
@@ -17,24 +35,12 @@ static int update_all_file(game_t *game, char *file)
     char *defense = parser(CUISINIERE, "defense");
 
     if (!health || !strength || !speed || !defense) {
-        popup(game->settings->font, "FAILED TO OPEN\nconfig/archere.json");
+        popup(game->settings->font, "FAILED TO OPEN\nconfig/cuisiniere.json");
         return EXIT_FAILURE;
     }
     if (update_file(file, "health", health) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (update_file(file, "strength", strength) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "speed", speed) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "defense", defense) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "class", format("\"%s\"", "cuisiniere")) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "new", "0") == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (update_file(file, "inventory", format("[\"%s\"]", "rouleau")) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    return EXIT_SUCCESS;
+    return check_file_re(file, strength, speed, defense);
 }
 
 int cuisiniere(game_t *game, ...)
