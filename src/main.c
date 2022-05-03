@@ -86,6 +86,7 @@ int main(int ac, UNUSED char **argv)
     int exit_code = EXIT_SUCCESS;
     sfEvent event;
     game_t *game = init_game();
+    game->weather = init_weather();
 
     if (ac != 1)
         return EXIT_ERROR;

@@ -74,6 +74,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_game.c  				\
 						$(SOURCES)$(INIT)init_pause.c  				\
 						$(SOURCES)$(INIT)init_choosing.c			\
+						$(SOURCES)$(INIT)init_weather.c				\
 						$(SOURCES)$(INIT)init_settings.c   			\
 						$(SOURCES)$(INIT)init_settings_key.c   		\
 						$(SOURCES)$(INIT)init_settings_frame.c		\
@@ -109,11 +110,12 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_htp.c   			\
 						$(SOURCES)$(DISP)display_htp_first.c   		\
 						$(SOURCES)$(DISP)display_htp_second.c   	\
-						$(SOURCES)$(DISP)display_key_with_pnj.c		\
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\
 						$(SOURCES)$(DISP)display_talk_npc.c			\
+						$(SOURCES)$(DISP)display_weather.c			\
+						$(SOURCES)$(DISP)snow.c						\
 						$(SOURCES)$(DISP)draw_text_white.c			\
 						$(SOURCES)$(DISP)loading.c					\
 						$(SOURCES)$(PARS)parser.c   				\

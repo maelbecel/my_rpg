@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-static bool skip(sfRenderWindow *window)
+bool skip(sfRenderWindow *window)
 {
     int key = int_from_json(SETTINGS_FILE , "skip_key");
     sfEvent event;
@@ -19,7 +19,7 @@ static bool skip(sfRenderWindow *window)
     return false;
 }
 
-static void my_sleep(int time, sfRenderWindow *window)
+void my_sleep(int time, sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
     sfTime time_s = sfClock_getElapsedTime(clock);

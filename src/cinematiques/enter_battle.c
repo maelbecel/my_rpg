@@ -9,16 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-static bool skip(sfRenderWindow *window)
-{
-    int key = int_from_json(SETTINGS_FILE , "skip_key");
-    sfEvent event;
-    while (sfRenderWindow_pollEvent(window, &event))
-        if (event.type == sfEvtKeyPressed && event.key.code == key)
-            return true;
-    return false;
-}
-
 static void draw_game(game_t *game)
 {
     for (int e = 0; game->scenes[GAME].elements[e];)
@@ -58,7 +48,9 @@ int battle(game_t *game, ...)
     sfTime time;
     element_t *bg = init_element("assets/cinematiques/transition.png",
         (sfVector2f){-3600, 0}, (sfVector2f){3500, 1080}, (sfVector2f){1, 1});
+    game->music->sound = sfMusic_createFromFile("assets/sounds/battle.ogg");
     init_stat_battle(game);
+    sfMusic_play(game->music->sound);
     while (bg->pos.x < 3600 && !skip(game->window)) {
         time = sfClock_getElapsedTime(clock);
         if (time.microseconds / 1000  < 0.01)
@@ -73,6 +65,7 @@ int battle(game_t *game, ...)
         draw_element(game->window, bg);
         sfRenderWindow_display(game->window);
     }
+    sfMusic_stop(game->music->sound);
     sfClock_destroy(clock);
     return EXIT_SUCCESS;
 }

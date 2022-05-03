@@ -70,6 +70,7 @@ SRC         =			$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(INIT)set_player.c				\
 						$(SOURCES)$(INIT)set_tab.c			    	\
 						$(SOURCES)$(INIT)init_scenes.c				\
+						$(SOURCES)$(INIT)init_weather.C				\
 						$(SOURCES)$(INIT)update_stat.c				\
 						$(SOURCES)$(INIT)init_main_menu.c   		\
 						$(SOURCES)$(INIT)init_game.c  				\
@@ -102,7 +103,6 @@ SRC         =			$(SOURCES)$(EVT)analyse_event.c   			\
 						$(SOURCES)$(DISP)set_settings.c				\
 						$(SOURCES)$(DISP)popup.c	   				\
 						$(SOURCES)$(DISP)display_htp.c   			\
-						$(SOURCES)$(DISP)display_key_with_pnj.c		\
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\

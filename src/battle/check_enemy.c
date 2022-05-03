@@ -44,6 +44,8 @@ static char *get_enemy(game_t *game)
         return my_strdup("slime");
     if (colision(place, TREEMAN))
         return my_strdup("treeman");
+    if (colision(place, BOSS))
+        return my_strdup("boss");
     return NULL;
 }
 
