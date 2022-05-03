@@ -69,12 +69,12 @@ void display_normal_battle(game_t *game, sfEvent *event)
                 (sfVector2f){515, 530});
 }
 
-void display_battle(game_t *game, sfEvent *event)
+int display_battle(game_t *game, sfEvent *event)
 {
     if (game->scenes[BATTLE].page == 0) {
         display_normal_battle(game, event);
     } else {
         display_inventory_battle(game, event);
     }
-    return;
+    return EXIT_SUCCESS;
 }
