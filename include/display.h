@@ -39,6 +39,15 @@
         int (*func)(game_t *game, sfEvent *event);
     };
 
+    typedef struct clock_s {
+        sfClock *clock;
+        sfTime time;
+        float seconds;
+        float sec;
+        int offset;
+        int max;
+    } clock_bg_t;
+
     ////////////////////////////////////////////////////////////
     /// \brief Draw a button on a window
     ///
