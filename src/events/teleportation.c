@@ -64,6 +64,14 @@ void tp_forest(game_t *game, ...)
 
 }
 
+static int get_level(int xp)
+{
+    int level = 1;
+
+    for (; xp >= 500 * level * level; level++);
+    return (level);
+}
+
 void tp_dungeon(game_t *game, ...)
 {
     game->player->map = 2;
@@ -102,9 +110,14 @@ bool teleportation(game_t *game, sfVector2f move)
         func = tp_village;
     if (col.r == village2.r && col.g == village2.g && col.b == village2.b)
         func = tp_village_from_dungeon;
-    if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b && col.a == dungeon.a)
-        func = tp_dungeon;
-    if (func != NULL) {
+    if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b && col.a == dungeon.a) {
+        if (get_level(game->player->xp) < 20) {
+            draw_pop_text("You need to be lvl 20\nto enter the dungeon",
+                                    game->settings->font, game->window);
+            return true;
+        } else
+            func = tp_dungeon;
+    } if (func != NULL) {
         transition(game, func);
         return true;
     }
