@@ -118,6 +118,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)snow.c						\
 						$(SOURCES)$(DISP)draw_text_white.c			\
 						$(SOURCES)$(DISP)loading.c					\
+						$(SOURCES)$(DISP)anim_sprite.c   			\
 						$(SOURCES)$(PARS)parser.c   				\
 						$(SOURCES)$(PARS)type_json.c   				\
 						$(SOURCES)$(PARS)update_file.c   			\

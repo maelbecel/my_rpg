@@ -557,4 +557,13 @@
     ////////////////////////////////////////////////////////////
     void my_sleep(int time, sfRenderWindow *window);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief anim the sprite
+    ///
+    /// \param elem     element_t * element to anim
+    /// \param clock    clock_bg_t * clock of the sprite
+    ///
+    ////////////////////////////////////////////////////////////
+    void anim_sprite(element_t *elem, clock_bg_t *clock);
+
 #endif
