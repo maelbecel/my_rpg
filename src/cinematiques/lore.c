@@ -12,7 +12,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-scene_t *init_lore(void)
+static scene_t *init_lore(void)
 {
     scene_t *scenes = malloc(sizeof(scene_t));
 
@@ -48,7 +48,7 @@ clock_bg_t *create_clock(float sec, int offset, int max)
     return clock;
 }
 
-clock_bg_t **init_clock(void)
+static clock_bg_t **init_clock(void)
 {
     clock_bg_t **clock = malloc(sizeof(clock_bg_t *) * (5 + 1));
     clock[0] = create_clock(0, 0, 1920);
@@ -60,7 +60,7 @@ clock_bg_t **init_clock(void)
     return clock;
 }
 
-int draw_lore(sfRenderWindow* window, scene_t* scenes, char *tmp, clock_bg_t **clock)
+static int draw_lore(sfRenderWindow* window, scene_t* scenes, char *tmp, clock_bg_t **clock)
 {
     sfRenderWindow_clear(window, sfBlack);
     for (int i = 0; scenes->elements[i] != NULL; i++) {
