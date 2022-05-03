@@ -11,20 +11,17 @@
 
 static int get_info_from_config(player_t *player, char *class)
 {
-    if ((player->hp = int_from_json(conc("config/",
-                                    conc(class, ".json")), "health")) == -1)
+    char *file = format("config/%s.json", class);
+
+    if ((player->hp = int_from_json(file, "health")) == -1)
         return EXIT_FAILURE;
-    if ((player->strg = int_from_json(conc("config/",
-                                conc(class, ".json")), "strength")) == -1)
+    if ((player->strg = int_from_json(file, "strength")) == -1)
         return EXIT_FAILURE;
-    if ((player->spd = int_from_json(conc("config/",
-                                        conc(class, ".json")), "speed")) == -1)
+    if ((player->spd = int_from_json(file, "speed")) == -1)
         return EXIT_FAILURE;
-    if ((player->def = int_from_json(conc("config/",
-                                    conc(class, ".json")), "defense")) == -1)
+    if ((player->def = int_from_json(file, "defense")) == -1)
         return EXIT_FAILURE;
-    if ((player->pt_stat = int_from_json(conc("config/",
-                                conc(class, ".json")), "point_stat")) == -1)
+    if ((player->pt_stat = int_from_json(file, "point_stat")) == -1)
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

@@ -37,7 +37,7 @@ static void fill_trade(trade_t ***trade, size_t i, char **want, char **sell)
 
 trade_t **get_trade(npc_t *npc)
 {
-    char *path = conc("config/npc/", conc(npc->name, ".json"));
+    char *path = format("config/npc/%s.json", npc->name);
     char **want = get_trade_info("want", path);
     char **sell = get_trade_info("sell", path);
     trade_t **trade = malloc(sizeof(trade_t *) *

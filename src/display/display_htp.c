@@ -9,49 +9,19 @@
 #include "printf.h"
 #include "rpg.h"
 
-void display_htp_first(game_t *game, sfEvent *event)
+static int display_txt(game_t *game)
 {
-    int b = 0;
-    int e = 0;
-
-    while (game->scenes[HTP_1].elements[e])
-        draw_element(game->window, game->scenes[HTP_1].elements[e++]);
-    while (game->scenes[HTP_1].buttons[b]) {
-        if (event->type == sfEvtMouseButtonPressed &&
-            is_click(game, b, HTP_1)) {
-            draw_clicked(game->window, game->scenes[HTP_1].buttons[b++]);
-            game->scenes[HTP_1].buttons[b - 1]->action_clicked(game, b - 1);
-        } else if (is_hoover(game, b, HTP_1))
-            draw_hoover(game->window, game->scenes[HTP_1].buttons[b++]);
-        else
-            draw_button(game->window, game->scenes[HTP_1].buttons[b++]);
-    }
-    draw_text("HOW TO PLAY PAGE 1", game->settings->font,
-                                    (sfVector3f){400, 400, 40}, game->window);
+    if (draw_text("HOW TO PLAY : MENU PLAYER", game->settings->font,
+                                    (sfVector3f){450, 100, 100}, game->window) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (draw_text("Here is the menu of the player\nYou can upgrade the stats\n\
+You can see the current quests and finally,\nThe inventory where you can \
+delete items", game->settings->font, (sfVector3f){450, 250, 40}, game->window) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
 
-void display_htp_second(game_t *game, sfEvent *event)
-{
-    int b = 0;
-    int e = 0;
-
-    while (game->scenes[HTP_2].elements[e])
-        draw_element(game->window, game->scenes[HTP_2].elements[e++]);
-    while (game->scenes[HTP_2].buttons[b]) {
-        if (event->type == sfEvtMouseButtonPressed &&
-            is_click(game, b, HTP_2)) {
-            draw_clicked(game->window, game->scenes[HTP_2].buttons[b++]);
-            game->scenes[HTP_2].buttons[b - 1]->action_clicked(game, b - 1);
-        } else if (is_hoover(game, b, HTP_2))
-            draw_hoover(game->window, game->scenes[HTP_2].buttons[b++]);
-        else
-            draw_button(game->window, game->scenes[HTP_2].buttons[b++]);
-    }
-    draw_text("HOW TO PLAY PAGE 2", game->settings->font,
-                                    (sfVector3f){400, 400, 40}, game->window);
-}
-
-void display_htp_third(game_t *game, sfEvent *event)
+int display_htp_third(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
@@ -68,6 +38,7 @@ void display_htp_third(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[HTP_3].buttons[b++]);
     }
-    draw_text("HOW TO PLAY PAGE 3", game->settings->font,
-                                    (sfVector3f){400, 400, 40}, game->window);
+    if (display_txt(game) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }

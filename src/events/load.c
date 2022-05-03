@@ -36,6 +36,7 @@ void new_game(game_t *game, ...)
     game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
     sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                         game->scenes[GAME].elements[6]->scale);
+    lore(game->window);
     va_end(arg);
 }
 

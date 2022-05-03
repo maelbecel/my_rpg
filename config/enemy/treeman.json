@@ -1,5 +1,5 @@
 {
-    "image": "assets/icons/flower.png",
+    "image": "assets/monsters/treeman.png",
     "name": "Treeman",
     "exp": 400,
     "damage": 8,

@@ -51,15 +51,15 @@ static char *int_array_to_string(int *array, int size)
 
 void give_quest(game_t *game, npc_t *npc)
 {
-    char *file = conc("config/npc/", conc(npc->name, ".json"));
+    char *file = format("config/npc/%s.json", npc->name);
     int quest = int_from_json(file, "quest");
-    char *save = conc("saves/save", conc(game->player->save, ".json"));
+    char *save = format("saves/save%s.json", game->player->save);
 
     if (quest == 0 || quest_already_give(game, quest))
         return;
     if (game->player->quest[0] == 0) {
         game->player->quest[0] = npc->quest;
-        update_file(save, "quests", conc("[", conc(inttochar(npc->quest), "]")));
+        update_file(save, "quests", format("[%i]", npc->quest));
     }
     else {
         game->player->quest = add_quest(game->player->quest,

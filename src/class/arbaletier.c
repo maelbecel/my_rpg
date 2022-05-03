@@ -24,15 +24,14 @@ static void update_all_file(game_t *game, char *file)
     update_file(file, "strength", strength);
     update_file(file, "speed", speed);
     update_file(file, "defense", defense);
-    update_file(file, "class", conc(coat(), conc("arbeletier", coat())));
+    update_file(file, "class", format("\"%s\"", "arbaletier"));
     update_file(file, "new", "0");
-    update_file(file, "inventory", conc("[",
-                        conc(coat(), conc("crossbow", conc(coat(), "]")))));
+    update_file(file, "inventory", format("[\"%s\"]", "crossbow"));
 }
 
 void arbaletier(game_t *game, ...)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
 
     update_all_file(game, file);
     reset(game);

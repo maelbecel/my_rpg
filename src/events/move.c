@@ -84,7 +84,7 @@ void move_right(game_t *game)
     if (is_hitbox(game, (sfVector2f){8, 0})  ||
         teleportation(game, (sfVector2f){8, 0}))
         return;
-    if (game->scenes[GAME].elements[0]->rect.left >= 2000 &&
+    if (game->scenes[GAME].elements[0]->rect.left >= 1900 &&
         game->scenes[GAME].elements[2]->pos.y > 1500)
         return;
     game->scenes[GAME].elements[2]->rect.top = 96;

@@ -10,7 +10,8 @@ NAME         =		    my_rpg
 CSFML        =          -lcsfml-graphics -lcsfml-window \
 						-lcsfml-system -lcsfml-audio
 
-INCLUDE      =         	-I include/ -I include/lib/ -L lib/ -lm -lmy -lmyprintf \
+INCLUDE      =         	-I include/ -I include/lib/ -L lib/ -lm \
+						-lmy -lmyprintf -lformatstring \
 						$(CSFML)
 
 CFLAGS      +=         -Wall -Wextra -Werror -fvisibility=hidden $(INCLUDE)
@@ -107,6 +108,8 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)set_settings.c				\
 						$(SOURCES)$(DISP)popup.c	   				\
 						$(SOURCES)$(DISP)display_htp.c   			\
+						$(SOURCES)$(DISP)display_htp_first.c   		\
+						$(SOURCES)$(DISP)display_htp_second.c   	\
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\
@@ -126,6 +129,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(CINE)enter_battle.c				\
 						$(SOURCES)$(CINE)fight_battle.c				\
 						$(SOURCES)$(CINE)tp_transition.c		    \
+						$(SOURCES)$(CINE)lore.c		    \
 						$(SOURCES)$(CINE)outro.c                    \
 						$(SOURCES)$(FREE)free_all.c                 \
 						$(SOURCES)$(FREE)free_player.c              \
@@ -174,6 +178,7 @@ $(NAME):	$(OBJ)
 			"SRC files sucessfully build. "$(DEFAULT))
 			@make -C lib/my/ --no-print-directory
 			@make -C lib/myprintf/ --no-print-directory
+			@make -C lib/formatstring/ --no-print-directory
 			@gcc -o $(NAME) $(OBJ) $(INCLUDE) \
 			&& $(ECHO) $(BOLD) $(GREEN)"\n► BUILD SUCCESS !"$(DEFAULT) \
 			|| ($(ECHO) $(BOLD) $(RED)"\n► BUILD FAILED"$(DEFAULT) && exit 1)
@@ -184,6 +189,7 @@ debug:		all
 clean:
 			@make -C lib/my/ clean --no-print-directory
 			@make -C lib/myprintf/ clean --no-print-directory
+			@make -C lib/formatstring/ clean --no-print-directory
 			@make -C tests clean --no-print-directory
 			@$(RM) $(OBJ)
 			@$(RM) $(TEMPFILES)
@@ -192,6 +198,7 @@ clean:
 fclean:		clean
 			@make -C lib/myprintf/ fclean --no-print-directory
 			@make -C lib/my/ fclean --no-print-directory
+			@make -C lib/formatstring/ clean --no-print-directory
 			@make -C tests fclean --no-print-directory
 			@$(RM) $(NAME)
 			@$(RM) $(OBJ)

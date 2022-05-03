@@ -28,7 +28,7 @@ static const struct display_s Menu_list[] = {
     {-1, NULL}
 };
 
-void display_main_menu(game_t *game, sfEvent *event)
+int display_main_menu(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
@@ -46,6 +46,7 @@ void display_main_menu(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[MAIN_MENU].buttons[b++]);
     }
+    return EXIT_SUCCESS;
 }
 
 static void set_minimap(game_t *game)
@@ -58,7 +59,7 @@ static void set_minimap(game_t *game)
                             game->scenes[GAME].elements[2]->pos.y) / 30 - 17;
 }
 
-void display_game(game_t *game, sfEvent *event)
+int display_game(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
@@ -82,9 +83,10 @@ void display_game(game_t *game, sfEvent *event)
     }
     check_npc(game, event);
     weather(game, game->weather);
+    return EXIT_SUCCESS;
 }
 
-void display_pause(game_t *game, sfEvent *event)
+int display_pause(game_t *game, sfEvent *event)
 {
     for (int game_e = 0; game->scenes[GAME].elements[game_e];)
         draw_element(game->window, game->scenes[GAME].elements[game_e++]);
@@ -103,15 +105,17 @@ void display_pause(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[PAUSE].buttons[b++]);
     }
+    return EXIT_SUCCESS;
 }
 
-void display(game_t *game, sfEvent *event)
+int display(game_t *game, sfEvent *event)
 {
     sfRenderWindow_clear(game->window, sfWhite);
     for (int i = 0; Menu_list[i].scene != -1; i++) {
         if (Menu_list[i].scene == game->scenes->page) {
             Menu_list[i].func(game, event);
-            return;
+            return EXIT_SUCCESS;
         }
     }
+    return EXIT_FAILURE;
 }

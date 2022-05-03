@@ -9,16 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-static bool skip(sfRenderWindow *window)
-{
-    int key = int_from_json(SETTINGS_FILE , "skip_key");
-    sfEvent event;
-    while (sfRenderWindow_pollEvent(window, &event))
-        if (event.type == sfEvtKeyPressed && event.key.code == key)
-            return true;
-    return false;
-}
-
 static void draw_game(game_t *game)
 {
     for (int e = 0; game->scenes[GAME].elements[e];)

@@ -31,7 +31,7 @@ element_t **pause_elements(void)
 
 void save(game_t *game, ...)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
 
     update_file(file, "posx",
                         inttochar(game->scenes[GAME].elements[0]->rect.left +

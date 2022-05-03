@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-void display_frame(game_t *game, sfEvent *event)
+int display_frame(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
@@ -26,13 +26,16 @@ void display_frame(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[FRAME].buttons[b++]);
     }
-    draw_text(inttochar(int_from_json(CONFIG_FILE, "framerate")),
-            game->settings->font, (sfVector3f){900, 450, 80}, game->window);
-    draw_text((int_from_json(CONFIG_FILE, "show_fps")) ? "ON" : "OFF",
-            game->settings->font, (sfVector3f){1000, 705, 60}, game->window);
+    if (draw_text(inttochar(int_from_json(CONFIG_FILE, "framerate")),
+            game->settings->font, (sfVector3f){900, 450, 80}, game->window) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (draw_text((int_from_json(CONFIG_FILE, "show_fps")) ? "ON" : "OFF",
+            game->settings->font, (sfVector3f){1000, 705, 60}, game->window) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
 
-void display_settings(game_t *game, sfEvent *event)
+int display_settings(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
@@ -49,9 +52,10 @@ void display_settings(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[SETTINGS].buttons[b++]);
     }
+    return EXIT_SUCCESS;
 }
 
-void display_settings_key(game_t *game, sfEvent *event)
+int display_settings_key(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
@@ -70,6 +74,7 @@ void display_settings_key(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[KEY].buttons[b++]);
     }
+    return EXIT_SUCCESS;
 }
 
 static void draw_sound_info(game_t *game)
@@ -84,7 +89,7 @@ static void draw_sound_info(game_t *game)
                         (sfVector3f){1500, 780, 80}, game->window);
 }
 
-void display_settings_sounds(game_t *game, sfEvent *event)
+int display_settings_sounds(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
@@ -105,4 +110,5 @@ void display_settings_sounds(game_t *game, sfEvent *event)
             draw_button(game->window, game->scenes[SOUNDS].buttons[b++]);
     }
     draw_sound_info(game);
+    return EXIT_SUCCESS;
 }

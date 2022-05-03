@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-static bool skip(sfRenderWindow *window)
+bool skip(sfRenderWindow *window)
 {
     int key = int_from_json(SETTINGS_FILE , "skip_key");
     sfEvent event;

@@ -62,8 +62,8 @@ void draw_voil(sfRenderWindow *window, sfRectangleShape *rect, int op)
 {
     sfRectangleShape_setFillColor(rect, sfColor_fromRGBA(0, 0, 0, op));
     sfRenderWindow_drawRectangleShape(window, rect, NULL);
-    draw_text_white(conc("PRESS '",
-                    conc(getkey(int_from_json(SETTINGS_FILE, "skip_key")),
-                    "' TO SKIP")), 60, (sfVector2f){50, 930}, window);
+    draw_text_white(format("PRESS '%s' TO SKIP",
+                    getkey(int_from_json(SETTINGS_FILE, "skip_key"))),
+                    60, (sfVector2f){50, 930}, window);
     sfRenderWindow_display(window);
 }
