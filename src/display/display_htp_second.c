@@ -12,10 +12,10 @@
 static void display_txt(game_t *game)
 {
     draw_text("HOW TO PLAY : BATTLE", game->settings->font,
-                                    (sfVector3f){550, 100, 100}, game->window);
+                                    (sfVector3f){450, 100, 100}, game->window);
     draw_text("Here is the battle scene\nYou can basically attack the enemy \
 or escape\nYou can also use the inventory to temporarily\nincrease your stat",
-            game->settings->font, (sfVector3f){550, 250, 40}, game->window);
+            game->settings->font, (sfVector3f){450, 250, 40}, game->window);
 }
 
 void display_htp_second(game_t *game, sfEvent *event)

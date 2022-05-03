@@ -16,13 +16,19 @@ void htp_third(game_t *game, ...)
 
 element_t **htp_third_elements(void)
 {
-    element_t **elements = malloc(sizeof(element_t *) * 2);
+    element_t **elements = malloc(sizeof(element_t *) * (3 + 1));
 
     if (!elements)
         return NULL;
-    elements[0] = init_element(BACKGROUND, (sfVector2f){0, 0},
-                        (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
-    elements[1] = NULL;
+    elements[0] = init_element("assets/ui/button_1_full.png",
+            (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    elements[1] = init_element("assets/htp/stat.png", (sfVector2f){50, 600},
+                        (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
+    elements[2] = init_element("assets/htp/quest.png", (sfVector2f){680, 600},
+                        (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
+    elements[3] = init_element("assets/htp/inv_menu.png",
+    (sfVector2f){1310, 600}, (sfVector2f){1920, 1080}, (sfVector2f){0.3, 0.3});
+    elements[4] = NULL;
     return elements;
 }
 
