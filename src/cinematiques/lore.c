@@ -16,11 +16,31 @@ scene_t *init_lore(void)
 {
     scene_t *scenes = malloc(sizeof(scene_t));
 
-    scenes->elements = malloc(sizeof(element_t *) * (1 + 1));
+    scenes->elements = malloc(sizeof(element_t *) * (5 + 1));
     scenes->elements[0] = init_element("assets/lore/Sky.png",
         (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
-    scenes->elements[1] = NULL;
+    scenes->elements[1] = init_element("assets/lore/DownLayer.png",
+        (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    scenes->elements[2] = init_element("assets/lore/Light.png",
+        (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    scenes->elements[3] = init_element("assets/lore/MiddleLayer.png",
+        (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    scenes->elements[4] = init_element("assets/lore/TopLayer.png",
+        (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
+    scenes->elements[5] = NULL;
     return scenes;
+}
+
+int draw_lore(sfRenderWindow* window, scene_t* scenes, char *tmp)
+{
+    sfRenderWindow_clear(window, sfBlack);
+    for (int i = 0; scenes->elements[i] != NULL; i++)
+        draw_element(window, scenes->elements[i]);
+    if (draw_text_white(tmp, 60, (sfVector2f){50, 500},
+                                        window) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    sfRenderWindow_display(window);
+    return EXIT_SUCCESS;
 }
 
 int lore(sfRenderWindow *window)
@@ -30,25 +50,20 @@ int lore(sfRenderWindow *window)
     char *buffer = "You need to find your seed \n(je developpe demain je \nsuis trop fatigue wesh)";
     sfTime time;
     char *tmp = "";
-    size_t i = 0;
 
     if (!buffer)
         return EXIT_FAILURE;
     time = sfClock_getElapsedTime(clock);
 
-    while (buffer[i] != '\0') {
+    for (int i = 0; buffer[i] != '\0'; ) {
         time = sfClock_getElapsedTime(clock);
         if ((float) time.microseconds / MICRO < 0.1)
             continue;
         time = sfClock_restart(clock);
         tmp = format("%s%c", tmp, buffer[i]);
-        sfRenderWindow_clear(window, sfBlack);
-        draw_element(window, scenes->elements[0]);
-        if (draw_text_white(tmp, 60, (sfVector2f){50, 500},
-                                            window) == EXIT_FAILURE)
-            return EXIT_FAILURE;
         i++;
-        sfRenderWindow_display(window);
+        if (draw_lore(window, scenes, tmp))
+            return EXIT_FAILURE;
         if (skip(window))
             return EXIT_SUCCESS;
     }
