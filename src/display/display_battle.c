@@ -58,6 +58,7 @@ void display_normal_battle(game_t *game, sfEvent *event)
         return;
     }
     if (game->player->stat->hp <= 0) {
+        sfMusic_stop(game->music->sound);
         go_game(game);
         return;
     }

@@ -595,4 +595,6 @@
 
     void snow(game_t *game, weather_t *weather);
 
+    music_t *init_sound(void);
+
 #endif

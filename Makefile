@@ -75,6 +75,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_choosing.c			\
 						$(SOURCES)$(INIT)init_weather.c				\
 						$(SOURCES)$(INIT)init_settings.c   			\
+						$(SOURCES)$(INIT)init_sound.c 				\
 						$(SOURCES)$(INIT)init_settings_key.c   		\
 						$(SOURCES)$(INIT)init_settings_frame.c		\
 						$(SOURCES)$(INIT)init_settings_sounds.c   	\
