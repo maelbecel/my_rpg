@@ -49,24 +49,12 @@ int display_main_menu(game_t *game, sfEvent *event)
     return EXIT_SUCCESS;
 }
 
-static void set_minimap(game_t *game)
-{
-    game->scenes[GAME].elements[4]->pos.x =
-                            (game->scenes[GAME].elements[0]->rect.left +
-                            game->scenes[GAME].elements[2]->pos.x) / 30 + 1420;
-    game->scenes[GAME].elements[4]->pos.y =
-                            (game->scenes[GAME].elements[0]->rect.top +
-                            game->scenes[GAME].elements[2]->pos.y) / 30 - 17;
-}
-
 int display_game(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
 
-    check_save(game);
-    analyse_game(game, event);
-    set_minimap(game);
+    check_save(game), analyse_game(game, event);
     game->player->hp = game->player->total_hp;
     while (game->scenes[GAME].elements[e])
         draw_element(game->window, game->scenes[GAME].elements[e++]);
@@ -81,8 +69,7 @@ int display_game(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[GAME].buttons[b++]);
     }
-    check_npc(game, event);
-    weather(game, game->weather);
+    check_npc(game, event), weather(game, game->weather);
     return EXIT_SUCCESS;
 }
 
