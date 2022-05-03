@@ -27,10 +27,12 @@ int display_frame(game_t *game, sfEvent *event)
             draw_button(game->window, game->scenes[FRAME].buttons[b++]);
     }
     if (draw_text(inttochar(int_from_json(CONFIG_FILE, "framerate")),
-            game->settings->font, (sfVector3f){900, 450, 80}, game->window) == EXIT_FAILURE)
+            game->settings->font, (sfVector3f){900, 450, 80},
+                                                game->window) == EXIT_FAILURE)
         return EXIT_FAILURE;
     if (draw_text((int_from_json(CONFIG_FILE, "show_fps")) ? "ON" : "OFF",
-            game->settings->font, (sfVector3f){1000, 705, 60}, game->window) == EXIT_FAILURE)
+            game->settings->font, (sfVector3f){1000, 705, 60},
+                                                game->window) == EXIT_FAILURE)
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

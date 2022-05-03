@@ -109,6 +109,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)draw_life.c   				\
 						$(SOURCES)$(DISP)display_stat.c				\
 						$(SOURCES)$(DISP)display_load.c				\
+						$(SOURCES)$(DISP)display_merchant.c			\
 						$(SOURCES)$(DISP)set_settings.c				\
 						$(SOURCES)$(DISP)popup.c	   				\
 						$(SOURCES)$(DISP)display_htp.c   			\

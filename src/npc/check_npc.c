@@ -49,7 +49,7 @@ void check_npc(game_t *game, sfEvent *event)
 
     check_quest(game);
     if (npc != NULL) {
-        draw_pop_text(format("Press '%s'\nto interact with %s",
+        draw_pop_text(format("Press '%s' to interact\nwith %s",
                 getkey(game->settings->key_action), npc->name),
                 game->settings->font, game->window);
         show_npc(game, npc, event);

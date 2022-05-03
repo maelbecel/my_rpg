@@ -566,4 +566,14 @@
     ////////////////////////////////////////////////////////////
     void anim_sprite(element_t *elem, clock_bg_t *clock);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief display a merchant npc
+    ///
+    /// \param game    game_t object who contain all game info
+    /// \param npc     npc
+    /// \param event   sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void display_merchant(game_t *game, npc_t *npc, sfEvent *event);
+
 #endif
