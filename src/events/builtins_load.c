@@ -14,11 +14,13 @@ int load_file(game_t *game, char *file)
     sfVector2f getpos = (sfVector2f){int_from_json(file, "posx"),
                                     int_from_json(file, "posy")};
 
-    game->player->save[0] = (my_strcmp(file, SAVE1) == 0) ? '1' : '2';
-    game->player->save[0] = (my_strcmp(file, SAVE2) == 0 &&
-                                game->player->save[0] != '1') ? '2' : '3';
+    if (my_strcmp(file, SAVE1) == 0)
+        game->player->save[0] = '1';
+    else if (my_strcmp(file, SAVE2) == 0)
+        game->player->save[0] = '2';
+    else
+        game->player->save[0] = '3';
     check_save(game);
-    reset(game);
     game->scenes->page = GAME;
     game->player->nbquest = 0;
     game->player->quest = int_array_from_json(file, "quests",

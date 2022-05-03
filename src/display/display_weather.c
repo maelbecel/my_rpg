@@ -49,7 +49,7 @@ void weather(game_t *game, weather_t *weather)
         weather->timer++;
         sfClock_restart(weather->clock);
     } if (fmodf(weather->timer, speed) == 0)
-        weather->rand_weather = my_random() % 8;
+        weather->rand_weather = my_random() % 5;
     if (weather->rand_weather == 1)
         rain(game, weather);
     if (weather->rand_weather == 2)

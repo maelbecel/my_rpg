@@ -22,7 +22,8 @@ void check_save(game_t *game)
 
     if (posx == NULL || posy == NULL || hp == NULL || strg == NULL ||
         speed == NULL || defense == NULL || pt_st == NULL) {
-            popup(game->settings->font , "\t\tError: Save file corrupted");
-            quit(game);
-        }
+        popup(game->settings->font , "\t\tError: Save file corrupted");
+        quit(game);
+    }
+    reset(game);
 }

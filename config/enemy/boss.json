@@ -2,8 +2,8 @@
     "image": "assets/monsters/boss.png",
     "name": "The Boss",
     "exp": 10000,
-    "damage": 50,
-    "life": 500,
-    "text": ["AHAHAH","ARGHHHH","HEHEHEHA"],
+    "damage": 2,
+    "life": 100,
+    "text": ["HEHEHEHA","ZEBI"],
     "loot": ["beef","apple","apple","apple","apple"]
 }

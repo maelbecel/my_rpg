@@ -1,17 +1,19 @@
 {
     "new": 0,
     "class": "archere",
-    "health": 70,
-    "xp": 0,
-    "strength": 6,
+    "health": 600,
+    "xp": 199200,
+    "strength": 27,
     "speed": 13,
-    "defense": 4,
+    "defense": 50,
     "point_stat": 0,
-    "posx": 800,
-    "posy": 800,
-    "map": 0,
+    "posx": 252,
+    "posy": 488,
+    "map": 2,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["bow"]
+    "inventory": ["bow","eye2","eye2","eye2","ruby","ruby","ruby","ruby","ruby","ruby","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion"]
+
 }
+
 
