@@ -26,7 +26,7 @@ button_t **battle_buttons(void)
 
     if (!buttons)
         return NULL;
-    buttons[0] = init_button("Fuite", BUTTON, (sfVector2f){1500, 900},
+    buttons[0] = init_button("Escape", BUTTON, (sfVector2f){1500, 900},
                             (sfVector2i){796, 206});
     buttons[1] = init_button("Attack", BUTTON, (sfVector2f){1500, 740},
                             (sfVector2i){796, 206});
