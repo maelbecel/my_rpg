@@ -9,16 +9,19 @@
 #include "printf.h"
 #include "rpg.h"
 
-static void display_txt(game_t *game)
+static int display_txt(game_t *game)
 {
-    draw_text("HOW TO PLAY : BATTLE", game->settings->font,
-                                    (sfVector3f){450, 100, 100}, game->window);
-    draw_text("Here is the battle scene\nYou can basically attack the enemy \
+    if (draw_text("HOW TO PLAY : BATTLE", game->settings->font,
+                                    (sfVector3f){450, 100, 100}, game->window) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (draw_text("Here is the battle scene\nYou can basically attack the enemy \
 or escape\nYou can also use the inventory to temporarily\nincrease your stat",
-            game->settings->font, (sfVector3f){450, 250, 40}, game->window);
+            game->settings->font, (sfVector3f){450, 250, 40}, game->window) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
 
-void display_htp_second(game_t *game, sfEvent *event)
+int display_htp_second(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
@@ -35,5 +38,7 @@ void display_htp_second(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[HTP_2].buttons[b++]);
     }
-    display_txt(game);
+    if (display_txt(game) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }

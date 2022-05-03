@@ -14,6 +14,8 @@ static int rpg(game_t *game, sfEvent *event)
     sfClock *fps = sfClock_create();
     sfTime frame;
 
+    if (!fps)
+        return EXIT_ERROR;
     while (sfRenderWindow_isOpen(game->window)) {
         frame = sfClock_getElapsedTime(fps);
         sfClock_restart(fps);
@@ -25,7 +27,8 @@ static int rpg(game_t *game, sfEvent *event)
             event->type = -1;
             display(game, event);
         }
-        draw_fps(frame, game);
+        if (draw_fps(frame, game) == EXIT_FAILURE)
+            return EXIT_ERROR;
         sfRenderWindow_display(game->window);
     }
     return EXIT_SUCCESS;

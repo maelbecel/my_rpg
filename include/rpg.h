@@ -467,15 +467,6 @@
     void update_inventory(game_t *game);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Draw FPS from \a frame
-    ///
-    /// \param frame frame time actual
-    /// \param game  game_t * element to save data
-    ///
-    ////////////////////////////////////////////////////////////
-    void draw_fps(sfTime frame, game_t *game);
-
-    ////////////////////////////////////////////////////////////
     /// \brief Free all \a game
     ///
     /// \param game  game_t * element to save data

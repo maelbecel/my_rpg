@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-void display_menu_player(game_t *game, sfEvent *event)
+int display_menu_player(game_t *game, sfEvent *event)
 {
     for (int i = 0; game->scenes[MENU_PLAYER].buttons[i]; i++) {
         sfTexture_destroy(game->scenes[MENU_PLAYER].buttons[i]->base->texture);
@@ -26,6 +26,7 @@ void display_menu_player(game_t *game, sfEvent *event)
                             game->scenes[MENU_PLAYER].buttons[game->scenes[
                             MENU_PLAYER].tab->page]->base->texture, true);
     display_tab(game, event);
+    return EXIT_SUCCESS;
 }
 
 void display_stat(game_t *game, sfEvent *event)

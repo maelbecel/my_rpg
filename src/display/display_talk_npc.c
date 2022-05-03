@@ -84,7 +84,7 @@ void display_merchant(game_t *game, npc_t *npc, sfEvent *event)
     free_elements(game->scenes[NPC].elements[1]);
 }
 
-void display_talk_npc(game_t *game, sfEvent *event)
+int display_talk_npc(game_t *game, sfEvent *event)
 {
     npc_t *npc = find_npc(game);
 
@@ -100,4 +100,5 @@ void display_talk_npc(game_t *game, sfEvent *event)
                                         game->settings->font, game->window);
     if (event->key.code == game->settings->key_skip)
         go_game(game);
+    return EXIT_SUCCESS;
 }
