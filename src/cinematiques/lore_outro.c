@@ -39,7 +39,6 @@ static scene_t *init_lore(void)
     return scenes;
 }
 
-
 static clock_bg_t **init_clock(void)
 {
     clock_bg_t **clock = malloc(sizeof(clock_bg_t *) * (5 + 1));

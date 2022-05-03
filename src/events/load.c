@@ -9,7 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-
 static void fill_game(game_t *game)
 {
     game->scenes->page = CHOOSING;

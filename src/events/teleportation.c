@@ -66,11 +66,13 @@ void tp_forest(game_t *game, ...)
 
 void tp_dungeon(game_t *game, ...)
 {
+    char file[] = "assets/hitboxes/dungeon_hitbox.png";
+
     game->player->map = 2;
     free_elements(game->scenes[GAME].elements[0]);
     free_elements(game->scenes[GAME].elements[5]);
     sfImage_destroy(game->hitbox);
-    game->hitbox = sfImage_createFromFile("assets/hitboxes/dungeon_hitbox.png");
+    game->hitbox = sfImage_createFromFile(file);
     game->scenes[GAME].elements[0] = init_element("assets/dungeon.jpg",
             (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     game->scenes[GAME].elements[5] = init_element("assets/dungeon_roof.png",
