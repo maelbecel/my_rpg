@@ -19,11 +19,12 @@ static sfVector2f get_pos(game_t *game, npc_t *npc)
 
 static sfVector2f init_vect(game_t *game)
 {
-    sfVector2f pos = {
-        (game->scenes[GAME].elements[0]->rect.left +
-        game->scenes[GAME].elements[0]->rect.width / 2),
-        (game->scenes[GAME].elements[0]->rect.top +
-        game->scenes[GAME].elements[0]->rect.height / 2)};
+   sfVector2f pos = {game->scenes[GAME].elements[0]->rect.left +
+                            game->scenes[GAME].elements[2]->rect.width / 2 +
+                            game->scenes[GAME].elements[2]->pos.x,
+                            game->scenes[GAME].elements[0]->rect.top +
+                            game->scenes[GAME].elements[2]->rect.height / 2 +
+                            game->scenes[GAME].elements[2]->pos.y};
     return pos;
 }
 
