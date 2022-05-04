@@ -50,6 +50,7 @@ void display_stat(game_t *game, sfEvent *event)
             draw_button(game->window,
                             game->scenes[MENU_PLAYER].tab[STAT].buttons[b]);
     }
+    printf("stat stat: %i\n", game->player->pt_stat);
     draw_stat_char(game);
 }
 

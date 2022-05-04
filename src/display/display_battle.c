@@ -11,7 +11,10 @@
 
 void win(game_t *game, ...)
 {
+    char *file = format("saves/save%s.json", game->player->save);
+
     game->player->pt_stat += 3;
+    update_file(file, "pt_stat", inttochar(game->player->pt_stat));
     game->player->xp += game->enemy->exp;
     for (int i = 0; game->enemy->loot[i]; i++)
         add_elem(game, clean_string(game->enemy->loot[i]));
@@ -45,6 +48,7 @@ static void check_win(game_t *game, sfEvent *event)
 {
     if (game->enemy->life <= 0) {
         win(game, event);
+        printf("stat after : %i\n", game->player->pt_stat);
         return;
     } if (game->player->stat->hp <= 0) {
         go_game(game);

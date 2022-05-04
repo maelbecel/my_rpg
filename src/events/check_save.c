@@ -25,5 +25,4 @@ void check_save(game_t *game)
         popup(game->settings->font , "\t\tError: Save file corrupted");
         quit(game);
     }
-    reset(game);
 }
