@@ -40,9 +40,21 @@ void rain(game_t *game, weather_t *weather)
     sfRenderWindow_drawSprite(game->window, weather->sprite, NULL);
 }
 
+int particles(UNUSED game_t *game, ...)
+{
+    if (int_from_json(CONFIG_FILE, "weather_speed"))
+        update_file(CONFIG_FILE, "weather_speed", "0");
+    else
+        update_file(CONFIG_FILE, "weather_speed", "2000");
+    return EXIT_SUCCESS;
+}
+
 void weather(game_t *game, weather_t *weather)
 {
     int speed = int_from_json(CONFIG_FILE, "weather_speed");
+
+    if (!speed)
+        return;
     weather->time = sfClock_getElapsedTime(weather->clock);
     weather->seconds = weather->time.microseconds / 1000000.0;
     if (weather->seconds > 0.03) {
