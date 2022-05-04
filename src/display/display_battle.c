@@ -22,10 +22,11 @@ void win(game_t *game, ...)
 
 void display_inventory_battle(game_t *game, sfEvent *event)
 {
+    sfVector2f pos = (sfVector2f){100, 200};
+
     if (event->type == sfEvtKeyPressed &&
         event->key.code == game->settings->key_menu)
         game->scenes[BATTLE].page = 0;
-    sfVector2f pos = (sfVector2f){100, 200};
     draw_element(game->window, game->scenes[BATTLE].tab[0].elements[0]);
     display_button_inventory(game, event);
     for (int i = 1; i < SIZE_INVENTORY + 1; i++) {
@@ -38,6 +39,23 @@ void display_inventory_battle(game_t *game, sfEvent *event)
     }
     if (game->is_inv)
         display_tab_inventory(game, event);
+}
+
+static void check_win(game_t *game, sfEvent *event)
+{
+    if (game->enemy->life <= 0) {
+        win(game, event);
+        return;
+    } if (game->player->stat->hp <= 0) {
+        go_game(game);
+        return;
+    }
+    draw_text(game->enemy->buf_text, game->settings->font,
+                    (sfVector3f){100, 850, 50}, game->window);
+    draw_life(game->enemy->life, game->enemy->total_life, game,
+                (sfVector2f){1222, 330});
+    draw_life(game->player->stat->hp, game->player->total_hp, game,
+                (sfVector2f){515, 530});
 }
 
 void display_normal_battle(game_t *game, sfEvent *event)
@@ -55,20 +73,7 @@ void display_normal_battle(game_t *game, sfEvent *event)
         else
             draw_button(game->window, game->scenes[BATTLE].buttons[i]);
     }
-    if (game->enemy->life <= 0) {
-        win(game, event);
-        return;
-    }
-    if (game->player->stat->hp <= 0) {
-        go_game(game);
-        return;
-    }
-    draw_text(game->enemy->buf_text, game->settings->font,
-                    (sfVector3f){100, 850, 50}, game->window);
-    draw_life(game->enemy->life, game->enemy->total_life, game,
-                (sfVector2f){1222, 330});
-    draw_life(game->player->stat->hp, game->player->total_hp, game,
-                (sfVector2f){515, 530});
+    check_win(game, event);
 }
 
 int display_battle(game_t *game, sfEvent *event)

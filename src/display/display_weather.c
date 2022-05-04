@@ -56,5 +56,4 @@ void weather(game_t *game, weather_t *weather)
         snow(game, game->weather);
     if (weather->timer == 2000)
         weather->timer = 0;
-
 }

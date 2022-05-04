@@ -118,6 +118,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\
+						$(SOURCES)$(DISP)display_frame.c			\
 						$(SOURCES)$(DISP)display_talk_npc.c			\
 						$(SOURCES)$(DISP)display_weather.c			\
 						$(SOURCES)$(DISP)snow.c						\
