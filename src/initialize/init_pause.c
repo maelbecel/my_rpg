@@ -49,6 +49,7 @@ int save(game_t *game, ...)
     update_file(file, "point_stat", inttochar(game->player->pt_stat));
     update_file(file, "xp", inttochar(game->player->xp));
     update_inventory(game);
+    free(file);
     return EXIT_SUCCESS;
 }
 
