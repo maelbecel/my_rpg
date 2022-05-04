@@ -59,7 +59,6 @@ element_t **settings_elements_frame(void)
 button_t **settings_buttons_frame(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 5);
-    int i = 0;
 
     if (!buttons)
         return NULL;
@@ -76,10 +75,6 @@ button_t **settings_buttons_frame(void)
                         (sfVector2f){560, 650}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = shower;
     buttons[4] = NULL;
-    while (i < 3) {
-        buttons[i]->base->scale = (sfVector2f){0.4, 1};
-        buttons[i]->clicked->scale = (sfVector2f){0.4, 1};
-        buttons[i++]->hoover->scale = (sfVector2f){0.4, 1};
-    }
+    rescale_frame(buttons);
     return buttons;
 }

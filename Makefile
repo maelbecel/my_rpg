@@ -94,7 +94,8 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_talk_npc.c  			\
 						$(SOURCES)$(INIT)init_battle.c  			\
 						$(SOURCES)$(INIT)init_button.c  			\
-						$(SOURCES)$(INIT)attack.c  			\
+						$(SOURCES)$(INIT)attack.c  			        \
+						$(SOURCES)$(INIT)rescale_frame.c	        \
 						$(SOURCES)$(INIT)init_element.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
 						$(SOURCES)$(DISP)display_fps.c   			\
