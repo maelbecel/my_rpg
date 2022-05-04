@@ -12,7 +12,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-scene_t *init_lore(void)
+static scene_t *init_lore(void)
 {
     scene_t *scenes = malloc(sizeof(scene_t));
 
@@ -32,23 +32,10 @@ scene_t *init_lore(void)
     scenes->elements[6] =  init_element(BUTTON, (sfVector2f){700, 300},
                                 (sfVector2f){792, 206}, (sfVector2f){1, 2});
     scenes->elements[7] = NULL;
-    for (int i = 0; i < 5; i++)
-        sfTexture_setRepeated(scenes->elements[i]->texture, sfTrue);
     return scenes;
 }
 
-clock_bg_t *create_clock(float sec, int offset, int max)
-{
-    clock_bg_t *clock = malloc(sizeof(clock_bg_t));
-    clock->clock = sfClock_create();
-    clock->seconds = 0;
-    clock->sec = sec;
-    clock->offset = offset;
-    clock->max = max;
-    return clock;
-}
-
-clock_bg_t **init_clock(void)
+static clock_bg_t **init_clock(void)
 {
     clock_bg_t **clock = malloc(sizeof(clock_bg_t *) * (5 + 1));
     clock[0] = create_clock(0, 0, 1920);
@@ -60,7 +47,8 @@ clock_bg_t **init_clock(void)
     return clock;
 }
 
-int draw_lore(sfRenderWindow* window, scene_t* scenes, char *tmp, clock_bg_t **clock)
+static int draw_lore(sfRenderWindow *window, scene_t *scenes,
+                                                char *tmp, clock_bg_t **clock)
 {
     sfRenderWindow_clear(window, sfBlack);
     for (int i = 0; scenes->elements[i] != NULL; i++) {
@@ -75,20 +63,23 @@ int draw_lore(sfRenderWindow* window, scene_t* scenes, char *tmp, clock_bg_t **c
     return EXIT_SUCCESS;
 }
 
+static void update_scenes(scene_t *scenes)
+{
+    for (int i = 0; i < 5; i++)
+        sfTexture_setRepeated(scenes->elements[i]->texture, sfTrue);
+}
+
 int lore(sfRenderWindow *window)
 {
     scene_t *scenes = init_lore();
     clock_bg_t **clock_bg = init_clock();
     sfClock *clock = sfClock_create();
-    char *buffer = "You need to find your seed \n(je developpe demain je \nsuis trop fatigue wesh)";
+    char *buffer = "You need to find your seed \npsk c cool en vite fait     ";
     sfTime time;
     char *tmp = "";
 
-    if (!buffer)
-        return EXIT_FAILURE;
-    time = sfClock_getElapsedTime(clock);
-
-    for (int i = 0; buffer[i] != '\0'; ) {
+    update_scenes(scenes);
+    for (int i = 0; buffer[i] != '\0' && !skip(window); ) {
         time = sfClock_getElapsedTime(clock);
         if ((float) time.microseconds / MICRO < 0.1)
             continue;
@@ -97,9 +88,6 @@ int lore(sfRenderWindow *window)
         i++;
         if (draw_lore(window, scenes, tmp, clock_bg))
             return EXIT_FAILURE;
-        if (skip(window))
-            return EXIT_SUCCESS;
     }
-    my_sleep(3, window);
     return EXIT_SUCCESS;
 }

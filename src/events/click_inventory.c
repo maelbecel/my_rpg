@@ -40,7 +40,7 @@ int is_hoover_inventory(game_t *game, int i)
     sfVector2f pos = game->player->inventory[i]->button->pos;
     sfVector2f scale = game->player->inventory[i]->button->base->scale;
     sfVector2u size = sfTexture_getSize(
-                                game->player->inventory[i]->button->hoover->texture);
+                        game->player->inventory[i]->button->hoover->texture);
     sfVector2i click = sfMouse_getPositionRenderWindow(game->window);
 
     size.x *= scale.x;

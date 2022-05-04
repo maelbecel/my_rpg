@@ -9,19 +9,17 @@
 #include "printf.h"
 #include "rpg.h"
 
-int attack(game_t *game, ...)
+static void rescale(button_t **buttons)
 {
-    int x = my_random() % game->enemy->damage - game->player->stat->def;
-    if (x < 0)
-        game->enemy->buf_text = format("%s missed his attack !",
-                                                        game->enemy->name);
-    else
-        game->enemy->buf_text = format("%s say:\n%s", game->enemy->name,
-                                clean_string(game->enemy->text[my_random() %
-                                my_strarraylen(game->enemy->text)]));
-    game->enemy->life -= game->player->stat->strg;
-    game->player->stat->hp = (x > 0) ? game->player->stat->hp - x : game->player->stat->hp;
-    return EXIT_SUCCESS;
+    for (int i = 0; i < 3; i++) {
+        buttons[i]->action_clicked = do_none;
+        buttons[i]->base->scale = (sfVector2f){0.5, 0.7};
+        buttons[i]->hoover->scale = (sfVector2f){0.5, 0.7};
+        buttons[i]->clicked->scale = (sfVector2f){0.5, 0.7};
+        buttons[i]->base->text_pos = (sfVector2f){50, 70};
+        buttons[i]->hoover->text_pos = (sfVector2f){50, 70};
+        buttons[i]->clicked->text_pos = (sfVector2f){50, 70};
+    }
 }
 
 button_t **battle_buttons(void)
@@ -36,18 +34,7 @@ button_t **battle_buttons(void)
                             (sfVector2i){796, 206});
     buttons[2] = init_button("Inventory", BUTTON, (sfVector2f){1500, 580},
                             (sfVector2i){796, 206});
-    for (int i = 0; i < 3; i++) {
-        buttons[i]->action_clicked = do_none;
-        buttons[i]->base->scale = (sfVector2f){0.5, 0.7};
-        buttons[i]->hoover->scale = (sfVector2f){0.5, 0.7};
-        buttons[i]->clicked->scale = (sfVector2f){0.5, 0.7};
-        buttons[i]->base->text_pos.x = 70;
-        buttons[i]->base->text_pos.y = 50;
-        buttons[i]->hoover->text_pos.x = 70;
-        buttons[i]->hoover->text_pos.y = 50;
-        buttons[i]->clicked->text_pos.x = 70;
-        buttons[i]->clicked->text_pos.y = 50;
-    }
+    rescale(buttons);
     buttons[0]->action_clicked = go_game;
     buttons[1]->action_clicked = attack;
     buttons[2]->action_clicked = open_inventory;
@@ -63,7 +50,7 @@ element_t **battle_elements(void)
         return NULL;
     elements[0] = init_element(BATTLE_BG, (sfVector2f){0, 0},
                         (sfVector2f){1050, 540}, (sfVector2f){2, 2});
-    elements[1]= init_element(BUTTON,
+    elements[1] = init_element(BUTTON,
         (sfVector2f){30, 780}, (sfVector2f){792, 206}, (sfVector2f){1.8, 1.3});
     elements[2] = NULL;
     elements[3] = NULL;

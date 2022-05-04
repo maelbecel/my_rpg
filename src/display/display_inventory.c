@@ -56,13 +56,16 @@ void display_tab_inventory(game_t *game, sfEvent *event)
     for (int i = 0; i < 2; i++) {
         if (event->type == sfEvtMouseButtonPressed &&
             is_click_menu(game, i, MENU_PLAYER, INVENTORY) && tmp != NULL) {
-            draw_clicked(game->window, game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]);
+            draw_clicked(game->window,
+                        game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]);
             game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]->\
                 action_clicked(game, tmp->type);
         } else if (is_hoover_menu(game, i, MENU_PLAYER, INVENTORY))
-            draw_hoover(game->window, game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]);
+            draw_hoover(game->window,
+                        game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]);
         else
-            draw_button(game->window, game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]);
+            draw_button(game->window,
+                        game->scenes[MENU_PLAYER].tab[INVENTORY].buttons[i]);
     }
 }
 

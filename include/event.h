@@ -762,4 +762,66 @@
     ////////////////////////////////////////////////////////////
     void remove_quest(game_t *game, int q);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Handle map loading
+    ///
+    /// \param game  game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    int handle_map(game_t *game);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Give damage
+    ///
+    /// \param game  game_t object who contain all game info
+    ///
+    ////////////////////////////////////////////////////////////
+    int attack(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Choose where player need to be teleported
+    ///
+    /// \param col color of the pixel
+    ///
+    /// \return the good tp function
+    ///
+    ////////////////////////////////////////////////////////////
+    void *choose_tp(sfColor col);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Teleport the player to the dungeon
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void tp_dungeon(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Teleport the player to the forest
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void tp_forest(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Teleport the player to the village from forest
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void tp_village(game_t *game, ...);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Teleport the player to the village from dungeon
+    ///
+    /// \param game  game_t object who contain all game info
+    /// \param ...   other useful arguments
+    ///
+    ////////////////////////////////////////////////////////////
+    void tp_village_from_dungeon(game_t *game, ...);
+
 #endif

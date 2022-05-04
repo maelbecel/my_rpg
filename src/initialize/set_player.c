@@ -9,6 +9,16 @@
 #include "printf.h"
 #include "rpg.h"
 
+static void set_player_stat(game_t *game)
+{
+    char *file = format("saves/save%s.json", game->player->save);
+
+    game->player->hp = int_from_json(file, "health");
+    game->player->def = int_from_json(file, "defense");
+    game->player->strg = int_from_json(file, "strength");
+    game->player->spd = int_from_json(file, "speed");
+}
+
 void set_player(game_t *game, sfVector2f getpos)
 {
     if (getpos.x > 1000) {
@@ -21,6 +31,7 @@ void set_player(game_t *game, sfVector2f getpos)
         game->scenes[GAME].elements[2]->pos.y = 1000;
     } else
         game->scenes[GAME].elements[2]->pos.y = getpos.y;
+    set_player_stat(game);
 }
 
 void set_player_inventory(game_t *game, char *file)

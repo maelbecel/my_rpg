@@ -42,29 +42,21 @@ static void draw_all(game_t *game, sfCircleShape *circle,
 
 void transition(game_t *game, void func(game_t *game, ...))
 {
-    sfClock *clock = sfClock_create();
-    sfTime time;
     sfCircleShape *circle = init_circle();
     sfVector2f pos = {960, 540};
-    int radius = 1;
     int update = 10;
 
-    while (radius > 0) {
-        time = sfClock_getElapsedTime(clock);
-        if (time.microseconds < 1000)
-            continue;
-        sfClock_restart(clock);
+    for (int radius = 1; radius > 0;) {
+        my_sleep(0.001, game->window);
         if (radius > 1920) {
             func(game);
             radius -= update;
             update *= -1;
         } else {
             radius += update;
-            pos.x -= update;
-            pos.y -= update;
+            pos = (sfVector2f) {pos.x - update, pos.y - update};
         }
         draw_all(game, circle, pos, radius);
     }
-    sfClock_destroy(clock);
     sfCircleShape_destroy(circle);
 }

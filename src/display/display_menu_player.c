@@ -23,7 +23,7 @@ void display_button_menu_player(game_t *game, sfEvent *event, int nb)
     }
 }
 
-static int get_level(int xp)
+int get_level(int xp)
 {
     int level = 1;
 

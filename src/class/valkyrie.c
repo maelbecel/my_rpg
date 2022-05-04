@@ -81,7 +81,7 @@ int draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
                                         (sfVector3f){1350, 880, 30}, window);
     draw_text(format("SPEED : %s", speed), font, (sfVector3f){1350, 920, 30},
                                                                     window);
-    draw_text(format("DEFENSE: %s", defense), font, (sfVector3f){1350, 960, 30},
-                                                                    window);
+    draw_text(format("DEFENSE: %s", defense), font,
+                                        (sfVector3f){1350, 960, 30}, window);
     return EXIT_SUCCESS;
 }

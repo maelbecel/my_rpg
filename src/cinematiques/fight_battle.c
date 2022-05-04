@@ -13,18 +13,19 @@ bool skip(sfRenderWindow *window)
 {
     int key = int_from_json(SETTINGS_FILE , "skip_key");
     sfEvent event;
-    while (sfRenderWindow_pollEvent(window, &event))
-        if (event.type == sfEvtKeyPressed && event.key.code == key)
-            return true;
+
+    if (sfRenderWindow_pollEvent(window, &event) &&
+        event.type == sfEvtKeyPressed && event.key.code == key)
+        return true;
     return false;
 }
 
-void my_sleep(int time, sfRenderWindow *window)
+void my_sleep(float time, sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
     sfTime time_s = sfClock_getElapsedTime(clock);
 
-    while (time_s.microseconds / MICRO < time && !skip(window))
+    while (time_s.microseconds < time && !skip(window))
         time_s = sfClock_getElapsedTime(clock);
     sfClock_destroy(clock);
 }

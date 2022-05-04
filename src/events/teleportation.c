@@ -64,21 +64,15 @@ void tp_forest(game_t *game, ...)
 
 }
 
-static int get_level(int xp)
-{
-    int level = 1;
-
-    for (; xp >= 500 * level * level; level++);
-    return (level);
-}
-
 void tp_dungeon(game_t *game, ...)
 {
+    char file[] = "assets/hitboxes/dungeon_hitbox.png";
+
     game->player->map = 2;
     free_elements(game->scenes[GAME].elements[0]);
     free_elements(game->scenes[GAME].elements[5]);
     sfImage_destroy(game->hitbox);
-    game->hitbox = sfImage_createFromFile("assets/hitboxes/dungeon_hitbox.png");
+    game->hitbox = sfImage_createFromFile(file);
     game->scenes[GAME].elements[0] = init_element("assets/dungeon.jpg",
             (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     game->scenes[GAME].elements[5] = init_element("assets/dungeon_roof.png",
@@ -98,24 +92,14 @@ bool teleportation(game_t *game, sfVector2f move)
     float y = (game->scenes[GAME].elements[2]->pos.y + move.y +
                         (float)game->scenes[GAME].elements[0]->rect.top + 90);
     sfColor col = sfImage_getPixel(game->hitbox, x, y);
-    sfColor forest = TP_FOREST;
-    sfColor village = TP_VILLAGE;
     sfColor dungeon = TP_DUNGEON;
-    sfColor village2 = TP_VILLAGE_2;
-    void (*func)(game_t *game, ...) = NULL;
+    void (*func)(game_t *game, ...) = choose_tp(col);
 
-    if (col.r == forest.r && col.g == forest.g && col.b == forest.b)
-        func = tp_forest;
-    if (col.r == village.r && col.g == village.g && col.b == village.b)
-        func = tp_village;
-    if (col.r == village2.r && col.g == village2.g && col.b == village2.b)
-        func = tp_village_from_dungeon;
-    if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b && col.a == dungeon.a) {
-        if (get_level(game->player->xp) < 20) {
-            draw_pop_text("You need to be lvl 20\nto enter the dungeon",
-                                    game->settings->font, game->window);
+    if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b &&
+        col.a == dungeon.a) {
+        if (get_level(game->player->xp) < 20)
             return true;
-        } else
+        else
             func = tp_dungeon;
     } if (func != NULL) {
         transition(game, func);

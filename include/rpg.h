@@ -548,7 +548,7 @@
     ////////////////////////////////////////////////////////////
     void free_button(button_t *button);
 
-    weather_t *init_weather();
+    weather_t *init_weather(void);
 
     void weather(game_t *game, weather_t *weather);
 
@@ -590,8 +590,25 @@
     ////////////////////////////////////////////////////////////
     int my_put_error(char const *str);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Show snow
+    ///
+    /// \param game    game_t *struct with all data
+    /// \param weather weather *struct with all data
+    ///
+    ////////////////////////////////////////////////////////////
     void snow(game_t *game, weather_t *weather);
 
     music_t *init_sound(void);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Get the level by the \a xp
+    ///
+    /// \param xp xp to get the level
+    ///
+    /// \return Return the level
+    ///
+    ////////////////////////////////////////////////////////////
+    int get_level(int xp);
 
 #endif

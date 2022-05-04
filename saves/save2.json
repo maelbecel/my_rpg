@@ -8,15 +8,10 @@
     "defense": 4,
     "point_stat": 0,
     "posx": 800,
-    "posy": 800,
+    "posy": 744,
     "map": 0,
-    "quests": [1],
+    "quests": [4],
     "end_quests": [0],
-    "inventory": ["bow"]
-}]
-}w"]
-}]
-}}}
-}}}
-}}}
-}}}}}}}}}}
+    "inventory": ["none"]
+}
+}

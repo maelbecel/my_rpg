@@ -44,14 +44,17 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)button_state.c   			\
 						$(SOURCES)$(EVT)check_save.c   				\
 						$(SOURCES)$(EVT)give_quest.c   				\
+						$(SOURCES)$(EVT)builtins_load.c   		    \
 						$(SOURCES)$(EVT)load.c   					\
 						$(SOURCES)$(EVT)clear.c   					\
 						$(SOURCES)$(EVT)teleportation.c 			\
 						$(SOURCES)$(EVT)change_tab.c   				\
 						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
+						$(SOURCES)$(EVT)choose_tp.c   				\
 						$(SOURCES)$(EVT)select_movement.c  			\
 						$(SOURCES)$(EVT)quest_completion.c       	\
+						$(SOURCES)$(EVT)quest_cmp.c			       	\
 						$(SOURCES)$(EVT)get_inventory.c  			\
 						$(SOURCES)$(EVT)select_action.c  			\
 						$(SOURCES)$(EVT)update_hitbox.c   			\
@@ -62,7 +65,8 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)menu_event.c  			    \
 						$(SOURCES)$(EVT)inventory.c  			    \
 						$(SOURCES)$(EVT)click_inventory.c  			\
-						$(SOURCES)$(EVT)find_item.c  				\
+						$(SOURCES)$(EVT)find_item.c                 \
+						$(SOURCES)$(EVT)handle_map.c  				\
 						$(SOURCES)$(EVT)use.c  						\
 						$(SOURCES)$(INIT)init.c   					\
 						$(SOURCES)$(INIT)set_player.c				\
@@ -91,6 +95,8 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(INIT)init_talk_npc.c  			\
 						$(SOURCES)$(INIT)init_battle.c  			\
 						$(SOURCES)$(INIT)init_button.c  			\
+						$(SOURCES)$(INIT)attack.c  			        \
+						$(SOURCES)$(INIT)rescale_frame.c	        \
 						$(SOURCES)$(INIT)init_element.c  			\
 						$(SOURCES)$(DISP)draw.c   					\
 						$(SOURCES)$(DISP)display_fps.c   			\
@@ -106,6 +112,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)draw_life.c   				\
 						$(SOURCES)$(DISP)display_stat.c				\
 						$(SOURCES)$(DISP)display_load.c				\
+						$(SOURCES)$(DISP)display_merchant.c			\
 						$(SOURCES)$(DISP)set_settings.c				\
 						$(SOURCES)$(DISP)popup.c	   				\
 						$(SOURCES)$(DISP)display_htp.c   			\
@@ -114,6 +121,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(DISP)display_menu_player.c		\
 						$(SOURCES)$(DISP)display_inventory.c		\
 						$(SOURCES)$(DISP)display_npc.c				\
+						$(SOURCES)$(DISP)display_frame.c			\
 						$(SOURCES)$(DISP)display_talk_npc.c			\
 						$(SOURCES)$(DISP)display_weather.c			\
 						$(SOURCES)$(DISP)snow.c						\
@@ -133,6 +141,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(CINE)tp_transition.c		    \
 						$(SOURCES)$(CINE)lore.c		    			\
 						$(SOURCES)$(CINE)lore_outro.c		    	\
+						$(SOURCES)$(CINE)create_clocks.c         	\
 						$(SOURCES)$(CINE)outro.c                    \
 						$(SOURCES)$(FREE)free_all.c                 \
 						$(SOURCES)$(FREE)free_player.c              \

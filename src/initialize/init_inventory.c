@@ -56,12 +56,9 @@ button_t **button_inventory(void)
         buttons[i]->base->scale = (sfVector2f){0.4, 0.6};
         buttons[i]->hoover->scale = (sfVector2f){0.4, 0.6};
         buttons[i]->clicked->scale = (sfVector2f){0.4, 0.6};
-        buttons[i]->base->text_pos.x = 50;
-        buttons[i]->base->text_pos.y = 30;
-        buttons[i]->hoover->text_pos.x = 50;
-        buttons[i]->hoover->text_pos.y = 30;
-        buttons[i]->clicked->text_pos.x = 50;
-        buttons[i]->clicked->text_pos.y = 30;
+        buttons[i]->base->text_pos = (sfVector2f){50, 30};
+        buttons[i]->hoover->text_pos = (sfVector2f){50, 30};
+        buttons[i]->clicked->text_pos = (sfVector2f){50, 30};
     }
     buttons[2] = NULL;
     return buttons;

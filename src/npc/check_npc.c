@@ -37,14 +37,6 @@ void draw_pop_text(char *text, sfFont *font, sfRenderWindow *window)
     free_elements(pop);
 }
 
-static int get_level(int xp)
-{
-    int level = 1;
-
-    for (; xp >= 500 * level * level; level++);
-    return (level);
-}
-
 void check_npc(game_t *game, sfEvent *event)
 {
     npc_t *npc = find_npc(game);
@@ -57,12 +49,11 @@ void check_npc(game_t *game, sfEvent *event)
 
     check_quest(game);
     if (npc != NULL) {
-        draw_pop_text(format("Press '%s'\nto interact with %s",
+        draw_pop_text(format("Press '%s' to interact\nwith %s",
                 getkey(game->settings->key_action), npc->name),
                 game->settings->font, game->window);
         show_npc(game, npc, event);
-    }
-    if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b &&
+    } if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b &&
         col.a == dungeon.a && get_level(game->player->xp) < 20)
             draw_pop_text("You need to be lvl 20\nto enter the dungeon",
                                     game->settings->font, game->window);

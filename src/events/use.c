@@ -30,7 +30,7 @@ static const item_t item[] = {
     {"rouleau", 1, 1, 1, 1}
 };
 
-void use_item(game_t* game, item_t item)
+void use_item(game_t *game, item_t item)
 {
     if (game->player->stat->hp < game->player->total_hp)
         game->player->stat->hp += item.hp;

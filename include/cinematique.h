@@ -138,6 +138,14 @@
     int lore(sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Draw lore scene
+    ///
+    /// \param window   sfRenderWindow object where outro should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    int lore_outro(sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Handle treeman updates
     ///
     /// \param game game object to use
@@ -145,5 +153,15 @@
     ///
     ////////////////////////////////////////////////////////////
     void treeman_exception(game_t *game, char *type);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief create a clock_bg_t *
+    ///
+    /// \param sec      number of seconds to wait
+    /// \param offset   offset of the movement
+    /// \param max      size max offset
+    ///
+    ////////////////////////////////////////////////////////////
+    clock_bg_t *create_clock(float sec, int offset, int max);
 
 #endif

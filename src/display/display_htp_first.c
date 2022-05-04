@@ -12,9 +12,9 @@
 static int display_txt(game_t *game)
 {
     if (draw_text("HOW TO PLAY : SETTINGS", game->settings->font,
-                                    (sfVector3f){450, 100, 100}, game->window) == EXIT_FAILURE)
+                    (sfVector3f){450, 100, 100}, game->window) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (draw_text("You can personalize a lot of things like the framerate,\n\
+    if (draw_text("You can personalize a lot of things like the framerate, \n\
 the sound or even change the keys", game->settings->font,
         (sfVector3f){450, 300, 40}, game->window) == EXIT_FAILURE)
         return EXIT_FAILURE;

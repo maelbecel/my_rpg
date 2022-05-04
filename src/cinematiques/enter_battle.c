@@ -42,6 +42,14 @@ void init_stat_battle(game_t *game)
     game->player->stat->spd = game->player->spd;
 }
 
+static void choose_drawing(int i, game_t *game)
+{
+    if (i < -500)
+        draw_game(game);
+    else
+        draw_battle(game);
+}
+
 int battle(game_t *game, ...)
 {
     sfClock *clock = sfClock_create();
@@ -55,13 +63,11 @@ int battle(game_t *game, ...)
         if (time.microseconds / 1000  < 0.01)
             continue;
         sfClock_restart(clock);
-        bg->pos.x += 20;
         sfRenderWindow_clear(game->window, sfBlack);
-        if (bg->pos.x < -500)
-            draw_game(game);
-        else
-            draw_battle(game);
-        draw_element(game->window, bg), sfRenderWindow_display(game->window);
+        bg->pos.x += 20;
+        choose_drawing(bg->pos.x, game);
+        draw_element(game->window, bg);
+        sfRenderWindow_display(game->window);
     }
     sfClock_destroy(clock);
     return EXIT_SUCCESS;

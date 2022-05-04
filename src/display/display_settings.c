@@ -9,32 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-int display_frame(game_t *game, sfEvent *event)
-{
-    int b = 0;
-    int e = 0;
-
-    while (game->scenes[FRAME].elements[e])
-        draw_element(game->window, game->scenes[FRAME].elements[e++]);
-    while (game->scenes[FRAME].buttons[b]) {
-        if (event->type == sfEvtMouseButtonPressed &&
-            is_click(game, b, FRAME)) {
-            draw_clicked(game->window, game->scenes[FRAME].buttons[b++]);
-            game->scenes[FRAME].buttons[b - 1]->action_clicked(game, b - 1);
-        } else if (is_hoover(game, b, FRAME))
-            draw_hoover(game->window, game->scenes[FRAME].buttons[b++]);
-        else
-            draw_button(game->window, game->scenes[FRAME].buttons[b++]);
-    }
-    if (draw_text(inttochar(int_from_json(CONFIG_FILE, "framerate")),
-            game->settings->font, (sfVector3f){900, 450, 80}, game->window) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    if (draw_text((int_from_json(CONFIG_FILE, "show_fps")) ? "ON" : "OFF",
-            game->settings->font, (sfVector3f){1000, 705, 60}, game->window) == EXIT_FAILURE)
-        return EXIT_FAILURE;
-    return EXIT_SUCCESS;
-}
-
 int display_settings(game_t *game, sfEvent *event)
 {
     int b = 0;

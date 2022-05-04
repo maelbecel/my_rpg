@@ -29,7 +29,7 @@ enemy_t *create_enemy(char *type, player_t *player)
                                 (sfVector2f){32, 48}, BATTLE_SCALE);
     enemy->name = str_from_json(file, "name");
     enemy->text = str_array_from_json(file, "text");
-    enemy->level = (my_strcmp(type, "boss") == 0) ? 20 : addlevel(player->xp);
+    enemy->level = (my_strcmp(type, "boss") == 0) ? 50 : addlevel(player->xp);
     enemy->life = int_from_json(file, "life") * enemy->level;
     enemy->total_life = int_from_json(file, "life") * enemy->level;
     enemy->damage = int_from_json(file, "damage") * enemy->level;

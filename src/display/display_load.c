@@ -37,8 +37,7 @@ int display_load(game_t *game, sfEvent *event)
             draw_hoover(game->window, game->scenes[LOAD].buttons[b]);
         else
             draw_button(game->window, game->scenes[LOAD].buttons[b]);
-        draw_free(b, game, file);
-        b++;
+        draw_free(b++, game, file);
     }
     return EXIT_SUCCESS;
 }

@@ -12,11 +12,12 @@
 static int display_txt(game_t *game)
 {
     if (draw_text("HOW TO PLAY : BATTLE", game->settings->font,
-                                    (sfVector3f){450, 100, 100}, game->window) == EXIT_FAILURE)
+                    (sfVector3f){450, 100, 100}, game->window) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (draw_text("Here is the battle scene\nYou can basically attack the enemy \
-or escape\nYou can also use the inventory to temporarily\nincrease your stat",
-            game->settings->font, (sfVector3f){450, 250, 40}, game->window) == EXIT_FAILURE)
+    if (draw_text("Here is the battle scene\nYou can basically attack the \
+enemy or escape\nYou can also use the inventory to temporarily\nincrease your \
+stat", game->settings->font, (sfVector3f){450, 250, 40},
+                                                game->window) == EXIT_FAILURE)
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

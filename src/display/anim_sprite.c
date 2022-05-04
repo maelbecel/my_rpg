@@ -11,12 +11,10 @@
 
 void move_rect(sfIntRect *rect, int offset, int maxvalue)
 {
-    if (rect->left + offset >= maxvalue) {
+    if (rect->left + offset >= maxvalue)
         rect->left = 0;
-    }
-    else {
+    else
         rect->left += offset;
-    }
 }
 
 void anim_sprite(element_t *elem, clock_bg_t *clock)

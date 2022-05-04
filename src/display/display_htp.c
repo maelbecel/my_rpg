@@ -12,11 +12,12 @@
 static int display_txt(game_t *game)
 {
     if (draw_text("HOW TO PLAY : MENU PLAYER", game->settings->font,
-                                    (sfVector3f){450, 100, 100}, game->window) == EXIT_FAILURE)
+                    (sfVector3f){450, 100, 100}, game->window) == EXIT_FAILURE)
         return EXIT_FAILURE;
     if (draw_text("Here is the menu of the player\nYou can upgrade the stats\n\
-You can see the current quests and finally,\nThe inventory where you can \
-delete items", game->settings->font, (sfVector3f){450, 250, 40}, game->window) == EXIT_FAILURE)
+You can see the current quests and finally, \nThe inventory where you can \
+delete items", game->settings->font, (sfVector3f){450, 250, 40},
+                                                game->window) == EXIT_FAILURE)
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
