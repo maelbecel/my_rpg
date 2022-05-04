@@ -555,7 +555,7 @@
     /// \param window  sfRenderWindow object where element should be display
     ///
     ////////////////////////////////////////////////////////////
-    void my_sleep(int time, sfRenderWindow *window);
+    void my_sleep(float time, sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
     /// \brief anim the sprite

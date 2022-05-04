@@ -32,9 +32,8 @@ static int check_clock(int mul, sfClock *clock)
 {
     sfTime time;
     time = sfClock_getElapsedTime(clock);
-    if ((float)time.microseconds / MICRO >= 0.001) {
+    if ((float)time.microseconds / MICRO >= 0.001)
         return mul;
-    }
     return 0;
 }
 

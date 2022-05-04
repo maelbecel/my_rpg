@@ -20,12 +20,12 @@ bool skip(sfRenderWindow *window)
     return false;
 }
 
-void my_sleep(int time, sfRenderWindow *window)
+void my_sleep(float time, sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
     sfTime time_s = sfClock_getElapsedTime(clock);
 
-    while (time_s.microseconds / MICRO < time && !skip(window))
+    while (time_s.microseconds < time && !skip(window))
         time_s = sfClock_getElapsedTime(clock);
     sfClock_destroy(clock);
 }

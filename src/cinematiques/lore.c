@@ -89,6 +89,5 @@ int lore(sfRenderWindow *window)
         if (draw_lore(window, scenes, tmp, clock_bg))
             return EXIT_FAILURE;
     }
-    my_sleep(3, window);
     return EXIT_SUCCESS;
 }
