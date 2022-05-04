@@ -40,7 +40,7 @@ int set_pause(game_t *game, sfEvent *event)
     return EXIT_FAILURE;
 }
 
-void wait_pause(game_t *game, ...)
+int wait_pause(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -49,8 +49,9 @@ void wait_pause(game_t *game, ...)
 
     while (sfRenderWindow_isOpen(game->window)) {
         if (!set_pause(game, event))
-            return;
+            return EXIT_FAILURE;
     }
+    return EXIT_SUCCESS;
 }
 
 int set_menu(game_t *game, sfEvent *event)
@@ -70,7 +71,7 @@ int set_menu(game_t *game, sfEvent *event)
     return EXIT_FAILURE;
 }
 
-void wait_menu(game_t *game, ...)
+int wait_menu(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -79,6 +80,7 @@ void wait_menu(game_t *game, ...)
 
     while (sfRenderWindow_isOpen(game->window)) {
         if (!set_menu(game, event))
-            return;
+            return EXIT_FAILURE;
     }
+    return EXIT_SUCCESS;
 }

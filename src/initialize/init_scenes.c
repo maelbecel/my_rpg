@@ -59,16 +59,16 @@ int init_other_scenes(sfRenderWindow *window, scene_t *scenes)
 {
     if (init_menu_player(scenes, window) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (init_settings_menu(scenes, window)== EXIT_FAILURE)
+    if (init_settings_menu(scenes, window) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (init_htp(scenes, window)== EXIT_FAILURE)
+    if (init_htp(scenes, window) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (init_new_game(scenes, window)== EXIT_FAILURE)
+    if (init_new_game(scenes, window) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (init_talk_npc(scenes)== EXIT_FAILURE)
+    if (init_talk_npc(scenes) == EXIT_FAILURE)
         return EXIT_FAILURE;
     set_tab(scenes);
-    if (init_battle(scenes)== EXIT_FAILURE)
+    if (init_battle(scenes) == EXIT_FAILURE)
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

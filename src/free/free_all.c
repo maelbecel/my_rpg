@@ -35,9 +35,15 @@ void free_button(button_t *button)
     free(button);
 }
 
+void free_music(game_t *game)
+{
+    sfMusic_destroy(game->music[0].sound);
+}
+
 void free_all(game_t *game, ...)
 {
     free_scenes(game);
     free_settings(game);
     free_player(game);
+    free_music(game);
 }

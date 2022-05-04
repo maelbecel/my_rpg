@@ -18,7 +18,7 @@ static void draw_free(int b, game_t *game, char * file)
     }
 }
 
-void display_load(game_t *game, sfEvent *event)
+int display_load(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 0;
@@ -28,7 +28,7 @@ void display_load(game_t *game, sfEvent *event)
     while (game->scenes[LOAD].elements[e])
         draw_element(game->window, game->scenes[LOAD].elements[e++]);
     while (game->scenes[LOAD].buttons[b]) {
-        file = conc("saves/save", conc(inttochar(b + 1), ".json"));
+        file = format("saves/save%i.json", b + 1);
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, b, LOAD)) {
             draw_clicked(game->window, game->scenes[LOAD].buttons[b]);
@@ -40,6 +40,7 @@ void display_load(game_t *game, sfEvent *event)
         draw_free(b, game, file);
         b++;
     }
+    return EXIT_SUCCESS;
 }
 
 void update_load(game_t *game)
@@ -56,17 +57,24 @@ void update_load(game_t *game)
     }
 }
 
-static void draw_chars(game_t *game)
+static int draw_chars(game_t *game)
 {
-    draw_arbaletier_char(game->window, game->settings->font);
-    draw_archere_char(game->window, game->settings->font);
-    draw_chevalier_char(game->window, game->settings->font);
-    draw_cuisiniere_char(game->window, game->settings->font);
-    draw_mage_char(game->window, game->settings->font);
-    draw_valkyrie_char(game->window, game->settings->font);
+    if (draw_arbaletier_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_archere_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_chevalier_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_cuisiniere_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_mage_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    if (draw_valkyrie_char(game->window, game->settings->font) == 1)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
 
-void display_choosing(game_t *game, sfEvent *event)
+int display_choosing(game_t *game, sfEvent *event)
 {
     int b = 0;
     int e = 1;
@@ -86,5 +94,7 @@ void display_choosing(game_t *game, sfEvent *event)
     }
     while (game->scenes[CHOOSING].elements[e])
         draw_element(game->window, game->scenes[CHOOSING].elements[e++]);
-    draw_chars(game);
+    if (draw_chars(game) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }

@@ -31,14 +31,14 @@ void add_elem(game_t *game, char *type)
     if (inventory != NULL) {
         inventory->type = my_strdup(type);
         inventory->value += 1;
-        inventory->elem = init_element(conc("assets/icons/",
-                            conc(type, ".png")), (sfVector2f){0, 0},
-                            (sfVector2f){32, 32}, (sfVector2f){3, 3});
+        inventory->elem = init_element(format("assets/icons/%s.png", type),
+                (sfVector2f){0, 0}, (sfVector2f){32, 32}, (sfVector2f){3, 3});
     }
 }
 
-void open_inventory(game_t* game, ...)
+int open_inventory(game_t* game, ...)
 {
     game->scenes[MENU_PLAYER].tab->page = INVENTORY;
     game->scenes[BATTLE].page = 1;
+    return EXIT_SUCCESS;
 }

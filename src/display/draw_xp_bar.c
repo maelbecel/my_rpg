@@ -48,8 +48,7 @@ void draw_xp_bar(game_t *game)
 
     draw_load(xp - last_xp,  next_xp - last_xp, game->window);
     draw_element(game->window, game->scenes[MENU_PLAYER].elements[2]);
-    draw_text(conc(inttochar(xp - last_xp), conc(" / ",
-            inttochar(next_xp - last_xp))),
+    draw_text(format("%d / %d", xp - last_xp, next_xp - last_xp),
             game->settings->font, (sfVector3f){750, 850, 60}, game->window);
     draw_text(inttochar(level),
             game->settings->font, (sfVector3f){340, 840, 80}, game->window);

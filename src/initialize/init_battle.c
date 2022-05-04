@@ -9,15 +9,19 @@
 #include "printf.h"
 #include "rpg.h"
 
-void attack(game_t *game, ...)
+int attack(game_t *game, ...)
 {
     int x = my_random() % game->enemy->damage - game->player->stat->def;
     if (x < 0)
-        game->enemy->buf_text = conc(game->enemy->name, " missed his attack !");
+        game->enemy->buf_text = format("%s missed his attack !",
+                                                        game->enemy->name);
     else
-        game->enemy->buf_text = conc(game->enemy->name, conc(" say :\n", clean_string(game->enemy->text[my_random() % my_strarraylen(game->enemy->text)])));
+        game->enemy->buf_text = format("%s say:\n%s", game->enemy->name,
+                                clean_string(game->enemy->text[my_random() %
+                                my_strarraylen(game->enemy->text)]));
     game->enemy->life -= game->player->stat->strg;
     game->player->stat->hp = (x > 0) ? game->player->stat->hp - x : game->player->stat->hp;
+    return EXIT_SUCCESS;
 }
 
 button_t **battle_buttons(void)
@@ -26,7 +30,7 @@ button_t **battle_buttons(void)
 
     if (!buttons)
         return NULL;
-    buttons[0] = init_button("Fuite", BUTTON, (sfVector2f){1500, 900},
+    buttons[0] = init_button("Escape", BUTTON, (sfVector2f){1500, 900},
                             (sfVector2i){796, 206});
     buttons[1] = init_button("Attack", BUTTON, (sfVector2f){1500, 740},
                             (sfVector2i){796, 206});

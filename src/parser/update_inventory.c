@@ -18,7 +18,7 @@ static char *fill_inv(inventory_t **inventory)
     buffer = "[";
     for (int i = 0; inventory[i]->type ; i++)
         for (int j = 0; j < inventory[i]->value; j++) {
-            buffer = conc(buffer, conc("\"", conc(inventory[i]->type, "\"")));
+            buffer = format("%s\"%s\"", buffer, inventory[i]->type);
             buffer = (inventory[i + 1]->type == NULL &&
                         j == inventory[i]->value - 1)
                     ? buffer : conc(buffer, ",");
@@ -31,7 +31,7 @@ static char *fill_inv(inventory_t **inventory)
 void update_inventory(game_t *game)
 {
     char *buffer = fill_inv(game->player->inventory);
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
 
     if (!game->player->inventory[0]->type)
         buffer = "[\"none\"]";

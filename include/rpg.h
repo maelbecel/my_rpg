@@ -156,6 +156,11 @@
     #define SLIME (sfColor){31, 250, 254, 255}
 
     ////////////////////////////////////////////////////////////
+    /// \def BOSS
+    ////////////////////////////////////////////////////////////
+    #define BOSS (sfColor){255, 255, 255, 255}
+
+    ////////////////////////////////////////////////////////////
     /// \def TP_VILLAGE
     ////////////////////////////////////////////////////////////
     #define TP_VILLAGE (sfColor){0, 0, 255, 255}
@@ -168,7 +173,7 @@
     ////////////////////////////////////////////////////////////
     /// \def TP_DUNGEON
     ////////////////////////////////////////////////////////////
-    #define TP_DUNGEON (sfColor){255, 132, 0, 255}
+    #define TP_DUNGEON (sfColor){0, 0, 0, 255}
 
     ////////////////////////////////////////////////////////////
     /// \def TP_VILLAGE_2
@@ -197,6 +202,7 @@
     #include "class.h"
     #include "error.h"
     #include "npc.h"
+    #include "formatstring.h"
 
     ////////////////////////////////////////////////////////////
     // Structures
@@ -289,7 +295,7 @@
         type_button_t *clicked;
         sfVector2f pos;
         void (*action_hoover)(game_t *game, ...);
-        void (*action_clicked)(game_t *game, ...);
+        int (*action_clicked)(game_t *game, ...);
         int x;
         int y;
     };
@@ -404,7 +410,7 @@
     /// \param value Value to update in the JSON file
     ///
     ////////////////////////////////////////////////////////////
-    void update_file(char *file, char *var, char *value);
+    int update_file(char *file, char *var, char *value);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display loading bar
@@ -485,15 +491,6 @@
     ///
     ////////////////////////////////////////////////////////////
     void update_inventory(game_t *game);
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Draw FPS from \a frame
-    ///
-    /// \param frame frame time actual
-    /// \param game  game_t * element to save data
-    ///
-    ////////////////////////////////////////////////////////////
-    void draw_fps(sfTime frame, game_t *game);
 
     ////////////////////////////////////////////////////////////
     /// \brief Free all \a game

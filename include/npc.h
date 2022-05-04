@@ -68,7 +68,7 @@
     /// \param game game_t struct with all game data
     ///
     ////////////////////////////////////////////////////////////
-    void go_talk_npc(game_t *game);
+    int go_talk_npc(game_t *game);
 
     ////////////////////////////////////////////////////////////
     /// \brief Go to scene game
@@ -76,7 +76,7 @@
     /// \param game game_t struct with all game data
     ///
     ////////////////////////////////////////////////////////////
-    void go_game(game_t *game, ...);
+    int go_game(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Return npc_t if the npc is near
@@ -122,7 +122,7 @@
     /// \param ... other useful arguments
     ///
     ////////////////////////////////////////////////////////////
-    void trade(game_t *game, ...);
+    int trade(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Create a new ennemy
@@ -132,5 +132,16 @@
     ///
     ////////////////////////////////////////////////////////////
     enemy_t *create_enemy(char *type, player_t *player);
+
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Handle NPC action_clicked
+    ///
+    /// \param game  game_t struct with all game data
+    /// \param npc   npc to interact
+    /// \param event sfEvent object where events are register
+    ///
+    ////////////////////////////////////////////////////////////
+    void show_npc(game_t *game, npc_t *npc, sfEvent *event);
 
 #endif /* !NPC_H_ */

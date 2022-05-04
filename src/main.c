@@ -14,6 +14,8 @@ static int rpg(game_t *game, sfEvent *event)
     sfClock *fps = sfClock_create();
     sfTime frame;
 
+    if (!fps)
+        return EXIT_ERROR;
     while (sfRenderWindow_isOpen(game->window)) {
         frame = sfClock_getElapsedTime(fps);
         sfClock_restart(fps);
@@ -23,9 +25,11 @@ static int rpg(game_t *game, sfEvent *event)
                 analyse_game_state(game, event, frame);
         } else if (sfRenderWindow_isOpen(game->window)) {
             event->type = -1;
-            display(game, event);
+            if (display(game, event) == EXIT_FAILURE)
+                return EXIT_ERROR;
         }
-        draw_fps(frame, game);
+        if (draw_fps(frame, game) == EXIT_FAILURE)
+            return EXIT_ERROR;
         sfRenderWindow_display(game->window);
     }
     return EXIT_SUCCESS;
@@ -40,7 +44,7 @@ static int do_intro(game_t *game)
         return EXIT_FAILURE;
     }
     sfRenderWindow_setFramerateLimit(game->window, 0);
-    if (!(game->scenes= init_scenes(game->window)))
+    if (!(game->scenes = init_scenes(game->window)))
         return EXIT_FAILURE;
     if (!(game->scenes[GAME].npc = game_npc()))
         return EXIT_FAILURE;

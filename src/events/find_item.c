@@ -9,14 +9,16 @@
 #include "printf.h"
 #include "rpg.h"
 
-void delete_item(game_t *game, ...)
+int delete_item(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
     char *type = va_arg(arg, char *);
+
     if (!type)
-        return;
+        return EXIT_FAILURE;
     delete_element(game, type);
+    return EXIT_SUCCESS;
 }
 
 inventory_t *find_item(game_t *game, button_t *button)

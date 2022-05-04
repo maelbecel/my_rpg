@@ -12,6 +12,6 @@ music_t *init_sound(void)
 {
     music_t *music = malloc(sizeof(music_t));
 
-    music[1].sound = sfMusic_createFromFile("assets/sounds/battle.ogg");
+    music[0].sound = sfMusic_createFromFile("assets/sounds/battle.ogg");
     return music;
 }

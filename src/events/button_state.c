@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-void clicked_menu(game_t *game, ...)
+int clicked_menu(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -20,10 +20,10 @@ void clicked_menu(game_t *game, ...)
         sfTexture_createFromFile("assets/ui/button1_clicked.png", NULL),
                                         sfTrue);
     va_end(arg);
-    return;
+    return EXIT_SUCCESS;
 }
 
-void clicked(game_t *game, ...)
+int clicked(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -34,7 +34,7 @@ void clicked(game_t *game, ...)
         sfTexture_createFromFile("assets/ui/button1_clicked.png", NULL),
                                         sfTrue);
     va_end(arg);
-    return;
+    return EXIT_SUCCESS;
 }
 
 void hoover_menu(game_t *game, ...)

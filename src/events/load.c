@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-void new_game(game_t *game, ...)
+int new_game(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -36,10 +36,12 @@ void new_game(game_t *game, ...)
     game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
     sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                         game->scenes[GAME].elements[6]->scale);
+    lore(game->window);
     va_end(arg);
+    return EXIT_SUCCESS;
 }
 
-void load_1(game_t *game, ...)
+int load_1(game_t *game, ...)
 {
     sfVector2f getpos = (sfVector2f){int_from_json(SAVE1, "posx"),
                                     int_from_json(SAVE1, "posy")};
@@ -78,9 +80,10 @@ void load_1(game_t *game, ...)
                             game->scenes[GAME].elements[6]->scale);
     }
     set_player(game, getpos);
+    return EXIT_SUCCESS;
 }
 
-void load_2(game_t *game, ...)
+int load_2(game_t *game, ...)
 {
     sfVector2f getpos = (sfVector2f){int_from_json(SAVE2, "posx"),
         int_from_json(SAVE2, "posy")};
@@ -120,9 +123,10 @@ void load_2(game_t *game, ...)
                             game->scenes[GAME].elements[6]->scale);
     }
     set_player(game, getpos);
+    return EXIT_SUCCESS;
 }
 
-void load_3(game_t *game, ...)
+int load_3(game_t *game, ...)
 {
     sfVector2f getpos = (sfVector2f){int_from_json(SAVE3, "posx"),
         int_from_json(SAVE3, "posy")};
@@ -161,9 +165,10 @@ void load_3(game_t *game, ...)
                             game->scenes[GAME].elements[6]->scale);
     }
     set_player(game, getpos);
+    return EXIT_SUCCESS;
 }
 
-void load(game_t *game, ...)
+int load(game_t *game, ...)
 {
     for (int i = 0; i < SIZE_INVENTORY; i++) {
         game->player->inventory[i]->type = NULL;
@@ -171,4 +176,5 @@ void load(game_t *game, ...)
         game->player->inventory[i]->elem = NULL;
     }
     game->scenes->page = LOAD;
+    return EXIT_SUCCESS;
 }

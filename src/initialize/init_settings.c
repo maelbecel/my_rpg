@@ -9,14 +9,16 @@
 #include "printf.h"
 #include "rpg.h"
 
-void settings(game_t *game, ...)
+int settings(game_t *game, ...)
 {
     game->scenes->page = SETTINGS;
+    return EXIT_SUCCESS;
 }
 
-void settings_frame(game_t *game, ...)
+int settings_frame(game_t *game, ...)
 {
     game->scenes->page = FRAME;
+    return EXIT_SUCCESS;
 }
 
 element_t **settings_elements(void)

@@ -9,7 +9,25 @@
 #include "printf.h"
 #include "rpg.h"
 
-static void update_all_file(game_t *game, char *file)
+static int check_file_re(char *file, char *strength,
+                                                    char *speed, char *defense)
+{
+    if (update_file(file, "strength", strength) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "speed", speed) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "defense", defense) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "class", format("\"%s\"", "archere")) == 1)
+        return EXIT_FAILURE;
+    if (update_file(file, "new", "0") == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "inventory", format("[\"%s\"]", "bow")) == 1)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
+}
+
+static int update_all_file(game_t *game, char *file)
 {
     char *health = parser(ARCHERE, "health");
     char *strength = parser(ARCHERE, "strength");
@@ -18,23 +36,21 @@ static void update_all_file(game_t *game, char *file)
 
     if (!health || !strength || !speed || !defense) {
         popup(game->settings->font, "FAILED TO OPEN\nconfig/archere.json");
-        return;
+        return EXIT_FAILURE;
     }
-    update_file(file, "health", health);
-    update_file(file, "strength", strength);
-    update_file(file, "speed", speed);
-    update_file(file, "defense", defense);
-    update_file(file, "class", conc(coat(), conc("archer", coat())));
-    update_file(file, "new", "0");
-    update_file(file, "inventory", conc("[",
-                        conc(coat(), conc("bow", conc(coat(), "]")))));
+    if (update_file(file, "health", health) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return check_file_re(file, strength, speed, defense);
 }
 
-void archere(game_t *game, ...)
+int archere(game_t *game, ...)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
 
-    update_all_file(game, file);
+    if (!file)
+        return EXIT_FAILURE;
+    if (update_all_file(game, file) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     reset(game);
     game->scenes->page = GAME;
     sfTexture_destroy(game->scenes[GAME].elements[2]->texture);
@@ -44,9 +60,10 @@ void archere(game_t *game, ...)
                             game->scenes[GAME].elements[2]->texture, sfFalse);
     set_player_inventory(game, file);
     free(file);
+    return EXIT_SUCCESS;
 }
 
-void draw_archere_char(sfRenderWindow *window, sfFont *font)
+int draw_archere_char(sfRenderWindow *window, sfFont *font)
 {
     char *health = parser(ARCHERE, "health");
     char *strength = parser(ARCHERE, "strength");
@@ -55,7 +72,7 @@ void draw_archere_char(sfRenderWindow *window, sfFont *font)
 
     if (!health || !strength || !speed || !defense) {
         popup(font, "FAILED TO OPEN\nconfig/archere.json");
-        return;
+        return EXIT_FAILURE;
     }
     draw_text("ARCHER", font, (sfVector3f){850, 240, 40}, window);
     draw_text(conc("HEALTH : ", health), font, (sfVector3f){850, 320, 30},
@@ -66,4 +83,5 @@ void draw_archere_char(sfRenderWindow *window, sfFont *font)
                                                                     window);
     draw_text(conc("DEFENSE: ", defense), font, (sfVector3f){850, 440, 30},
                                                                     window);
+    return EXIT_SUCCESS;
 }

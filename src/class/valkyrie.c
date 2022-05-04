@@ -9,7 +9,25 @@
 #include "printf.h"
 #include "rpg.h"
 
-static void update_all_file(game_t *game, char *file)
+static int check_file_re(char *file, char *strength,
+                                                    char *speed, char *defense)
+{
+    if (update_file(file, "strength", strength) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "speed", speed) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "defense", defense) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "class", format("\"%s\"", "valkyrie")) == 1)
+        return EXIT_FAILURE;
+    if (update_file(file, "new", "0") == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    if (update_file(file, "inventory", format("[\"%s\"]", "hache")) == 1)
+        return EXIT_FAILURE;
+    return EXIT_SUCCESS;
+}
+
+static int update_all_file(game_t *game, char *file)
 {
     char *health = parser(VALKYRIE, "health");
     char *strength = parser(VALKYRIE, "strength");
@@ -18,23 +36,21 @@ static void update_all_file(game_t *game, char *file)
 
     if (!health || !strength || !speed || !defense) {
         popup(game->settings->font, "FAILED TO OPEN\nconfig/valkyrie.json");
-        return;
+        return EXIT_FAILURE;
     }
-    update_file(file, "health", health);
-    update_file(file, "strength", strength);
-    update_file(file, "speed", speed);
-    update_file(file, "defense", defense);
-    update_file(file, "class", conc(coat(), conc("valkyrie", coat())));
-    update_file(file, "new", "0");
-    update_file(file, "inventory", conc("[",
-                        conc(coat(), conc("hache", conc(coat(), "]")))));
+    if (update_file(file, "health", health) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+    return check_file_re(file, strength, speed, defense);
 }
 
-void valkyrie(game_t *game, ...)
+int valkyrie(game_t *game, ...)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
 
-    update_all_file(game, file);
+    if (!file)
+        return EXIT_FAILURE;
+    if (update_all_file(game, file) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     reset(game);
     game->scenes->page = GAME;
     sfTexture_destroy(game->scenes[GAME].elements[2]->texture);
@@ -44,9 +60,10 @@ void valkyrie(game_t *game, ...)
                             game->scenes[GAME].elements[2]->texture, sfFalse);
     set_player_inventory(game, file);
     free(file);
+    return EXIT_SUCCESS;
 }
 
-void draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
+int draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
 {
     char *health = parser(VALKYRIE, "health");
     char *strength = parser(VALKYRIE, "strength");
@@ -55,15 +72,16 @@ void draw_valkyrie_char(sfRenderWindow *window, sfFont *font)
 
     if (!health || !strength || !speed || !defense) {
         popup(font, "FAILED TO OPEN\nconfig/valkyrie.json");
-        return;
+        return EXIT_FAILURE;
     }
     draw_text("VALKYRIE", font, (sfVector3f){1350, 760, 40}, window);
-    draw_text(conc("HEALTH : ", health), font, (sfVector3f){1350, 840, 30},
+    draw_text(format("HEALTH : %s", health), font, (sfVector3f){1350, 840, 30},
                                                                     window);
-    draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){1350, 880, 30},
+    draw_text(format("STRENGTH : %s", strength), font,
+                                        (sfVector3f){1350, 880, 30}, window);
+    draw_text(format("SPEED : %s", speed), font, (sfVector3f){1350, 920, 30},
                                                                     window);
-    draw_text(conc("SPEED : ", speed), font, (sfVector3f){1350, 920, 30},
+    draw_text(format("DEFENSE: %s", defense), font, (sfVector3f){1350, 960, 30},
                                                                     window);
-    draw_text(conc("DEFENSE: ", defense), font, (sfVector3f){1350, 960, 30},
-                                                                    window);
+    return EXIT_SUCCESS;
 }

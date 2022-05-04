@@ -36,8 +36,17 @@
     ////////////////////////////////////////////////////////////
     struct display_s {
         int scene;
-        void (*func)(game_t *game, sfEvent *event);
+        int (*func)(game_t *game, sfEvent *event);
     };
+
+    typedef struct clock_s {
+        sfClock *clock;
+        sfTime time;
+        float seconds;
+        float sec;
+        int offset;
+        int max;
+    } clock_bg_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Draw a button on a window
@@ -86,7 +95,7 @@
     /// \param window  sfRenderWindow object where text should be display
     ///
     ////////////////////////////////////////////////////////////
-    void draw_text(char *text, sfFont *font, sfVector3f pos,
+    int draw_text(char *text, sfFont *font, sfVector3f pos,
                                                     sfRenderWindow *window);
 
     ////////////////////////////////////////////////////////////
@@ -125,7 +134,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_talk_npc(game_t *game, sfEvent *event);
+    int display_talk_npc(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the settings menu
@@ -134,7 +143,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_settings(game_t *game, sfEvent *event);
+    int display_settings(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the settings menu
@@ -143,7 +152,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_frame(game_t *game, sfEvent *event);
+    int display_frame(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the sound settings menu
@@ -152,7 +161,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_settings_sounds(game_t *game, sfEvent *event);
+    int display_settings_sounds(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the key settings menu
@@ -161,7 +170,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_settings_key(game_t *game, sfEvent *event);
+    int display_settings_key(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the first how to play scene
@@ -170,7 +179,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_htp_first(game_t *game, sfEvent *event);
+    int display_htp_first(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the second how to play scene
@@ -179,7 +188,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_htp_second(game_t *game, sfEvent *event);
+    int display_htp_second(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the third how to play scene
@@ -188,7 +197,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_htp_third(game_t *game, sfEvent *event);
+    int display_htp_third(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Select what menu need to be display and display it
@@ -197,7 +206,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display(game_t *game, sfEvent *event);
+    int display(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Show the actual key in the key settings menu
@@ -233,7 +242,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_menu_player(game_t *game, sfEvent *event);
+    int display_menu_player(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display a popup
@@ -325,7 +334,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_choosing(game_t *game, sfEvent *event);
+    int display_choosing(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the load save menu
@@ -334,7 +343,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_load(game_t *game, sfEvent *event);
+    int display_load(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the main menu
@@ -343,7 +352,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_main_menu(game_t *game, sfEvent *event);
+    int display_main_menu(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the pause menu
@@ -352,7 +361,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_pause(game_t *game, sfEvent *event);
+    int display_pause(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the game
@@ -361,7 +370,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_game(game_t *game, sfEvent *event);
+    int display_game(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set string form up and down
@@ -491,7 +500,7 @@
     /// \param event sfEvent object where events are register
     ///
     ////////////////////////////////////////////////////////////
-    void display_battle(game_t *game, sfEvent *event);
+    int display_battle(game_t *game, sfEvent *event);
 
     ////////////////////////////////////////////////////////////
     /// \brief Draw a life bar
@@ -511,7 +520,7 @@
     /// \param game    game_t object who contain all game info
     ///
     ////////////////////////////////////////////////////////////
-    void draw_fps(sfTime frame, game_t *game);
+    int draw_fps(sfTime frame, game_t *game);
 
     ////////////////////////////////////////////////////////////
     /// \brief Display the button of the inventory
@@ -530,5 +539,31 @@
     ///
     ////////////////////////////////////////////////////////////
     void display_tab_inventory(game_t *game, sfEvent *event);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Skip
+    ///
+    /// \param window  sfRenderWindow object where element should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    bool skip(sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief sleep
+    ///
+    /// \param time    seconds to wait
+    /// \param window  sfRenderWindow object where element should be display
+    ///
+    ////////////////////////////////////////////////////////////
+    void my_sleep(int time, sfRenderWindow *window);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief anim the sprite
+    ///
+    /// \param elem     element_t * element to anim
+    /// \param clock    clock_bg_t * clock of the sprite
+    ///
+    ////////////////////////////////////////////////////////////
+    void anim_sprite(element_t *elem, clock_bg_t *clock);
 
 #endif

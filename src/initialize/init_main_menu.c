@@ -9,9 +9,10 @@
 #include "printf.h"
 #include "rpg.h"
 
-void main_menu(game_t *game, ...)
+int main_menu(game_t *game, ...)
 {
     game->scenes->page = MAIN_MENU;
+    return EXIT_SUCCESS;
 }
 
 static void main_menu_actions(button_t **buttons)

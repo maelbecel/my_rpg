@@ -48,7 +48,8 @@ int battle(game_t *game, ...)
     sfTime time;
     element_t *bg = init_element("assets/cinematiques/transition.png",
         (sfVector2f){-3600, 0}, (sfVector2f){3500, 1080}, (sfVector2f){1, 1});
-    init_stat_battle(game);
+
+    sfMusic_play(game->music[0].sound), init_stat_battle(game);
     while (bg->pos.x < 3600 && !skip(game->window)) {
         time = sfClock_getElapsedTime(clock);
         if (time.microseconds / 1000  < 0.01)
@@ -60,8 +61,7 @@ int battle(game_t *game, ...)
             draw_game(game);
         else
             draw_battle(game);
-        draw_element(game->window, bg);
-        sfRenderWindow_display(game->window);
+        draw_element(game->window, bg), sfRenderWindow_display(game->window);
     }
     sfClock_destroy(clock);
     return EXIT_SUCCESS;

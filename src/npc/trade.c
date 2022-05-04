@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-void trade(game_t *game, ...)
+int trade(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -23,4 +23,5 @@ void trade(game_t *game, ...)
         add_element_n(game, get, get_nb);
     }
     va_end(arg);
+    return EXIT_SUCCESS;
 }

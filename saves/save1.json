@@ -2,15 +2,24 @@
     "new": 0,
     "class": "arbaletier",
     "health": 80,
-    "xp": 10000000,
+    "xp": 0,
     "strength": 7,
     "speed": 12,
     "defense": 4,
     "point_stat": 0,
-    "posx": 1600,
-    "posy": 600,
-    "map": 1,
-    "quests": [4],
+    "posx": 800,
+    "posy": 800,
+    "map": 0,
+    "quests": [0],
     "end_quests": [0],
-    "inventory": ["hache","apple","banana","biere","potion","potion"]
+    "inventory": ["crossbow"]
+}
+,"biere","potion","potion"]
+}
+
+
+on"]
+}
+
+ion"]
 }

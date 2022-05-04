@@ -9,14 +9,16 @@
 #include "printf.h"
 #include "rpg.h"
 
-void resume(game_t *game, ...)
+int resume(game_t *game, ...)
 {
     game->scenes->page = GAME;
+    return EXIT_SUCCESS;
 }
 
-void pause_menu(game_t *game, ...)
+int pause_menu(game_t *game, ...)
 {
     game->scenes->page = PAUSE;
+    return EXIT_SUCCESS;
 }
 
 element_t **pause_elements(void)
@@ -29,9 +31,9 @@ element_t **pause_elements(void)
     return elements;
 }
 
-void save(game_t *game, ...)
+int save(game_t *game, ...)
 {
-    char *file = conc("saves/save", conc(game->player->save, ".json"));
+    char *file = format("saves/save%s.json", game->player->save);
 
     update_file(file, "posx",
                         inttochar(game->scenes[GAME].elements[0]->rect.left +
@@ -47,6 +49,7 @@ void save(game_t *game, ...)
     update_file(file, "point_stat", inttochar(game->player->pt_stat));
     update_file(file, "xp", inttochar(game->player->xp));
     update_inventory(game);
+    return EXIT_SUCCESS;
 }
 
 button_t **pause_buttons(void)

@@ -26,7 +26,7 @@ int set_up(game_t *game, sfEvent *event)
     return EXIT_FAILURE;
 }
 
-void wait_up(game_t *game, ...)
+int wait_up(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -35,8 +35,9 @@ void wait_up(game_t *game, ...)
 
     while (sfRenderWindow_isOpen(game->window)) {
         if (!set_up(game, event))
-            return;
+            return EXIT_FAILURE;
     }
+    return EXIT_SUCCESS;
 }
 
 int set_down(game_t *game, sfEvent *event)
@@ -56,7 +57,7 @@ int set_down(game_t *game, sfEvent *event)
     return EXIT_FAILURE;
 }
 
-void wait_down(game_t *game, ...)
+int wait_down(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
@@ -65,6 +66,7 @@ void wait_down(game_t *game, ...)
 
     while (sfRenderWindow_isOpen(game->window)) {
         if (!set_down(game, event))
-            return;
+            return EXIT_FAILURE;
     }
+    return EXIT_SUCCESS;
 }

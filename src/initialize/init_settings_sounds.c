@@ -9,9 +9,10 @@
 #include "printf.h"
 #include "rpg.h"
 
-void settings_sounds(game_t *game, ...)
+int settings_sounds(game_t *game, ...)
 {
     game->scenes->page = SOUNDS;
+    return EXIT_SUCCESS;
 }
 
 element_t **settings_sounds_elements(void)

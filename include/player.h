@@ -119,7 +119,7 @@
     /// \param ...  Other uselful data
     ///
     ////////////////////////////////////////////////////////////
-    void reset(game_t *game, ...);
+    int reset(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
     /// \brief Use an item
@@ -128,6 +128,6 @@
     /// \param ...  Other uselful data
     ///
     ////////////////////////////////////////////////////////////
-    void use(game_t *game, ...);
+    int use(game_t *game, ...);
 
 #endif /* !PLAYER_H_ */
