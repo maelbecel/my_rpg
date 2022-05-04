@@ -51,6 +51,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(EVT)change_tab.c   				\
 						$(SOURCES)$(EVT)update_character.c			\
 						$(SOURCES)$(EVT)select_key.c   				\
+						$(SOURCES)$(EVT)choose_tp.c   				\
 						$(SOURCES)$(EVT)select_movement.c  			\
 						$(SOURCES)$(EVT)quest_completion.c       	\
 						$(SOURCES)$(EVT)quest_cmp.c			       	\

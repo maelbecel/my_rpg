@@ -92,18 +92,9 @@ bool teleportation(game_t *game, sfVector2f move)
     float y = (game->scenes[GAME].elements[2]->pos.y + move.y +
                         (float)game->scenes[GAME].elements[0]->rect.top + 90);
     sfColor col = sfImage_getPixel(game->hitbox, x, y);
-    sfColor forest = TP_FOREST;
-    sfColor village = TP_VILLAGE;
     sfColor dungeon = TP_DUNGEON;
-    sfColor village2 = TP_VILLAGE_2;
-    void (*func)(game_t *game, ...) = NULL;
+    void (*func)(game_t *game, ...) = choose_tp(col);
 
-    if (col.r == forest.r && col.g == forest.g && col.b == forest.b)
-        func = tp_forest;
-    if (col.r == village.r && col.g == village.g && col.b == village.b)
-        func = tp_village;
-    if (col.r == village2.r && col.g == village2.g && col.b == village2.b)
-        func = tp_village_from_dungeon;
     if (col.r == dungeon.r && col.g == dungeon.g && col.b == dungeon.b &&
         col.a == dungeon.a) {
         if (get_level(game->player->xp) < 20)
