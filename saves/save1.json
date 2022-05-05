@@ -2,27 +2,16 @@
     "new": 0,
     "class": "arbaletier",
     "health": 80,
-    "xp": 0,
+    "xp": 5800,
     "strength": 7,
     "speed": 12,
-    "defense": 4,
+    "defense": 12,
     "point_stat": 0,
-    "posx": 800,
-    "posy": 800,
+    "posx": 556,
+    "posy": 1064,
     "map": 0,
-    "quests": [0],
+    "quests": [1],
     "end_quests": [0],
-    "inventory": ["crossbow"]
-}
-e2","ruby","ruby","ruby","ruby","ruby","ruby","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion"]
-}
-}
+    "inventory": ["crossbow","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","flower","flower","flower","flower","flower","flower","flower","flower","flower","blob","blob","blob","blob","blob","blob"]
 
-"]
 }
-
-"]
-}
-
-
-

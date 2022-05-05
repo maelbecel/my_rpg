@@ -14,6 +14,7 @@ static void set_player_stat(game_t *game)
     char *file = format("saves/save%s.json", game->player->save);
 
     game->player->hp = int_from_json(file, "health");
+    game->player->total_hp = int_from_json(file, "health");
     game->player->def = int_from_json(file, "defense");
     game->player->strg = int_from_json(file, "strength");
     game->player->spd = int_from_json(file, "speed");
