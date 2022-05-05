@@ -40,4 +40,6 @@ void free_all(game_t *game, ...)
     free_scenes(game);
     free_settings(game);
     free_player(game);
+    free_weather(game);
+    sfImage_destroy(game->hitbox);
 }

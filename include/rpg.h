@@ -501,6 +501,14 @@
     void free_all(game_t *game, ...);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Free weather \a game
+    ///
+    /// \param game  game_t * element to save data
+    ///
+    ////////////////////////////////////////////////////////////
+    void free_weather(game_t *game);
+
+    ////////////////////////////////////////////////////////////
     /// \brief Free all scenes from \a game
     ///
     /// \param game  game_t * element to save data

@@ -143,6 +143,7 @@ SRC          =			$(SOURCES)main.c		                    \
 						$(SOURCES)$(CINE)create_clocks.c         	\
 						$(SOURCES)$(CINE)outro.c                    \
 						$(SOURCES)$(FREE)free_all.c                 \
+						$(SOURCES)$(FREE)free_weather.c               \
 						$(SOURCES)$(FREE)free_player.c              \
 						$(SOURCES)$(FREE)free_scenes.c              \
 						$(SOURCES)$(CLASS)chevalier.c               \

@@ -1,19 +1,28 @@
 {
     "new": 0,
-    "class": "archere",
-    "health": 600,
-    "xp": 199200,
-    "strength": 27,
-    "speed": 13,
-    "defense": 50,
+    "class": "arbaletier",
+    "health": 80,
+    "xp": 0,
+    "strength": 7,
+    "speed": 12,
+    "defense": 4,
     "point_stat": 0,
-    "posx": 276,
-    "posy": 248,
-    "map": 2,
+    "posx": 800,
+    "posy": 800,
+    "map": 0,
     "quests": [0],
     "end_quests": [0],
-    "inventory": ["bow","eye2","eye2","eye2","ruby","ruby","ruby","ruby","ruby","ruby","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion"]
-
+    "inventory": ["crossbow"]
 }
+e2","ruby","ruby","ruby","ruby","ruby","ruby","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion","potion"]
+}
+}
+
+"]
+}
+
+"]
+}
+
 
 
