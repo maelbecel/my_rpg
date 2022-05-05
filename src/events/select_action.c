@@ -15,7 +15,7 @@ int set_act(game_t *game, sfEvent *event)
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
-            return EXIT_SUCCESS;
+            return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_action = event->key.code;
             update_file(SETTINGS_FILE , "action_key",
@@ -46,7 +46,7 @@ int set_skip(game_t *game, sfEvent *event)
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
-            return EXIT_SUCCESS;
+            return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_skip = event->key.code;
             update_file(SETTINGS_FILE , "skip_key",

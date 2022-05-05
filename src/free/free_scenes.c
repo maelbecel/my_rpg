@@ -9,16 +9,17 @@
 #include "printf.h"
 #include "rpg.h"
 
-static void free_tab(scene_t *tab)
+void free_tab(scene_t tab)
 {
-    for (int i = 0; tab->buttons[i]; i++) {
-        free_button(tab->buttons[i]);
+    if (!tab.buttons || !tab.elements)
+        return;
+    for (int i = 0; tab.buttons[i]; i++) {
+        free_button(tab.buttons[i]);
     }
-    for (int i = 0; tab->elements[i]; i++)
-        free_elements(tab->elements[i]);
-    free(tab->buttons);
-    free(tab->elements);
-    free(tab);
+    for (int i = 0; tab.elements[i]; i++)
+        free_elements(tab.elements[i]);
+    free(tab.buttons);
+    free(tab.elements);
 }
 
 void free_scenes(game_t *game)
@@ -32,8 +33,7 @@ void free_scenes(game_t *game)
         for (int k = 0; game->scenes[i].buttons[k]; k++)
             free_button(game->scenes[i].buttons[k]);
         free(game->scenes[i].buttons);
-        if (game->scenes[i].tab)
-            free_tab(game->scenes[i].tab);
+        free(game->scenes[i].tab);
     }
     free(game->scenes);
 }

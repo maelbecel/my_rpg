@@ -12,7 +12,5 @@
     "map": 0,
     "quests": [1],
     "end_quests": [0],
-    "inventory": ["sword"]
-}
-
+    "inventory": ["none"]
 }

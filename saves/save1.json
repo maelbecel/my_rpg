@@ -7,11 +7,10 @@
     "speed": 12,
     "defense": 12,
     "point_stat": 0,
-    "posx": 556,
-    "posy": 1064,
+    "posx": 812,
+    "posy": 1872,
     "map": 0,
     "quests": [1],
     "end_quests": [0],
-    "inventory": ["crossbow","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","apple","flower","flower","flower","flower","flower","flower","flower","flower","flower","blob","blob","blob","blob","blob","blob"]
-
+    "inventory": ["none"]
 }
