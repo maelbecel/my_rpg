@@ -11,8 +11,9 @@
 
 static void free_tab(scene_t *tab)
 {
-    for (int i = 0; tab->buttons[i]; i++)
+    for (int i = 0; tab->buttons[i]; i++) {
         free_button(tab->buttons[i]);
+    }
     for (int i = 0; tab->elements[i]; i++)
         free_elements(tab->elements[i]);
     free(tab->buttons);
@@ -22,7 +23,7 @@ static void free_tab(scene_t *tab)
 
 void free_scenes(game_t *game)
 {
-    int size = sizeof(game->scenes) / sizeof(scene_t *);
+    int size = sizeof(enum scenes);
 
     for (int i = 0; i < size; i++) {
         for (int j = 0; game->scenes[i].elements[j]; j++)
