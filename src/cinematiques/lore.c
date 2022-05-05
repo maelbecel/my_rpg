@@ -50,16 +50,19 @@ static clock_bg_t **init_clock(void)
 static int draw_lore(sfRenderWindow *window, scene_t *scenes,
                                                 char *tmp, clock_bg_t **clock)
 {
+    sfFont *font = sfFont_createFromFile(BASIC_FONT);
+
     sfRenderWindow_clear(window, sfBlack);
     for (int i = 0; scenes->elements[i] != NULL; i++) {
         if (i < 5)
             anim_sprite(scenes->elements[i], clock[i]);
         draw_element(window, scenes->elements[i]);
     }
-    if (draw_text_white(tmp, 50, (sfVector2f){740, 370},
+    if (draw_text(tmp, font, (sfVector3f){740, 370, 35},
                                         window) == EXIT_FAILURE)
         return EXIT_FAILURE;
     sfRenderWindow_display(window);
+    sfFont_destroy(font);
     return EXIT_SUCCESS;
 }
 
@@ -74,7 +77,7 @@ int lore(sfRenderWindow *window)
     scene_t *scenes = init_lore();
     clock_bg_t **clock_bg = init_clock();
     sfClock *clock = sfClock_create();
-    char *buffer = "You need to find your seed \npsk c cool en vite fait     ";
+    char *buffer = LORE;
     sfTime time;
     char *tmp = "";
 

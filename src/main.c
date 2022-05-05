@@ -32,6 +32,7 @@ static int rpg(game_t *game, sfEvent *event)
             return EXIT_ERROR;
         sfRenderWindow_display(game->window);
     }
+    sfClock_destroy(fps);
     return EXIT_SUCCESS;
 }
 

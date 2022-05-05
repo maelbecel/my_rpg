@@ -116,6 +116,13 @@
     #define BATTLE_BG "assets/battle_scene.jpg"
 
     ////////////////////////////////////////////////////////////
+    /// \def LORE
+    ////////////////////////////////////////////////////////////
+    #define LORE "In this world, the seed represents\nthe capacity of using \
+magic.\n\nYou need to recover your seed\npossessed by The Boss to acquire\n\
+magic powers                                                  "
+
+    ////////////////////////////////////////////////////////////
     /// \def MICRO 1000000
     ////////////////////////////////////////////////////////////
     #define MICRO 1000000
