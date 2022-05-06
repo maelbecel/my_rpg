@@ -95,8 +95,7 @@ int lore(sfRenderWindow *window)
         i++;
         if (draw_lore(window, scenes, tmp, clock_bg))
             return EXIT_FAILURE;
-        free(tmp);
-        tmp = "";
     }
+    free(tmp);
     return EXIT_SUCCESS;
 }
