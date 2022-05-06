@@ -366,6 +366,8 @@ magic powers                                                  "
         weather_t *weather;
         bool is_inv;
         music_t *music;
+        sfTime frame;
+        sfClock *fps;
     };
 
     ////////////////////////////////////////////////////////////

@@ -11,28 +11,26 @@
 
 static int rpg(game_t *game, sfEvent *event)
 {
-    sfClock *fps = sfClock_create();
-    sfTime frame;
-
-    if (!fps)
+    sfMusic_play(game->music[1].sound), game->fps = sfClock_create();
+    if (!game->fps)
         return EXIT_ERROR;
     while (sfRenderWindow_isOpen(game->window)) {
-        frame = sfClock_getElapsedTime(fps);
-        sfClock_restart(fps);
+        game->frame = sfClock_getElapsedTime(game->fps);
+        sfClock_restart(game->fps);
         if (sfRenderWindow_pollEvent(game->window, event)) {
-            analyse_game_state(game, event, frame);
+            analyse_game_state(game, event, game->frame);
             while (sfRenderWindow_pollEvent(game->window, event))
-                analyse_game_state(game, event, frame);
+                analyse_game_state(game, event, game->frame);
         } else if (sfRenderWindow_isOpen(game->window)) {
             event->type = -1;
             if (display(game, event) == EXIT_FAILURE)
                 return EXIT_ERROR;
         }
-        if (draw_fps(frame, game) == EXIT_FAILURE)
+        if (draw_fps(game->frame, game) == EXIT_FAILURE)
             return EXIT_ERROR;
         sfRenderWindow_display(game->window);
     }
-    sfClock_destroy(fps);
+    sfClock_destroy(game->fps);
     return EXIT_SUCCESS;
 }
 
