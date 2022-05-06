@@ -32,6 +32,7 @@ static int rpg(game_t *game, sfEvent *event)
             return EXIT_ERROR;
         sfRenderWindow_display(game->window);
     }
+    sfClock_destroy(fps);
     return EXIT_SUCCESS;
 }
 
@@ -52,6 +53,10 @@ static int do_intro(game_t *game)
     if (!(game->player = init_player("chevalier")))
         return EXIT_FAILURE;
     if (!(game->hitbox = sfImage_createFromFile(HITBOX)))
+        return EXIT_FAILURE;
+    if (!(game->weather = init_weather()))
+        return EXIT_FAILURE;
+    if (!(game->music = init_sound()))
         return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
@@ -87,8 +92,6 @@ int main(int ac, UNUSED char **argv)
     sfEvent event;
     game_t *game = init_game();
 
-    game->weather = init_weather();
-    game->music = init_sound();
     if (ac != 1)
         return EXIT_ERROR;
     if (!game)

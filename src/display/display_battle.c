@@ -48,7 +48,6 @@ static void check_win(game_t *game, sfEvent *event)
 {
     if (game->enemy->life <= 0) {
         win(game, event);
-        printf("stat after : %i\n", game->player->pt_stat);
         return;
     } if (game->player->stat->hp <= 0) {
         go_game(game);

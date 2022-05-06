@@ -15,7 +15,7 @@ int set_up(game_t *game, sfEvent *event)
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
-            return EXIT_SUCCESS;
+            return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_up = event->key.code;
             update_file(SETTINGS_FILE , "up_key",
@@ -46,7 +46,7 @@ int set_down(game_t *game, sfEvent *event)
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
-            return EXIT_SUCCESS;
+            return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_down = event->key.code;
             update_file(SETTINGS_FILE , "down_key",

@@ -29,7 +29,7 @@ int set_pause(game_t *game, sfEvent *event)
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
-            return EXIT_SUCCESS;
+            return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_pause = event->key.code;
             update_file(SETTINGS_FILE , "pause_key",
@@ -60,7 +60,7 @@ int set_menu(game_t *game, sfEvent *event)
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
-            return EXIT_SUCCESS;
+            return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_menu = event->key.code;
             update_file(SETTINGS_FILE , "menu_key",

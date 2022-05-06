@@ -58,7 +58,7 @@ element_t **settings_elements_frame(void)
 
 button_t **settings_buttons_frame(void)
 {
-    button_t **buttons = malloc(sizeof(button_t *) * 5);
+    button_t **buttons = malloc(sizeof(button_t *) * 6);
 
     if (!buttons)
         return NULL;
@@ -74,7 +74,10 @@ button_t **settings_buttons_frame(void)
     buttons[3] = init_button("Show fps :\t\t\t\t", BUTTON,
                         (sfVector2f){560, 650}, (sfVector2i){300, 100});
     buttons[3]->action_clicked = shower;
-    buttons[4] = NULL;
+    buttons[4] = init_button("Show particles :\t\t\t", BUTTON,
+                        (sfVector2f){560, 860}, (sfVector2i){300, 100});
+    buttons[4]->action_clicked = particles;
+    buttons[5] = NULL;
     rescale_frame(buttons);
     return buttons;
 }

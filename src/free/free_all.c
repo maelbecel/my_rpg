@@ -38,6 +38,8 @@ void free_button(button_t *button)
 void free_music(game_t *game)
 {
     sfMusic_destroy(game->music[0].sound);
+    sfMusic_destroy(game->music[1].sound);
+    free(game->music);
 }
 
 void free_all(game_t *game, ...)
@@ -46,4 +48,6 @@ void free_all(game_t *game, ...)
     free_settings(game);
     free_player(game);
     free_music(game);
+    free_weather(game);
+    sfImage_destroy(game->hitbox);
 }

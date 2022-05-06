@@ -15,7 +15,7 @@ int set_left(game_t *game, sfEvent *event)
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
-            return EXIT_SUCCESS;
+            return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_left = event->key.code;
             update_file(SETTINGS_FILE , "left_key",
@@ -46,7 +46,7 @@ int set_right(game_t *game, sfEvent *event)
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
             popup(game->settings->font, "\n\t\t\t\t\tKey already used");
-            return EXIT_SUCCESS;
+            return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_right = event->key.code;
             update_file(SETTINGS_FILE , "right_key",

@@ -10,10 +10,7 @@
     "posx": 800,
     "map": 0,
     "posy": 800,
-    "quests": [4],
+    "quests": [0],
     "end_quests": [0],
     "inventory": ["bow"]
-}
-
-e"]
 }

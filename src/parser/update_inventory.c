@@ -33,9 +33,8 @@ void update_inventory(game_t *game)
     char *buffer = fill_inv(game->player->inventory);
     char *file = format("saves/save%s.json", game->player->save);
 
-    if (!game->player->inventory[0]->type)
+    if (!game->player->inventory[0] || !game->player->inventory[0]->type)
         buffer = "[\"none\"]";
     update_file(file, "inventory", buffer);
     free(file);
-    free(buffer);
 }

@@ -39,5 +39,9 @@ int display_frame(game_t *game, sfEvent *event)
             game->settings->font, (sfVector3f){1000, 705, 60},
                                                 game->window) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    if (draw_text(!(int_from_json(CONFIG_FILE, "weather_speed")) ? "OFF" :
+                    "ON", game->settings->font, (sfVector3f){1100, 915, 60},
+                                                game->window) == EXIT_FAILURE)
+        return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }
