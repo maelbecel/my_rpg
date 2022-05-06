@@ -68,7 +68,7 @@ static const struct key_s Key_list[] = {
     {sfKeyEqual, " = "},
     {sfKeySpace, "SPACE"},
     {sfKeyEnter, "ENTER"},
-    {sfKeyBackspace, "BACKSPACE"},
+    {sfKeyBackspace, "TITLESPACE"},
     {sfKeyTab, "TAB"},
     {sfKeyPageUp, "PAGE UP"},
     {sfKeyPageDown, "PAGE DOWN"},
