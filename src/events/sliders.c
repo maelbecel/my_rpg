@@ -26,6 +26,9 @@ int is_elem_hoover(game_t *game, int i)
 
 void set_slider_pos(game_t * game)
 {
+    char *value = inttochar(game->settings->fx_volume);
+    char *value1 = inttochar(game->settings->music_volume);
+
     float pos_music = (float)game->settings->music_volume / 100.00 *
                         game->scenes[SOUNDS].elements[1]->rect.width +
                         game->scenes[SOUNDS].elements[1]->pos.x - 30;
@@ -35,10 +38,10 @@ void set_slider_pos(game_t * game)
 
     game->scenes[SOUNDS].elements[3]->pos.x = pos_music;
     game->scenes[SOUNDS].elements[4]->pos.x = pos_fx;
-    update_file(SETTINGS_FILE, "fx_sound",
-                                        inttochar(game->settings->fx_volume));
-    update_file(SETTINGS_FILE, "music_sound",
-                                    inttochar(game->settings->music_volume));
+    update_file(SETTINGS_FILE, "fx_sound", value);
+    update_file(SETTINGS_FILE, "music_sound", value1);
+    free(value);
+    free(value1);
 }
 
 static void update_slider(game_t *game)

@@ -37,7 +37,7 @@ void display_player(game_t *game, sfEvent *event)
     char *strg = inttochar(game->player->strg);
     char *spd = inttochar(game->player->spd);
     char *def = inttochar(game->player->def);
-    char *lvl = inttochar(game->player->def);
+    char *lvl = inttochar(get_level(game->player->xp));
     char *xp = inttochar(game->player->xp);
 
     for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
@@ -61,7 +61,7 @@ void display_player(game_t *game, sfEvent *event)
     free(spd);
     free(def);
     free(lvl);
-    free(xp);
+//     free(xp);
 }
 
 void draw_stat_char(game_t *game)
@@ -86,5 +86,5 @@ void draw_stat_char(game_t *game)
     free(strg);
     free(spd);
     free(def);
-    free(pt);
+//     free(pt);
 }

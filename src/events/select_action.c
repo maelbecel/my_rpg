@@ -11,6 +11,8 @@
 
 int set_act(game_t *game, sfEvent *event)
 {
+    char *value = inttochar(game->settings->key_action);
+
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
@@ -18,11 +20,11 @@ int set_act(game_t *game, sfEvent *event)
             return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_action = event->key.code;
-            update_file(SETTINGS_FILE , "action_key",
-                                        inttochar(game->settings->key_action));
+            update_file(SETTINGS_FILE , "action_key", value);
             return EXIT_SUCCESS;
         }
     }
+    free(value);
     return EXIT_FAILURE;
 }
 
@@ -43,6 +45,8 @@ int wait_action(game_t *game, ...)
 
 int set_skip(game_t *game, sfEvent *event)
 {
+    char *value = inttochar(game->settings->key_skip);
+
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
@@ -50,11 +54,11 @@ int set_skip(game_t *game, sfEvent *event)
             return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_skip = event->key.code;
-            update_file(SETTINGS_FILE , "skip_key",
-                                        inttochar(game->settings->key_skip));
+            update_file(SETTINGS_FILE , "skip_key", value);
             return EXIT_SUCCESS;
         }
     }
+    free(value);
     return EXIT_FAILURE;
 }
 

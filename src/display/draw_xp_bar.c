@@ -48,4 +48,6 @@ void draw_xp_bar(game_t *game)
             game->settings->font, (sfVector3f){340, 840, 80}, game->window);
     draw_text(level_2,
             game->settings->font, (sfVector3f){1470, 840, 80}, game->window);
+    free(level_1);
+    free(level_2);
 }

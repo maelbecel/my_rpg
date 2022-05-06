@@ -44,6 +44,7 @@ static char *int_array_to_string(int *array, int size)
             str[x++] = ' ';
         }
     }
+    free(buf);
     str[x++] = ']';
     str[x] = '\0';
     return str;
