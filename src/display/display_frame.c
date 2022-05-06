@@ -30,18 +30,26 @@ static void draw_frame_buttons(game_t *game, sfEvent *event)
 
 int display_frame(game_t *game, sfEvent *event)
 {
+    char *value = inttochar(int_from_json(CONFIG_FILE, "framerate"));
+
     draw_frame_buttons(game, event);
-    if (draw_text(inttochar(int_from_json(CONFIG_FILE, "framerate")),
-            game->settings->font, (sfVector3f){900, 450, 80},
-                                                game->window) == EXIT_FAILURE)
+    if (draw_text(value, game->settings->font, (sfVector3f){900, 450, 80},
+        game->window) == EXIT_FAILURE) {
+        free(value);
         return EXIT_FAILURE;
+    }
     if (draw_text((int_from_json(CONFIG_FILE, "show_fps")) ? "ON" : "OFF",
             game->settings->font, (sfVector3f){1000, 705, 60},
-                                                game->window) == EXIT_FAILURE)
+                                            game->window) == EXIT_FAILURE) {
+        free(value);
         return EXIT_FAILURE;
+        }
     if (draw_text(!(int_from_json(CONFIG_FILE, "weather_speed")) ? "OFF" :
                     "ON", game->settings->font, (sfVector3f){1100, 915, 60},
-                                                game->window) == EXIT_FAILURE)
+                                            game->window) == EXIT_FAILURE) {
+        free(value);
         return EXIT_FAILURE;
+        }
+    free(value);
     return EXIT_SUCCESS;
 }

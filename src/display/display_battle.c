@@ -12,9 +12,10 @@
 void win(game_t *game, ...)
 {
     char *file = format("saves/save%s.json", game->player->save);
+    char *value = inttochar(game->player->pt_stat);
 
     game->player->pt_stat += 3;
-    update_file(file, "pt_stat", inttochar(game->player->pt_stat));
+    update_file(file, "pt_stat", value);
     game->player->xp += game->enemy->exp;
     my_printf("Beat %s\n", game->enemy->name);
     for (int i = 0; game->enemy->loot[i]; i++)
@@ -22,6 +23,8 @@ void win(game_t *game, ...)
     if (my_strcmp(game->enemy->name, "The Boss") == 0)
         lore_outro(game->window);
     go_game(game);
+    free(file);
+    free(value);
 }
 
 void display_inventory_battle(game_t *game, sfEvent *event)

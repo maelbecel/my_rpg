@@ -26,10 +26,13 @@ void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
                         pos_get, (sfVector2f) {32, 32}, (sfVector2f) {3, 3});
     element_t *get = init_element(format("assets/icons/%s.png", trade->give),
                         pos_want, (sfVector2f) {32, 32}, (sfVector2f) {3, 3});
+    char *want_str = inttochar(trade->want_quantity);
+    char *give_str = inttochar(trade->give_quantity);
+
     draw_element(game->window, want);
-    draw_text(inttochar(trade->want_quantity), game->settings->font,
+    draw_text(want_str, game->settings->font,
             (sfVector3f){pos_get.x + 90, pos_get.y + 70, 50}, game->window);
-    draw_text(inttochar(trade->give_quantity), game->settings->font,
+    draw_text(give_str, game->settings->font,
             (sfVector3f){pos_want.x + 90, pos_want.y + 70, 50}, game->window);
     draw_element(game->window, get);
     arrow(game, trade, pos_want);
