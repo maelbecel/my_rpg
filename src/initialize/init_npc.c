@@ -40,7 +40,7 @@ npc_t **game_npc(void)
         return NULL;
     if (!(npc[1] = create_npc("erwann")))
         return NULL;
-    if (!(npc[2] = create_npc("marine_lepen")))
+    if (!(npc[2] = create_npc("marine")))
         return NULL;
     if (!(npc[3] = create_npc("pascal")))
         return NULL;
