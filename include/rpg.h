@@ -282,7 +282,7 @@ magic powers                                                  "
         sfIntRect rect;
         sfText *text;
         sfFont *font;
-        sfMusic *sound;
+        sfSound *sound;
         sfVector2f text_pos;
         int text_size;
     };

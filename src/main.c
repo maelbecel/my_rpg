@@ -11,7 +11,8 @@
 
 static int rpg(game_t *game, sfEvent *event)
 {
-    sfMusic_play(game->music[1].sound), game->fps = sfClock_create();
+    sfMusic_play(game->music[1].sound);
+    game->fps = sfClock_create();
     if (!game->fps)
         return EXIT_ERROR;
     while (sfRenderWindow_isOpen(game->window)) {

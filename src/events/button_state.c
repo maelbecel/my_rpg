@@ -29,6 +29,7 @@ int clicked(game_t *game, ...)
     va_start(arg, game);
     int i = va_arg(arg, int);
 
+    //sfSound_play(game->scenes[game->scenes->page].buttons[i]->clicked->sound);
     sfSprite_setTexture(
         game->scenes[game->scenes->page].buttons[i]->clicked->sprite,
         sfTexture_createFromFile("assets/ui/button1_clicked.png", NULL),

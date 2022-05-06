@@ -57,6 +57,7 @@ int display_game(game_t *game, sfEvent *event)
     int b = 0;
     int e = 0;
 
+    sfMusic_stop(game->music[1].sound);
     check_save(game), analyse_game(game, event);
     game->player->hp = game->player->total_hp;
     while (game->scenes[GAME].elements[e])

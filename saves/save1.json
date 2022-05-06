@@ -1,16 +1,18 @@
 {
     "new": 0,
-    "class": "arbaletier",
-    "health": 80,
+    "class": "mage",
+    "health": 100,
     "xp": 0,
-    "strength": 7,
-    "speed": 12,
-    "defense": 4,
+    "strength": 10,
+    "speed": 5,
+    "defense": 7,
     "point_stat": 0,
-    "posx": 812,
-    "posy": 1872,
+    "posx": 800,
+    "posy": 800,
     "map": 0,
-    "quests": [1],
+    "quests": [0],
     "end_quests": [0],
-    "inventory": ["crossbow"]
+    "inventory": ["baguette"]
+}
+w"]
 }
