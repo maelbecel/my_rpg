@@ -1,18 +1,16 @@
 {
     "new": 0,
     "class": "mage",
-    "health": 100,
-    "xp": 0,
-    "strength": 10,
+    "health": 100000,
+    "xp": 2000000,
+    "strength": 10000,
     "speed": 5,
     "defense": 7,
     "point_stat": 0,
     "posx": 800,
     "posy": 800,
-    "map": 0,
+    "map": 2,
     "quests": [0],
     "end_quests": [0],
     "inventory": ["baguette"]
-}
-e"]
 }

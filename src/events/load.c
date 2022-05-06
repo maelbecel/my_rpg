@@ -39,6 +39,8 @@ int new_game(game_t *game, ...)
     game->scenes[GAME].elements[5] = init_element("assets/forest_roof.png",
             (sfVector2f){0, 0}, (sfVector2f){2500, 2500}, (sfVector2f){1, 1});
     game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
+    game->scenes[GAME].elements[0]->rect.top = 1300;
+    game->scenes[GAME].elements[2]->pos.y -= 150;
     sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                         game->scenes[GAME].elements[6]->scale);
     lore(game->window);
