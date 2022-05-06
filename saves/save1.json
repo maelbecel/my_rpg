@@ -2,27 +2,15 @@
     "new": 0,
     "class": "arbaletier",
     "health": 80,
-<<<<<<< HEAD
     "xp": 0,
     "strength": 7,
     "speed": 12,
     "defense": 4,
-=======
-    "xp": 5800,
-    "strength": 7,
-    "speed": 12,
-    "defense": 12,
->>>>>>> c28034f917a509021d5a67c8c5c769f03857b4c7
     "point_stat": 0,
     "posx": 812,
     "posy": 1872,
     "map": 0,
     "quests": [1],
     "end_quests": [0],
-<<<<<<< HEAD
     "inventory": ["crossbow"]
 }
-=======
-    "inventory": ["none"]
-}
->>>>>>> c28034f917a509021d5a67c8c5c769f03857b4c7

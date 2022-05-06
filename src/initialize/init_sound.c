@@ -17,5 +17,6 @@ music_t *init_sound(void)
     if (!(music[1].sound =
     sfMusic_createFromFile("assets/sounds/main_menu.ogg")))
         return NULL;
+    sfMusic_setLoop(music[1].sound, sfTrue);
     return music;
 }

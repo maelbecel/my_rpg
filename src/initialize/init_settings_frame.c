@@ -50,7 +50,7 @@ element_t **settings_elements_frame(void)
 
     if (!elements)
         return NULL;
-    elements[0] = init_element(BACKGROUND, (sfVector2f){0, 0},
+    elements[0] = init_element(TITLE, (sfVector2f){0, 0},
                         (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
     elements[1] = NULL;
     return elements;

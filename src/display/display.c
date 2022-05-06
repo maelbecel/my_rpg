@@ -30,22 +30,25 @@ static const struct display_s Menu_list[] = {
 
 int display_main_menu(game_t *game, sfEvent *event)
 {
-    int b = 0;
-    int e = 0;
+    int b[2] = {0};
+    sfFont *font = sfFont_createFromFile(BASIC_FONT);
 
-    while (game->scenes[MAIN_MENU].elements[e])
-        draw_element(game->window, game->scenes[MAIN_MENU].elements[e++]);
-    while (game->scenes[MAIN_MENU].buttons[b]) {
+    while (game->scenes[MAIN_MENU].elements[b[0]])
+        draw_element(game->window, game->scenes[MAIN_MENU].elements[b[0]++]);
+    while (game->scenes[MAIN_MENU].buttons[b[1]]) {
         if (event->type == sfEvtMouseButtonPressed &&
-            is_click(game, b, MAIN_MENU)) {
-            draw_clicked(game->window, game->scenes[MAIN_MENU].buttons[b++]);
-            game->scenes[MAIN_MENU].buttons[b - 1]->action_clicked(game,
-                                                                        b - 1);
-        } else if (is_hoover(game, b, MAIN_MENU))
-            draw_hoover(game->window, game->scenes[MAIN_MENU].buttons[b++]);
+            is_click(game, b[1], MAIN_MENU)) {
+            draw_clicked(game->window, game->scenes[MAIN_MENU].buttons[b[1]++]);
+            game->scenes[MAIN_MENU].buttons[b[1] - 1]->action_clicked(game,
+                                                                    b[1] - 1);
+        } else if (is_hoover(game, b[1], MAIN_MENU))
+            draw_hoover(game->window, game->scenes[MAIN_MENU].buttons[b[1]++]);
         else
-            draw_button(game->window, game->scenes[MAIN_MENU].buttons[b++]);
+            draw_button(game->window, game->scenes[MAIN_MENU].buttons[b[1]++]);
     }
+    draw_text("               no seed:\nadventure of an hero", font,
+                                    (sfVector3f){100, 120, 50}, game->window);
+    sfFont_destroy(font);
     return EXIT_SUCCESS;
 }
 

@@ -29,10 +29,12 @@ void delete_element(game_t *game, char *type)
         if (game->player->inventory[i]->type != NULL &&
             !my_strcmp(type, game->player->inventory[i]->type)) {
             game->player->inventory[i]->value--;
-        } if (game->player->inventory[i]->type != NULL &&
+        }
+        if (game->player->inventory[i]->type != NULL &&
             game->player->inventory[i]->value == 0) {
             game->player->inventory[i]->value = 0;
             game->player->inventory[i]->type = NULL;
+            free(type);
             game->player->inventory[i]->elem = NULL;
         }
     }

@@ -37,6 +37,7 @@ int wait_action(game_t *game, ...)
         if (!set_act(game, event))
             return EXIT_FAILURE;
     }
+    va_end(arg);
     return EXIT_SUCCESS;
 }
 
@@ -68,5 +69,6 @@ int wait_skip(game_t *game, ...)
         if (!set_skip(game, event))
             return EXIT_FAILURE;
     }
+    va_end(arg);
     return EXIT_SUCCESS;
 }

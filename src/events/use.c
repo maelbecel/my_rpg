@@ -56,5 +56,6 @@ int use(game_t *game, ...)
             use_item(game, item[i]);
         }
     }
+    va_end(arg);
     return EXIT_SUCCESS;
 }

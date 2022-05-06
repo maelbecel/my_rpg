@@ -18,6 +18,7 @@ int quit(game_t *game, ...)
 {
     va_list arg;
     va_start(arg, game);
+    sfMusic_stop(game->music[1].sound);
     sfRenderWindow_setFramerateLimit(game->window, 30);
     outro(game->window);
     sfRenderWindow_close(game->window);
