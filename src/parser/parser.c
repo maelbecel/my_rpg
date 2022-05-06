@@ -61,17 +61,19 @@ char *parser(char *file, char *var)
     FILE *fd = fopen(file, "r");
     sfFont *font = sfFont_createFromFile(BASIC_FONT);
     char *variable = NULL;
+    char *str = format("Error:\nCan't open '%s'", file);
 
     if (!font) {
         my_put_error(conc("Error: Failed to load the font %s.\n", BASIC_FONT));
         return NULL;
     }
     if (fd == NULL) {
-        popup(font, format("Error:\nCan't open '%s'", file));
+        popup(font, str);
         sfFont_destroy(font);
         return NULL;
     }
     variable = format("    \"%s\": ", var);
     sfFont_destroy(font);
+    free(str);
     return get_line_pars(fd, variable);
 }

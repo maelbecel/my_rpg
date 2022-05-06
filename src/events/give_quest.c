@@ -55,12 +55,12 @@ void give_quest(game_t *game, npc_t *npc)
     char *file = format("config/npc/%s.json", npc->name);
     int quest = int_from_json(file, "quest");
     char *save = format("saves/save%s.json", game->player->save);
-
+    char *str = format("[%i]", npc->quest);
     if (quest == 0 || quest_already_give(game, quest))
         return;
     if (game->player->quest[0] == 0) {
         game->player->quest[0] = npc->quest;
-        update_file(save, "quests", format("[%i]", npc->quest));
+        update_file(save, "quests", str);
     }
     else {
         game->player->quest = add_quest(game->player->quest,
@@ -69,4 +69,7 @@ void give_quest(game_t *game, npc_t *npc)
         update_file(save, "quests", int_array_to_string(game->player->quest,
                                                 game->player->nbquest));
     }
+    free(file);
+    free(save);
+    free(str);
 }

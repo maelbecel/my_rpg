@@ -22,9 +22,11 @@ static void arrow(game_t *game, trade_t *trade, sfVector2f pos_want)
 void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
                 trade_t *trade)
 {
-    element_t *want = init_element(format("assets/icons/%s.png", trade->want),
+    char *str_get = format("assets/icons/%s.png", trade->want);
+    char *str_want = format("assets/icons/%s.png", trade->give);
+    element_t *want = init_element(str_get,
                         pos_get, (sfVector2f) {32, 32}, (sfVector2f) {3, 3});
-    element_t *get = init_element(format("assets/icons/%s.png", trade->give),
+    element_t *get = init_element(str_get,
                         pos_want, (sfVector2f) {32, 32}, (sfVector2f) {3, 3});
     char *want_str = inttochar(trade->want_quantity);
     char *give_str = inttochar(trade->give_quantity);
@@ -38,6 +40,8 @@ void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
     arrow(game, trade, pos_want);
     free_elements(get);
     free_elements(want);
+    free(str_get);
+    free(str_want);
 }
 
 static void update_trade(game_t *game, trade_t **trade)

@@ -39,10 +39,11 @@ void draw_xp_bar(game_t *game)
     int last_xp = get_xp_for_level(level - 1);
     char *level_1 = inttochar(level);
     char *level_2 = inttochar(level + 1);
+    char *str_xp = format("%d / %d", xp - last_xp, next_xp - last_xp);
 
     draw_load(xp - last_xp,  next_xp - last_xp, game->window);
     draw_element(game->window, game->scenes[MENU_PLAYER].elements[2]);
-    draw_text(format("%d / %d", xp - last_xp, next_xp - last_xp),
+    draw_text(str_xp,
             game->settings->font, (sfVector3f){750, 850, 60}, game->window);
     draw_text(level_1,
             game->settings->font, (sfVector3f){340, 840, 80}, game->window);
@@ -50,4 +51,5 @@ void draw_xp_bar(game_t *game)
             game->settings->font, (sfVector3f){1470, 840, 80}, game->window);
     free(level_1);
     free(level_2);
+    free(str_xp);
 }

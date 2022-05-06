@@ -27,13 +27,15 @@ inventory_t *find_inventory(inventory_t **inventory, char *type)
 void add_elem(game_t *game, char *type)
 {
     inventory_t *inventory = find_inventory(game->player->inventory, type);
+    char *str = format("assets/icons/%s.png", type);
 
     if (inventory != NULL) {
         inventory->type = my_strdup(type);
         inventory->value += 1;
-        inventory->elem = init_element(format("assets/icons/%s.png", type),
+        inventory->elem = init_element(str,
                 (sfVector2f){0, 0}, (sfVector2f){32, 32}, (sfVector2f){3, 3});
     }
+    free(str);
 }
 
 int open_inventory(game_t *game, ...)

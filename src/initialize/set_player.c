@@ -18,6 +18,7 @@ static void set_player_stat(game_t *game)
     game->player->def = int_from_json(file, "defense");
     game->player->strg = int_from_json(file, "strength");
     game->player->spd = int_from_json(file, "speed");
+    free(file);
 }
 
 void set_player(game_t *game, sfVector2f getpos)

@@ -66,6 +66,7 @@ static int draw_lore(sfRenderWindow *window, scene_t *scenes,
     draw_text_white(value, 60, (sfVector2f){50, 980}, window);
     sfRenderWindow_display(window);
     sfFont_destroy(font);
+    free(value);
     return EXIT_SUCCESS;
 }
 
@@ -94,6 +95,8 @@ int lore(sfRenderWindow *window)
         i++;
         if (draw_lore(window, scenes, tmp, clock_bg))
             return EXIT_FAILURE;
+        free(tmp);
+        tmp = "";
     }
     return EXIT_SUCCESS;
 }
