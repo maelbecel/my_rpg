@@ -25,13 +25,15 @@ static void main_menu_actions(button_t **buttons)
 
 element_t **main_menu_elements(void)
 {
-    element_t **elements = malloc(sizeof(element_t *) * 2);
+    element_t **elements = malloc(sizeof(element_t *) * 3);
 
     if (!elements)
         return NULL;
     elements[0] = init_element(TITLE, (sfVector2f){0, 0},
                         (sfVector2f){2000, 2000}, (sfVector2f){1, 1});
-    elements[1] = NULL;
+    elements[1] = init_element(BUTTON, (sfVector2f){31, 91},
+                        (sfVector2f){857, 223}, (sfVector2f){1, 1});
+    elements[2] = NULL;
     if (!elements[0])
         return NULL;
     return elements;
