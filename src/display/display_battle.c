@@ -19,9 +19,12 @@ void win(game_t *game, ...)
     game->player->xp += game->enemy->exp;
     for (int i = 0; game->enemy->loot[i]; i++)
         add_elem(game, clean_string(game->enemy->loot[i]));
-    if (my_strcmp(game->enemy->name, "The Boss") == 0)
+    if (my_strcmp(game->enemy->name, "The Boss") == 0) {
         lore_outro(game->window);
-    go_game(game);
+        game->scenes->page = MAIN_MENU;
+    } else {
+        go_game(game);
+    }
     free(file);
     // free(value);
 }
