@@ -72,7 +72,8 @@ int lore_outro(sfRenderWindow *window)
     scene_t *scenes = init_lore();
     clock_bg_t **clock_bg = init_clock();
     sfClock *clock = sfClock_create();
-    char *buffer = "C'est la fin gg a oit\nT'es chaud bg         ";
+    char *buffer = "You have recovered your seed!\nNow, you can quit the\n\
+game and go out.\nThanks for playing                      ";
     sfTime time;
     char *tmp = "";
 

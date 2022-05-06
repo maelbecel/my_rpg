@@ -5,5 +5,5 @@
     "quest": 0,
     "want": [["biere",2], ["apple",3]],
     "sell": [["potion",1], ["gold",3]],
-    "text": "Tu veux du shit"
+    "text": "Do you want something?"
 }
