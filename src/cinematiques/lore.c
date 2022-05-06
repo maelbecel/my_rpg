@@ -51,6 +51,8 @@ static int draw_lore(sfRenderWindow *window, scene_t *scenes,
                                                 char *tmp, clock_bg_t **clock)
 {
     sfFont *font = sfFont_createFromFile(BASIC_FONT);
+    char *value = format("PRESS '%s' TO SKIP",
+                    getkey(int_from_json(SETTINGS_FILE, "skip_key")));
 
     sfRenderWindow_clear(window, sfBlack);
     for (int i = 0; scenes->elements[i] != NULL; i++) {
@@ -61,6 +63,7 @@ static int draw_lore(sfRenderWindow *window, scene_t *scenes,
     if (draw_text(tmp, font, (sfVector3f){740, 370, 35},
                                         window) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    draw_text_white(value, 60, (sfVector2f){50, 980}, window);
     sfRenderWindow_display(window);
     sfFont_destroy(font);
     return EXIT_SUCCESS;

@@ -54,6 +54,9 @@ static clock_bg_t **init_clock(void)
 static int draw_lore(sfRenderWindow *window, scene_t *scenes,
                                                 char *tmp, clock_bg_t **clock)
 {
+    char *value = format("PRESS '%s' TO SKIP",
+                    getkey(int_from_json(SETTINGS_FILE, "skip_key")));
+
     sfRenderWindow_clear(window, sfBlack);
     for (int i = 0; scenes->elements[i] != NULL; i++) {
         if (i < 5)
@@ -63,6 +66,7 @@ static int draw_lore(sfRenderWindow *window, scene_t *scenes,
     if (draw_text_white(tmp, 50, (sfVector2f){740, 370},
                                         window) == EXIT_FAILURE)
         return EXIT_FAILURE;
+    draw_text_white(value, 60, (sfVector2f){50, 980}, window);
     sfRenderWindow_display(window);
     return EXIT_SUCCESS;
 }
