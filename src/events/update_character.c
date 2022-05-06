@@ -75,5 +75,6 @@ int reset(game_t *game, ...)
             return EXIT_FAILURE;
         }
     }
+    free(file);
     return EXIT_SUCCESS;
 }

@@ -12,24 +12,28 @@
 static int up_frame(game_t *game, ...)
 {
     int i = int_from_json(CONFIG_FILE, "framerate");
+    char *value = inttochar(i);
 
     if (i < 200) {
         i += 10;
-        update_file(CONFIG_FILE, "framerate", inttochar(i));
+        update_file(CONFIG_FILE, "framerate", value);
         sfRenderWindow_setFramerateLimit(game->window, i);
     }
+    free(value);
     return EXIT_SUCCESS;
 }
 
 static int down_frame(game_t *game, ...)
 {
     int i = int_from_json(CONFIG_FILE, "framerate");
+    char *value = inttochar(i);
 
     if (i > 20) {
         i -= 10;
-        update_file(CONFIG_FILE, "framerate", inttochar(i));
+        update_file(CONFIG_FILE, "framerate", value);
         sfRenderWindow_setFramerateLimit(game->window, i);
     }
+    free(value);
     return EXIT_SUCCESS;
 }
 

@@ -25,6 +25,8 @@ bool already_def(game_t *game, int i)
 
 int set_pause(game_t *game, sfEvent *event)
 {
+    char *value = inttochar(game->settings->key_pause);
+
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
@@ -32,11 +34,11 @@ int set_pause(game_t *game, sfEvent *event)
             return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_pause = event->key.code;
-            update_file(SETTINGS_FILE , "pause_key",
-                                        inttochar(game->settings->key_pause));
+            update_file(SETTINGS_FILE , "pause_key", value);
             return EXIT_SUCCESS;
         }
     }
+    free(value);
     return EXIT_FAILURE;
 }
 
@@ -57,6 +59,8 @@ int wait_pause(game_t *game, ...)
 
 int set_menu(game_t *game, sfEvent *event)
 {
+    char *value = inttochar(game->settings->key_menu);
+
     while (sfRenderWindow_pollEvent(game->window, event)) {
         if (event->type == sfEvtKeyPressed &&
             already_def(game, event->key.code)) {
@@ -64,11 +68,11 @@ int set_menu(game_t *game, sfEvent *event)
             return EXIT_FAILURE;
         } if (event->type == sfEvtKeyPressed) {
             game->settings->key_menu = event->key.code;
-            update_file(SETTINGS_FILE , "menu_key",
-                                        inttochar(game->settings->key_menu));
+            update_file(SETTINGS_FILE , "menu_key", value);
             return EXIT_SUCCESS;
         }
     }
+    free(value);
     return EXIT_FAILURE;
 }
 

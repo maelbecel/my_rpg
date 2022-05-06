@@ -12,18 +12,23 @@
 static int check_file_re(char *file, char *strength,
                                                     char *speed, char *defense)
 {
+    char *str = format("\"%s\"", "chevalier");
+
     if (update_file(file, "strength", strength) == EXIT_FAILURE)
         return EXIT_FAILURE;
     if (update_file(file, "speed", speed) == EXIT_FAILURE)
         return EXIT_FAILURE;
     if (update_file(file, "defense", defense) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (update_file(file, "class", format("\"%s\"", "chevalier")) == 1)
+    if (update_file(file, "class", str) == 1)
         return EXIT_FAILURE;
+    free(str);
+    str = format("[\"%s\"]", "sword");
     if (update_file(file, "new", "0") == EXIT_FAILURE)
         return EXIT_FAILURE;
-    if (update_file(file, "inventory", format("[\"%s\"]", "sword")) == 1)
+    if (update_file(file, "inventory", str) == 1)
         return EXIT_FAILURE;
+    free(str);
     return EXIT_SUCCESS;
 }
 
@@ -65,23 +70,23 @@ int chevalier(game_t *game, ...)
 
 int draw_chevalier_char(sfRenderWindow *window, sfFont *font)
 {
-    char *health = parser(CHEVALIER, "health");
-    char *strength = parser(CHEVALIER, "strength");
-    char *speed = parser(CHEVALIER, "speed");
-    char *defense = parser(CHEVALIER, "defense");
+    char *health = conc("HEALTH : ", parser(CHEVALIER, "health"));
+    char *strength = conc("STRENGTH : ", parser(CHEVALIER, "strength"));
+    char *speed = conc("SPEED : ", parser(CHEVALIER, "speed"));
+    char *defense = conc("DEFENSE: ", parser(CHEVALIER, "defense"));
 
     if (!health || !strength || !speed || !defense) {
         popup(font, "FAILED TO OPEN\nconfig/chevalier.json");
         return EXIT_FAILURE;
     }
     draw_text("KNIGHT", font, (sfVector3f){1350, 240, 40}, window);
-    draw_text(conc("HEALTH : ", health), font, (sfVector3f){1350, 320, 30},
-                                                                    window);
-    draw_text(conc("STRENGTH : ", strength), font, (sfVector3f){1350, 360, 30},
-                                                                    window);
-    draw_text(conc("SPEED : ", speed), font, (sfVector3f){1350, 400, 30},
-                                                                    window);
-    draw_text(conc("DEFENSE: ", defense), font, (sfVector3f){1350, 440, 30},
-                                                                    window);
+    draw_text(health, font, (sfVector3f){1350, 320, 30}, window);
+    draw_text(strength, font, (sfVector3f){1350, 360, 30}, window);
+    draw_text(speed, font, (sfVector3f){1350, 400, 30}, window);
+    draw_text(defense, font, (sfVector3f){1350, 440, 30}, window);
+    free(health);
+    free(strength);
+    free(speed);
+    free(defense);
     return EXIT_SUCCESS;
 }

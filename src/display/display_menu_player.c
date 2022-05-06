@@ -33,34 +33,58 @@ int get_level(int xp)
 
 void display_player(game_t *game, sfEvent *event)
 {
+    char *hp = inttochar(game->player->hp);
+    char *strg = inttochar(game->player->strg);
+    char *spd = inttochar(game->player->spd);
+    char *def = inttochar(game->player->def);
+    char *lvl = inttochar(get_level(game->player->xp));
+    char *xp = inttochar(game->player->xp);
+
     for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
         draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
     display_button_menu_player(game, event, 0);
-    draw_text(conc("HP : ", inttochar(game->player->hp)), game->settings->font,
+    draw_text(conc("HP : ", hp), game->settings->font,
                                     (sfVector3f){100, 150, 40}, game->window);
-    draw_text(conc("STRENGHT : ", inttochar(game->player->strg)),
+    draw_text(conc("STRENGHT : ", strg),
             game->settings->font, (sfVector3f){100, 250, 40}, game->window);
-    draw_text(conc("SPEED : ", inttochar(game->player->spd)),
+    draw_text(conc("SPEED : ", spd),
             game->settings->font, (sfVector3f){100, 350, 40}, game->window);
-    draw_text(conc("DEFENSE : ", inttochar(game->player->def)),
+    draw_text(conc("DEFENSE : ", def),
             game->settings->font, (sfVector3f){100, 450, 40}, game->window);
-    draw_text(conc("Level : ", inttochar(get_level(game->player->xp))),
+    draw_text(conc("Level : ", lvl),
             game->settings->font, (sfVector3f){100, 550, 40}, game->window);
-    draw_text(conc("Total XP : ", inttochar(game->player->xp)),
+    draw_text(conc("Total XP : ", xp),
             game->settings->font, (sfVector3f){100, 650, 40}, game->window);
     draw_xp_bar(game);
+    free(hp);
+    free(strg);
+    free(spd);
+    free(def);
+    free(lvl);
+//     free(xp);
 }
 
 void draw_stat_char(game_t *game)
 {
-    draw_text(conc("HP : ", inttochar(game->player->total_hp)),
+    char *hp = inttochar(game->player->hp);
+    char *strg = inttochar(game->player->strg);
+    char *spd = inttochar(game->player->spd);
+    char *def = inttochar(game->player->def);
+    char *pt = inttochar(game->player->pt_stat);
+
+    draw_text(conc("HP : ", hp),
             game->settings->font, (sfVector3f){100, 200, 40}, game->window);
-    draw_text(conc("STRENGHT : ", inttochar(game->player->strg)),
+    draw_text(conc("STRENGHT : ", strg),
             game->settings->font, (sfVector3f){100, 300, 40}, game->window);
-    draw_text(conc("SPEED : ", inttochar(game->player->spd)),
+    draw_text(conc("SPEED : ", spd),
             game->settings->font, (sfVector3f){100, 400, 40}, game->window);
-    draw_text(conc("DEFENSE : ", inttochar(game->player->def)),
+    draw_text(conc("DEFENSE : ", def),
             game->settings->font, (sfVector3f){100, 500, 40}, game->window);
-    draw_text(conc("POINT STAT : ", inttochar(game->player->pt_stat)),
+    draw_text(conc("POINT STAT : ", pt),
             game->settings->font, (sfVector3f){100, 600, 40}, game->window);
+    free(hp);
+    free(strg);
+    free(spd);
+    free(def);
+//     free(pt);
 }

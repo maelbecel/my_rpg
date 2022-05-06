@@ -31,6 +31,7 @@ static int get_info_from_config(player_t *player, char *class)
         return EXIT_FAILURE;
     if (player->def == -1)
         return EXIT_FAILURE;
+    free(file);
     return EXIT_SUCCESS;
 }
 
