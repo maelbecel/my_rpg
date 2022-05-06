@@ -51,6 +51,7 @@ int wait_pause(game_t *game, ...)
         if (!set_pause(game, event))
             return EXIT_FAILURE;
     }
+    va_end(arg);
     return EXIT_SUCCESS;
 }
 
@@ -82,5 +83,6 @@ int wait_menu(game_t *game, ...)
         if (!set_menu(game, event))
             return EXIT_FAILURE;
     }
+    va_end(arg);
     return EXIT_SUCCESS;
 }

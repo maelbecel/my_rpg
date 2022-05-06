@@ -18,6 +18,7 @@ int delete_item(game_t *game, ...)
     if (!type)
         return EXIT_FAILURE;
     delete_element(game, type);
+    va_end(arg);
     return EXIT_SUCCESS;
 }
 

@@ -37,6 +37,7 @@ int wait_left(game_t *game, ...)
         if (!set_left(game, event))
             return EXIT_FAILURE;
     }
+    va_end(arg);
     return EXIT_SUCCESS;
 }
 
@@ -68,5 +69,6 @@ int wait_right(game_t *game, ...)
         if (!set_right(game, event))
             return EXIT_FAILURE;
     }
+    va_end(arg);
     return EXIT_SUCCESS;
 }
