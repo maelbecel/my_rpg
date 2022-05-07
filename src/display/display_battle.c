@@ -26,7 +26,6 @@ void win(game_t *game, ...)
         go_game(game);
     }
     free(file);
-    // free(value);
 }
 
 void display_inventory_battle(game_t *game, sfEvent *event)

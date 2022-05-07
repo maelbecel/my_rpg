@@ -11,10 +11,10 @@
 
 void check_spider(game_t *game)
 {
-    if (get_nb_elem(game, "eye2") < 1)
+    if (get_nb_elem(game, "blob") < 1)
         return;
-    delete_element_n(game, "eye2", 1);
-    add_element_n(game, "apple", 8);
+    delete_element_n(game, "blob", 1);
+    add_element_n(game, "apple", 10);
     remove_quest(game, 1);
 }
 

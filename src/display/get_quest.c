@@ -11,7 +11,7 @@
 
 static const char *Quests[] = {
     "No quest curently",
-    "Kill a spider",
+    "Kill a slime",
     "Collect 10 apples",
     "Buy 5 rolling pin",
     "Collect 8 beers from Patrick",

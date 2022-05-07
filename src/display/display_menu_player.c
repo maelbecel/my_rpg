@@ -31,7 +31,7 @@ int get_level(int xp)
     return (level);
 }
 
-void display_player(game_t *game, sfEvent *event)
+void display_info_player(game_t *game)
 {
     char *hp = inttochar(game->player->hp);
     char *strg = inttochar(game->player->strg);
@@ -39,29 +39,27 @@ void display_player(game_t *game, sfEvent *event)
     char *def = inttochar(game->player->def);
     char *lvl = inttochar(get_level(game->player->xp));
     char *xp = inttochar(game->player->xp);
-
-    for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
-        draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
-    display_button_menu_player(game, event, 0);
     draw_text(conc("HP : ", hp), game->settings->font,
-                                    (sfVector3f){100, 150, 40}, game->window);
+                (sfVector3f){100, 150, 40}, game->window), free(hp);
     draw_text(conc("STRENGHT : ", strg),
-            game->settings->font, (sfVector3f){100, 250, 40}, game->window);
+game->settings->font, (sfVector3f){100, 250, 40}, game->window), free(strg);
     draw_text(conc("SPEED : ", spd),
-            game->settings->font, (sfVector3f){100, 350, 40}, game->window);
+    game->settings->font, (sfVector3f){100, 350, 40}, game->window), free(spd);
     draw_text(conc("DEFENSE : ", def),
-            game->settings->font, (sfVector3f){100, 450, 40}, game->window);
+    game->settings->font, (sfVector3f){100, 450, 40}, game->window), free(def);
     draw_text(conc("Level : ", lvl),
             game->settings->font, (sfVector3f){100, 550, 40}, game->window);
     draw_text(conc("Total XP : ", xp),
-            game->settings->font, (sfVector3f){100, 650, 40}, game->window);
+game->settings->font, (sfVector3f){100, 650, 40}, game->window), free(lvl);
     draw_xp_bar(game);
-    free(hp);
-    free(strg);
-    free(spd);
-    free(def);
-    free(lvl);
-//     free(xp);
+}
+
+void display_player(game_t *game, sfEvent *event)
+{
+    for (int e = 0; game->scenes[MENU_PLAYER].elements[e]; e++)
+        draw_element(game->window, game->scenes[MENU_PLAYER].elements[e]);
+    display_button_menu_player(game, event, 0);
+    display_info_player(game);
 }
 
 void draw_stat_char(game_t *game)
@@ -86,5 +84,4 @@ void draw_stat_char(game_t *game)
     free(strg);
     free(spd);
     free(def);
-//     free(pt);
 }
