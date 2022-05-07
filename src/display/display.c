@@ -33,7 +33,6 @@ int display_main_menu(game_t *game, sfEvent *event)
     int b[2] = {0};
     sfFont *font = sfFont_createFromFile(BASIC_FONT);
 
-    sfMusic_play(game->music[1].sound);
     while (game->scenes[MAIN_MENU].elements[b[0]])
         draw_element(game->window, game->scenes[MAIN_MENU].elements[b[0]++]);
     while (game->scenes[MAIN_MENU].buttons[b[1]]) {
@@ -58,7 +57,6 @@ int display_game(game_t *game, sfEvent *event)
     int b = 0;
     int e = 0;
 
-    sfMusic_stop(game->music[1].sound);
     check_save(game), analyse_game(game, event);
     game->player->hp = game->player->total_hp;
     while (game->scenes[GAME].elements[e])

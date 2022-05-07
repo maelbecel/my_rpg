@@ -19,6 +19,7 @@ int go_game(game_t *game, ...)
 {
     if (game->music[0].sound)
         sfMusic_stop(game->music[0].sound);
+    sfMusic_play(game->music[1].sound);
     game->scenes->page = GAME;
     return EXIT_SUCCESS;
 }

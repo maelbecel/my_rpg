@@ -79,6 +79,8 @@ int check_enemy(game_t *game)
     if (random == -1)
         return -1;
     if (random % 100 == 0) {
+        sfMusic_pause(game->music[1].sound);
+        sfMusic_play(game->music[0].sound);
         prep_battle(game);
     }
     return EXIT_SUCCESS;

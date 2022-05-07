@@ -11,10 +11,14 @@
 
 static int rpg(game_t *game, sfEvent *event)
 {
+    sfMusic_play(game->music[1].sound);
     game->fps = sfClock_create();
     if (!game->fps)
         return EXIT_ERROR;
     while (sfRenderWindow_isOpen(game->window)) {
+        sfMusic_setVolume(game->music[2].sound, game->settings->fx_volume);
+        sfMusic_setVolume(game->music[1].sound, game->settings->music_volume);
+        sfMusic_setVolume(game->music[0].sound, game->settings->music_volume);
         game->frame = sfClock_getElapsedTime(game->fps);
         sfClock_restart(game->fps);
         if (sfRenderWindow_pollEvent(game->window, event)) {
