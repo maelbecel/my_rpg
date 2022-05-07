@@ -9,17 +9,6 @@
 #include "printf.h"
 #include "rpg.h"
 
-static sound_t *create_sound(char *filepath)
-{
-    sound_t *sound_obj = malloc(sizeof(sound_t));
-
-    sound_obj->sound = sfSound_create();
-    sound_obj->buffer = sfSoundBuffer_createFromFile(filepath);
-
-    sfSound_setBuffer(sound_obj->sound, sound_obj->buffer);
-    return sound_obj;
-}
-
 type_button_t *init_button_type(char *text, char *texture, sfVector2i size)
 {
     type_button_t *type = malloc(sizeof(type_button_t));
@@ -38,7 +27,8 @@ type_button_t *init_button_type(char *text, char *texture, sfVector2i size)
     type->text_pos = (sfVector2f){(size.x - my_strlen(text) *
             (BASIC_TEXT_SIZE / 4 )), (size.y - BASIC_TEXT_SIZE +
             (BASIC_TEXT_SIZE) / 4)};
-    type->sound = create_sound("assets/sounds/clic.ogg");
+    type->sound = NULL;
+    //type->sound = sfMusic_createFromFile("assets/sounds/clic.ogg");
     sfText_setString(type->text, text);
     sfSprite_setTexture(type->sprite, type->texture, sfTrue);
     return type;

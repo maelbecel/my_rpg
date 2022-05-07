@@ -33,6 +33,7 @@ int display_main_menu(game_t *game, sfEvent *event)
     int b[2] = {0};
     sfFont *font = sfFont_createFromFile(BASIC_FONT);
 
+    sfMusic_play(game->music[1].sound);
     while (game->scenes[MAIN_MENU].elements[b[0]])
         draw_element(game->window, game->scenes[MAIN_MENU].elements[b[0]++]);
     while (game->scenes[MAIN_MENU].buttons[b[1]]) {

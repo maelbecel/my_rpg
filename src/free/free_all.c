@@ -23,9 +23,7 @@ void free_type(type_button_t *type)
     sfSprite_destroy(type->sprite);
     sfText_destroy(type->text);
     sfFont_destroy(type->font);
-    sfSound_destroy(type->sound->sound);
-    sfSoundBuffer_destroy(type->sound->buffer);
-    free(type->sound);
+    sfMusic_destroy(type->sound);
     free(type);
 }
 
@@ -41,6 +39,7 @@ void free_music(game_t *game)
 {
     sfMusic_destroy(game->music[0].sound);
     sfMusic_destroy(game->music[1].sound);
+    sfMusic_destroy(game->music[2].sound);
     free(game->music);
 }
 

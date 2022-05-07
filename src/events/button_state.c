@@ -15,6 +15,7 @@ int clicked_menu(game_t *game, ...)
     va_start(arg, game);
     int i = va_arg(arg, int);
     int t = va_arg(arg, int);
+
     sfSprite_setTexture(
         game->scenes[game->scenes->page].tab[t].buttons[i]->clicked->sprite,
         sfTexture_createFromFile("assets/ui/button1_clicked.png", NULL),
@@ -29,13 +30,11 @@ int clicked(game_t *game, ...)
     va_start(arg, game);
     int i = va_arg(arg, int);
 
-    sfSound_play(game->scenes[game->scenes->page].buttons[i]->clicked->sound->sound);
     sfSprite_setTexture(
         game->scenes[game->scenes->page].buttons[i]->clicked->sprite,
         sfTexture_createFromFile("assets/ui/button1_clicked.png", NULL),
                                         sfTrue);
     va_end(arg);
-    // sfSound_stop(game->scenes[game->scenes->page].buttons[i]->clicked->sound);
     return EXIT_SUCCESS;
 }
 
