@@ -6,7 +6,7 @@
     "strength": 10,
     "speed": 5,
     "defense": 7,
-    "point_stat": 0,
+    "point_stat": -/,
     "posx": 744,
     "posy": 744,
     "map": 2,

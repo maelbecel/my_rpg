@@ -1,19 +1,20 @@
 {
     "new": 0,
-    "class": "chevalier",
-    "health": 120,
-    "strength": 4,
+    "class": "mage",
+    "health": 100,
+    "strength": 10,
     "xp": 0,
-    "speed": 8,
-    "defense": 10,
+    "speed": 5,
+    "defense": 7,
     "point_stat": 0,
-    "posx": 800,
+    "posx": 688,
     "map": 0,
-    "posy": 800,
+    "posy": 1886,
     "quests": [1],
     "end_quests": [0],
-    "inventory": ["sword"]
+    "inventory": ["baguette"]
 }
+
 
 
 }
