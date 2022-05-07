@@ -58,7 +58,5 @@ int is_click(game_t *game, int b, int s)
     if (!is_hoover(game, b, s) || !sfRenderWindow_isOpen(game->window)) {
         return EXIT_SUCCESS;
     }
-    sfMusic_stop(game->music[2].sound);
-    sfMusic_play(game->music[2].sound);
     return EXIT_FAILURE;
 }

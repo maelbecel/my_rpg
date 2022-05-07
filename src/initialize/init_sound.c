@@ -10,16 +10,14 @@
 
 music_t *init_sound(void)
 {
-    music_t *music = malloc(sizeof(music_t) * 3);
+    music_t *music = malloc(sizeof(music_t) * 2);
 
     if (!(music[0].sound = sfMusic_createFromFile("assets/sounds/battle.ogg")))
         return NULL;
     if (!(music[1].sound =
                         sfMusic_createFromFile("assets/sounds/main_menu.ogg")))
         return NULL;
-    if (!(music[2].sound =
-                        sfMusic_createFromFile("assets/sounds/main_menu.ogg")))
-        return NULL;
     sfMusic_setLoop(music[1].sound, sfTrue);
+    sfMusic_setLoop(music[0].sound, sfTrue);
     return music;
 }

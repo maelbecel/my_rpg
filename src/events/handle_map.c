@@ -46,7 +46,8 @@ static void handle_dungeon(game_t *game)
     game->scenes[GAME].elements[5] = init_element("assets/dungeon_roof.png",
             (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     game->scenes[GAME].elements[6]->scale = (sfVector2f){0, 0};
-    game->hitbox = sfImage_createFromFile("assets/hitboxes/dungeon_hitbox.png");
+    game->hitbox =
+                sfImage_createFromFile("assets/hitboxes/dungeon_hitbox.png");
     sfSprite_setScale(game->scenes[GAME].elements[6]->sprite,
                         game->scenes[GAME].elements[6]->scale);
 }

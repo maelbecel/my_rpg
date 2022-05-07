@@ -39,7 +39,6 @@ void free_music(game_t *game)
 {
     sfMusic_destroy(game->music[0].sound);
     sfMusic_destroy(game->music[1].sound);
-    sfMusic_destroy(game->music[2].sound);
     free(game->music);
 }
 

@@ -38,7 +38,7 @@ int display_main_menu(game_t *game, sfEvent *event)
     while (game->scenes[MAIN_MENU].buttons[b[1]]) {
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, b[1], MAIN_MENU)) {
-            draw_clicked(game->window, game->scenes[MAIN_MENU].buttons[b[1]++]);
+            draw_clicked(game->window,game->scenes[MAIN_MENU].buttons[b[1]++]);
             game->scenes[MAIN_MENU].buttons[b[1] - 1]->action_clicked(game,
                                                                     b[1] - 1);
         } else if (is_hoover(game, b[1], MAIN_MENU))
