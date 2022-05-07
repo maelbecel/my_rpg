@@ -9,6 +9,27 @@
 #include "printf.h"
 #include "rpg.h"
 
+static int loop(game_t *game, sfEvent *event)
+{
+    sfMusic_setVolume(game->music[1].sound, game->settings->music_volume);
+    sfMusic_setVolume(game->music[0].sound, game->settings->music_volume);
+    game->frame = sfClock_getElapsedTime(game->fps);
+    sfClock_restart(game->fps);
+    if (sfRenderWindow_pollEvent(game->window, event)) {
+        analyse_game_state(game, event, game->frame);
+        while (sfRenderWindow_pollEvent(game->window, event))
+            analyse_game_state(game, event, game->frame);
+    } else if (sfRenderWindow_isOpen(game->window)) {
+        event->type = -1;
+        if (display(game, event) == EXIT_FAILURE)
+            return EXIT_ERROR;
+    }
+    if (draw_fps(game->frame, game) == EXIT_FAILURE)
+        return EXIT_ERROR;
+    sfRenderWindow_display(game->window);
+    return EXIT_SUCCESS;
+}
+
 static int rpg(game_t *game, sfEvent *event)
 {
     sfMusic_play(game->music[1].sound);
@@ -16,22 +37,8 @@ static int rpg(game_t *game, sfEvent *event)
     if (!game->fps)
         return EXIT_ERROR;
     while (sfRenderWindow_isOpen(game->window)) {
-        sfMusic_setVolume(game->music[1].sound, game->settings->music_volume);
-        sfMusic_setVolume(game->music[0].sound, game->settings->music_volume);
-        game->frame = sfClock_getElapsedTime(game->fps);
-        sfClock_restart(game->fps);
-        if (sfRenderWindow_pollEvent(game->window, event)) {
-            analyse_game_state(game, event, game->frame);
-            while (sfRenderWindow_pollEvent(game->window, event))
-                analyse_game_state(game, event, game->frame);
-        } else if (sfRenderWindow_isOpen(game->window)) {
-            event->type = -1;
-            if (display(game, event) == EXIT_FAILURE)
-                return EXIT_ERROR;
-        }
-        if (draw_fps(game->frame, game) == EXIT_FAILURE)
+        if (loop(game, event) == EXIT_ERROR)
             return EXIT_ERROR;
-        sfRenderWindow_display(game->window);
     }
     sfClock_destroy(game->fps);
     return EXIT_SUCCESS;
@@ -41,10 +48,8 @@ static int do_intro(game_t *game)
 {
     int frame = int_from_json(CONFIG_FILE, "framerate");
 
-    if (frame == -1 || intro(game->window, -4, 249) == EXIT_FAILURE) {
-        free(game);
+    if (frame == -1 || intro(game->window, -4, 249) == EXIT_FAILURE)
         return EXIT_FAILURE;
-    }
     sfRenderWindow_setFramerateLimit(game->window, 0);
     if (!(game->scenes = init_scenes(game->window)))
         return EXIT_FAILURE;
@@ -69,14 +74,13 @@ static game_t *init_game(void)
 
     if (!game)
         return NULL;
-    game->settings = init_settings();
-    if (!game->settings || check_set(game->settings) == EXIT_FAILURE) {
+    if (!(game->settings = init_settings()) ||
+                                check_set(game->settings) == EXIT_FAILURE) {
         free(game);
         return NULL;
     }
-    game->window = sfRenderWindow_create(mode, "RPG no seed",
-                                                        sfFullscreen, NULL);
-    if (!game->window) {
+    if (!(game->window = sfRenderWindow_create(mode, "RPG no seed",
+                                                        sfFullscreen, NULL))) {
         free(game);
         return NULL;
     }
@@ -91,10 +95,11 @@ int main(int ac, UNUSED char **argv)
 {
     int exit_code = EXIT_SUCCESS;
     sfEvent event;
-    game_t *game = init_game();
+    game_t *game = NULL;
 
     if (ac != 1)
         return EXIT_ERROR;
+    game = init_game();
     if (!game)
         return EXIT_ERROR;
     exit_code = rpg(game, &event);

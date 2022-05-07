@@ -6,12 +6,13 @@
     "speed": 5,
     "xp": 0,
     "defense": 7,
-    "point_stat": 0,
+    "point_stat": -/,
     "posx": 800,
     "posy": 800,
     "map": 0,
     "quests": [1],
     "end_quests": [0],
     "inventory": ["baguette"]
+
 }
 
