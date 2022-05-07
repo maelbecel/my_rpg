@@ -80,8 +80,6 @@ button_t **settings_buttons_frame(void)
     buttons[3]->action_clicked = shower;
     buttons[4] = init_button("Show particles :\t\t\t", BUTTON,
                         (sfVector2f){560, 860}, (sfVector2i){300, 100});
-    buttons[4]->action_clicked = particles;
-    buttons[5] = NULL;
     rescale_frame(buttons);
     return buttons;
 }

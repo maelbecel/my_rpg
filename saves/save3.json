@@ -1,22 +1,19 @@
 {
     "new": 0,
-    "class": "archere",
-    "health": 70,
-    "strength": 6,
+    "class": "chevalier",
+    "health": 120,
+    "strength": 4,
     "xp": 0,
-    "speed": 13,
-    "defense": 4,
+    "speed": 8,
+    "defense": 10,
     "point_stat": 0,
     "posx": 800,
     "map": 0,
     "posy": 800,
-    "quests": [0],
+    "quests": [1],
     "end_quests": [0],
-    "inventory": ["bow"]
+    "inventory": ["sword"]
 }
 
-
-}
-}
 
 }

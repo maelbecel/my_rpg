@@ -28,8 +28,7 @@ int new_game(game_t *game, ...)
     va_list arg;
     va_start(arg, game);
     int i = va_arg(arg, int);
-    i++;
-    game->player->save[0] = i + '0';
+    game->player->save[0] = i + '1';
     fill_game(game);
     free_elements(game->scenes[GAME].elements[0]);
     free_elements(game->scenes[GAME].elements[5]);

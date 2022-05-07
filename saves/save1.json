@@ -7,12 +7,11 @@
     "speed": 5,
     "defense": 7,
     "point_stat": 0,
-    "posx": 800,
-    "posy": 800,
-    "map": 0,
+    "posx": 744,
+    "posy": 744,
+    "map": 2,
     "quests": [0],
     "end_quests": [0],
     "inventory": ["baguette"]
-}
-w"]
+
 }

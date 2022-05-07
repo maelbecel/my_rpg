@@ -9,7 +9,7 @@
 #include "printf.h"
 #include "rpg.h"
 
-UNUSED static sfSound *create_sound(char *filepath)
+static sfSound *create_sound(char *filepath)
 {
     sfSoundBuffer *buff = sfSoundBuffer_createFromFile(filepath);
     sfSound *sound = sfSound_create();

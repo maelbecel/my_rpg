@@ -31,42 +31,6 @@ element_t **pause_elements(void)
     return elements;
 }
 
-int save(game_t *game, ...)
-{
-    char *file = format("saves/save%s.json", game->player->save);
-    char *posx = inttochar(game->scenes[GAME].elements[0]->rect.left +
-                                    game->scenes[GAME].elements[2]->pos.x);
-    char *posy = inttochar(game->scenes[GAME].elements[0]->rect.top +
-                                    game->scenes[GAME].elements[2]->pos.y);
-    char *map = inttochar(game->player->map);
-    char *hp = inttochar(game->player->hp);
-    char *strg = inttochar(game->player->strg);
-    char *spd = inttochar(game->player->spd);
-    char *def = inttochar(game->player->def);
-    char *pt = inttochar(game->player->pt_stat);
-    char *xp = inttochar(game->player->xp);
-
-    update_file(file, "posx", posx);
-    update_file(file, "posy", posy);
-    update_file(file, "map", map);
-    update_file(file, "health", hp);
-    update_file(file, "strength", strg);
-    update_file(file, "speed", spd);
-    update_file(file, "defense", def);
-    update_file(file, "point_stat", pt);
-    update_file(file, "xp", xp);
-    update_inventory(game);
-    free(file);
-    free(map);
-    free(hp);
-    free(strg);
-    free(spd);
-    free(def);
-    free(pt);
-    free(xp);
-    return EXIT_SUCCESS;
-}
-
 button_t **pause_buttons(void)
 {
     button_t **buttons = malloc(sizeof(button_t *) * 6);

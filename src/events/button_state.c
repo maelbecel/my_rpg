@@ -35,6 +35,7 @@ int clicked(game_t *game, ...)
         sfTexture_createFromFile("assets/ui/button1_clicked.png", NULL),
                                         sfTrue);
     va_end(arg);
+    //sfSound_stop(game->scenes[game->scenes->page].buttons[i]->clicked->sound);
     return EXIT_SUCCESS;
 }
 
