@@ -223,6 +223,7 @@ magic powers                                                  "
     typedef struct pos_perso_s pos_perso_t;
     typedef struct weather_s weather_t;
     typedef struct music_s music_t;
+    typedef struct sound_s sound_t;
 
     ////////////////////////////////////////////////////////////
     /// \brief Enumerates all scenes.
@@ -282,9 +283,22 @@ magic powers                                                  "
         sfIntRect rect;
         sfText *text;
         sfFont *font;
-        sfSound *sound;
+        sound_t *sound;
         sfVector2f text_pos;
         int text_size;
+    };
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Sound struct.
+    ///
+    /// Contain sound object.
+    ///
+    /// \struct sound_s sound_t
+    ///
+    ////////////////////////////////////////////////////////////
+    struct sound_s {
+        sfSound *sound;
+        sfSoundBuffer *buffer;
     };
 
     ////////////////////////////////////////////////////////////

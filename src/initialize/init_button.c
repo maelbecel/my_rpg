@@ -9,13 +9,15 @@
 #include "printf.h"
 #include "rpg.h"
 
-static sfSound *create_sound(char *filepath)
+static sound_t *create_sound(char *filepath)
 {
-    sfSoundBuffer *buff = sfSoundBuffer_createFromFile(filepath);
-    sfSound *sound = sfSound_create();
+    sound_t *sound_obj = malloc(sizeof(sound_t));
 
-    sfSound_setBuffer(sound, buff);
-    return sound;
+    sound_obj->sound = sfSound_create();
+    sound_obj->buffer = sfSoundBuffer_createFromFile(filepath);
+
+    sfSound_setBuffer(sound_obj->sound, sound_obj->buffer);
+    return sound_obj;
 }
 
 type_button_t *init_button_type(char *text, char *texture, sfVector2i size)
