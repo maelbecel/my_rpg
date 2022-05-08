@@ -28,7 +28,6 @@ type_button_t *init_button_type(char *text, char *texture, sfVector2i size)
             (BASIC_TEXT_SIZE / 4 )), (size.y - BASIC_TEXT_SIZE +
             (BASIC_TEXT_SIZE) / 4)};
     type->sound = NULL;
-    //type->sound = sfMusic_createFromFile("assets/sounds/clic.ogg");
     sfText_setString(type->text, text);
     sfSprite_setTexture(type->sprite, type->texture, sfTrue);
     return type;
