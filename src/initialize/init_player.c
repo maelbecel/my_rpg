@@ -15,7 +15,7 @@ static void fill_player(player_t *player, char *file)
     player->strg = int_from_json(file, "strength");
     player->def = int_from_json(file, "defense");
     player->spd = int_from_json(file, "speed");
-    player->pt_stat = int_from_json(file, "points_stat");
+    player->pt_stat = int_from_json(file, "point_stat");
 }
 
 static int get_info_from_config(player_t *player, char *class)

@@ -41,7 +41,6 @@ void set_slider_pos(game_t * game)
     update_file(SETTINGS_FILE, "fx_sound", value);
     update_file(SETTINGS_FILE, "music_sound", value1);
     free(value);
-    free(value1);
 }
 
 static void update_slider(game_t *game)

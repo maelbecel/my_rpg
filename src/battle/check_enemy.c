@@ -55,6 +55,8 @@ static void prep_battle(game_t *game)
 
     if (type == NULL)
         return;
+    sfMusic_pause(game->music[1].sound);
+    sfMusic_play(game->music[0].sound);
     game->enemy = create_enemy(type, game->player);
     game->scenes[GAME].elements[2]->rect.top =
                         2 * game->scenes[GAME].elements[2]->rect.height;
@@ -68,8 +70,7 @@ static void prep_battle(game_t *game)
     sfSprite_setScale(game->scenes[BATTLE].elements[2]->sprite,
                         game->scenes[BATTLE].elements[2]->scale);
     game->scenes->page = BATTLE;
-    treeman_exception(game, type);
-    battle(game);
+    treeman_exception(game, type), battle(game);
 }
 
 int check_enemy(game_t *game)
@@ -78,10 +79,7 @@ int check_enemy(game_t *game)
 
     if (random == -1)
         return -1;
-    if (random % 100 == 0) {
-        sfMusic_pause(game->music[1].sound);
-        sfMusic_play(game->music[0].sound);
+    if (random % 100 == 0)
         prep_battle(game);
-    }
     return EXIT_SUCCESS;
 }

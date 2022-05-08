@@ -23,7 +23,6 @@ static int check_file_re(char *file, char *strength,
     if (update_file(file, "class", str) == 1)
     free(str);
     str = format("[\"%s\"]", "crossbow");
-        return EXIT_FAILURE;
     if (update_file(file, "new", "0") == EXIT_FAILURE)
         return EXIT_FAILURE;
     if (update_file(file, "inventory", str) == 1)

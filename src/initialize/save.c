@@ -36,13 +36,13 @@ int save(game_t *game, ...)
     char *xp = inttochar(game->player->xp);
 
     update_pos(game);
-    update_file(file, "map", map), free(map);
+    update_file(file, "map", map);
     update_file(file, "health", hp), free(hp);
     update_file(file, "strength", strg), free(strg);
     update_file(file, "speed", spd), free(spd);
     update_file(file, "defense", def), free(def);
-    update_file(file, "point_stat", pt), free(pt);
-    update_file(file, "xp", xp), free(xp);
+    update_file(file, "point_stat", pt);
+    update_file(file, "xp", xp);
     update_inventory(game);
     free(file);
     return EXIT_SUCCESS;
