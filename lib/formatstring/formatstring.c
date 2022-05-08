@@ -82,31 +82,21 @@ char *format(char const *str, ...)
 {
     va_list argv;
     va_start(argv, str);
-    int i = 0;
+    int i = -1;
     char *res = malloc(2);
-    char buf[2];
+    char buf[] = "\0\0";
     char *tmp;
 
     res[0] = '\0';
-    buf[1] = '\0';
-    while (str[i] != '\0') {
-        if (str[i] == '%' && str[i + 1] == '#') {
-            tmp = fus(res, fdisplayhashtag(str[i + 2], argv));
-            free(res);
-            res = tmp;
-            i += 2;
-        } else if (str[i] == '%') {
-            tmp = fus(res, fdisplayflags(str[i + 1], argv));
-            free(res);
-            res = tmp;
-            i++;
+    while (str[++i] != '\0') {
+        if (str[i] == '%') {
+            tmp = fus(res, fdisplayflags(str[++i], argv));
         } else {
             buf[0] = str[i];
             tmp = fus(res, buf);
-            free(res);
-            res = tmp;
         }
-        i++;
+        free(res);
+        res = tmp;
     }
     va_end(argv);
     return tmp;
