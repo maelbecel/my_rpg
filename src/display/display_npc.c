@@ -35,8 +35,7 @@ npc_t *find_npc(game_t *game)
     npc_t **npc = game->scenes[GAME].npc;
     sfVector2f npcpos;
 
-    for (int i = 0; npc[i]; i++)
-    {
+    for (int i = 0; npc[i]; i++) {
         npcpos = npc[i]->elem->pos;
         dist = sqrt(((npcpos.x - playerpos.x) * (npcpos.x - playerpos.x)) +
                     ((npcpos.y - playerpos.y) * (npcpos.y - playerpos.y)));

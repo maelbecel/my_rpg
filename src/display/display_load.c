@@ -79,7 +79,7 @@ int display_choosing(game_t *game, sfEvent *event)
     int e = 1;
 
     draw_element(game->window, game->scenes[CHOOSING].elements[0]);
-    while (game->scenes[CHOOSING].buttons[b]) {
+    for (;game->scenes[CHOOSING].buttons[b]; b++) {
         if (event->type == sfEvtMouseButtonPressed &&
             is_click(game, b, CHOOSING)) {
             draw_clicked(game->window, game->scenes[CHOOSING].buttons[b]);
@@ -89,7 +89,6 @@ int display_choosing(game_t *game, sfEvent *event)
             draw_hoover(game->window, game->scenes[CHOOSING].buttons[b]);
         else
             draw_button(game->window, game->scenes[CHOOSING].buttons[b]);
-        b++;
     }
     while (game->scenes[CHOOSING].elements[e])
         draw_element(game->window, game->scenes[CHOOSING].elements[e++]);

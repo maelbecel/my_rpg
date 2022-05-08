@@ -33,7 +33,7 @@ static int get_xp_for_level(int level)
 
 void draw_xp_bar(game_t *game)
 {
-    int xp  = game->player->xp;
+    int xp = game->player->xp;
     int level = get_level(xp);
     int next_xp = get_xp_for_level(level);
     int last_xp = get_xp_for_level(level - 1);
