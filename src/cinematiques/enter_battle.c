@@ -60,7 +60,7 @@ int battle(game_t *game, ...)
     init_stat_battle(game);
     while (bg->pos.x < 3600 && !skip(game->window)) {
         time = sfClock_getElapsedTime(clock);
-        if (time.microseconds / 1000  < 0.01)
+        if (time.microseconds / 1000 < 0.01)
             continue;
         sfClock_restart(clock);
         sfRenderWindow_clear(game->window, sfBlack);

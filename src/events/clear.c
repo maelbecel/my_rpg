@@ -11,7 +11,7 @@
 
 int clear_1(UNUSED game_t *game, ...)
 {
-    char *str =  format("[\"none\"]");
+    char *str = format("[\"none\"]");
 
     update_file(SAVE1, "new", "1");
     update_file(SAVE1, "class", "null");
@@ -33,7 +33,7 @@ int clear_1(UNUSED game_t *game, ...)
 
 int clear_2(UNUSED game_t *game, ...)
 {
-    char *str =  format("[\"none\"]");
+    char *str = format("[\"none\"]");
 
     update_file(SAVE2, "new", "1");
     update_file(SAVE2, "xp", "0");
@@ -55,7 +55,7 @@ int clear_2(UNUSED game_t *game, ...)
 
 int clear_3(UNUSED game_t *game, ...)
 {
-    char *str =  format("[\"none\"]");
+    char *str = format("[\"none\"]");
 
     update_file(SAVE3, "new", "1");
     update_file(SAVE3, "class", "null");

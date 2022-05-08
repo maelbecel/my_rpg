@@ -61,8 +61,7 @@ void give_quest(game_t *game, npc_t *npc)
     if (game->player->quest[0] == 0) {
         game->player->quest[0] = npc->quest;
         update_file(save, "quests", str);
-    }
-    else {
+    } else {
         game->player->quest = add_quest(game->player->quest,
                                             game->player->nbquest, npc->quest);
         game->player->nbquest++;

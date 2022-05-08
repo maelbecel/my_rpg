@@ -14,7 +14,7 @@ static float getscale(char *text)
     float i = 0.6;
 
     for (int x = 0; text[x] != '\0'; x++)
-        i = (text[x] == '\n') ? i + 0.1: i;
+        i = (text[x] == '\n') ? i + 0.1 : i;
     return i;
 }
 

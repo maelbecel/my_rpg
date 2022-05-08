@@ -32,7 +32,7 @@ static scene_t *init_lore(void)
         (sfVector2f){0, 0}, (sfVector2f){1920, 1080}, (sfVector2f){1, 1});
     scenes->elements[5] = init_element("assets/npc/old_men.png",
             (sfVector2f){300, 600}, (sfVector2f){32, 48}, (sfVector2f){8, 8});
-    scenes->elements[6] =  init_element(BUTTON, (sfVector2f){700, 300},
+    scenes->elements[6] = init_element(BUTTON, (sfVector2f){700, 300},
                                 (sfVector2f){792, 206}, (sfVector2f){1, 2});
     scenes->elements[7] = NULL;
     update_scenes(scenes);
