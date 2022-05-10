@@ -21,6 +21,7 @@ void win(game_t *game, ...)
         add_elem(game, clean_string(game->enemy->loot[i]));
     if (my_strcmp(game->enemy->name, "The Boss") == 0) {
         lore_outro(game->window);
+        save(game);
         game->scenes->page = MAIN_MENU;
     } else {
         go_game(game);
