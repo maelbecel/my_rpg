@@ -26,7 +26,7 @@ void draw_trade(game_t *game, sfVector2f pos_get, sfVector2f pos_want,
     char *str_want = format("assets/icons/%s.png", trade->give);
     element_t *want = init_element(str_get,
                         pos_get, (sfVector2f) {32, 32}, (sfVector2f) {3, 3});
-    element_t *get = init_element(str_get,
+    element_t *get = init_element(str_want,
                         pos_want, (sfVector2f) {32, 32}, (sfVector2f) {3, 3});
     char *want_str = inttochar(trade->want_quantity);
     char *give_str = inttochar(trade->give_quantity);

@@ -3,5 +3,7 @@
     "show_fps": 1,
     "autosave": 0,
     "enemy_list": ["slime","spider","tree"],
-    "weather_speed": 2000
+    "weather_speed": 0
+}
+
 }

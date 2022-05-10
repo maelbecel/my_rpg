@@ -4,14 +4,14 @@
     "health": 80,
     "strength": 7,
     "speed": 12,
-    "xp": 0,
+    "xp": 600,
     "defense": 4,
-    "point_stat": 0,
-    "posx": 800,
-    "posy": 1950,
+    "point_stat": 6,
+    "posx": 1788,
+    "posy": 216,
     "map": 0,
-    "quests": [0],
+    "quests": [4],
     "end_quests": [0],
-    "inventory": ["crossbow"]
-
+    "inventory": ["crossbow","blob","apple","rouleau","rouleau","rouleau","rouleau","rouleau"]
 }
+
