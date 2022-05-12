@@ -10,8 +10,9 @@
     "posx": 1424,
     "posy": 728,
     "map": 1,
-    "quests": [0],
+    "quests": [4],
     "end_quests": [0],
     "inventory": ["baguette","apple","apple","apple","apple"]
+}
 
 }
