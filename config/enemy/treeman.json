@@ -4,6 +4,10 @@
     "exp": 400,
     "damage": 8,
     "life": 60,
+<<<<<<< HEAD
     "text": ["slap","Eh pas cool mec"],
+=======
+    "text": ["slap","Pas cool mec"],
+>>>>>>> 64fb6be9f9ab68f903c353f5c619e13ab3682a64
     "loot": ["apple","apple","apple","flower","flower","flower","apple"]
 }
