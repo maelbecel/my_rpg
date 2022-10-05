@@ -15,7 +15,7 @@ Epitech promo 2026 Rennes best mark (207)
 You can install the RPG like that:
 ```
 $ git clone git@github.com:maelbecel/my_rpg.git
-$ cd ../my_rpg
+$ cd my_rpg
 $ make re
 $ ./my_rpg
 ```
