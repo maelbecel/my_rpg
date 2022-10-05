@@ -8,6 +8,7 @@
 ## Goal of the project.
 ***
 The goal of the project is to create an RPG game.
+Epitech promo 2026 Rennes best mark (207)
 
 ## Installation
 ***
