@@ -9,6 +9,7 @@
 ***
 The goal of the project is to create an RPG game.
 Epitech promo 2026 Rennes best mark (207)
+The project went to the news in [France 3](https://www.france.tv/france-3/bretagne/jt-12-13-bretagne/4502008-emission-du-jeudi-26-janvier-2023.html) at 4:12.
 
 ## Installation
 ***
